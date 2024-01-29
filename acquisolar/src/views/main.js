@@ -43,8 +43,8 @@ const Main = () => {
         onDrop={handleFileSelect}
         onDragOver={onDragOver}
         style={{
-          width: '300px',
-          height: '200px',
+          width: '800px',
+          height: '500px',
           borderWidth: '2px',
           borderColor: '#666',
           borderStyle: 'dashed',
@@ -76,26 +76,27 @@ const Main = () => {
           onClick={(event) => event.stopPropagation()}
         />
         {fileName && <p>File name: {fileName}</p>}
-      </div>
-      {/* Add a new div to display the PDF text */}
-      {pdfText && (
-        <div className="pdf-text-container">
-          <h2>Extracted Text:</h2>
-          <textarea 
-            value={pdfText} 
-            readOnly 
-            style={{
-              width: '100%',
-              height: '300px',
-              margin: '20px 0',
-              padding: '10px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-            }}
-          />
         </div>
-      )}
-    </div>
+    {/* Text area container for extracted text */}
+    {pdfText && (
+      <div className="pdf-text-container" style={{ textAlign: 'center' }}>
+        <h2>Extracted Text:</h2>
+        <textarea 
+          value={pdfText} 
+          readOnly 
+          style={{
+            width: '100%', // Updated width to 80% of its container
+            height: '300px',
+            margin: '20px 0',
+            padding: '10px',
+            border: '1px solid #ddd',
+            borderRadius: '4px',
+            resize: 'none', // Optional: Prevents resizing the text area
+          }}
+        />
+      </div>
+    )}
+  </div>
   );
 };
 
