@@ -1,10 +1,17 @@
 .App {
   text-align: center;
-  background-color: white;
+  background-color: rgb(172, 233, 246); /* Or any background color you prefer */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Adjust the height calculation based on your header's height */
 }
 
 .App-header {
-  background-color: #9dc8e0;
+  background-color: #7cc2e7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +24,7 @@
 .drop-box:hover {
   border-color: #888;
   color: #888;
+  
 }
 
 /* Add more styles as needed */
