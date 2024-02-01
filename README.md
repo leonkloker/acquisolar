@@ -1,6 +1,6 @@
 # AcquiSolar
 
-Magnus:
+Magnus: Interviewed potential users, acquired data to work with, did a bit of work on the backend but Leon carried that part.
 
 Leon:
 Market research in Solar M&A and intelligent search engines. Worked on the backend, i.e. the document indexing and retrieval system as well as the response generation.
