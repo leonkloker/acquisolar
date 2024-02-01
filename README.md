@@ -16,4 +16,4 @@ Zara:
 
 Jürgen:
 * Accomplished in Sprint 1: Talked to engineers about architecture best-practice, attend "Create Embeddings on Real-Time Data with OpenAI", experiment with having Anthropic and OpenAI fill out the checklist based on documentation provided (failed), created BasePrompt
-* Plan for Sprint 2:
+* Plan for Sprint 2: 1) Implement base prompt; 2) Create an evaluation system to test changes to prompting in qualitative performance & accuracy 
