@@ -3,6 +3,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const pdfParse = require('pdf-parse');
+const path = require('path');
 
 const app = express();
 
@@ -23,6 +24,10 @@ app.post('/upload', (req, res) => {
   }).catch(error => {
     res.status(500).send('Error parsing PDF');
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
 const PORT = process.env.PORT || 3000;

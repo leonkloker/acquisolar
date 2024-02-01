@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import "./../App.css";
 
 const Main = () => {
   const [fileName, setFileName] = useState('');
@@ -37,66 +38,25 @@ const Main = () => {
   };
 
   return (
-    <div>
-      <div 
-        className="drop-box"
-        onDrop={handleFileSelect}
-        onDragOver={onDragOver}
-        style={{
-          width: '800px',
-          height: '500px',
-          borderWidth: '2px',
-          borderColor: '#666',
-          borderStyle: 'dashed',
-          borderRadius: '5px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          fontSize: '16px',
-          color: '#666',
-          marginBottom: '20px',
-          position: 'relative',
-        }}
-      >
-        Drag and drop a file here or click to select a file
-        <input
-          type="file"
-          accept="application/pdf"
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: '0',
-            left: '0',
-            opacity: '0',
-            cursor: 'pointer'
-          }}
-          onChange={handleFileSelect}
-          onClick={(event) => event.stopPropagation()}
-        />
-        {fileName && <p>File name: {fileName}</p>}
-        </div>
-    {/* Text area container for extracted text */}
-    {pdfText && (
-      <div className="pdf-text-container" style={{ textAlign: 'center' }}>
-        <h2>Extracted Text:</h2>
-        <textarea 
-          value={pdfText} 
-          readOnly 
-          style={{
-            width: '100%', // Updated width to 80% of its container
-            height: '300px',
-            margin: '20px 0',
-            padding: '10px',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            resize: 'none', // Optional: Prevents resizing the text area
-          }}
-        />
-      </div>
-    )}
+<div className="container">
+  <div className="drop-box" onDrop={handleFileSelect} onDragOver={onDragOver}>
+    Drag and drop a file here or click to select a file
+    <input
+      type="file"
+      accept="application/pdf"
+      onChange={handleFileSelect}
+      onClick={(event) => event.stopPropagation()}
+    />
+    {fileName && <p>File name: {fileName}</p>}
   </div>
+  {/* Text area container for extracted text */}
+  {pdfText && (
+    <div className="pdf-text-container">
+      <h2>Extracted Text:</h2>
+      <textarea value={pdfText} readOnly />
+    </div>
+  )}
+</div>
   );
 };
 

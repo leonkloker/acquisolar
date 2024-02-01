@@ -1,17 +1,18 @@
 .App {
   text-align: center;
-  background-color: rgb(172, 233, 246); /* Or any background color you prefer */
+  background-color: rgb(255, 255, 255); 
 }
 
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 60px); /* Adjust the height calculation based on your header's height */
+  height: calc(100vh - 60px); 
+  flex-wrap: wrap;
 }
 
 .App-header {
-  background-color: #7cc2e7;
+  background-color: #98d2f2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,4 +28,50 @@
   
 }
 
-/* Add more styles as needed */
+.container {
+  overflow: auto;
+  margin: 5%;
+}
+
+.drop-box {
+  width: 800px;
+  min-height: 500px;
+  border: 2px dashed #666;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.drop-box input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.pdf-text-container {
+  text-align: center;
+}
+
+.pdf-text-container h2 {
+  margin-top: 20px;
+}
+
+.pdf-text-container textarea {
+  width: 100%;
+  height: 500px;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+}
