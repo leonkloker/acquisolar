@@ -47,6 +47,7 @@ const app = express();
 app.use(express.static('./public'));
 
 app.post('/upload', (req, res) => {
+  console.log(req);
   upload(req, res, (err) => {
     if(err){
       res.status(500).send(err);
@@ -54,6 +55,7 @@ app.post('/upload', (req, res) => {
       if(req.files === undefined){
         res.status(400).send('Error: No File Selected!');
       } else {
+        console.log('Uploaded files:', req.files);
         res.send('File(s) Uploaded!');
       }
     }

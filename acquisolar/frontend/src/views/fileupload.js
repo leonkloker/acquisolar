@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone';
 
 const Main = () => {
   const [files, setFiles] = useState([]);
+  const [fullFile, setFullFile] = useState([]);
 
   const onDrop = useCallback((acceptedFiles) => {
     setFiles((prevFiles) => {
@@ -11,6 +12,7 @@ const Main = () => {
       const uniqueNewFileNames = newFileNames.filter((fileName) => !existingFileNames.has(fileName));
       return [...prevFiles, ...uniqueNewFileNames];
     });
+    setFullFile((prevFiles) => [...prevFiles, ...acceptedFiles]);
   }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -26,6 +28,8 @@ const Main = () => {
     files.forEach((file) => {
       formData.append('files', file);
     });
+
+    console.log(formData);
 
     try {
       const response = await fetch('/upload', {
@@ -72,6 +76,7 @@ const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     height: '100vh',
+    width: '100%',
     backgroundColor: '#9ACAC4',
     display: 'flex',
     flexDirection: 'column',
