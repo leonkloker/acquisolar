@@ -4,6 +4,38 @@ import { useDropzone } from 'react-dropzone';
 const Main = () => {
   const [files, setFiles] = useState([]);
   const [fileNames, setFileNames] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearchSubmit = async () => {
+    if (!searchQuery) {
+      alert('Please enter a search query.');
+      return;
+    }
+  
+    try {
+      const response = await fetch('/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: searchQuery }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.error('Search failed', response);
+      }
+    } catch (error) {
+      console.error('Error during search', error);
+    }
+  };
 
   const onDrop = useCallback((acceptedFiles) => {
     const filteredFiles = acceptedFiles.filter(file => file.type === 'application/pdf');
@@ -29,6 +61,12 @@ const Main = () => {
   });
 
   const uploadFilesToServer = async () => {
+    if (files.length === 0) {
+      alert('Please submit a file.');
+      return;
+    }
+    
+    setShowSearch(true); 
     const formData = new FormData();
     
     // Append each file to the form data
@@ -60,6 +98,20 @@ const Main = () => {
     <h1 style={styles.title}>AcquiSolar</h1>
     <a href="/about" style={styles.aboutLink}>About Us</a>
   </header>
+
+  {showSearch && (
+  <div style={styles.searchContainer}>
+    <input 
+      type="text" 
+      placeholder="Search..." 
+      style={styles.searchInput} 
+      value={searchQuery} 
+      onChange={handleSearchInputChange} 
+    />
+    <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
+  </div>
+)}
+
   <div style={styles.mainContent}>
     <div {...getRootProps({ style: styles.dropzone })}>
       <input {...getInputProps()} />
@@ -68,7 +120,7 @@ const Main = () => {
         <button style={styles.addButton}>Add</button>
       </div>
       <div style={styles.fileListContainer}>
-        <p style={{ margin: 8 }}>Files:</p>
+        <p style={styles.filesTitle}>Files:</p>
         <ul style={styles.fileList}>
           {fileNames.map((fileName, index) => (
             <li key={index} style={styles.fileName}>
@@ -84,11 +136,16 @@ const Main = () => {
         </ul>
       </div> 
     </div>
-    <div style={styles.dragTextContainer}>
-      <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
-    </div>
+    {!showSearch && (
+      <div style={styles.dragTextContainer}>
+        <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
+      </div>
+    )}
   </div>
-  <button style={styles.analyzeButton}>Submit</button>
+
+  {!showSearch && (
+    <button style={styles.analyzeButton} onClick={uploadFilesToServer}>Submit</button>
+  )}
 </div>
   );
 };
@@ -101,7 +158,7 @@ const styles = {
     backgroundColor: '#9ACAC4',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start', // Align content to the top
+    justifyContent: 'flex-start',
   },
   header: {
     display: 'flex',
@@ -120,6 +177,9 @@ const styles = {
     backgroundColor: '#9ACAC4', 
     padding: '5px 10px',
     borderRadius: '5px', 
+  },
+  filesTitle: {
+    margin: '8px', 
   },
   content: {
     display: 'flex',
@@ -180,6 +240,7 @@ const styles = {
     color: 'black',
     alignSelf: 'flex-start', 
     fontWeight: 'bold',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
   removeButton: {
     marginLeft: '10px',
@@ -214,7 +275,6 @@ const styles = {
     padding: '20px',
     paddingTop: '10px',
   },
-  
   dragTextContainer: {
     marginLeft: '20px',
     fontSize: '24px', 
@@ -223,6 +283,35 @@ const styles = {
     color: '#FFF',
     maxWidth: '400px', 
     textAlign: 'left',
+  },
+  searchContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
+  searchInput: {
+    height: '40px',
+    fontSize: '18px',
+    padding: '0 15px',
+    border: '2px solid #9ACAC4', 
+    borderRadius: '20px', 
+    marginRight: '10px', 
+    outline: 'none', 
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+  },
+  
+  searchButton: {
+    padding: '10px 20px',
+    fontSize: '16px',
+    backgroundColor: '#FFF', 
+    color: 'black', 
+    border: 'none',
+    borderRadius: '20px', 
+    cursor: 'pointer',
+    outline: 'none', 
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+    fontWeight: 'bold',
   },
   
 };

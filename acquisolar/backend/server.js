@@ -17,7 +17,7 @@ const upload = multer({
   fileFilter: function(req, file, cb){
     checkFileType(file, cb);
   }
-}).array('files'); // 'files' is the fieldname that will be used in the form
+}).array('files'); 
 
 // Check File Type
 function checkFileType(file, cb){
@@ -60,6 +60,11 @@ app.post('/upload', (req, res) => {
       }
     }
   });
+});
+
+app.post('/search', (req, res) => {
+  console.log(req);
+  res.send('OK!');
 });
 
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
