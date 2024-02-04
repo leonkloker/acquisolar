@@ -3,16 +3,17 @@ import { useDropzone } from 'react-dropzone';
 
 const Main = () => {
   const [files, setFiles] = useState([]);
-  const [fullFile, setFullFile] = useState([]);
+  const [fileNames, setFileNames] = useState([]);
 
   const onDrop = useCallback((acceptedFiles) => {
-    setFiles((prevFiles) => {
-      const newFileNames = acceptedFiles.map((file) => file.name);
+    const filteredFiles = acceptedFiles.filter(file => file.type === 'application/pdf');
+    setFiles((prevFiles) => [...prevFiles, ...filteredFiles]);
+    setFileNames((prevFiles) => {
+      const newFileNames = filteredFiles.map((file) => file.name);
       const existingFileNames = new Set(prevFiles);
       const uniqueNewFileNames = newFileNames.filter((fileName) => !existingFileNames.has(fileName));
       return [...prevFiles, ...uniqueNewFileNames];
     });
-    setFullFile((prevFiles) => [...prevFiles, ...acceptedFiles]);
   }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -57,20 +58,23 @@ const Main = () => {
         <div {...getRootProps({ style: styles.dropzone })}>
           <input {...getInputProps()} />
           <p style={styles.uploadText}>Upload Files</p>
-          <div style={styles.fileListContainer}>
+            <div style={styles.fileListContainer}>
             <p style={{ margin: 0 }}>Files:</p>
             <ul style={styles.fileList}>
-              {files.map((fileName, index) => (
+              
+              {fileNames.map((fileName, index) => (
                 <li key={index} style={styles.fileName}>{fileName}</li>
               ))}
             </ul>
-          </div>
+            </div> 
         </div>
         <button style={styles.analyzeButton} onClick={uploadFilesToServer}>Analyze</button>
       </div>
     </div>
   );
 };
+
+
 
 const styles = {
   container: {
