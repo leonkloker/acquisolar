@@ -16,8 +16,14 @@ const Main = () => {
     });
   }, []);
 
+  const removeFile = (fileName, event) => {
+    event.stopPropagation(); // Prevent the event from bubbling up to parent elements
+  
+    setFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName));
+    setFileNames((prevFileNames) => prevFileNames.filter((name) => name !== fileName));
+  };
+
   const { getRootProps, getInputProps } = useDropzone({
-    type:"file",
     accept: 'application/pdf',
     onDrop,
   });
@@ -49,32 +55,43 @@ const Main = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>AcquiSolar</h1>
-        <a href="/about" style={styles.aboutLink}>About Us</a>
-      </header>
-      <div style={styles.content}>
-        <div {...getRootProps({ style: styles.dropzone })}>
-          <input {...getInputProps()} />
-          <p style={styles.uploadText}>Upload Files</p>
-            <div style={styles.fileListContainer}>
-            <p style={{ margin: 0 }}>Files:</p>
-            <ul style={styles.fileList}>
-              
-              {fileNames.map((fileName, index) => (
-                <li key={index} style={styles.fileName}>{fileName}</li>
-              ))}
-            </ul>
-            </div> 
-        </div>
-        <button style={styles.analyzeButton} onClick={uploadFilesToServer}>Analyze</button>
+<div style={styles.container}>
+  <header style={styles.header}>
+    <h1 style={styles.title}>AcquiSolar</h1>
+    <a href="/about" style={styles.aboutLink}>About Us</a>
+  </header>
+  <div style={styles.mainContent}>
+    <div {...getRootProps({ style: styles.dropzone })}>
+      <input {...getInputProps()} />
+      <div style={styles.uploadHeader}>
+        <p style={styles.uploadText}>Upload Files</p>
+        <button style={styles.addButton}>Add</button>
       </div>
+      <div style={styles.fileListContainer}>
+        <p style={{ margin: 8 }}>Files:</p>
+        <ul style={styles.fileList}>
+          {fileNames.map((fileName, index) => (
+            <li key={index} style={styles.fileName}>
+              {fileName}
+              <button 
+                style={styles.removeButton} 
+                onClick={(event) => removeFile(fileName, event)}
+              >
+                ✕
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div> 
     </div>
+    <div style={styles.dragTextContainer}>
+      <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
+    </div>
+  </div>
+  <button style={styles.analyzeButton}>Submit</button>
+</div>
   );
 };
-
-
 
 const styles = {
   container: {
@@ -100,21 +117,22 @@ const styles = {
   aboutLink: {
     color: 'white',
     textDecoration: 'none',
-    backgroundColor: '#9ACAC4', // Match the header background color
-    padding: '5px 10px', // Add some padding
-    borderRadius: '5px', // Optional: add some rounding to match your design
+    backgroundColor: '#9ACAC4', 
+    padding: '5px 10px',
+    borderRadius: '5px', 
   },
   content: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start', // Align dropzone to the left
+    alignItems: 'flex-start', 
     padding: '20px',
-    width: '100%', // Make sure content takes the full width
+    paddingTop: '10px',
+    width: '100%',
   },
   dropzone: {
     padding: '20px',
     width: '300px',
-    height: 'auto',
+    height: '400px',
     borderRadius: '20px',
     backgroundColor: '#ffffff',
     display: 'flex',
@@ -125,18 +143,20 @@ const styles = {
   },
   uploadText: {
     color: '#000000',
-    marginBottom: '20px',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    marginBottom: '10px',
     fontSize: '18px',
     fontWeight: 'bold',
   },
   fileListContainer: {
     width: '100%',
+    height: '100%',
     backgroundColor: '#E6F0EF',
     borderRadius: '10px',
-    padding: '10px',
+    padding: '0px',
     textAlign: 'left',
-    maxHeight: '150px',
-    overflowY: 'auto', // Allow scrolling for multiple files
+    overflowY: 'auto', 
   },
   fileList: {
     listStyleType: 'none',
@@ -147,18 +167,64 @@ const styles = {
     color: '#000000',
     fontSize: '16px',
     lineHeight: '24px',
-    padding: '5px 0',
+    margin: '8px',
   },
   analyzeButton: {
     padding: '10px 20px',
+    marginLeft: '20px',
     fontSize: '16px',
     backgroundColor: '#FFF',
     border: 'none',
     borderRadius: '20px',
     cursor: 'pointer',
     color: 'black',
-    alignSelf: 'flex-start', // Align the button to the left
+    alignSelf: 'flex-start', 
+    fontWeight: 'bold',
   },
+  removeButton: {
+    marginLeft: '10px',
+    backgroundColor: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  addButton: {
+    marginLeft: '10px',
+    padding: '5px 10px',
+    fontSize: '16px',
+    backgroundColor: '#FFF',
+    border: '1px solid #000', 
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+  },
+  uploadHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%', 
+    padding: '0 20px', 
+    marginBottom: '10px', 
+  },
+  mainContent: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '20px',
+    paddingTop: '10px',
+  },
+  
+  dragTextContainer: {
+    marginLeft: '20px',
+    fontSize: '24px', 
+    marginRight: '15%',
+    fontWeight: 'bold',
+    color: '#FFF',
+    maxWidth: '400px', 
+    textAlign: 'left',
+  },
+  
 };
 
 export default Main;
