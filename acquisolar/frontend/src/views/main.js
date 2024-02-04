@@ -23,7 +23,6 @@ const Main = () => {
   };
 
   const handleFileSelect = useCallback((event) => {
-    event.preventDefault(); // Prevents browser from opening file
     const file = event.dataTransfer?.files[0] || event.target.files[0];
     if (file && file.type === 'application/pdf') {
       setFileName(file.name);
