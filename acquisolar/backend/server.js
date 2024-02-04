@@ -62,8 +62,10 @@ app.post('/upload', (req, res) => {
   });
 });
 
+app.use(express.json());
 app.post('/search', (req, res) => {
-  console.log(req);
+  const searchQuery = req.body.query;
+  console.log('Received search query:', searchQuery);
   res.send('OK!');
 });
 
