@@ -20,14 +20,39 @@ from llama_index.tools import (
 from llama_index.response.notebook_utils import display_response
 from llama_index.prompts import PromptTemplate
 
+
+"""Start: Metadata extraction imports and setup"""
+from llama_index.node_parser import SentenceSplitter
+from llama_index.extractors import (
+    SummaryExtractor,
+    QuestionsAnsweredExtractor,
+    TitleExtractor,
+    KeywordExtractor,
+    EntityExtractor,
+)
+from llama_index.ingestion import IngestionPipeline
+
+transformations = [
+    SentenceSplitter(),
+    #TitleExtractor(nodes=5),
+    QuestionsAnsweredExtractor(questions=3),
+    #SummaryExtractor(summaries=["prev", "self"]),
+    #KeywordExtractor(keywords=10),
+    #EntityExtractor(prediction_threshold=0.5),
+]
+pipeline = IngestionPipeline(transformations=transformations)
+
+"""End: Metadata extraction imports and setup"""
+
+
 #logging to show what is happening under the hood
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG) # replace DEBUG with INFO for less output
-logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+#logging.basicConfig(stream=sys.stdout, level=logging.DEBUG) # replace DEBUG with INFO for less output
+#logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 
 #Select llm
-llm = OpenAI(model="gpt-4", temperature=0)
-service_context = ServiceContext.from_defaults(llm_predictor=llm)
+#llm = OpenAI(model="gpt-4", temperature=0) # gpt 3.5 default
+#service_context = ServiceContext.from_defaults(llm_predictor=llm)
 
 # Change the working directory my local one
 target_directory = r'C:\Users\MBAUser\AcquiSolar\magnus_searchengine'
@@ -40,7 +65,7 @@ PERSIST_DIR = "./storage"
 if not os.path.exists(PERSIST_DIR):
     # load the documents and create the index
     documents = SimpleDirectoryReader("./data").load_data()
-    vector_index = VectorStoreIndex.from_documents(documents, service_context=service_context) # remove service_context if want to run default gpt3.5
+    vector_index = VectorStoreIndex.from_documents(documents) # add service context if chatgpt 4
     # store it for later
     vector_index.storage_context.persist(persist_dir=PERSIST_DIR)
 else:
@@ -48,8 +73,6 @@ else:
     storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
     vector_index = load_index_from_storage(storage_context)
 
-# either way we can now query the index
-#query_engine = index.as_query_engine()
 
 query_engine = vector_index.as_query_engine(response_mode="compact")
 
@@ -70,3 +93,9 @@ print("This is the answer to the question:", output_answer)
 prompt_summarize = "Summarize what type of document this is in 2 sentences"
 output_summary = query_engine.query(prompt_summarize)
 print("This is a summary of the document:", output_summary)
+
+# name of the document that the answer was found in
+# this does not work yet. because metadata is not saved yet. 
+#It should be saved as documents are imported
+#nodes = pipeline.run(documents=documents)
+#print(nodes['document_title'])
