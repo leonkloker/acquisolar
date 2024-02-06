@@ -2,6 +2,31 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const { spawn } = require('child_process');
+
+function callPython(file) {
+  return new Promise((resolve, reject) => {
+      const pythonProcess = spawn('python3', [file]);
+
+      let pythonData = '';
+      pythonProcess.stdout.on('data', (data) => {
+          pythonData += data.toString();
+      });
+
+      pythonProcess.stderr.on('data', (data) => {
+          console.error(`stderr: ${data}`);
+          reject(data.toString());
+      });
+
+      pythonProcess.on('close', (code) => {
+          if (code !== 0) {
+              console.log(`Python script exited with code ${code}`);
+              reject(`Exited with code ${code}`);
+          }
+          resolve(pythonData.trim()); // Added trim() to clean up the output
+      });
+  });
+}
 
 // Set storage engine
 const storage = multer.diskStorage({
