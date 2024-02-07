@@ -5,7 +5,7 @@ import requests
 import json
 import tiktoken
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")  # Text completion
 
 def set_directory_for_input_document():
     # Change the working directory my local one
@@ -35,7 +35,7 @@ def extract_text_from_pdf(pdf_name):
         full_text += new_text
     doc.close()
     return full_text
-def truncate_query_to_fit_context(query, max_length=10000):
+def truncate_query_to_fit_context(query, max_length=11000):
     """
     Truncate a query to ensure it fits within the specified maximum length.
     Parameters:
@@ -72,6 +72,7 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested title" in the format 'MM-DD-YYYY max 5 word document title (state)' the state field is optional. It can read "main" if it is said to be the main document of its type, it can read (redacted) if it is redacted.
 - "Suggested title v2" in same format as "suggested title" but with different wording
 - "Suggested title v3" in same format as "suggested title" but with different wording
+- "suggested folder" from the selection: "PPA", "interconnection", "uncategorized", "site control"
 
 The provided document text is:
 {extracted_text}
@@ -115,8 +116,8 @@ truncated_query = truncate_query_to_fit_context(query)  # truncate query to fit 
 # API call
 completion = client.chat.completions.create(
   #model="gpt-3.5-turbo",
-    model="gpt-4-32k",
-  #model="gpt-3.5-turbo-0125", # longer context length than 3.5 turbo --- https://platform.openai.com/docs/models/gpt-3-5-turbo
+    #model="gpt-4-32k",
+  model="gpt-3.5-turbo-0125", # longer context length than 3.5 turbo --- https://platform.openai.com/docs/models/gpt-3-5-turbo
   messages=[
     {"role": "system", "content": "You are a solar M&A analyst and great at extracting summaries and text from M&A documentation. Under no circumstances do you halucinate, instead you say that you leave a field blank if you cannot answer"},
     {"role": "user", "content": truncated_query}
