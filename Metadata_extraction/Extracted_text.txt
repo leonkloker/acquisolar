@@ -1,0 +1,629 @@
+BEFORE THE PUBLIC UTILITIES COMMISSION OF THE STATE OF HAWAII In the Matter of the Application of ) I<AUAI ISLAND UTILITY COOPERATIVE ) 2010-0179
+) Docket No.
+For approval of Power Purchase Agreement ) for As-Available Energy with Kapaa Solar ) LLC and to include costs in Kauai Island ) Utility Cooperative's Energy Rate Adjustment ) Clause. ) 0 CO or-
+26
+CO P /11
+0-3 -
+APPLICATION EXHIBITS 1 THROUGH 3
+VERIFICATION AND CERTIFICATE OF SERVICE MORIHARA LAU & FONG LLP KENT D. MORIHARA, ESQ.
+KRIS N. NAKAGAWA, ESQ.
+LAUREN M. IMADA-LEE, ESQ.
+Davies Pacific Center 841 Bishop Street Suite 400
+Honolulu, Hawaii 96813
+Telephone: (808) 526-2888
+Attorneys for Applicant r i i r n BEFORE THE PUBLIC UTILITIES COMMISSION OF THE STATE OF HAWAII In the Matter of the Application of ) KAUAi ISLAND UTILITY COOPERATIVE ) Docket No.
+For approval of Power Purchase Agreement for As-Available Energy with Kapaa Solar LLC and to include costs in Kauai Island Utility Cooperative's Energy Rate Adjustment Clause.
+APPLICATION KAUAI ISLAND UTILITY COOPERATIVE ("Applicant" or "KIUCD, by and through its attorneys, Morihara Lau & Fong LLP, and pursuant to Hawaii Revised Statutes CHRS") § 269-27.2, Hawaii Administrative Rules CHARD Chapter 6-61, HAR Chapter 6-74 and HAR § 6-60-6(2), hereby submits this Application requesting that the Hawaii Public Utilities Commission ("Commission") issue a decision and order:
+1. Approving, pursuant to HRS § 269-27.2, the Power Purchase Agreement for As-Available Energy with KAPAA SOLAR LLC ("Kapaa Solar" or "Seller"), dated August 3, 2010 OPPAD, as further described below and attached hereto as Exhibit 1 2
+2. Finding that the purchased energy charges to be paid by KIUC pursuant to the PPA are just and reasonable;
+1 KIUC anticipates that the related "Interconnection Agreement (For Distributed Generation Facilities No Larger Than 20 MW)" between KIUC and Kapaa Solar should be executed by mid-October 2010 and will submitted to the Commission shortly thereafter via a separate filing. Please note that, except for certain negotiated terms and conditions, the executed Interconnection Agreement will be Similar to the sample Interconnection Agreement form that is attached as Attachment 9 to KIUC's Tariff (aka, Tariff No. 2) adopted as part of Docket No. 2006-0498. KIUC anticipates that the Interconnection Agreement will not affect and/or amend any of the material terms and conditions of the PPA (e.g., price) 3. Finding that the purchased power arrangements (e.g., terms and conditions) under the PPA, pursuant to which KIUC shall purchase energy from Kapaa Solar, are prudent and in the public interest;
+4. Authorizing, pursuant to HAR § 6-60-6(2), the inclusion of all of the purchased energy charges (and related revenue taxes) to be incurred by KIUC under the PPA in KIUC's Energy Rate Adjustment Clause CERAC"), as further described below;
+5. Granting a waiver of Paragraph 111. D.5 of the Framework for Integrated Resource Planning CIRP Framework"), to the extent necessary and applicable; and 6. Granting such other relief as may be just and reasonable under the circumstances.
+In support of this Application, Applicant provides the following information:
+1. COMMUNICATIONS REGARDING THIS APPLICATION Pleadings, correspondence, and notices regarding this Application should be directed to the following:
+KENT D. MORIHARA, ESQ.
+KRIS N. NAKAGAWA, ESQ.
+LAUREN M. IMADA-LEE, ESQ.
+Morihara Lau & Fong LLP 841 Bishop Street, Suite 400
+Honolulu, HI 96813
+Attorneys for Applicant 11. DESCRIPTION OF APPLICANT Applicant is a Hawaii not-for-profit electric cooperative, whose principal place of business is 4463 Pahe'e Street, Ste. 1, Lihue, Kauai, Hawaii 96766-2000. Applicant is 2
+an operating public utility engaged in the production, transmission, distribution, purchase, and sale of electric energy on the island of Kaual, State of Hawaii. Applicant has been an operating public utility since November 1, 2002, when it purchased substantially all of the assets and assumed the operations of the Kauai Electric division of Citizens Communications Company ("Citizens"), and in connection therewith, was assigned the legislatively-granted franchise2 previously held by Citizens to manufacture, sell, furnish, and supply electric light, current, and power on the island of Kauai. Said transaction was approved by the Commission in Decision and Order No. 19658, filed on September 17,2002, as amended by Decision and Order No. 19755, filed on October 30,2002, both in Docket No. 02-0060.
+Applicant is duly incorporated, validly existing, and in good standing under the laws of the State of Hawaii.
+111. BACKGROUND OF KAPAA SOLAR AND THE FACILITY Kapaa Solar is a manager-managed Hawaii limited liability company. Kurt Bosshard, a resident of Kauai, is the sole member and manager of Kapaa Solar. Kapaa Solar will construct and operate an approximately 1 megawattac ("MWac")3 photovoltaic generation plant (the "Facility"). The Facility's estimated annual energy production from 2011 through 2035 is as set forth in Exhibit 2, attached hereto. The Facility will be located on Lot No. 2 of the parcel of land located on Olohena Road, Kapaa, State of 2 Act 134, Sessions Laws of Hawaii 1961, as amended by Act 165, Session Laws of Hawaii 1967.
+3 Note that the PPA describes the Facility in terms of its direct current (DC) peak power rating (Le, the PPA describes the Facility as a 1.1844 MWpdc photovoltaic system). In terms of alternating current (AC) capacity, the Facility's capacity is 1 MWac· In other words, taking into account losses caused by, eg, dirt on panels, output reduction due to ambient and panel temperature, conductor losses, inverter efficiency losses, etc., the 1.1844 MWPdc Facility's peak capacity will be 1 M\Nac 3
+Hawaii, and more particularly identified by Tax Map Key No. (4) 4-3-003-001, as shown on Exhibit 3, attached hereto.
+IV. SALIENT TERMS AND CONDITIONS OF PPA On August 3, 2010, the Parties4 executed the PPA, whereby KIUC will purchase as-available energy from Kapaa Solar's Facility. The salient terms and conditions of the PPA are described as follows:
+A. Term: Subject to Section 6 (Conditions Precedent) of the PPA, the term of the PPA shall commence upon the In-Service Dates and shall remain in effect for an initial term of twenty (20) years and shall continue in effect thereafter until terminated by either party, as provided in the PPA.6
+B. Purchase of Enerqv: Subject to other provisions of the PPA, KIUC will accept and pay for the entire net energy generated by the Facility and delivered by Kapaa Solar to KIUC at the "Energy Rate" defined below; provided that the instantaneous kilowattp CkWp")7 output from Kapaa Solar's Facility of such energy shall not exceed the Allowed Net Capacity8 at any given time, and KIUC shall not be obligated to pay for energy in excess of such amount. 9
+4 Applicant and Kapaa Solar together hereinafter referred to as "Parties." 5 PUrsuant to Appendix D of the PPA, "In-Service Date" means the date on which KIUC receives notification that Kapaa Solar has successfully met all of the requirements under the Interconnection Agreement.
+6 PPA, Section 5, at 5.
+As used in the PPA, "kWp" refers to the Facility's kW peak power.
+8 Pursuant to Section 7e of Appendix A of the PPA, "Allowed Net Capacity" shall be the lower of (i) 1184.4 I<Wpdc, or (ii) the net nameplate kWpdc capacity (net for export) of the Seller's Facility that has been installed and successfully tested by the In-Service Date. PPA, Section le, at A-3.
+9 Appendix B of the PPA.
+4
+C. Energy Rate: As described in Appendix B of the PPA, the Energy Rate for the delivery of energy for sale to KIUC shall be at the rate of $ per megawattac hour ("MWhac")  during the first twenty (20) years of the existence of the PPAm D. Authorizations and Compliance with Laws and Regulations: Kapaa Solar shall obtain, at its expense, any and all authorizations, permits, and licenses required for the construction and operation of the Facility, including but not limited to rights-of-
+way, easements, or leases. Kapaa Solar shall also install, operate, and maintain the Facility safely and in compliance with all applicable laws and regulations. Prior to commencement of construction of the interconnection facilities to be owned by KIUC, Kapaa Solar shall provide the necessary authorizations, permits, Ijcenses, rights-of-way, easements, leases and/or rights-of-entry for the construction, ownership, operation and maintenance of the interconnection facilities. Kapaa Solar shall also provide KIUC access to occupy designated space, operate, maintain, modify, and remove such interconnection facilities.11
+E. Qualifying Facility: Kapaa Solar shall provide KIUC with certification as a qualifying facility, if applicable, on or before the In-Service Date and thereafter as 10 portions of this Application and its applicable attachments have been redacted as confidential subject to the terms of a Protective Order to be issued in this docket. Subsequent to the filing of the instant Application, KIUC will request Commission approval of a Stipulation for Protective Order, pursuant to HAR § 6-61-50. Once the Commission approves and issues a decision approving said Stipulation for Protective Order, all confidential pages of the Application and its applicable attachments herein referenced in this Application will be filed pursuant and subject to the terms of a Protective Order to be issued in the &ubject docket in connection with that decision.
+11 PPA, Section 4, at 4-5.
+5
+requested, or KIUC shall not be obligated to accept or pay for any energy delivered by Kapaa Solar and the PPA may be terminated as set forth in Appendix C of the PPA.12
+F. Reactive Power: Pursuant to Appendix B of the PPA, the Facility shall maintain a continuous rated power output at the point of interconnection at a power factor within the range of between 0.95 leading and 0.95 lagging.
+G Indemnification and Insurance: Kapaa Solar shall release, indemnify and hold harmless KIUC, its directors, officers, agents, and representatives against and from any and all loss, claims, actions or suits, including costs and attorney's fees resulting from, or arising out of or in any way connected with, among other things, the operation and maintenance of the Facility as well as the energy generated and delivered under the PPA to the point of interconnection.13 Kapaa Solar shall also, at its own expense and during the term of the PPA and during any other time that the Facility is interconnected with KIUC's system, secure and maintain certain types and amounts of insurance in effect with a responsible insurance company authorized to do insurance business in Hawaii, as described in more detail in the PPA.14
+H. Interconnection Facilities: As indicated in the PPA, the specific terms and conditions under which Kapaa Solar's Facility will interconnect to KIUC's system will be governed by a related, but separately executed Interconnection Agreement. 15 In connection with the applicable interconnection facilities, Kapaa Solar shall pay to KIUC all amounts required under the Interconnection Agreement, in addition to the Energy 12 li, Section 12(c), at 12.
+13 li, Section 7(a), at 7-8
+14 Id., Section 8(a), at 8-9
+15
+See u ora note 1.
+6
+Rate described above.16 The Interconnection Agreement will also contain certain indemnity and insurance provisions similar to provisions in the PPA.
+1. Conditions Precedent and Termination Rights: The Parties agreed to a number of conditions precedent in the PPA, including a provision for KIUC to timely exercise its right to seek certain approvals (e.g., approvals from the Commission, Rural Utility Service, and Cooperative Finance Corporation), or else waive certain rights to terminate the PPA.17 Additional rights to terminate the PPA are contained in Section 6 and Appendix C of the PPA, which includes, among other things, automatic termination of the PPA in the event certain sought after approvals (including Commission approval) are not received on or before twelve (12) months from the date of execution of the PPA, despite KIUC's timely and commercially reasonable efforts.18
+V. REQUESTS FOR APPROVAL AND AUTHORIZATION A. APPROVAL OF PPA AND ENERGY CHARGES HRS § 269-27.2(c) provides, in relevant part, that the "rate payable by the public utility to the producer for the nonfossil fuel generated electricity supplied to the public utility shall be as agreed between the public utility and the supplier and as approved by the public utilities commission.
+.19 As indicated above and stated in more detail in the 16 PPA, Section 2, at 3-4, 17 li, Section 6, at 5-6.
+18 li, Appendix C of the PPA.
+" HAR § 6-74-22(a) also provides that the rates for purchase shall be just and reasonable and not discriminate against Other small power producers. However, HAR § 6-74-15(b)(1) states that nothing in HAR Title 6, Chapter 74, Subchapter 3 (i.e., HAR §§ 6-74-15 to 28) "[plrohibits an electric utility or any qualifying facility to agree to a rate for any purchase, or terms or conditions relating to any purchase, which differ from the rate or terms or conditions which would otherwise be required by this subchapter." 7
+PPA, the Parties have agreed to energy charges for the delivery of energy for sale to KIUC calculated as described in Part IV.C of this Application above. KIUC's financial models indicate that such energy charge is a reasonable rate, as it is lower than the cost KIUC could achieve through direct ownership of a photovoltaic facility. This type of energy charge has been previously approved by the Commission in other proceedings.20 The energy charges are in compliance with HRS § 269-27.2(c).21
+Accordingly, KIUC contends that these energy charges are just and reasonable, and are consistent with HRS § 269-27.2 and the applicable provisions of HAR Chapter 6-74.
+Furthermore, the specific terms and conditions of the PPA, as summarized above and provided in Exhibit 1, were negotiated by the Parties at arms-length and contain indemnification, insurance, and other provisions which will serve to protect KIUC and its members/customers from certain risks associated with interconnecting with Kapaa Solar's Facility. Moreover, the terms and conditions of the PPA and the Interconnection Agreement will not affect KIUC's ability to provide electric service to its 20 See In the Matter of the Application of Hawaii Electric Light Con,oany, Inc. for Approval of Power Purchase Contract with Keahole Solar Power LLC and Approval to Include the Purchase Enemy Costs in Hawaii Electric Light Company, Inc.'s Enerav Cost Adiustment Clause, Docket No. 2008-0186, Decision and Order (November 28,2008), where the Commission approved a fixed rate pricing structure (with a 1.25% annual increase applied for each of the last nine years of the term) for a power purchase contract with a ten-year term. However, in the case of KIUC's PPA with Kapaa Solar, the Energy Rate will not increase for the first twenty years of the term of the PPA.
+21 HRS § 269-27.2(c) states the following, in relevant part:
+The commission's determination of the just and reasonable rate shall be accomplished by establishing a methodology that removes or significantly reduces any linkage between the price of fossil fuels and the rate for the nonfossil fuel generated electricity to potentially enable utility customers to share in the benefits of fuel cost savings resulting from the use of nonfossil fuel generated electricity. As the commission deems appropriate, the just and reasonable rate for nonfossil fuel generated electricity supplied to the public utility by the producer may include mechanisms for reasonable and appropriate incremental adjustments, such as adjustments linked to consumer price indices for inflation or other acceptable adjustment mechanisms.
+8
+members/customers and are not discriminatory to other small power producers that are similarly situated. For these reasons, KIUC requests Commission approval of the PPA.
+KIUC also requests that the Commission find that the purchased energy charges to be paid by KIUC pursuant to the PPA are just and reasonable and that the purchased power arrangements (e.g., terms and conditions) under the PPA, pursuant to which KIUC purchases energy from Kapaa Solar, are prudent and in the public interest.
+B. AUTHORIZATION TO INCLUDE PURCHASED ENERGY IN ERAC HAR § 6-60-6(2) provides that "[n]0 changes in fuel and purchased energy Costs may be included in the fuel adjustment clause unless the contracts or prices for the purchase of such fuel or energy have been previously approved or filed with the commjssion." KIUC presently implements a fuel adjustment clause (aka ERAC) through its applicable rate schedules set forth in Tariff No. 1 to recover fuel and purchased energy costs previously approved by the Commission. For the same reasons discussed in Section V.A. above, KIUC also requests Commission approval to include all of the purchased energy charges (and related revenue taxes) that are incurred under the PPA with Kapaa Solar in KIUC's ERAC for the term of the PPA.
+C. INTEGRATED RESOURCE PLANNING ("IRP") CONSIDERATIONS The Commission's IRP Framework, Paragraph 111.D.5, states, in relevant part, that "[t]he integrated resource plan and program implementation schedule approved by the commission shall govern all utility expenditures for capital projects, purchased 9
+power, and demand-side management programs.
+„22
+The Commission further elaborated on the issue of "purchased power" by stating that an IRP "is also intended to 'control, direct, or strongly influence' all power purchases.,23 The Commission further explained:
+First, purchased power is itself a resource option that may be considered by a utility in fashioning an integrated resource plan.
+Even if not considered in resource planning or included in an integrated resource plan, power that a utility may be required to purchase under PURPA or State statute or under this commission's or FERC's rules should be reviewed in light of the utility's integrated resource plan and contractual provisions fashioned, to the extent possible, to retain the integrity of the resource plan. Further, any power purchased must eventually be incorporated into a utility's integrated resource plan.24
+KIUC's predecessor submitted its 2nd IRP in Docket No. 96-0266 and KIUC's yd IRP was filed on December 18,2008 in Docket No. 2006-0165. Neither the 2nd IRP nor the 3rd IRP specifically addresses the purchased power contemplated by KIUC pursuant to the PPA with Kapaa Solar, primarily due to the fact that, at the time such IRPs were being developed, KIUC was not aware of this project. However, the integration of solar photovoltaic energy into KIUC's system is not inconsistent with KIUC's 3rd IRP, filed in 2008, which recognizes the need for KIUC to meet its statutory Renewable Portfolio 22 The IRP Framework, formally known as A Framework for Integrated Resource Planning, originated from the Commission's proceeding in Docket No. 6617 (emphasis added). The Commission, in Docket No. 6617, conducted a proceeding to establish rules and principles that Hawaii energy utilities would follow in performing IRP. See Docket No. 6617, Decision and Order No. 11523, filed on March 12, 1992 ('Decision and Order No. 11523"), as amended by Decision and Order No. 11630, filed on May 22, 1992 ('Decision and Order No. 11630") 23 Decision and Order No, 11630, at 9.
+24
+!* 10
+Standard ("RPS") obligations.25 KIUC contends that the PPA with Kapaa Solar was executed to be consistent with PURPA and the State's RPS, as set forth in HRS §§ 269-91 et seq., as well as KIUC's own Strategic Plan.26 Thus, for these reasons, KIUC also requests a waiver of Paragraph 111.D.5 of the IRP Framework, to the extent necessary and applicable.27 KIUC contends that such IRP requirement would be impracticable and inappropriate to implement given the circumstances described above.
+VI.
+CONCLUSION For the reasons set forth above, Applicant hereby respectfully requests that the Commission issue a decision and order:
+1. Approving the PPA, pursuant to HRS § 269-27.2, as further described above and attached hereto as Exhibit 1, 2. Finding that the purchased energy charges to be paid by KIUC pursuant to the PPA are just and reasonable;
+3. Finding that the purchased power arrangements (e.g., terms and conditions) under the PPA, pursuant to which KIUC purchases energy from Kapaa Solar, are prudent and in the public interest;
+25 Pursuant to the Commission's Order Denying Request to Suspend Proceeding and Closing Docket filed on February 18, 2009, KIUC was ordered to suspend all activities pursuant to the IRP Framework. The Commission is treating KIUC's 3rd IRP as having the status of a plan filed with, but not approved by, the Commission. KIUC's next planning cycle will be determined by the outcome of Docket No. 2009-0108, in which the Commission is investigating proposed amendments to the IRP Framework.
+26 KIUC'S Strategic Plan includes, among other things, the movement towards energy independence and decreased reljance on foreign imported on by meeting at least fifty percent (50%) of KIUC's annual electricity sales with energy generated by renewable resources by 2023.
+27 See Decision and Order No. 11523 (stating, among other things, that "a utility may, at any time, request a waiver from the commission" and that the "utility seeking such a waiver will have the burden of showing, to the commission's satisfaction, that compliance with the requirement is impossible, impracticable, in appropriate, or economically infeasible").
+11
+5. Authorizing, pursuant to HAR § 6-60-6(2), the inclusion of all of the purchased energy charges (and related revenue taxes) to be incurred by KIUC under the PPA in KIUC's ERAC;
+6. Granting a waiver of Paragraph 111.D.5 of the IRP Framework, to the extent necessary and applicable; and 7. Granting such other relief as may be just and reasonable under the circumstances.
+DATED: Honolulu, Hawaii September 20, 2010.
+¢4· 4 4,6.2/-
+KENT D. MORIHARA KRIS N. NAKAGAWA LAUREN M. IMADA-LEE Morihara Lau & Fong LLP Attorneys for Applicant 12
+VERIFICATION STATE OF HAWAII ) SS:
+CITY AND COUNTY OF HONOLULU KRIS N. NAKAGAWA, being first duly sworn, deposes and says: That he is an attorney for KIUC in the above proceeding; that the officers of KIUC are not present within the City and County of Honolulu; that he has read the foregoing Application, and knows the contents thereof; and that the same are true of his own knowledge except as to those matters stated on information and belief, and that as to those matters he believes them to be true.
+'De 4 i.0 - -
+KNIS N. NAKAGAWA This 1 page Verification to the Application dated September 20, 2010, was subscribed and sworn to before me on September 20, 2010, ......1.t.....
+2.AARYL AG/12\ in the First Circuit, State of Hawaii by ' .•"RY Pul: 1
+........ U :
+.. .4
+t :
+Kris N. Nakagawa. :
+:0
+*»rirrt Name: SHARYL AGNO Notary Public, State of Hawaii My commission expires: 11/18/2011
+.. ........
+03NBdO Sl 133000 103f8nS 3H1 33NO 1NVOIlddV *8 03193rIDEIN 38 01 2330210 3AI10310Bd V 30 SIN831 3H1 01
+1NVASUnd k,3AOO 31Vhl¥d39 830Nn *11¥11N30]=INOD 0301/\0Ud 38
+01'1¥IlNBGI:INOO SV 0310¥03hl N338 3AVH L -LISIHX3 30 SNOIJ-HOd L 1IBIHX3
+EXHIBIT 1
+PURCHASE POWER AGREEMENT between Kapaa Solar LLC & Kaua'i Island Utility Cooperative 1.1844 MWpdc Photovoltaic System (W:\DOCS\2607m87\W0111871.DOC} (Signature Copy) *apaa Solar draft no. 2 Jul 26 2010) EXHIBIT 1
+TABLE OF CONTENTS 1. Purchase and Sale of Energy; Rate for Purchase and Sale;
+Billing and Payment: ...................... .............
+2. Seller Payments: .. .....................................
+3. Metering: ..............................................
+4. Permits, Licenses and Land Rights: .....................
+5. Term: ..................................................
+6. Conditions Precedent: ..................................
+7. Indemnification: ......... ..............................
+8. Insurance: .. ...........................................
+9. Assignment: .
+10.
+Sale of Energy to Third Parties: ..... ..................
+11.
+Force Majeure: . . .......................................
+12.
+Warranties and Representations: ..
+13.
+Financial Compliance : ...........                    ........
+14. Good Engineering and Operating Practices: .
+15.
+Outage Coordination: . . .................................
+16. Equal Employment Opportunity and Employment of Disabled Veterans and Veterans of the Vietnam Era; . ........
+17.
+Employment of Disabled Veterans and Veterans of the Vietnam Era:
+18.
+Set Off: . ..............................................
+19.
+Miscellaneous: .........................................
+APPENDIX A: DESCRIPTION OF SELLER'S GENERATION AND CONVERSION FACILITY ....................................
+APPENDIX B: ENERGY PURCHASES BY THE COOPERATIVE . .......
+APPENDIX C: TERMINATION EVENTS ......
+APPENDIX D: DEFINITIONS APPENDIX E: DISPUTE RESOLUTION ........
+MMOCCS\26078187*0111871.DOC} (Signature Copy) Kapaa Golardraft no. 2 Jul 26 2010
+01 go 0>lilli p 1-1 1-' H H 1-' E-1 H 1-1 1-1 0 • · Pt-JPPH 0 0-1 01
+Ul 0, AW P 1-1 00 03 -]Ul W JA AWN EXHIBIT 1
+POWER PURCHASE AGREEMENT FOR AS-AVAILABLE ENERGY THIS AGREEMENT (the Agreement") is made this ftday of August, 2010, by and between Kauari Island Utility Cooperative, a cooperative association formed pursuant to the provision of Chapter 421C of the Hawai'i Revised Statutes, with a place of business at Suite 1, 4463 pahe e Street, Lihu'e, Kaua'i, Hawaii 96766 (hereinafter called the "Cooperative") and Kapaa Solar LLC, a Hawai'i limited liability company (hereinafter called the "Seller") .
+WHEREAS, the Cooperative is an operating electric public utility on the Island of Kaua'i, subject to the Hawai'i Public Utilities Law (Hawai'i revised Statutes, Chapter 269) and the rules and regulations of the Hawai'i Public Utilities Commission (hereinafter call "PUC") ; and WHEREAS, the Cooperative operates its power system as an independent power grid and must maximize system reliability for its customers by ensuring that: (a)sufficient generation is available;
+and (b) the system (including transmission and distribution components) (hereinafter "System") meets the requirements for voltage stability, frequency stability, and reliability standards; and WHEREAS, the Seller desires to build, own, and operate a generation facility (the "Seller's Facility") ; and WHEREAS, Cooperative and Seller agree that this Agreement does not govern the terms and conditions under which the Cooperative will interconnect Cooperative's System with Seller's Facility.
+The interconnection between the System and the Seller's Facility is covered under a separate Interconnection Agreement.
+WHEREAS, the Seller agrees to use all reasonable efforts to maximize the overall Cooperative' s System reliability; and WHEREAS, the Seller's Facility will be located on Lot No. 2 of Tax Map Key (4) 4-3-003-001 on Olohena Road, Kapaa, State of Hawai'i and is more fully described in Appendix A and attached hereto and made a part hereof; and WHEREAS, the Seller desires to sell to the Cooperative electric energy generated by the Seller's Facility, and the Cooperative {WADOCS\26078\570111871.DOC} (Signature Copy) Kepaa Sotar draft no. 2 Ju! 28 2010 1
+EXHIBIT 1
+agrees to purchase such energy from the Seller, upon the terms and conditions set forth herein.
+NOW, THEREFORE, in consideration of the premises and the respective promises herein, the Cooperative and the Seller hereby agree as follows:
+1. Purchase and Sale of Energy; Rate for Purchase and Sale;
+Billing and Payment:
+(a) The Cooperative agrees to purchase energy from the Seller pursuant to the terms and conditions, which are more fully described in Appendix B, Energy Purchases By the Cooperative, attached hereto and made a part hereof.
+The Cooperative will not reimburse the Seller for any taxes or fees imposed by third parties on the Seller including, but not limited to, State of Hawaii general excise tax, property taxes, franchise taxes, etc.
+(b) Sales of energy by the Cooperative to the Seller shall be governed by an applicable rate schedule filed with the POC.
+(C) By the tenth working day (i.e. excluding Saturdays, Sundays and legal holidays of either the federal government or the Hawai'i state government) of each calendar month, the Cooperative shall provide the Seller or its designated agent with an invoice and computations for the charges for electricity delivered to the Cooperative in the preceding calendar month as determined in accordance with this Agreement.
+The invoice and computations will separately state the following for the preceding month:
+(1) the energy delivered to the Cooperative during the period; and (2) the energy charge for energy delivered to the Cooperative as set forth in Appendix B of this Agreement.
+(d) By the twentieth working day of each calendar month (but, no later than the last working day of that month lf there are less than twenty working days in that month), the Cooperative shall make payment on such invoice. Should the Seller so elect, the Cooperative will exercise such payment by direct deposit 0/VADOCS\26078\87\W0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010 2
+EXHIBIT 1
+(e) Any payment not made to the Seller by the twentieth working day of each calendar month (or the last working day of that month if there are less than twenty working days in that month), shall accrue interest from such date at the Prime Rate as most recently quoted in the "Money and Investing, Money Rates" section of The Wall Street Journal for the period until the outstanding interest and invoiced amounts (or amounts due to the Seller if determined to be less than the invoiced amounts) are paid in full.
+Partial payments shall be applied first to outstanding interest and then to outstanding invoice amounts.
+(f) In the event adjustments are required to correct inaccuracies in an invoice after payment, the party requesting adjustment shall recompute and include in the party's request the amounts due during the period of the inaccuracy.
+The difference between the amount paid and that recomputed for the invoice shall either be (i) paid to Seller, or set-off by the Cooperative against the next invoice payment to Seller, as appropriate, together with interest from the date that such invoice was payable until the date that such recomputed amount is paid at the Prime Rate as most recently quoted in the "Money and Investing, Money Rates section of The Wall Street Journal for the period plus 2 points, or (ii) objected to by the party responsible for such payment within thirty <30) days following its receipt of such request.
+All claims for adjustments shall be waived for any deliveries of electricity made more than thirty-six (36) months preceding the date of any such request.
+The Seller, after giving reasonable advance written notice to the Cooperative, shall have the right to review all billing, metering and related records relating to the Seller's Facility during normal working hours on working days.
+The Cooperative shall maintain such records for a period of not less than thirty-six (36) months.
+2. Seller Payments:
+Seller shall pay to the Cooperative all amounts pursuant to the Interconnection Agreement, which is in addition to any ON:\DOCS\2607887\W0111871.DOC} (Signature Copy) Knpaa Solardran no. 2 Jul 28 2010 3
+EXHIBIT 1
+charges due the Cooperative pursuant to the applicable rate schedule in of this Agreement.
+3. Metering:
+Metering equipment at the point of delivery for the measurement of electrical energy will be maintained by the Cooperative. The Cooperative will, at least once each year during the term hereof, test metering equipment for accuracy in the presence of the Seller's representativer if the Seller elects to have a representative present. If said metering equipment is found to be inaccurate by more than two percent {2%), then an adjustment for the full amount of such inaccuracy in past billings will be made within thirty days by one party to the other on the basis that an inaccuracy so discovered shall be conclusively presumed to have existed for the second half of the period between the last meter test and the meter test in which the inaccuracy was discovered.
+4. Permits, Licenses and Land Rights:
+(a) The Seller shall obtain, at its expense, any and all authorizations, permits and licenses required for the construction and operation of the Seller's Facility, including but not limited to rights-of-way, easements or leases.
+The Seller shall install, operate and maintain the Seller's Facility safely and in compliance with all applicable laws and regulations.
+To the extent private land not owned by Seller or land owned by a government entity is involved, the Seller shall obtain, at its expense, any necessary authorizations, permits, licenses, rights-of-way, easements and leases required in order that the Seller's Facility can be interconnected with the Cooperative's System.
+(b) If the land on which the .Seller' s Facility is located is not owned by the Seller's Facility's owner, a copy of the agreement with the owner of the land which establishes the right of the Seller's Facility's owner to put the Seller's Facility on the land and the existence of required rights-of-way, easements and leases shall be provided to the Cooperative before the In-Service Date.
+(c) Seller shall, prior to commencement of construction of the Cooperative-owned Interconnection Facilities (W:DOCS\26078\87\W0111871.DOC} (Signature Copy) Kapaa Solar drnft no, 2 Jul 26 2010 4
+EXHIBIT 1
+(whether to be built by the Seller or by the Cooperative), provide the necessary authorizations, permits, licenses, rights of way, easements, leases and/or rights-of-entry for construction, ownership, operation and maintenance of the Cooperative-owned Interconnection Facilities.
+Seller shall also provide the Cooperative access to occupy designated space, operate, maintain, modify, and remove such Cooperative-owned Interconnection Facilities.
+(d) Cooperative shall not intentionally cause any interference with the Seller's Facility's insolation and access to sunlight, as such access exists as of the effective date of this Agreement.
+5, Term:
+Subject to Saction 6 of this Agreement, the Term of this Agreement shall commence upon the In-Service Date and shall remain in effect for an initial Term of twenty (20) years , and shall continue in effect thereafter until terminated by either party as provided for herein.
+Either the Cooperative or Seller may terminate this Agreement at any time after the end of the initial twenty (20) year Term with at least one (1) year's advance notice. As an example if a party wants to terminate the Agreement at the end of year 25 of the Agreement it needs to give notice of such termination at least one (1) day before the In-Service date for Year 25.
+6. Conditions Precedent:
+(a) No later than sixty (60) days after the execution of this Agreement, Cooperative shall request a Non-
+Appealable PUC Approval Order, including without limitation authorization for the purchased energy charges to be paid by the Cooperative to the Seller hereunder (and related revenue taxes) to be included in the Cooperative' s Efnergy Rate Adjustment Clause (or equivalent) for the Term of this Agreement.
+Seller shall cooperate reasonably with Cooperative's efforts to seek a Non-Appealable PUC Order.
+Seller shall not be responsible for Cooperative's costs of requesting or obtaining a Non-Appealable PUC Approval Order.
+(b) No later than sixty (60) days after the execution of this Agreement, Cooperative may, but shall not be obligated to, request approval by the Rural Utility {WADOCS\26076\87\W0111871.DOC} (St@nature Copy) Kepaa Solardmft no. 2 Jut 262010 5
+EXHIBIT 1
+Service ("RUS") of this Agreement.
+Seller shall cooperate reasonably with Cooperative's efforts to seek approval of this Agreement.
+Seller shall not be responsible for Cooperative's costs of requesting or obtaining such approval.
+If Cooperative fails to make a timely request, all conditions precedent in this Section 6(b) shall be deemed waived and this Agreement shall remain in full force and effect thereafter.
+(c) No later than sixty (60) days after execution of this Agreement, Cooperative may, but shall not be obligated to, request approval by Cooperative Finance Corporation ("CFC") of this Agreement.
+If Cooperative fails to make a timely request, all conditions precedent in this Section 6 (c) shall be deemed waived and this Agreement shall remain in full force and effect thereafter.
+Seller shall not be responsible for Cooperative's costs of requesting or obtaining such approval.
+(d) In the event Cooperative makes a timely request as set forth in paragraph (a) and/or (b) and/or (c) of this Section, and despite the Cooperative's commercially reasonable efforts any of the following approvals are not received on or before twelve(12) months from the date of execution of this Agreement, this Agreement shall be automatically terminated without notice and without any financial or other obligation to Seller as a result of such termination:
+(i) a Non-Appealable PUC Approval Order that includes authorization for the purchased energy charges to be paid by the Cooperative to the Seller hereunder (and related revenue taxes) to be included in the Cooperative's Energy Rate Adjustment Clause (or equivalent) as referenced in paragraph (a) of this Section;
+(ii) the approval by the RUS administrator or his designated representative as referenced in paragraph (b) of this Section;
+(iii) the approval by CFC by an appropriate CFC officer as referenced in paragraph (c) of this Section.
+Ce) If the approvals set forth in paragraph (d) are not received on or before eleven (11) months and fifteen (15) days from the date Of execution of this Agreement, the parties may mutually agree to amend this Agreement to revise the date by which such approvals need to be received to avoid termination of this Agreement under paragraph (d).
+(WADOCS\2607887WV[)111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010 6
+EXHIBIT 1
+(f) Except where obligations of the parties are explicitly stated as being effective before the conditions precedent, only Section 5 (Term), Section 7
+(Indemnification), Section 12 (Warranties and Representations), Section 20 (Miscellaneous) and Appendix D (Definitions) Of this Agreement shall become effective on the Execution Date.
+Notwithstanding anything in this Agreement to the contrary, all other portions of this Agreement shall not become effective unless or until all conditions precedent have been either satisfied or waived as provided in this Agreement. For the period following the Execution Date and prior to the later of the In-
+Service Date or the satisfaction or waiver of all conditions precedent, the Cooperative shall not be obligated to accept or pay for any energy delivered by the Seller, provided further, that prior to the completion Of the Interconnection Facilities, the Cooperative shall not be obligated to accept or pay for any ·energy delivered by the Seller except as provided for in Appendix B.
+(g) In the event Seller had requested the Cooperative to incur costs associated with the Cooperative-owned Interconnection Facilities prior to the satisfaction or waiver of all conditions precedent, the Seller shall pay the Cooperative the actual costs and cost obligations incurred by the Cooperative prior to and as of the date the Agreement is declared null and void for the Cooperative-owned Interconnection Facilities and any reasonable costs incurred thereafter.
+(h) Notwithstanding any of the foregoing, the Cooperative or Seller may terminate the Agreement at any time upon the occurrence of any condition described in Appendix C attached hereto and made a part hereof.
+7. Indemnification:
+(a) The Seller shall release, indemnify and hold harmless Cooperative, its directors, officers, agents, and representatives against and from any and all loss, claims, actions or suits, including costs and attorney's fees resulting from, or arising out of or in any way connected with (i) the energy generated and delivered by Seller under this Agreement to the point (WADOCS\28079\87W0111871.DOC} (Sjgnaturs Copy) Kapaa Solardraft no. 2 Jul 262010 7
+EXHIBIT 1
+of interconnection, (ii) Seller's operation and/or maintenance of the Seller's Facility, Or (iii) Seller's actions or inactions with respect to this Agreement, including, without limitation, any loss, claim, action or suit, for or on account of injury, bodily or otherwise, to or death of persons, or for damage to or destruction of property belonging to Cooperative, Seller, or others, excepting only such loss, claim, action or suit as may be caused solely by the willful misconduct or gross negligence Of Cooperative, its agents, employees, directors, or officers.
+(b) The Cooperative shall release, indemnify and hold harmless Seller, its directors, officers, agents, and representatives against and from any and all loss, claims, actions, or Suits, including costs and attorney's fees resulting from, or arising out of or in any way connected with (i) the energy transmitted and distributed by Cooperative after the point of interconnection, (ii) Cooperative's operation and/or maintenance Of the System, or (iii) Cooperative's actions or inactions with respect to this Agreement, including, without limitation, any loss, claim, action or suit, for or on account of injury, bodily or otherwise, to or death of persons, or for damage to or destruction of property belonging to Cooperative, Seller, or others, excepting only such loss, claim, action or suit as may be caused solely by the willful misconduct or gross negligence of Seller, its agents, employees, directors or officers.
+(C) Nothing in this Agreement shall be construed to create any duty to, any standard of care with reference to, or any liability to any person not a Party to this Agreement.
+No undertaking by one party to the other under any provision of this Agreement shall constitute the dedication of that party's system or any portion thereof to the other party or the public, nor affect the status of Cooperative as an independent public utility cooperative or Seller as an independent individual or entity.
+8. Insurance:
+(a) The Seller shall, at its own expense and during the term of the Agreement and during any other time that the {W:\DOCS\26078\87\901 11871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+EXHIBIT 1
+Seller's Facility is interconnected with the Cooperative's System, secure and maintain in effect with a responsible insurance Company authorized to do insurance business in Hawai'i the following insurance that will protect Seller and the Cooperative.
+The Seller shall maintain commercial general liability insurance with respect to the Seller's Facility, the Seller's operations, and the Interconnection Facilities owned by the Seller, with a bodily injury and property damage combined single limit of at least Two million dollars ($2,000,000) for any occurrence.
+Said insurance shall name the Cooperative as an additional insured, and shall be non-cancelable and non-
+alterable without thirty (30) days' prior written notice to the Cooperative.
+"Claims made" policies are not acceptable.
+The Cooperative shall review the coverage limits annually and if, in the Cooperative's reasonable discretion, the Cooperative determines that the coverage limits should be increased, the Cooperative shall so notify the Seller.
+The amount of any increase of the coverage limits, when considered as a percentage of the then existing coverage limits, shall not exceed the cumulative amount Of increase in the Consumer Price Index occurring after the coverage limits herein were last set.
+The Seller shall within thirty (30) days of notice from the Cooperative increase the coverage as directed in such notice and the costs of such increased coverage limits shall be borne by the Seller.
+The Seller shall provide evidence of such insurance by providing certificates of insurance to the Cooperative prior to construction of the Cooperative's Interconnection Facilities and within 30 days of any change.
+The Seller's indemnity and other obligations shall not be limited by the foregoing insurance requirements.
+Any deductible shall be the responsibility of the Seller.
+(b) The Cooperative shall, at its own expense and during the term of the Agreement and during any other time that the Seller's Facility is interconnected with the Cooperative's System, secure and maintain in effect with a responsible insurance Company authorized to do insurance business in Hawai'i the following insurance that will protect the Cooperative and the Seller.
+The Cooperative shall maintain commercial general liability insurance with respect to the Cooperative's System, the Cooperative's operations, and the Interconnection Facilities owned by the Cooperative, with a bodily injury and property damage combined single limit for any occurrence of at least the amount of such coverage, as Seller may be required to carry pursuant to subparagraph (a) of this Section 8, Said primary commercial general liability insurance shall name the Seller as an additional insured, and shall be non-cancelable and non-
+{W:\DOCS26078\87\*0111871.DOC} {Signature Copy) Kapaa Solar draft no, 2 Jul 282010 9
+EXHIBIT 1
+alterable without thirty (30) days' prior written notice to the Seller.
+"Claims made" policies are not acceptable.
+The Cooperative shall provide evidence Of such insurance by providing certificates of insurance to the Seller prior to construction of the Seller's Facility, and within 30 days of any change.
+The Cooperativers indemnity and other obligations shall not be limited by the foregoing insurance requirements.
+Any deductible shall be the responsibility of the Cooperative.
+9. Assignment:
+This Agreement may not be assigned by either the Cooperative or the Seller without the prior written consent of the other party (such consent not to be unreasonably withheld, conditioned, or delayed); provided that Seller shall have the right, without the consent of the Cooperative, to:
+(a) Assign all or any part of its rights, benefits, or obligations to a wholly-owned subsidiary or to an affiliated Company under common control with the Seller; and, (b) For the purposes of arranging or rearranging debt and/or equity financing for Seller's Facility, assign all or any part of its rights or benefits, but not its obligations, to any lender providing debt financing for Seller's Facility.
+In the case of {a) or (b) above, Seller shall immediately provide written notice to the Cooperative of any assignment of all or part of the Agreement and Seller shall provide to the Cooperative all information about the assignment and the assignee reasonably requested by the Cooperative.
+10.
+Sale of Energy to Third Parties:
+The Cooperative shall be obligated to purchase all energy produced for sale by the Seller's Facility at the price and on the terms and conditions stated in this Agreement; provided, however, that the Seller may consume energy produced at the Seller's Facility for its own use in operating the Facility. The Seller shall not sell energy from the Seller's Facility to any Third Party, which includes subsidiaries or Affiliates of the Seller. The Cooperative shall not curtail the production of any energy by the Seller or the delivery to the Cooperative of any energy produced by the Seller, except under the circumstances {W:\DOCS\26078\87WV0111 871.DOC} (Signature Copy) Kapaa Solar dreft no. 2 Jul 26 2010 1
+EXHIBIT 1
+and pursuant to the procedures set forth in Article 3.4 of the Interconnection Agreement.
+11.
+Force Majeure:
+(a} If either party shall be wholly or partially prevented from performing any of its obligations under this Agreement by reasons of or through acts reasonably beyond its control and not attributable to its neglect, including strikes, lightning, rain, earthquake, wind, riots, fire, flood, invasion, insurrection, lava flow or volcanic activity, tidal wave, civil commotion, accident, action or inaction of any court, judge, administrative, regulatory or civil authority of the Federal, State, or local governments, war, any act of God or the public enemy, or any other similar or dissimilar cause reasonably beyond its control and not attributable to its neglect, then and in any such event, such party shall be excused from whatever performance is prevented by such event to the extent and during the period so prevented, and the party shall not be liable for any damage or loss resulting therefrom.
+(b) The party claiming an event of Force Majeure shall use reasonable efforts to give written notice of such event to the other party within fourteen (14) days after the party claiming an event of Force Majeure has knowledge that such event may affect its performance hereunder. In addition, the party claiming an event of Force Majeure shall use reasonable diligence, to the extent practicable, to limit the impact of such event on the performance of its obligations under this Agreement; provided, however, that the requirement to use reasonable diligence shall not be construed to require the resolution of labor disputes involving employees of parties other than the Seller or the Cooperative. The party claiming an event of Force Majeure shall resume performance under this Agreement as soon as it is able, and shall promptly give notice of such resumption to the other party.
+(c) Notwithstanding the foregoing, Section 11 (b) shall not excuse any payment obligation that has theretofore accrued under this Agreement.
+12.
+Warranties and Representations:
+(W:\DOCS128078\87\W011 1871.DOC} (Signature Copy) Kapaa Solardraft no. 2 Jul 26 2010 11
+EXHIBIT 1
+(a) Both the Cooperative and the Seller represent and warrant, respectively, that:
+(1) Each respective party has all necessary right, power and authority to execute, deliver and perform this Agreement.
+(2) The execution, delivery and performance of this Agreement by each respective party Will not result in a violation of any law or regulation of any governmental authority, or conflict with, or result in a breach of, or cause a default under, any agreement or instrument to which such party is also a party or by which it is bound.
+(b) Seller represents and warrants that it is an entity in good standing with the Hawaii Department of Commerce and Consumer Affairs and shall provide the Cooperative with a certified copy of a certificate of good standing by the Execution Date.
+(C) Seller shall provide the Cooperative with certification as a Qualifying Facility, if applicable, on or before the In-Service Date and thereafter as requested or the Cooperative shall not be obligated to accept or pay for any energy delivered by the Seller and the Agreement may be terminated pursuant to Appendix C.
+(d) Nothing in this Agreement shall be construed to convey to Cooperative a license or other right to trademarks, copyrights, technology or other intellectual property of Seller.
+(e) Seller and Cooperative hereby agree and acknowledge that Cooperative shall have no ownership interest in the Seller's Facility and no responsibility for its operation or maintenance.
+Neither Cooperative nor any party related thereto shall have the right or be deemed to operate Seller's Facility for purposes of Section 7701(e}4)(A)(i} of the Internal Revenue Code.
+(f) The Parties acknowledge and agree that, for accounting or tax purposes, this Agreement is not and shall not be construed as a lease and, pursuant to Section 7701(e) (3> of the Code, this Agreement is and shall (W:DOCS\26078\87Wv'0111871.DOC) (Signature Copy) Kapaa Solar draft no,2 Jut 26 2010 12
+EXHIBIT 1
+be deemed to be a service contract with respect to the sale to the Cooperative of electric energy produced at an alternative energy facility.
+13.
+Financial Compliance:
+If any Recipient <as defined below in this Section 13) becomes legally compelled under applicable law or by legal process (e.g., deposition, interrogatory, request for documents, subpoena, civil investigative demand or similar process) to disclose all or a portion of Information, such Recipient shall undertake reasonable efforts to provide Seller with prompt notice of such legal requirement prior to disclosure so that Seller may seek a protective order or other appropriate remedy and/or waive compliance with the terms of this Section 13. If such protective order or other remedy is not obtained, or if Seller waives compliance with the provisions at this Section 13, Recipient shall furnish only that portion of the Information, which it is legally required to so furnish and to use reasonable efforts to obtain assurance that confidential treatment will be accorded to any disclosed material.
+Cooperative shall maintain the confidentiality of the Information as provided in this Section 13.
+Cooperative may share the Information on a confidential basis with the independent auditors and attorneys for Cooperative.
+<Cooperative, and its independent auditors and attorneys are collectively referred to in this Section 13 as -Recipient.") If Cooperative, in the exercise Of its reasonable judgments, concludes that consolidation or financial reporting with respect to Seller and/or this Contract is necessary, Cooperative shall have the right to disclose such Of the Information as Cooperative reasonably determines is necessary to satisfy applicable disclosure and reporting or other requirements and give Seller prompt written notice thereof (in advance to the extent practicable under the circumstances).
+If Cooperative discloses Information pursuant to the preceding sentence, Cooperative shall, without limitation to the generality of the preceding sentence, have the right to disclose Information to the PUC and the Division of Consumer Advocacy of the Department of Commerce and Consumer Affairs Of the State of Hawai'i ("Consumer Advocate") in connection with the POC' s rate making activities for Cooperative, provided that, if the scope or content of the Information to be disclosed to the PUC exceeds or ls more detailed than that disclosed pursuant to the preceding sentence, such Information will not be disclosed until the PUC first issues a protective order to protect the confidentiality {WADOCS\28078\87\*0111871.DOC} (Snature Copy) Kapaa Solar draft no. 2 Jul 282010 13
+EXHIBIT 1
+of such Information. Cooperative shall not use the Information for any purpose other than as permitted under this Section 13.
+In circumstances other than those addressed in the immediately preceding paragraph, if any Recipient becomes legally compelled under applicable law or by legal process (e.g., deposition, interrogatory, request for documents, subpoena, civil investigative demand or similar process) to disclose all or a portion of the Information, such Recipient shall undertake reasonable efforts to provide Seller with prompt notice of such legal requirement prior to disclosure so that Seller may seek a protective order or other appropriate remedy and/or waive compliance with the terms of this Section 13. If such protective order or other remedy is not obtained, or if Seller waives compliance with the provisions at this Section 13, Recipient shall furnish only that portion of the Information, which it is legally required to so furnish and to use reasonable efforts to obtain assurance that confidential treatment will be accorded to any disclosed material.
+The obligation of nondisclosure and restricted use imposed on each Recipient under this Section 13 shall not extend to any portion(s) Of the Information which (a) was known to such Recipient prior to receipt, or (b) without the fault of such Recipient is available or becomes available to the general public, or (c) is received by such Recipient from a third party not bound by an obligation or duty of confidentiality.
+14.
+Good Engineering and Operating Practices:
+(a) Each party agrees to install, operate and maintain its respective equipment and facility and to perform all obligations required to be performed by such party under this Agreement in accordance with Good Engineering and Operating Practices in the electric industry and applicable laws, rules, orders and tariffs.
+(b) Wherever in this Agreement and the attached appendices the Cooperative has the right to give specifications, operating parameters, determinations or approvals, such specifications, operating parameters, determinations or approvals shall be given in accordance with the Cooperative's standard practices, policies and procedures and shall not be unreasonably withheld. Any such specifications, determinations, or <WADOCS28078187\90111871.DOC} {Stgnature Copy) Kapaa Solar draft no. 2 Jul 26 2010 14
+EXHIBIT 1
+approvals shall not be deemed to be an endorsement, warranty, or waiver of any right of the Cooperative.
+15.
+Outage Coordination:
+(a) On or before July 15th of each calendar year, Seller will provide Cooperative with a schedule of all planned derations and maintenance outages for the following calendar year. Seller and Cooperative will work together to schedule planned outages.
+(b) Seller Will make all reasonable efforts to give Cooperative 24 hours notice of any unplanned derations or maintenance outages.
+16.
+Equal Employment Opportunity and Employment of Disabled Veterans and Veterans of the Vietnam Era:
+(Applicable to all Agreements of $10,000 or more in the whole or aggregate. 41 CFR 60-1.4 and 41 CFR 60 741.5(a).) Seller is aware of and is fully informed of Seller's responsibilities under Executive Order 11246 (reference to which include amendments and orders superseding in whole or in part) and shall be bound by and agrees to all applicable provisions as contained in Section 202 of said Executive Order and the Equal Opportunity Clause as set forth in 41
+CFR 60-1.4 and 41 CFR 60 741.5(a), which clauses are hereby incorporated by reference.
+17.
+Employment of Disabled Veterans and Veterans of the Vietnam Era:
+(Applicable to all Agreements of $10,000 or more in the whole or aggregate. 41 CFR 60-250.4 and 41 CFR 60 741.5.> Seller agrees that it is and will remain in compliance with all applicable rules and regulations promulgated under The Vietnam Era Veterans Readjustment Assistance Act of 1974, The Affirmative Action Clause set forth in 41 CFR 60-250.4, the Rehabilitation Act of 1973 and the Equal Opportunity Clause set forth in 41 CFR 60 741.5, which clauses are incorporated by reference herein.
+18.
+Set Off:
+{WADC)CS\26078\87\W0111871.DOC} (Signature Copy) kapaa Solardraft no. 2 Jul 262010 15
+EXHIBIT 1
+The Cooperative shall have the right to set off any payment under this Agreement and any past due payment under the rate schedule referenced in Section 2(b) which is not paid by the Seller against the Cooperative's payments of subsequent monthly invoices as necessary.
+19.
+Miscellaneous;
+(a) 8mendments.
+Any amendment or modification of this Agreement or any part hereof shall not be valid unless in writing and signed by the parties.
+Any waiver hereunder shall not be valid unless in writing and signed by the party against whom waiver is asserted.
+(b) Binding Effect.
+This Agreement shall be binding upon and inure to the benefit Of the parties hereto and their respective successors, legal representatives, and permitted assigns.
+(C) Notices.
+Any written notice provided hereunder shall be delivered personally or sent by registered or certified first class mail, with postage prepaid, to the other party at the following address:
+Cooperative:
+1) By Mail:
+Kaua'i Island Utility Cooperative 4463 Pahe'e Street, Suite 1
+Lihu'e, HI 96766
+Attn:
+CEO & President 2) Delivered:
+Kaua'i Island Utility Cooperative 4463 Pahe'e Street, Suite 1
+Llhu'e, HI 96766
+Attn:
+CEO & President 3) By facsimile:
+CEO & President (808) 246-8257
+Seller:
+(1) The mailing address listed in Appendix A attached hereto.
+Notice sent by mail shall be deemed to have been given on the date of actual delivery or at the expiration of (WADOCS\28078\87\W0111871.DOC} (Signature Copy) Kapal Solardraft no, 2 Jul 262010 16
+EXHIBIT 1
+the fifth day after the date of mailing, whichever is earlier.
+Any party hereto may change its address for written notice by giving written notice of such change to the other party hereto.
+Any notice delivered by facsimile must be followed by personal or mail delivery and the effective date of such notice shall be the date of personal delivery or, if by mail, the earlier of the actual date of delivery or the expiration of the fifth day after the date of mailing.
+{d) Effect of Section and Appendix Headings.
+The headings or titles of the several sections and appendices hereof are for convenience of reference and shall not affect the construction or interpretation of any provision of this Agreement.
+(e) Non-Waiver.
+NO delay or forbearance of the Cooperative or the Seller in the exercise of any remedy or right will constitute a waiver thereof, and the exercise or partial exercise of a remedy or right shall not preclude further exercise of the same or any other remedy or right.
+(f) Relationship Of the Parties.
+Nothing in this Agreement shall be deemed to constitute either party hereto as partner, agent or representative of the other party or to create any fiduciary relationshilb or joint venture between the parties.
+The Seller does not hereby dedicate any part of the Seller's Facility to serve the Cooperative, the Cooperative's customers or the public.
+(g) Entire Agreement.
+This Agreement and the Interconnection Agreement, incorporated by reference, constitutes the entire understanding and agreement between the parties.
+(h) Confidentiality.
+All non-public information provided by either Party to the other or which is identified by the disclosing Party in writing as confidential or proprietary information shall be treated in a confidential manner and shall not be disclosed to any third party without the prior written consent of the non-disclosing Party, which consent shall not be unreasonably withheld.
+Notwithstanding {WADOCS\26078\87Wol 11871.DOC} (Signature Copy) Kepaa Solar draft no, 2 Jul 26 2010 17
+EXHIBIT 1
+the preceding, this Section and the restrictions herein contained shall not apply to any data or documentation which is: (1) required to be disclosed pursuant to state or federal law, an order or requirements of a regulatory body or a court, after five business days notice of such intended disclosure is given by the disclosing Party to the non-disclosing· Party or if five (5) business days notice is not practical, then such shorter notice as is practical;
+(2) disclosed by a Party to an Affiliate of such Party or in connection with an assignment permitted by Section 9; or (3) is as of the time of disclosure, public knowledge without the fault of the disclosing Party.
+(i) Publicity.
+The Parties share a common desire to generate favorable publicity regarding the Seller's Facility and their association with them. The Parties agree that they will, from time-to-timer issue press releases regarding the Seller's Facility and that they shall cooperate with each other in connection with the issuance Of such releases including, without limitation, making such releases jointly issued, completed review of press releases proposed to be issued individually by the other Party by no later than four (4) business days after submission by such other Party.
+Each Party agrees that it shall not issue any press release, media statement or public statement regarding the Sellerls Facility without the prior consent of the other, and each Party agrees not to unduly withhold or delay any such consent.
+Notwithstanding the foregoing and subject only to the provisions on confidential information set out above, Cooperative and Seller shall have the right to publish factual information related to Seller's Facility on their websites and through other forms of electronic media.
+Such information may include, but is not limited to, the location of the Seller's Facility, the names of Seller and Cooperative, and other features of the Seller's Facility.
+(j) Governing Law.
+This Agreement shall be governed by and construed in accordance with the laws of the State of Hawai'i.
+The venue for a civil action related to this Agreement shall be the judicial circuit in which the Seller's Facility is located.
+(W:\DOCS\26078\87'W0111871.DOC} (Signature Copy) Kapaa Solardran no. 2 Jul 26 2010 1 8
+EXHIBIT 1
+(k) Limitations.
+Nothing in this Agreement shall limit the Cooperativers ability to exercise its rights as specified in the Cooperativers Tariff as filed with the PUC, or as specified in General Order No. 7 of the PUC's Standards for Electric Utility Service in the State of Hawai'i, as either may be amended from time to time.
+(1) Further Assurances.
+Each of the parties shall from time to time and at all times do such further acts and deliver all such further documents and assurances as shall be reasonably necessary fully to perform and carry out this Agreement.
+(m) Counterparts.
+This Agreement may be executed in one or more counterparts, each of which shall be deemed an original and all of which, when taken together, shall constitute one and the same agreement.
+(n} Definitions.
+Terms used in this Agreement not otherwise defined in the context in which they first appear are defined in Appendix D attached hereto and made a part hereof.
+(O) Severability.
+If any term or provision of this Agreement, or the application thereof to any person, entity or circumstances is to any extent invalid or unenforceable, the remainder of this Agreement, or the application of such term or provision to persons, entities or circumstances other than those as to which it is invalid or unenforceable, shall not be affected thereby, and each term and provision of this Agreement shall be valid and enforceable to the fullest extent permitted by law.
+(p) Settlement of Disputes. Except as otherwise expressly provided, any dispute or difference arising out of this Agreement or concerning the performance or the non-performance by either party of its obligations under this Agreement shall be determined in accordance with the dispute resolution procedures set forth in Appendix E attached hereto and made a part hereof.
+(q) Recovery of Payments.
+No change may be made in terms and conditions of this Agreement except by agreement of the parties hereto.
+The parties to this Agreement believe, and have entered this Agreement relying on {W:\DOCS28078\87*/D111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010 19
+EXHIBIT 1
+the belief, that, under and pursuant to Subchapter 3, Rule 6-74-22
+Of the PUC' s Standards, after a satisfactory, Non-Appealable PUC Approval Order has been obtained:
+(i) no adjustment in the payments to be paid Seller under the provisions of this Agreement is either appropriate or lawful; and, (ii) that, also in light of the foregoing and of the fact that PURPA and 18 Code of Federal Regulations ("CFR") Part 292, require the Cooperative to offer to purchase from a Qualifying Facility at a price equal to or less than avoided cost, it is neither appropriate nor lawful for the PUC or any successor entity to deny the Cooperative the recovery of any or all amounts paid to Seller pursuant to the terms of this Agreement.
+Both parties will extend their best efforts to resist and appeal any PUC actions, decisions, or orders denying or having the effect of denying or otherwise preventing the Cooperative from recovering any or all amounts paid to Seller pursuant to the terms of the Agreement.
+(r) Environmental Credits.
+To the extent not prohibited by law, any Environmental Credit (e.g.
+renewable energy credits, green tags, emission credits, etc.) shall be the property of the Cooperative. Seller shall use all reasonable efforts to ensure such Environmental Credits are vested in the Cooperative, and shall execute all documents, including, but not limited to, documents transferring such Environmental Credits, without further compensation, provided however, that the Cooperative agrees to pay for all reasonable and preauthorized costs associated with such efforts and/or documentation.
+(S) PURPA Waiver.
+Seller acknowledges this Agreement as a source of compensation and hereby waives any present or future Qualified Facility <QF) status under PURPA or otherwise during the initial term of this Agreement and any extensions.
+(t) Income Tax Credits. Existing Federal and State tax credits are reflected in the price to be paid for energy under this Agreement, and the existence of extensions of or modifications to tax credits or tax laws and regulations will not result in changes to that price.
+(W:\DOCS26078\87*0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010 20
+EXHIBIT 1
+(U) Appendices.
+Each Appendix is an essential and necessary part of this Agreement.
+(V) Patents.
+Seller agrees that in fulfilling its responsibilities under this Agreement, it will not use any process, program, design, device or material that infringes on any United States patent.
+Seller agrees to indemnify, defend and hold harmless the Cooperative from and against all losses, damages, claims, fees and costs, including but not limited to reasonable attorneys' fees and costs, arising from or incidental to any suit or proceeding brought against the Cooperative for patent infringement arising out of Seller's performance under this Agreement, including but not limited to patent infringement due to the use of technical features of Seller's Facility to meet the performance standards specified in the Agreement.
+[REMAINDER OF PAGE INTENTIONALLY LEFT BLANK] (W:\DOCa26078\87W0111871,DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 28 2010 21
+EXHIBIT 1
+IN WITNESS WHEREOF, the Cooperative and the Seller have executed this Agreement as of the day and year first above written.
+Kauai Island Utility Cooperative ("Cooperative" ) By: 11\Uj Randall A iteeali'id-4 &'mell Its·. tabilfW¢f&%1/0 n> 1 40*3020
+Date: 8.-1-43
+Kapaa Solar LLC ("Seller") By: <--
+Its:
+r-26=X-
+Date: V 111 10
+(W:\DOCS\26078\87'W0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 28 2010 22
+EXHIBIT 1
+APPENDIX A: DESCRIPTION OF SELLER'S GENERATION AND CONVERSION FACILITY 1. Name of Seller's Facility:
+a. Location: Lot No (4) 403-003-001
+State of Hawaii b. Telephone number (888) 657-6527
+c. Mailing Address:
+2. Owner : Kapaa Solar LLC, Kapaa Solar Facility.
+. 2 of Tax Map Key on Olohena Road, Kapaa, (for system emergencies):
+c/o Kapaa Solar LLC 3144 Elua Street Lihue, Hawaii 96766
+By Execution Date, Seller shall provide the Cooperative with a certified copy of a certificate warranting that the owner is a corporation, partnership or limited liability Company in good standing with the Hawai'i Department of Commerce and Consumer Affairs.
+3. Operator: Kapaa Solar LLC 4. Name of person to whom payments are to be made:
+Kapaa Solar LLC 5. Mailing address for Payments:
+Kapaa Solar LLC c/o Bank of Alma 211 South Main Street Alma, Wisconsin 54610
+6. Hawai'i General Excise Tax License number:
+Seller will provide its General Excise Tax License number as soon as it is obtained from the Hawaii Department of Taxation.
+7. Equipment:
+a. Type of facility and conversion equipment:
+Photovoltaic electric generation facility with DC/AC inverters b. Design and capacity Total Seller's Facility Capacity:
+1184 . 4 kWpt>C (W:DOCS\28078\87\W01 11871.DOCJ (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+A-1
+EXHIBIT 1
+Total Number of Generators: 4
+Description of Equipment: 4 Advanced Energy Solaron 250 kW inverters and 5,264 REC AE-US 225 Watt photovoltaic modules Individual unit: Information for each individual generator is as follows:
+Generator No. 1:
+Type Photovoltaic Rated Power 296.1 kWpDC Voltage 480 V, 3 phase Frequency 60 HZ Class of Protection UL 1741, IEEE 1547, IEE 929
+Number of Poles n/a Rated Speed n/a Rated Current Uncorrected Power Factor 1
+Corrected Power Factor 1
+Corrected Current Generator No. 2:
+Type Photovoltaic Rated Power 296,1 kWpDC Voltage 480 V, 3 phase Frequency 60 HZ Class of Protection UL 1741, IEEE 1547, IEE 929
+Number of Poles n/a Rated Speed n/a Rated Current Uncorrected Power Factor 1
+Corrected Power Factor 1
+Corrected Current Generator No. 3:
+Type Photovoltaic Rated Power 296.1 kWpDC Voltage 480 V, 3 phase Frequency 60 HZ Class of Protection UL 1741, IEEE 1547, IEE. 929
+Number of Poles n/a Rated Speed n/a Rated Current {W:\DOCS\28078\87\*0111871.DOC} (Stnature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+A-2
+EXHIBIT 1
+Uncorrected Power Factor 1
+Corrected Power Factor 1
+Corrected Current Generator No. 4:
+Type Photovoltaic Rated Power 296.1 kWpx voltage 480 V, 3 phase Frequency 60 HZ Class of Protection UL 1741, IEEE 1547, IEE 929
+Number of Poles n/a Rated Speed n/a Rated Current Uncorrected Power Factor 1
+Corrected Power Factor 1
+Corrected Current c. Single or 3 phase: 3 phase d. Name of manufacturer:
+Inverters: Advanced Energy Photovoltaic Modules:
+REC Group e. The "Allowed Net Capacity" of the Seller's Facility shall be the lower of (i) 1184.4 kWpac, or (ii) the net nameplate kWpdc capacity (net for export) of the Seller's Facility that has been installed and successfully tested by the In-
+Service Date.
+8. Seller's insurance carrier shall be identified by delivery of certificates of insurance before construction of Cooperative's Interconnection Facilities.
+9. If the Seller is not the operator, the Seller shall provide a copy of the agreement between the Seller and the operator which requires the operator to operate the Seller's Facility and which establishes the scope of operations by the operator and the respective rights of the Seller and the operator with respect to the sale Of electric energy from the Seller's Facility no later than the In-Service Date.
+The Seller shall provide a certified copy of a certificate warranting that the operator is a corporation, partnership or limited liability company in good standing with the Hawai'i Department of Commerce and Consumer Affairs.
+{W:\DOC312807807'W0111 871.DOC) (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+A-3
+EXHIBIT 1
+10.
+If the Seller is the operator, the Seller shall provide a certified copy of a certificate warranting that the Seller is a corporation, partnership or limited liability company in good standing with the Hawai'i Department of Commerce and Consumer Affairs.
+11.
+The Seller, owner and operator shall provide the Cooperative a description of its ownership structure:
+Kapaa Solar LLC is Seller under this Agreement, and is the owner and operator of Seller's Facility.
+Kapaa Solar LLC is a manager-managed limited liability company organized in the State of Hawaii.
+The members of Kapaa Solar LLC are Kurt Bosshard and William Bosshard.
+12.
+Any certificate 01
+required under Appendix by the Execution Date. 6
+identity of the 'Seller, provide within 30 days certificate and a : description of ownership structure A shall be provided to the Cooperative in the event of a change in ownership or owner or operator, such entity shall thereof, a certified copy of a new revised ownership structure.
+(W:DOC828078187&V0111871.DOC} (St@natum Copy) Kapaa Solar draft no. 2 Jul 28 2010
+A-4
+EXHIBIT 1
+APPENDIX B: ENERGY PURCHASES BY THE COOPERATIVE 1. Rates for Purchase and Rate of Delivery.
+Subject to the other provisions of this Agreement, the Cooperative shall accept and pay for the entire net energy generated by the Seller's Facility and delivered by the Seller to the Cooperative at the rate set forth in Section 2 of this Appendix B, provided, however, that the instantaneous kWp output from the Seller's Facility of such energy shall not exceed the Allowed Net Capacity as set forth in Appendix A at any given timer and the Cooperative shall not be obligated to pay for energy in excess of such amount.
+2. Energy Rate.
+The energy rate for the delivery of , shall be at the rate of $ - during the first twenty (20) 1
+of this Agreement.
+3. Reactive Power.
+The Sellers Facility will maintain a continuous rated power output at the Point of Interconnection at a power factor within the range of 0.95 leading and 0.95 lagging.
+enerrorsaie to une Tears--3-f-ENE-exialence 4. Test Energy.
+The Cooperative shall use its reasonable best efforts to accept test energy that is delivered as part of the normal testing for photovoltaic generators prior to the In-Service Date, at the energy rate in Section 2 above; provided the Seller must use its reasonable best efforts to coordinate such normal testing with the Cooperative so as to minimize adverse impacts.
+on the Cooperative's System and operations.
+(W:DOCS\26076\87\WOf 1 1 871.OCC} (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+B-I EXHIBIT 1
+APPENDIX C: TERMINATION EVENTS Upon termination, the Cooperative and the Seller shall have no further obligation to each other except as otherwise specifically provided for in the Agreement.
+1. Termination by the Cooperative.
+In addition to the rights of termination contained in the body of the Agreement, the Cooperative may terminate the Agreement at any time if any of the following conditions (each an "Event of Default") occur:
+( a) The Seller fails to install, operate, maintain, or repair the Seller's Facility in accordance with Good Engineering and Operating Practices within thirty (30) days of written notice of such breach from the Cooperative, and subject to the same extension of cure periods as set forth in Section 1.e. below; or (b) The Seller does not complete Seller's Facility and achieve an In-Service Date within 24 months of the Non-Appealable PUC Approval Order Date, whether.or not Force Majeure interferes with the completion of Seller's Facility, its operation, or sale of energy from it; or (C) The Seller fails to provide energy to the Cooperative for a period of three hundred sixty-five (365) or more consecutive days, or fails to sustain the technical capability to provide power to the Cooperative under the Agreement for a period of ninety (90) or more consecutive days, unless such failure is caused by Force Majeure or the inability of the Cooperative to accept such energy.
+This provision shall be subject to the same extension and cure periods as set forth in Section 1.e below.
+For purposes of this Section 1.d., technical capability to provide power shall mean that the Seller's Facility could be operated in a safe manner at that time in accordance with Good Engineering and Operating Practices; or (d) The Seller, by act or omission, materially breaches or defaults on any material covenant, condition or other provision of this Agreement, and fails to cure such breach or default within thirty (30) days after {W?DOCS\2607827\*0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Ju[26 2010
+C-1
+EXHIBIT 1
+written notice Of such breach or default from the Cooperative, unless (1) such breach or default is due to Force Majeure; provided, however, that if Seller does not cure such breach or default within 180 days of such notice, whether or not the breach or default resulted from Force Majeure or Force Majeure interferes with the cure, the Cooperative may terminate this Agreement or, (2) such breach Or default cannot be cured within thirty <30) days and the Seller is making diligent efforts to cure such breach or default; provided, however, that if such breach or default is not cured within 180 days of such notice, the Cooperative may terminate this Agreement.
+2. Termination by Seller.
+The Seller may terminate the Agreement at any time if any of the following conditions Can UEvent of Default") occurs:
+The Cooperative, by act or omission, materially breaches or defaults on any material covenant, condition or other provision of this Agreement, and fails to cure such breach or default within thirty (30) days after written notice of such breach or default from the Seller, unless (i) such breach or default is due to Force Majeure; provided, however, that if the Cooperative does not cure such breach or default within 180 days of such notice, whether or not the breach or default resulted from Force Majeure or Force Majeure interferes with the cure, Seller may terminate this Agreement ort (ii) such breach or default cannot be cured within thirty (30) days and the Cooperative is making diligent efforts to cure such breach or default; provided, however, that if such breach or default is not cured within 180
+days of such notice, Seller may terminate this Agreement;
+{W:\DOCS\26078\87\W0111871.DOC} (Signature Copy) Kimaa Solar draft no. 2 Jul 28 2010
+C-2
+EXHIBIT 1
+APPENDIX D: DEFINITIONS Affiliate:
+When used with reference to a specified person, any person that, directly or indirectly, through one or more intermediaries, controls, is controlled by, or is under common control with the specified person.
+Allowed Net Capacity:
+The maximum electrical output of the Seller's Facility in kilowatts for purposes of the Agreement, as defined in Appendix A, Section 5.e, which is used by the Cooperative for establishing a maximum instantaneous kWp output from the Sellerts Facility pursuant to Section 3 and for planning and operating the Cooperative's System.
+Cooperative's System:
+The electric system owned and operated by the Cooperative (to include any non-utility owned facilities) consisting of power plants, transmission and distribution lines, and related equipment for the production and delivery of electric power to the public.
+Cooperative's System Operator:
+The authorized representative of Cooperative who is responsible for carrying out Cooperative's Dispatch.
+Agreement Year:
+A twelve calendar month period which begins on the first day of the month coincident with or next following the In-Service Date and, thereafter, anniversaries thereof;
+provided, however, thatr in the event the In-Service Date is not the first day of the calendar month, the initial Agreement Year shall also include the days from the In-Service Date to the first day of the succeeding month.
+Energy Rate Adj ustment Clause:
+The provision in the Cooperative's rate schedules that allows the Cooperative to pass through to its customers the Cooperative's costs of fuel and purchased power.
+Environmental Credits:
+Any environmental credit, offset, or other benefit allocated, assigned or otherwise awarded by any governmental or international agency to the Cooperative or the Seller based in whole or in part on the fact that the Seller's Facility is a non-fossil fuel facility.
+Such Environmental Credits shall include, but not be limited to, green tags, renewable energy credits, and emissions credits, including credits triggered because such facility does not produce carbon {W:\DOCS\26078\87*0111871.DOC) (Signature Copy) Kapaa Solar draft no. 2 Jul 26 2010
+D-1
+EXHIBIT 1
+dioxide when generating electric energy, or any renewable energy credit, but in all cases shall not mean tax credits.
+Execution Date:
+The date referred to in the first paragraph of this Agreement.
+Force Majeure:
+Any event defined in Section 11(a) of this Agreement.
+Good Engineering and Operating Practices:
+The practices, methods and acts engaged in or approved by a significant portion of the electric utility industry for similarly situated U.S.
+facilities that at a particular time, in the exercise Of reasonable judgment in light of the facts known or that reasonably should be known at the time a decision is made, would be expected to accomplish the desired result in a manner consistent with law, regulation, reliability, safety, environmental protection, economy and expedition.
+With respect to the Seller' s Facility, Good Engineering and Operating Practices include, but are not limited to, taking reasonable steps to ensure that:
+1. Adequate materials, resources and supplies, including fuel, are available to meet the Seller's Facility's needs under normal conditions-and reasonably anticipated abnormal conditions.
+2. Sufficient operating personnel are available and are adequately experienced and trained to operate the Seller's Facility properly, efficiently and within manufacturer' s guidelines and specifications and are capable of responding to emergency conditions.
+3. Preventive, routine and non-routine maintenance and repairs are performed on a basis that ensures reliable long-term and safe operation, and are performed by knowledgeable, trained and experienced personnel utilizing proper equipment, tools, and procedures.
+4. Appropriate monitoring and testing is done to ensure equipment is functioning as designed and to provide assurance that equipment will function properly under both normal and emergency conditions.
+5. Equipment is operated in a manner safe to workers, the general public and the environment and in accordance with equipment manufacturer's specifications, including, without {W:\DOCS\26078\87\W0111871.DOC} (Signature Copy) K.paa Solar draft no. 2 Ju) 26 2010
+D-2
+EXHIBIT 1
+limitation, defined limitations such as steam pressure, temperature, moisture content, chemical content, quality of make up water, operating voltage, current, frequency, rotational speed, polarity, synchronization, control system limits, etc.
+Information: Seller shall provide or cause to be provided to Cooperative on a timely basis, as reasonably determined by Cooperative, all information, including but not limited to information that may be obtained in any audit referred to in Section 13 of the Agreement, reasonably requested by Cooperative for purposes of permitting Cooperative to meet its financial compliance obligations.
+In-Service Date:
+The date on which the Cooperative receives notification that the Seller has successfully met all requirements under the Interconnection Agreement.
+Interconnection Agreement: An interconnection agreement entered into by and between Seller and the Cooperative that provides for the Seller's Facility to be interconnected with the Cooperative's System, and for energy to flow from the Seller's Facility to such System through the Point of Interconnection.
+Interconnection Facilities:
+The equipment and devices required to permit Seller's Facility to operate in parallel with and deliver electric energy to Cooperative's System, such as, but not limited to, transmission lines, transformers, switches, and circuit breakers.
+kV:
+Kilovolt.
+kW,dc; Peak kilowatt rated' power output, direct current.
+MWpaci Peak megawatt rated power output, direct current.
+MElag: Megawatt-hour alternating current.
+Non-Appealable PUC Approval Order:
+(1) A PUC Approval Order that is not subject to appeal to any circuit or appellate court of the State of Hawai'i and/or the Supreme Court of the State of Hawai'i, or (2) a PUC Approval Order that was affirmed' on appeal to any circuit or appellate court of the State of Hawai i or the Supreme Court of the State of Hawai'i, or was affirmed upon further appeal or appellate process, and that is not subject to further appeal.
+{W:\DOCS\28078\87WV0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 28 2010
+D-3
+EXHIBIT 1
+Non-Appealable PUC Approval Order Date:
+The date that the PUC Approval Order becomes a Non-Appealable PUC Approval Order.
+Point Of Interconnection:
+The point of delivery of energy supplied by Seller to Cooperative where Seller's Facility interconnects with Cooperative's System.
+PUC (Public Utilities Commission):
+The Public Utilities Commission of the State of Hawai'i.
+PUC Approval Order Date:
+The date upon which the PUC Approval Order is issued.
+PUC Approval Order:
+The decision and order of the PUC approving the application or motion as filed on the PUC Submittal Date seeking the approvals set forth in this Agreement.
+PUC Submittal Date:
+The date of submittal of the Cooperative's complete application or motion for the approvals set forth in this Agreement.
+PURPA:
+Public Utility Regulatory Policies Act of 1978 (P.L. 95
+617) as amended from time to time and as applied in Hawai'i by the Public Utilities Commission.
+Reactive Power:
+Power consumed in an AC circuit because of the noncoincidental expansion and collapse of magnetic (inductive) and electrostatic (capacitive} fields.
+Expressed in volt-
+amperes-reactive (VAR).
+As a mathematical representation for reactive power Q = I2X = EI sin q where Q = reactive power (VAR), I = RMS current (A), X = net reactance (W), E = RMS voltage (V), q = angle between the E and I sine waves. It is power provided and maintained for the explicit purpose of insuring continuous, steady voltage on transmission networks and energy which must be produced for maintenance of the system and is not produced for end-use consumption.
+Seller's Facility:
+All equipment, devices, associated appurtenances owned, controlled, operated and managed by Seller in connection with, or to facilitate, the production, generation, transmission, delivery or furnishing of electricity by Seller to Cooperative and required to interconnect with Cooperative's System.
+Term: The Term of this Agreement is as defined in Section 5 of the Agreement.
+{W:\DOCS\26078\871W0111871.DOC} (Signature Copy) Kapaa Solar draft no. 2 Jul 282010
+D-4
+EXHIBIT 1
+Third Party:
+Any person or entity other than the Cooperative or the Seller, and includes, but is not limited tot any subsidiary or Affiliate of the Seller.
+{W:\DOCS28078\87%40111871.DOC} (Signature Copy) Kapsa Soter draft no. 2 Jul 26 2010
+I)-5
+EXHIBIT 1
+APPENDIX E: DISPUTE RESOLUTION 1. Good Faith Negotiations Before any dispute under this Agreement is subjected to the provisions of Section 2 of this Appendix E or any litigation, the presidents, vice presidents, or authorized delegates from both the Seller and the Cooperative having full authority to settle the dispute, shall personally meet in Hawai'i and attempt in good faith to resolve the dispute.
+2. Dispute Resolution Procedures If the parties are unable to resolve any dispute under this Agreement under the procedures of Section 1 of this Appendix E, such dispute shall be submitted to arbitration administered by Dispute Prevention & Resolution, Inc. ("DPR") in accordance with its then existing Arbitration Rules, Procedures & Protocols.
+The arbitration shall take place in the State of Hawaii before a single arbitrator selected in accordance with the Arbitration Rules, Procedures & Protocols of DPR.
+The decision of the arbitrator in the matter shall be final and binding upon the Parties and judgment on the award rendered by the arbitrator may be entered in any court having jurisdiction.
+The Parties agree that the arbitrator shall have the power to award damages, and reasonable attorneys' fees and expenses to either Party in such arbitration; provided that this arbitration provision does not prevent either Party from seeking interim injunctive relief from a court in order to preserve the status quo during the arbitration process; and, provided further that, this agreement to arbitrate shall be specifically enforceable and this Appendix E shall not preclude either party from pursuing its equitable remedies to enforce this agreement to arbitrate, including without limitation, seeking injunctive relief.
+END OF DOCUMENT {W:\DOCS\28078\870111871.DOC) (SIgnatum Copy} Kapaa Solar draft rio. 2 Jul 26 2010
+E-I EXHIBIT 2
+uoilepe.,¥ap JeaA Jad %05· IR'OD (4/V\IAI) 1¥101
+t'86'EIS'Ot (4MM) 14101
+ISZ'9E5'I SEOZ SE Il.6'Et,5'I DEOZ VE OEL'ISS'I EEOZ Et £ 25'655'I CEOE ZE f9 E 'L95'I TEOZ IZ IDE' SL 5' I 0£02 OZ 9SI'E85'I 6Z0Z 6I ZII'I65'I 8Z0E RI LOT'665'I LZOZ LI EDI'L09'I 9Z0Z 9I 6IZ'5I9'I SEOZ SI 9EE'EZ9'I DZOE VI E6*'IE9'I EZOZ EI Z69'6E9'I ZZOZ ZI IE6'Lt79'I IZOE TI EIZ'969'I OZOE OI 5EG't,99'I 6I0Z 6
+006'Z £91
+8I0Z 8
+90E'I89'I LIOZ L 5SL'689'I 9IOZ 9
+9*Z'869'I SIOZ S 08Z'90Z'I D'IOZ P LSE'SIL'I EIOZ £ LL6'EZL'I ZIOZ Z 0*9'ZEL'I TIOE I (4MW) uoilonpold JeaA POLled E9f'I JeaA/AA)1/4AA>1
+4)}!d 001300 02
+OV'*BI'I 0npOLU/lleM SZZ sainpow *91'5
+uollonpOJd AN.Jal.13 pa)03!CLId Stoll 3909 reae>1
+NOLDAOOkld A913 N3 1VANNV 031VINI1S3
+Z 1ISIHX3
+EXHIBIT 3
+0 L 02/60/L .LAOAV-1
+10 :AEB IH'WdV>1
+SGNV-IH91H Wd¥)1
+MalS.AS OF*110;WJQW **l,mICI@30
+n,111 ·O .Glm,O OutidlaD I 9,8,"00
+101#82*508) lm:1 1299159(299) ouotld M ¥Sn &0£5¥0 'adgqo •Fl ues JmmdIV'109
+1-
+-Ml,a[13)403 ON! WIOS Om, NDIS30 9,91)133?liON31103 9NIONad 39,MO 01103fill,S 9-130
+NOIS3O 1'9711,*30NOO /2
+l i,Z-,8ZE 143.1
+SN St'£ SNIOVdS MOB (n) 30 SONIBLS (9ZE) S31n0OW Bvlos 9NI>lOni SanlaS OSE 03kl :9NDIOVE ankil 008I : HirIWIZV OOZ :11LL NOIJLVWMO:INI WalSAS 30 AAW +ST'I =M>1 (5229
+X (•915) M>1 052 NOWV-IOS 3¥ (t,) :9131213/\NI Sn-Eld SZZ 030
+(*925) :sinnoow JLNEIWdInba WalSAS 1
+EXHIBIT'3
+1, limim¥mmfmmimn immm=Tmm™Im .II-,96+ f t 1¥mmmFFmmm¥Ffmi Immnmmimmm'fm Immmlmflmlmml immimimFmmU#FR ImmAmmm¥mmmI mmm0mmmimml 1 ,02 .
+mmHmmlmlmmmI -
+mmm=immamm m,FmmmFmmm¥Fm mimIERm141
+mmmmRmmm¥m¥1
+91%.1/Imill'Im.
+dAL * .I-**SI dAL j\ „6-.IOI \\ 1
+43. f. d 54
+190
+NOU¥001 31!S-
+XI MA *9Ft - SONV-IHDIH Wd¥>1
+AVBHV MV-109 03$0cl0%Id CERTIFICATE OF SERVICE 1 (we) hereby certify that copies of the foregoing document were duly served on the following party, by having said copies delivered as set forth below:
+DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS DIVISION OF CONSUMER ADVOCACY 335 Merchant Street Room 326
+Honolulu, Hawaii 96813
+2 COPIES VIA HAND DELIVERY DATED: Honolulu, Hawaii, September 20,2010.
+T A, 4 b q/7
+KE _ MORIHARA KRIS N. NAKAGAWA LAUREN M. IMADA-LEE Morihara Lau & Fong LLP Attorneys for Applicant 
