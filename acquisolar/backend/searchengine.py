@@ -8,9 +8,10 @@ from llama_index import (
     load_index_from_storage,
     ServiceContext,
     SummaryIndex,
+    get_response_synthesizer
 )
 from llama_index.llms import OpenAI, Replicate
-from llama_index.query_engine import RouterQueryEngine
+from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine
 from llama_index.tools import (
     QueryEngineTool,
     ToolMetadata,
@@ -24,6 +25,7 @@ LLM = Replicate(
     is_chat_model=False
 )
 SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
+SYNTH = get_response_synthesizer(streaming=True)
 
 def query(text, index_dir = './index_storage'):
     if not os.path.exists(index_dir):
@@ -37,21 +39,30 @@ def query(text, index_dir = './index_storage'):
 
     # either way we can now query the index
     vector_tool = QueryEngineTool(
-        vector_index.as_query_engine(similarity_top_k=3, response_mode='compact'),
+        vector_index.as_query_engine(similarity_top_k=5, response_mode='compact'),
         metadata=ToolMetadata(
             name="vector_search",
             description="Useful for searching for specific facts."
         )
     )
 
+    summary_tool = QueryEngineTool(
+        vector_index.as_query_engine(similarity_top_k=5, response_mode='tree_summarize'),
+        metadata=ToolMetadata(
+            name="summary_search",
+            description="Useful for searching for general summary information."
+        )
+    )
+    
     query_engine = RouterQueryEngine.from_defaults(
-        [vector_tool],
+        [vector_tool, summary_tool],
         service_context=SERVICE_CONTEXT,
-        select_multi=False,
+        select_multi=True,
     )
 
-    response = query_engine.query(text)
-    return response
+    query_engine = vector_index.as_query_engine(similarity_top_k=5, response_mode='compact', streaming=True)
+
+    return query_engine.query(text).response_gen
 
 def index(doc_dir='./documents', index_dir='./index_storage'):
     if not os.path.exists(doc_dir):

@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory, jsonify, stream_with_context
 import os
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -6,6 +6,7 @@ import subprocess
 
 import searchengine
 
+# Create the Flask app
 app = Flask(__name__, static_folder="../frontend/build", static_url_path='/')
 
 # Configuration for file uploads
@@ -13,22 +14,15 @@ app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
 app.config['UPLOADED_FILES_INDEX'] = 'index_storage'  # where files are indexed
 app.config['UPLOADED_FILES_ALLOW'] = ['pdf']  # allowed file types
 
+# Configure file uploads
 files = UploadSet('files', ['pdf'])
 configure_uploads(app, files)
-#patch_request_class(app)  # to limit upload size; default is 16MB
 
 # Ensure upload directory exists
 if not os.path.exists(app.config['UPLOADED_FILES_DEST']):
     os.makedirs(app.config['UPLOADED_FILES_DEST'])
 
-def call_python(file):
-    try:
-        result = subprocess.run(['python3', file], capture_output=True, text=True, check=True)
-        return result.stdout.strip()
-    except subprocess.CalledProcessError as e:
-        print(f"Error running script: {e.stderr}")
-        return None
-
+# File upload endpoint
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'files' in request.files:
@@ -51,16 +45,19 @@ def upload():
             return jsonify(error="No valid PDF files selected!"), 400
     return jsonify(error="No files part in request!"), 400
 
+# Search endpoint
 @app.route('/search', methods=['POST'])
 def search():
     search_query = request.json.get('query', '')
     print('Received search query:', search_query)
     
-    # Search the index
+    # Search the index and return a streaming response
     response = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
 
-    return jsonify(response=str(response))
+    # Return the streaming response
+    return stream_with_context(response)
 
+# Serve the frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
