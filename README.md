@@ -1,5 +1,25 @@
 # AcquiSolar
 
+## Summary Sprint 2
+
+Magnus: 
+* Accomplished in Sprint 2: 
+* Plan for Sprint 3:
+
+Leon: 
+* Accomplished in Sprint 2: 
+* Plan for Sprint 3:
+
+Zara:
+* Accomplished in Sprint 2: 
+* Plan for Sprint 3:
+
+Jürgen:
+* Accomplished in Sprint 2: 
+* Plan for Sprint 3:
+
+
+
 ## Summary Sprint 1
 
 Magnus: 
