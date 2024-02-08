@@ -19,11 +19,18 @@ from llama_index.tools import (
 from llama_index.response.notebook_utils import display_response
 from llama_index.prompts import PromptTemplate
 
+# API keys
+os.environ["OPENAI_API_KEY"] = "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"
 os.environ["REPLICATE_API_TOKEN"] = "r8_JGumNCYSrS3ikipf7vqjvSTLyfYiWtp3cxYjo"
-LLM = Replicate(
+
+# LLM
+""" LLM = Replicate(
     model="meta/llama-2-70b-chat:2796ee9483c3fd7aa2e171d38f4ca12251a30609463dcfd4cd76703f22e96cdf",
     is_chat_model=False
-)
+) """
+LLM = OpenAI(temperature=0, model='gpt-3.5-turbo')
+
+# Service context
 SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
 SYNTH = get_response_synthesizer(streaming=True)
 
@@ -37,7 +44,7 @@ def query(text, index_dir = './index_storage'):
     # load the index from storage
     vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
 
-    # either way we can now query the index
+    """ # either way we can now query the index
     vector_tool = QueryEngineTool(
         vector_index.as_query_engine(similarity_top_k=5, response_mode='compact'),
         metadata=ToolMetadata(
@@ -58,7 +65,7 @@ def query(text, index_dir = './index_storage'):
         [vector_tool, summary_tool],
         service_context=SERVICE_CONTEXT,
         select_multi=True,
-    )
+    ) """
 
     query_engine = vector_index.as_query_engine(similarity_top_k=5, response_mode='compact', streaming=True)
 
