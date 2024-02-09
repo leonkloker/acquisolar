@@ -2,8 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 // url of aws server and port 80
-// change to "" for localhost
-const URL = 'http://54.90.226.66:80'
+// change to '' for localhost
+// const URL = 'http://54.90.226.66:80'
+const URL = ''
 
 const Main = () => {
   const [files, setFiles] = useState([]);
