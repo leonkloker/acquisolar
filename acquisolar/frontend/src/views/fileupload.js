@@ -1,6 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
+// url of aws server and port 80
+// change to "" for localhost
+const URL = 'http://54.90.226.66:80'
+
 const Main = () => {
   const [files, setFiles] = useState([]);
   const [fileNames, setFileNames] = useState([]);
@@ -18,7 +22,7 @@ const Main = () => {
     }
   
     try {
-      const response = await fetch('/search', {
+      const response = await fetch(URL + '/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +81,7 @@ const Main = () => {
     console.log(formData);
 
     try {
-      const response = await fetch('/upload', {
+      const response = await fetch(URL + '/upload', {
         method: 'POST',
         body: formData,
       });
