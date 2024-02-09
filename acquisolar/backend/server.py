@@ -9,7 +9,9 @@ import searchengine
 
 # Create the Flask app
 app = Flask(__name__, static_folder="../frontend/build", static_url_path='/')
-CORS(app)
+
+# Enable CORS only on AWS
+#CORS(app)
 
 # Configuration for file uploads
 app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
@@ -69,5 +71,6 @@ def serve(path):
         return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
-    port = 80
+    # 3000 for localhost, 80 for remote on AWS
+    port = 3000
     app.run(host='0.0.0.0', port=port, debug=True)
