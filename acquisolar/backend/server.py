@@ -59,6 +59,8 @@ def search():
     response = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
 
     # Return the streaming response
+    for word in response:
+        print(word, end='', flush=True)
     return stream_with_context(response)
 
 # Serve the frontend
