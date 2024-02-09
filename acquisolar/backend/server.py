@@ -1,4 +1,5 @@
 from flask import Flask, request, send_from_directory, jsonify, stream_with_context
+from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -8,6 +9,7 @@ import searchengine
 
 # Create the Flask app
 app = Flask(__name__, static_folder="../frontend/build", static_url_path='/')
+CORS(app)
 
 # Configuration for file uploads
 app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
