@@ -1,5 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { Document, Page, pdfjs } from 'react-pdf';
+
+// Set the workerSrc for pdfjs
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 // url of aws server and port 80
 // change to '' for localhost
@@ -11,7 +15,9 @@ const Main = () => {
   const [fileNames, setFileNames] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [currentPdf, setCurrentPdf] = useState(null);
+  const [numPages, setNumPages] = useState(null); 
+  
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -43,15 +49,27 @@ const Main = () => {
   };
 
   const onDrop = useCallback((acceptedFiles) => {
+    // Prevents duplicates from being uploaded (based on filename atm)
     const filteredFiles = acceptedFiles.filter(file => file.type === 'application/pdf');
     setFiles((prevFiles) => [...prevFiles, ...filteredFiles]);
+
+    // If there's no currently selected PDF, display the first one dropped
+    if (filteredFiles.length && !currentPdf) {
+      setCurrentPdf(filteredFiles[0]);
+    }
+
+    // Filenames that are displayed when file is uploaded
     setFileNames((prevFiles) => {
       const newFileNames = filteredFiles.map((file) => file.name);
       const existingFileNames = new Set(prevFiles);
       const uniqueNewFileNames = newFileNames.filter((fileName) => !existingFileNames.has(fileName));
       return [...prevFiles, ...uniqueNewFileNames];
     });
-  }, []);
+  }, [currentPdf]);
+
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
 
   const removeFile = (fileName, event) => {
     event.stopPropagation(); // Prevent the event from bubbling up to parent elements
@@ -61,6 +79,7 @@ const Main = () => {
   };
 
   const { getRootProps, getInputProps } = useDropzone({
+    // Only allows pdfs
     accept: 'application/pdf',
     onDrop,
   });
@@ -139,8 +158,20 @@ const Main = () => {
             </li>
           ))}
         </ul>
-      </div> 
+      </div>
     </div>
+    {showSearch && currentPdf && (
+        <div style={styles.pdfContainer}>
+          <Document
+            file={currentPdf}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+            ))}
+          </Document>
+        </div>
+      )}
     {!showSearch && (
       <div style={styles.dragTextContainer}>
         <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
@@ -318,6 +349,12 @@ const styles = {
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
     fontWeight: 'bold',
   },
+  pdfContainer: {
+    maxHeight: '600px',
+    overflowY: 'auto',
+    marginLeft: '5%',
+    marginRight: '10%',
+  }
   
 };
 
