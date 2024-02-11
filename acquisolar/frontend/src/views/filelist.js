@@ -1,3 +1,4 @@
+// UI for the filelist in the dropbox
 import React from 'react';
 
 const FileList = ({ fileNames, removeFile }) => {

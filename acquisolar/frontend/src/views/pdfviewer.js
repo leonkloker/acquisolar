@@ -1,3 +1,4 @@
+// UI for the pdfviewer
 import React from 'react';
 import { Document, Page } from 'react-pdf';
 
@@ -72,5 +73,4 @@ const styles = {
       }
   };
 
-// Remember to pass onDocumentLoadSuccess function from the parent component or define it here if it's only used by PDFViewer
 export default PDFViewer;
