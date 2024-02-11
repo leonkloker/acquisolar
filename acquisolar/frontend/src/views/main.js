@@ -10,7 +10,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // url of aws server and port 80
 // change to '' for localhost
 // const URL = 'http://54.90.226.66:80'
-const URL = ''
+// Changed this variable name or causes issues with other parts of code
+const URLServer = ''
 
 const Main = () => {
   const [files, setFiles] = useState([]);
@@ -19,6 +20,45 @@ const Main = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPdf, setCurrentPdf] = useState(null);
   const [numPages, setNumPages] = useState(null); 
+  const [instances, setInstances] = useState([]);
+  const [currentInstance, setCurrentInstance] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const findInstancesOfSearchTerm = async () => {
+    let instancesFound = [];
+    if (!currentPdf) return;
+
+    const pdfDocument = await pdfjs.getDocument(URL.createObjectURL(currentPdf)).promise;
+
+    for (let i = 1; i <= numPages; i++) {
+      const page = await pdfDocument.getPage(i);
+      const textContent = await page.getTextContent();
+      // Look for instances of the search term in the text content
+      textContent.items.forEach((item) => {
+        if (item.str.includes(searchQuery)) {
+          instancesFound.push({ page: i, instance: item.str });
+        }
+      });
+    }
+    setInstances(instancesFound);
+    if (instancesFound.length > 0) {
+      setPageNumber(instancesFound[0].page); // Go to the first instance page
+    }
+  };
+
+  const goToNextInstance = () => {
+    if (instances.length === 0) return;
+    const nextInstance = (currentInstance + 1) % instances.length;
+    setCurrentInstance(nextInstance);
+    setPageNumber(instances[nextInstance].page);
+  };
+
+  const goToPreviousInstance = () => {
+    const nextInstance = (currentInstance - 1) % instances.length;
+    setCurrentInstance(nextInstance);
+    setPageNumber(instances[nextInstance].page);
+  };
+
   
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -48,6 +88,7 @@ const Main = () => {
     } catch (error) {
       console.error('Error during search', error);
     }
+    findInstancesOfSearchTerm();
   };
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -103,7 +144,7 @@ const Main = () => {
     console.log(formData);
 
     try {
-      const response = await fetch(URL + '/upload', {
+      const response = await fetch(URLServer + '/upload', {
         method: 'POST',
         body: formData,
       });
@@ -147,6 +188,12 @@ const Main = () => {
           handleSearchInputChange={handleSearchInputChange} 
           handleSearchSubmit={handleSearchSubmit} 
           onDocumentLoadSuccess = {onDocumentLoadSuccess}
+          instances={instances}
+          currentInstance={currentInstance}
+          findInstancesOfSearchTerm={findInstancesOfSearchTerm}
+          goToNextInstance={goToNextInstance}
+          goToPreviousInstance={goToPreviousInstance}
+          pageNumber={pageNumber}
         />
 
         {/* Instructions for users */}
@@ -159,7 +206,7 @@ const Main = () => {
 
       {/* Submit button */}
       {!showSearch && (
-        <button style={styles.analyzeButton} onClick={uploadFilesToServer}>Submit</button>
+        <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
       )}
     </div>
   );
@@ -205,7 +252,7 @@ const styles = {
     padding: '20px',
     width: '300px',
     height: '400px',
-    borderRadius: '20px',
+    borderRadius: '15px',
     backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
@@ -221,7 +268,7 @@ const styles = {
     fontSize: '18px',
     fontWeight: 'bold',
   },
-  analyzeButton: {
+  submitButton: {
     padding: '10px 20px',
     marginLeft: '20px',
     fontSize: '16px',
@@ -232,7 +279,6 @@ const styles = {
     color: 'black',
     alignSelf: 'flex-start', 
     fontWeight: 'bold',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
   addButton: {
     marginLeft: '10px',

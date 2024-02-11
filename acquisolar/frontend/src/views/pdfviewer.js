@@ -2,42 +2,69 @@
 import React from 'react';
 import { Document, Page } from 'react-pdf';
 
-const PDFViewer = ({ showSearch, currentPdf, numPages, searchQuery, handleSearchInputChange, handleSearchSubmit, onDocumentLoadSuccess }) => {
-  return (
+const PDFViewer = ({ showSearch, currentPdf, numPages, searchQuery, handleSearchInputChange, handleSearchSubmit, onDocumentLoadSuccess, 
+    instances, currentInstance, findInstancesOfSearchTerm, goToNextInstance, pageNumber, goToPreviousInstance }) => {
+return (
     <div style={styles.pdfViewer}>
-      {showSearch && (
-        <div style={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="Search..."
-            style={styles.searchInput}
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-          />
-          <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
+        {showSearch && (
+        <div style={styles.searchHeader}>
+            <div style={styles.searchContainer}>
+            <input
+                type="text"
+                placeholder="Search..."
+                style={styles.searchInput}
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+            />
+            <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
+            </div>
+            <div style={styles.instanceContainer}>
+            {instances.length > 0 && (
+                <>
+                <span style={styles.instanceText}>
+                    Instance ({currentInstance + 1}/{instances.length})
+                </span>
+                <button style={styles.searchButton} onClick={goToPreviousInstance}>
+                    Previous
+                </button>
+                <button style={styles.searchButton} onClick={goToNextInstance}>
+                    Next
+                </button>
+                </>
+            )}
+            </div>
         </div>
-      )}
-      {showSearch && currentPdf && (
+        )}
+        {showSearch && currentPdf && (
         <div style={styles.pdfContainer}>
-          <Document
+            <Document
             file={currentPdf}
             onLoadSuccess={onDocumentLoadSuccess}
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-            ))}
-          </Document>
+            >
+            <Page pageNumber={pageNumber} />
+            </Document>
         </div>
-      )}
+        )}
     </div>
-  );
+    );
 };
 
 const styles = {
+    searchHeader: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '10px', 
+    },
     searchContainer: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    instanceContainer: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
     },
     searchInput: {
       height: '40px',
@@ -47,7 +74,6 @@ const styles = {
       borderRadius: '20px',
       marginRight: '10px',
       outline: 'none',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     },
     searchButton: {
       padding: '10px 20px',
@@ -58,19 +84,25 @@ const styles = {
       borderRadius: '20px',
       cursor: 'pointer',
       outline: 'none',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
       fontWeight: 'bold',
+      margin: '4px'
     },
     pdfContainer: {
-      maxHeight: '600px',
-      overflowY: 'auto',
-      marginLeft: '5%',
-      marginRight: '10%',
+        maxWidth: '80%',
+        maxHeight: '600px',
+        overflowY: 'auto',
+        marginLeft: '5%',
+        marginRight: '10%',
     },
     pdfViewer: {
         flex: 1,
         flexDirection: 'column',
-      }
+    },
+    instanceText: {
+        color: 'white', 
+        fontWeight: 'bold',
+        margin: '0 4px', 
+    },
   };
 
 export default PDFViewer;
