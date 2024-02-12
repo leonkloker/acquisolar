@@ -10,12 +10,19 @@ import shutil
 
 client = OpenAI(api_key="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")  # Text completion
 
-#set directory
-def set_working_directory():
-    # Change the working directory my local one
-    target_directory = r'C:\Users\MBAUser\AcquiSolar\Metadata_extraction'
-    os.chdir(target_directory)
-    print("Current working directory:", os.getcwd())
+#set root directory
+def set_root_directory():
+    # Get the directory where the current script resides
+    root_directory = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(root_directory)
+    print("Root directory set to:", root_directory)
+    return root_directory
+
+# Function to construct relative paths for input and output directories
+def construct_relative_paths(root_directory):
+    input_dir = os.path.join(root_directory, "input")
+    output_dir = os.path.join(root_directory, "output")
+    return input_dir, output_dir
 
 #go from pdf to query
 def extract_pdf_info(pdf_path):
@@ -161,8 +168,8 @@ def make_openai_api_call(truncated_query):
     Make an API call to OpenAI with the given truncated query and return the JSON response.
     """
     completion = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
-        #model="gpt-4",
+        #model="gpt-3.5-turbo-0125",
+        model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a solar M&A analyst and great at extracting summaries and text from M&A documentation. Under no circumstances do you halucinate, instead you say that you leave a field blank if you cannot answer"},
             {"role": "user", "content": truncated_query}
@@ -333,13 +340,9 @@ def consolidate_json_outputs(output_dir, consolidated_file_name="consolidated_js
       
 
 
-set_working_directory()
-
-# Adjusting the directories to your specific paths
-input_dir = r'C:\Users\MBAUser\AcquiSolar\Metadata_extraction\input'
-output_dir = r'C:\Users\MBAUser\AcquiSolar\Metadata_extraction\output'
+root_directory = set_root_directory()
+input_dir, output_dir = construct_relative_paths(root_directory)
 project_name = "MegaSolar"
 
-
-#main(input_dir, output_dir)
+main(input_dir, output_dir)
 consolidate_json_outputs(output_dir)    # create overall report
