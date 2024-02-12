@@ -20,7 +20,7 @@ def set_root_directory():
 
 # Function to construct relative paths for input and output directories
 def construct_relative_paths(root_directory):
-    input_dir = os.path.join(root_directory, "uploads")
+    input_dir = os.path.join(root_directory, "documents")
     output_dir = os.path.join(root_directory, "structured_data")
     return input_dir, output_dir
 
@@ -81,13 +81,13 @@ def truncate_query_to_fit_context(query, max_length=10000):
 def construct_query(extracted_text,folder_structure_indented):
     query = f"""
 Extract the following fields from the document text provided and format the response as valid JSON:
-- "Document date" in the format '3 letter month name-DD, YYYY'.
-- "Document summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
-- "Suggested title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
-- "Suggested title v2" in same format as "suggested title" but with different wording
-- "Suggested title v3" in same format as "suggested title" but with different wording
-- "PPA value" leave blank if not a ppa. If a PPA, find the pricing scheudle. in the format yearly price in USD per kwh. if it is stated in different units, calculate. leave blank if cant find or are not sure of the calculation.
-- "Document folder path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you really cant find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders.
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "PPA_value" leave blank if not a ppa. If a PPA, find the pricing scheudle. in the format yearly price in USD per kwh. if it is stated in different units, calculate. leave blank if cant find or are not sure of the calculation.
+- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you really cant find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders.
 {folder_structure_indented}
 
 The provided document text is:
@@ -99,50 +99,50 @@ def output_extracted_text_to_file(extracted_text, output_path):
         f.write(extracted_text)
 
 #query and output
-def process_pdf(pdf_path,output_dir,folder_structure_indented):
+def process_pdf(pdf_path, output_dir, folder_structure_indented):
     """
-    Process a single PDF file: extract text, generate and truncate query,
-    make an OpenAI API call, save the JSON response in the correct folder
-    and copy the pdf to the same folder.
+    Adjusted to ensure the 'document_folder_path' uses the correct 'project_name/unclassified'.
     """
     print(f"Processing {os.path.basename(pdf_path)}...")
     
     extracted_text, num_pages, title = extract_pdf_info(pdf_path)
-    #extracted_text_path = os.path.join(output_dir, os.path.splitext(os.path.basename(pdf_path))[0] + '_Extracted_text.txt')
-    #output_extracted_text_to_file(extracted_text, extracted_text_path)
     
-    query = construct_query(extracted_text,folder_structure_indented)
+    query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
 
     output_json = make_openai_api_call(truncated_query)
 
-    print("Output JSON received:")
-
     # Assuming output_json is a string; parse it to a dict
     data = json.loads(output_json)
-    # Update the data dictionary with additional information
+    
     data.update({
         "number_of_pages": num_pages,
         "original_title": title
     })
-     # Extract 'Document folder path' from the JSON response
-    document_folder_path = data.get("Document folder path", "Unclassified")
 
-    # Build the path to the specified folder inside the output directory
+    # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
+    document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
+    
+    # Correctly handle the 'Unclassified' case and ensure the path starts with 'project_name/'
+    if not document_folder_path.startswith(project_name):
+        document_folder_path = os.path.join(project_name, "Unclassified")
+
+    # Build the correct final path within the output directory
     final_path = os.path.join(output_dir, document_folder_path)
     os.makedirs(final_path, exist_ok=True)  # Ensure the folder exists
     
-    
-    # Save the updated JSON to the specified folder
+    # Save the updated JSON and copy the PDF
     json_filename = os.path.splitext(os.path.basename(pdf_path))[0] + ".json"
     json_output_path = os.path.join(final_path, json_filename)
     with open(json_output_path, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=4)
     
-    # Copy the PDF to the same folder
     shutil.copy2(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
 
     print(f"Finished processing {os.path.basename(pdf_path)}. JSON and PDF saved to {final_path}.")
+
+
+
 
 def make_json_valid(response_content):
     """
@@ -183,23 +183,6 @@ def make_openai_api_call(truncated_query):
     valid_json_string = make_json_valid(response_content)
 
     return valid_json_string
-
-def main(input_dir, output_dir):
-    """
-    Main function to process all PDF files in the input directory.
-    """
-    # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # extract file structure from the zip. save folder_structure_indented as the folder structure to be used in the query
-    folder_structure_indented = find_and_create_zip_structure(input_dir, output_dir, project_name)
-
-    # List all PDF files in the input directory
-    pdf_files = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
-    
-    for pdf_name in pdf_files:
-        pdf_path = os.path.join(input_dir, pdf_name)
-        process_pdf(pdf_path, output_dir, folder_structure_indented)
 
 #Extract file structure
 def find_and_note_zip_structure(input_dir, project_name):
@@ -321,7 +304,7 @@ def find_and_create_zip_structure(input_dir, output_dir, project_name):
         print("No folder structure to create.")
 
 # testing functoinality
-def consolidate_json_outputs(output_dir, consolidated_file_name="consolidated_jsons.json"):
+def consolidate_json_outputs(output_dir, consolidated_file_name="summary_of_files.json"):
     """
     Consolidate all JSON files in the output directory into one large JSON file.
 
@@ -344,10 +327,52 @@ def consolidate_json_outputs(output_dir, consolidated_file_name="consolidated_js
         json.dump(all_data, consolidated_file, indent=4)
 
     print(f"All JSON data consolidated into {consolidated_path}")
-      
+
+# outputing dict of file locations
+def get_folders_and_files(output_dir, project_name):
+    project_path = os.path.join(output_dir, project_name)
+    folder_files_dict = {}
+
+    # Ensure the project directory exists
+    if not os.path.exists(project_path):
+        print(f"The project directory {project_path} does not exist.")
+        return folder_files_dict
+
+    # Loop through the directory structure within the project_name folder
+    for root, dirs, files in os.walk(project_path):
+        # Only consider folders without subdirectories or with files
+        if not dirs:  # This folder does not contain subfolders
+            folder_rel_path = os.path.relpath(root, output_dir)  # Get relative path from output_dir
+            folder_files_dict[folder_rel_path] = files or [""]  # Use empty string for folders without files
+
+    return folder_files_dict
+
+def main(input_dir, output_dir, project_name):
+    """
+    Main function to process all PDF files in the input directory.
+    """
+    # Ensure the output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # extract file structure from the zip. save folder_structure_indented as the folder structure to be used in the query
+    folder_structure_indented = find_and_create_zip_structure(input_dir, output_dir, project_name)
+
+    # List all PDF files in the input directory
+    pdf_files = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
+    
+    for pdf_name in pdf_files:
+        pdf_path = os.path.join(input_dir, pdf_name)
+        process_pdf(pdf_path, output_dir, folder_structure_indented)
+    
+    file_location_dict = get_folders_and_files(output_dir, project_name)
+    consolidate_json_outputs(output_dir)    # create overall report
+    return file_location_dict
+
+
+project_name = "MegaSolar"
+
 if __name__ == "__main__":
     root_directory = set_root_directory()
     input_dir, output_dir = construct_relative_paths(root_directory)
-
-    main(input_dir, output_dir)
-    consolidate_json_outputs(output_dir)    # create overall report
+    project_name = "MegaSolar"
+    main(input_dir, output_dir, project_name)
