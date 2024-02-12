@@ -36,8 +36,8 @@ SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
 SYNTH = get_response_synthesizer(streaming=True)
 
 # Loaders
-#PDFReader = download_loader("PDFMinerReader")
-loader = download_loader("UnstructuredReader")
+loader = download_loader("PDFMinerReader")
+#loader = download_loader("UnstructuredReader")
 
 def query(text, index_dir = './index_storage'):
     if not os.path.exists(index_dir):

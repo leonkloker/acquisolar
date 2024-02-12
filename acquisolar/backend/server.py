@@ -12,7 +12,7 @@ import searchengine
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
 
 # Enable CORS only on AWS
-#CORS(app)
+CORS(app)
 
 # Configuration for file uploads
 app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
@@ -31,6 +31,9 @@ if not os.path.exists(app.config['UPLOADED_FILES_DEST']):
 # File upload endpoint
 @app.route('/upload', methods=['POST'])
 def upload():
+    if not os.path.exists(app.config['UPLOADED_FILES_DEST']):
+        os.makedirs(app.config['UPLOADED_FILES_DEST'])
+    
     if 'files' in request.files:
         filenames = []
         for file in request.files.getlist('files'):
@@ -62,14 +65,17 @@ def search():
     print('Received search query:', search_query)
     
     # Search the index and return a streaming response
-    response = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
+    response_gen, sources = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
 
     # Return the streaming response
-    for word in response:
+    for word in response_gen:
         print(word, end='', flush=True)
 
+    for source in sources:
+        print(source)
+
     # return strings, document name
-    return stream_with_context(response)
+    return stream_with_context(response_gen)
 
 # Serve the frontend
 @app.route('/', defaults={'path': ''})
@@ -81,6 +87,6 @@ def serve(path):
         return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
-    # 3000 for localhost, 80 for remote on AWS
-    port = 3000
+    # 3001 for localhost, 80 for remote on AWS
+    port = 3001
     app.run(host='0.0.0.0', port=port, debug=True)

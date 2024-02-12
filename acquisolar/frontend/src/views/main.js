@@ -8,10 +8,10 @@ import PDFViewer from './pdfviewer';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 // url of aws server and port 80
-// change to '' for localhost
-// const URL = 'http://54.90.226.66:80'
+// change to 'http://localhost:3001' for localhost
+// or http://54.90.226.66:80' for aws
 // Changed this variable name or causes issues with other parts of code
-const URLServer = ''
+const URLServer = 'http://localhost:3001'
 
 const Main = () => {
   const [files, setFiles] = useState([]);
@@ -71,7 +71,7 @@ const Main = () => {
     }
   
     try {
-      const response = await fetch(URL + '/search', {
+      const response = await fetch(URLServer + '/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
