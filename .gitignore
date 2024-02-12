@@ -25,3 +25,7 @@ yarn-error.log*
 # python env and cache
 **python-env**
 **__pycache__**
+
+# data
+**documents**
+**index_storage**

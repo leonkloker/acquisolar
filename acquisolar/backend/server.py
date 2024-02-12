@@ -5,10 +5,11 @@ from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import subprocess
 
+import classification
 import searchengine
 
 # Create the Flask app
-app = Flask(__name__, static_folder="../frontend/build", static_url_path='/')
+app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
 
 # Enable CORS only on AWS
 #CORS(app)
@@ -17,6 +18,7 @@ app = Flask(__name__, static_folder="../frontend/build", static_url_path='/')
 app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
 app.config['UPLOADED_FILES_INDEX'] = 'index_storage'  # where files are indexed
 app.config['UPLOADED_FILES_ALLOW'] = ['pdf']  # allowed file types
+app.config['STRUCTURED_DATA'] = 'data_structured'  # where structured data is stored
 
 # Configure file uploads
 files = UploadSet('files', ['pdf'])
@@ -39,10 +41,14 @@ def upload():
         if filenames:
             print('Uploaded files:', filenames)
 
-            # Index the uploaded files
+            # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
+            output_dir = app.config['STRUCTURED_DATA']
+            classification.main(doc_dir, output_dir)
+
+            # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
-            searchengine.index(doc_dir, index_dir=index_dir)
+            searchengine.index(output_dir, index_dir=index_dir)
 
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
@@ -61,6 +67,8 @@ def search():
     # Return the streaming response
     for word in response:
         print(word, end='', flush=True)
+
+    # return strings, document name
     return stream_with_context(response)
 
 # Serve the frontend

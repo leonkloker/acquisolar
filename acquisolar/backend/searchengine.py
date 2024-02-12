@@ -12,7 +12,7 @@ from llama_index import (
     download_loader
 )
 from llama_index.llms import OpenAI, Replicate
-from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine
+from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine, CitationQueryEngine
 from llama_index.tools import (
     QueryEngineTool,
     ToolMetadata,
@@ -51,30 +51,39 @@ def query(text, index_dir = './index_storage'):
 
     """ # either way we can now query the index
     vector_tool = QueryEngineTool(
-        vector_index.as_query_engine(similarity_top_k=5, response_mode='compact'),
+        vector_index.as_query_engine(similarity_top_k=5, response_mode='compact', streaming=True),
         metadata=ToolMetadata(
             name="vector_search",
             description="Useful for searching for specific facts."
         )
-    )
+    ) """
 
-    summary_tool = QueryEngineTool(
-        vector_index.as_query_engine(similarity_top_k=5, response_mode='tree_summarize'),
+    """ summary_tool = QueryEngineTool(
+        vector_index.as_query_engine(similarity_top_k=5, response_mode='tree_summarize', streaming=True),
         metadata=ToolMetadata(
             name="summary_search",
             description="Useful for searching for general summary information."
         )
-    )
+    ) """
     
-    query_engine = RouterQueryEngine.from_defaults(
+    """ query_engine = RouterQueryEngine.from_defaults(
         [vector_tool, summary_tool],
         service_context=SERVICE_CONTEXT,
         select_multi=True,
     ) """
 
-    query_engine = vector_index.as_query_engine(similarity_top_k=5, response_mode='compact', streaming=True)
+    query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
 
-    return query_engine.query(text).response_gen
+    """ query_engine = CitationQueryEngine.from_args(
+        vector_index,
+        similarity_top_k=3,
+        citation_chunk_size=1024,
+        streaming=True
+    ) """
+
+    response = query_engine.query(text)
+
+    return response.response_gen, response.source_nodes
 
 def index(doc_dir='./documents', index_dir='./index_storage'):
     if not os.path.exists(doc_dir):
@@ -84,7 +93,7 @@ def index(doc_dir='./documents', index_dir='./index_storage'):
         os.makedirs(index_dir)
     
     # load the documents and create the index
-    documents = SimpleDirectoryReader(doc_dir, file_extractor={'.pdf': loader()}).load_data()
+    documents = SimpleDirectoryReader(doc_dir, file_extractor={'.pdf': loader()}, recursive=True).load_data()
     vector_index = VectorStoreIndex.from_documents(documents, service_context=SERVICE_CONTEXT)
 
     # store it for later
