@@ -1,9 +1,12 @@
 {
     "Document date": "Aug-03, 2010",
-    "Document summary": "This document is an application for approval of a Power Purchase Agreement for As-Available Energy with Kapaa Solar LLC by Kauai Island Utility Cooperative. The application requests the approval of the agreement by the Hawaii Public Utilities Commission and addresses the terms and conditions of the power purchase arrangements.",
+    "Document summary": "This document is an application for the approval of a Power Purchase Agreement between Kauai Island Utility Cooperative and Kapaa Solar LLC. The application includes requests for pricing approval and interconnection agreements, indicating progress in the solar M&A process.",
     "Document type": "PPA",
-    "Suggested title": "08-03-2010 Power Purchase Agreement Approval (main)",
-    "Suggested title v2": "08-03-2010 PPA Approval Application (main)",
-    "Suggested title v3": "08-03-2010 Energy Agreement Approval (main)",
-    "Suggested folder": "PPA"
+    "Suggested title": "08-03-2010 Power Purchase Agreement Application (main)",
+    "Suggested title v2": "08-03-2010 Solar PPA Approval Request (main)",
+    "Suggested title v3": "08-03-2010 Kapaa Solar PPA Application (main)",
+    "Suggested folder v1": "PPA",
+    "Suggested folder v2": "interconnection",
+    "Certaintiy": "90%",
+    "Reasoning": "The document clearly pertains to the Power Purchase Agreement process, aligning with the suggested PPA folder."
 }

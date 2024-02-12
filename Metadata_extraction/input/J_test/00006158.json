@@ -1,9 +1,12 @@
 {
-    "Document date": "Mar-28, 2023",
-    "Document summary": "This is a letter from legal counsel representing Kupono Solar, LLC informing the Public Utilities Commission of Hawaii that the company will not file a Reply Statement of Position and is ready for decision making regarding the proposed 46 kV transmission line extensions. The Consumer Advocate's position is acknowledged and the proceeding is moving towards a resolution.",
+    "Document date": "MAR-28, 2023",
+    "Document summary": "This document is a letter notifying the Public Utilities Commission of Hawaii that Kupono Solar, LLC is ready for decision making in Docket No. 2022-0007. The Consumer Advocate does not object to the proposed transmission line extensions, signaling progress in the proceeding.",
     "Document type": "email",
-    "Suggested title": "03-28-2023 Legal Notification (main)",
-    "Suggested title v2": "03-28-2023 Legal Communication",
-    "Suggested title v3": "(redacted)",
-    "Suggested folder": "uncategorized"
+    "Suggested title": "03-28-2023 Notification of Readiness (redacted)",
+    "Suggested title v2": "03-28-2023 Decision Making Update",
+    "Suggested title v3": "03-28-2023 Progress Notice",
+    "Suggested folder v1": "uncategorized",
+    "Suggested folder v2": "PPA",
+    "Certainty": "80%",
+    "Reasoning": "The email contains updates on decision making and progress in the M&A proceeding, hence falls under 'uncategorized' and 'PPA'."
 }
