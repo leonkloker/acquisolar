@@ -1,12 +1,18 @@
 {
-    "Document date": "MAR-28, 2023",
-    "Document summary": "This document is a letter notifying the Public Utilities Commission of Hawaii that Kupono Solar, LLC is ready for decision making in Docket No. 2022-0007. The Consumer Advocate does not object to the proposed transmission line extensions, signaling progress in the proceeding.",
-    "Document type": "email",
-    "Suggested title": "03-28-2023 Notification of Readiness (redacted)",
-    "Suggested title v2": "03-28-2023 Decision Making Update",
-    "Suggested title v3": "03-28-2023 Progress Notice",
-    "Suggested folder v1": "uncategorized",
-    "Suggested folder v2": "PPA",
+    "Document date": "Mar-28, 2023",
+    "Document summary": "This document is a Certificate of Service related to the proposed 46 kV transmission line extensions by Kupono Solar, stating that the proceeding is ready for decision making.",
+    "Document type": "Certificate of Service",
+    "Suggested title": "03-28-2023 Certificate of Service (main)",
+    "Suggested title v2": "03-28-2023 Service Certificate (main)",
+    "Suggested title v3": "03-28-2023 Service Document (main)",
+    "Suggested folder v1": "interconnection",
+    "Keywords": [
+        "Certificate of Service",
+        "Kupono Solar",
+        "decision making",
+        "transmission line extensions",
+        "proceeding"
+    ],
     "Certainty": "80%",
-    "Reasoning": "The email contains updates on decision making and progress in the M&A proceeding, hence falls under 'uncategorized' and 'PPA'."
+    "Reasoning": "The document relates to the readiness of a proceeding regarding transmission line extensions, suggesting an interconnection focus."
 }
