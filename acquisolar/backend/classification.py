@@ -8,7 +8,7 @@ import zipfile
 import shutil
 
 client = OpenAI(api_key="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")  # Text completion
-project_name = "MegaSolar"
+
 
 #set root directory
 def set_root_directory():
@@ -86,7 +86,6 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "PPA_value" leave blank if not a ppa. If a PPA, find the pricing scheudle. in the format yearly price in USD per kwh. if it is stated in different units, calculate. leave blank if cant find or are not sure of the calculation.
 - "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you really cant find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders.
 {folder_structure_indented}
 
@@ -106,18 +105,19 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
     print(f"Processing {os.path.basename(pdf_path)}...")
     
     extracted_text, num_pages, title = extract_pdf_info(pdf_path)
-    
     query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
-
     output_json = make_openai_api_call(truncated_query)
+    data = json.loads(output_json) # Assuming output_json is a string; parse it to a dict
 
-    # Assuming output_json is a string; parse it to a dict
-    data = json.loads(output_json)
-    
     data.update({
         "number_of_pages": num_pages,
-        "original_title": title
+        "original_title": title,
+        "current_title": title,
+        "notes" : "",
+        "questions" : "",
+        "open_tasks" : "",
+
     })
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
@@ -131,18 +131,32 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
     final_path = os.path.join(output_dir, document_folder_path)
     os.makedirs(final_path, exist_ok=True)  # Ensure the folder exists
     
-    # Save the updated JSON and copy the PDF
-    json_filename = os.path.splitext(os.path.basename(pdf_path))[0] + ".json"
-    json_output_path = os.path.join(final_path, json_filename)
-    with open(json_output_path, 'w', encoding='utf-8') as json_file:
-        json.dump(data, json_file, indent=4)
-    
-    shutil.copy2(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
+    # Move the PDF to the designated folder
+    shutil.move(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
+
+    complete_metadata_file_path = os.path.join(output_dir, "complete_file_metadata.json")
+
+    # Append metadata to the centralized JSON
+    append_to_complete_metadata_file(data, complete_metadata_file_path)
+
 
     print(f"Finished processing {os.path.basename(pdf_path)}. JSON and PDF saved to {final_path}.")
 
-
-
+def append_to_complete_metadata_file(data, file_path):
+    try:
+        if os.path.exists(file_path):
+            with open(file_path, 'r+', encoding='utf-8') as file:
+                file_data = json.load(file)
+                file_data.append(data)
+                file.seek(0)
+                file.truncate()  # Clear the file before re-writing
+                json.dump(file_data, file, indent=4)
+        else:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                json.dump([data], file, indent=4)
+    except json.JSONDecodeError:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump([data], file, indent=4)
 
 def make_json_valid(response_content):
     """
@@ -303,49 +317,57 @@ def find_and_create_zip_structure(input_dir, output_dir, project_name):
     else:
         print("No folder structure to create.")
 
-# testing functoinality
-def consolidate_json_outputs(output_dir, consolidated_file_name="summary_of_files.json"):
-    """
-    Consolidate all JSON files in the output directory into one large JSON file.
 
-    Parameters:
-    - output_dir (str): The directory containing the JSON files to consolidate.
-    - consolidated_file_name (str): The name of the consolidated JSON file.
-    """
-    all_data = []
-
-    for root, dirs, files in os.walk(output_dir):
-        for file in files:
-            if file.endswith(".json"):
-                file_path = os.path.join(root, file)
-                with open(file_path, 'r', encoding='utf-8') as json_file:
-                    data = json.load(json_file)
-                    all_data.append(data)
-
-    consolidated_path = os.path.join(output_dir, consolidated_file_name)
-    with open(consolidated_path, 'w', encoding='utf-8') as consolidated_file:
-        json.dump(all_data, consolidated_file, indent=4)
-
-    print(f"All JSON data consolidated into {consolidated_path}")
-
-# outputing dict of file locations
-def get_folders_and_files(output_dir, project_name):
+# outputing directory of all files
+def generate_directory_json(output_dir, project_name):
     project_path = os.path.join(output_dir, project_name)
-    folder_files_dict = {}
-
-    # Ensure the project directory exists
-    if not os.path.exists(project_path):
-        print(f"The project directory {project_path} does not exist.")
-        return folder_files_dict
-
-    # Loop through the directory structure within the project_name folder
+    directory_tree = []
+    next_id = 1  # Start IDs from 1
+    dir_id_map = {}  # Maps directory path to ID
+    
+    # Root directory entry
+    directory_tree.append({
+        "id": next_id,
+        "name": project_name,
+        "type": "directory",
+        "parent_id": None
+    })
+    dir_id_map[project_path] = next_id
+    next_id += 1
+    
+    # Walk the directory structure
     for root, dirs, files in os.walk(project_path):
-        # Only consider folders without subdirectories or with files
-        if not dirs:  # This folder does not contain subfolders
-            folder_rel_path = os.path.relpath(root, output_dir)  # Get relative path from output_dir
-            folder_files_dict[folder_rel_path] = files or [""]  # Use empty string for folders without files
-
-    return folder_files_dict
+        current_dir_id = dir_id_map[root]
+        # Process directories
+        for d in dirs:
+            dir_path = os.path.join(root, d)
+            directory_tree.append({
+                "id": next_id,
+                "name": d,
+                "type": "directory",
+                "parent_id": current_dir_id
+            })
+            dir_id_map[dir_path] = next_id
+            next_id += 1
+            
+        # Process files, ignoring JSON files
+        for f in files:
+            if f.lower().endswith('.json'):  # Skip JSON files
+                continue
+            file_path = os.path.join(root, f)
+            file_size = os.path.getsize(file_path)
+            directory_tree.append({
+                "id": next_id,
+                "name": f,
+                "type": "file",
+                "size": file_size,
+                "parent_id": current_dir_id
+            })
+            next_id += 1
+            
+    # Save the structure to a JSON file
+    with open(os.path.join(output_dir, 'global_directory.json'), 'w', encoding='utf-8') as f:
+        json.dump(directory_tree, f, indent=2)
 
 def main(input_dir, output_dir, project_name):
     """
@@ -364,15 +386,13 @@ def main(input_dir, output_dir, project_name):
         pdf_path = os.path.join(input_dir, pdf_name)
         process_pdf(pdf_path, output_dir, folder_structure_indented)
     
-    file_location_dict = get_folders_and_files(output_dir, project_name)
-    consolidate_json_outputs(output_dir)    # create overall report
-    return file_location_dict
+    generate_directory_json(output_dir, project_name)
 
 
-project_name = "MegaSolar"
 
 if __name__ == "__main__":
     root_directory = set_root_directory()
     input_dir, output_dir = construct_relative_paths(root_directory)
     project_name = "MegaSolar"
+    
     main(input_dir, output_dir, project_name)
