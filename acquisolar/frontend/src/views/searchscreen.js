@@ -2,10 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
 import FileList from './filelist';
-import PDFViewer from './pdfviewer';
-import { useNavigate } from 'react-router-dom';
-
-// Need to implement
+import PDFViewer from './pdfviewer2';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -16,13 +15,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // Changed this variable name or causes issues with other parts of code
 const URLServer = 'http://localhost:3001'
 
-const Main = () => {
+const Search = () => {
+const location = useLocation();
   const navigate = useNavigate();
-  const [files, setFiles] = useState([]);
-  const [fileNames, setFileNames] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentPdf, setCurrentPdf] = useState(null);
+  const [currentPdf, setCurrentPdf] = useState(location.state || {});
   const [numPages, setNumPages] = useState(null); 
   const [instances, setInstances] = useState([]);
   const [currentInstance, setCurrentInstance] = useState(0);
@@ -95,72 +93,8 @@ const Main = () => {
     findInstancesOfSearchTerm();
   };
 
-  const onDrop = useCallback((acceptedFiles) => {
-    // Prevents duplicates from being uploaded (based on filename atm)
-    const filteredFiles = acceptedFiles.filter(file => file.type === 'application/pdf');
-    setFiles((prevFiles) => [...prevFiles, ...filteredFiles]);
-
-    // If there's no currently selected PDF, display the first one dropped
-    if (filteredFiles.length && !currentPdf) {
-      setCurrentPdf(filteredFiles[0]);
-    }
-
-    // Filenames that are displayed when file is uploaded
-    setFileNames((prevFiles) => {
-      const newFileNames = filteredFiles.map((file) => file.name);
-      const existingFileNames = new Set(prevFiles);
-      const uniqueNewFileNames = newFileNames.filter((fileName) => !existingFileNames.has(fileName));
-      return [...prevFiles, ...uniqueNewFileNames];
-    });
-  }, [currentPdf]);
-
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
-  };
-
-  const removeFile = (fileName, event) => {
-    event.stopPropagation(); // Prevent the event from bubbling up to parent elements
-  
-    setFiles((prevFiles) => prevFiles.filter((file) => file.name !== fileName));
-    setFileNames((prevFileNames) => prevFileNames.filter((name) => name !== fileName));
-  };
-
-  const { getRootProps, getInputProps } = useDropzone({
-    // Only allows pdfs
-    accept: 'application/pdf',
-    onDrop,
-  });
-
-  const uploadFilesToServer = async () => {
-    if (files.length === 0) {
-      alert('Please submit a file.');
-      return;
-    }
-    
-    setShowSearch(true); 
-    const formData = new FormData();
-    
-    // Append each file to the form data
-    files.forEach((file) => {
-      formData.append('files', file);
-    });
-
-    console.log(formData);
-
-    try {
-      const response = await fetch(URLServer + '/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        console.log('Files successfully uploaded');
-      } else {
-        console.error('Upload failed', response);
-      }
-    } catch (error) {
-      console.error('Error uploading files', error);
-    }
   };
 
   const handleNavigate = () => {
@@ -175,18 +109,6 @@ const Main = () => {
         <h1 style={styles.title}>AcquiSolar</h1>
         <a href="/about" style={styles.aboutLink}>About Us</a>
       </header>
-
-      {/* Main content area */}
-      <div style={styles.mainContent}>
-        {/* File upload area */}
-        <div {...getRootProps({ style: styles.dropzone })}>
-          <input {...getInputProps()} />
-          <div style={styles.uploadHeader}>
-            <p style={styles.uploadText}>Upload Files</p>
-            <button style={styles.addButton}>Add</button>
-          </div>
-          <FileList fileNames={fileNames} removeFile={removeFile} />
-        </div>
 
         {/* PDF viewer and search functionality */}
         <PDFViewer 
@@ -205,23 +127,8 @@ const Main = () => {
           pageNumber={pageNumber}
         />
 
-        {/* Instructions for users */}
-        {!showSearch && (
-          <div style={styles.dragTextContainer}>
-            <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
-            {!showSearch && (
-            <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
-            )}
-          </div>
-        )}
-      </div>
-
       {/* Submit button */}
-      <div style={styles.buttonContainer}>
-      {showSearch && (
       <button onClick={handleNavigate} style={styles.submitButton} > Structure Folders</button>
-      )}
-      </div>
     </div>
   );
 };
@@ -329,4 +236,4 @@ const styles = {
   
 };
 
-export default Main;
+export default Search;

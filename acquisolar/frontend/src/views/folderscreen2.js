@@ -29,7 +29,7 @@ const initialFolders = {
 const Folder = () => {
     const navigate = useNavigate();
     // Replace [] in useState with initialFolder for an example
-    const [folders, setFolders] = useState([]);
+    const [folders, setFolders] = useState(initialFolders);
 
     useEffect(() => {
       // Function to fetch folders data from the backend

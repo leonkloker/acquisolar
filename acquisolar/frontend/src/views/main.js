@@ -159,6 +159,8 @@ const Main = () => {
     } catch (error) {
       console.error('Error uploading files', error);
     }
+    
+    navigate('/searchscreen', { state: { currentPdf } });
   };
 
   const handleNavigate = () => {
