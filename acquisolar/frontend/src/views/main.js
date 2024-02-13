@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
-import FileList from './filelist';
-import PDFViewer from './pdfviewer';
+import FileList from './viewcomponents/filelist';
+import PDFViewer from './viewcomponents/pdfviewer';
 import { useNavigate } from 'react-router-dom';
 
 // Set the workerSrc for pdfjs
@@ -159,7 +159,7 @@ const Main = () => {
     } catch (error) {
       console.error('Error uploading files', error);
     }
-    
+
     navigate('/searchscreen', { state: { currentPdf } });
   };
 

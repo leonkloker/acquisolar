@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
-import FileList from './filelist';
-import PDFViewer from './pdfviewer2';
+import FileList from './viewcomponents/filelist';
+import PDFViewer from './viewcomponents/pdfviewer2';
 import { useNavigate, useLocation } from 'react-router-dom';
+import QueryResult from './viewcomponents/queryresult';
 import axios from 'axios';
 
 // Set the workerSrc for pdfjs
@@ -110,6 +111,9 @@ const location = useLocation();
         <a href="/about" style={styles.aboutLink}>About Us</a>
       </header>
 
+      {/* Submit button */}
+      <button onClick={handleNavigate} style={styles.submitButton} >Folders</button>
+        <div style={styles.mainContent}>
         {/* PDF viewer and search functionality */}
         <PDFViewer 
           showSearch={showSearch} 
@@ -126,9 +130,11 @@ const location = useLocation();
           goToPreviousInstance={goToPreviousInstance}
           pageNumber={pageNumber}
         />
+      </div>
+      <div style={styles.queryContainer}>
+      <QueryResult/>
+      </div>
 
-      {/* Submit button */}
-      <button onClick={handleNavigate} style={styles.submitButton} > Structure Folders</button>
     </div>
   );
 };
@@ -139,6 +145,10 @@ const styles = {
     height: '100vh',
     width: '100%',
     backgroundColor: '#7AA6B9',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  mainContent: {
     display: 'flex',
     flexDirection: 'column',
   },
@@ -160,31 +170,10 @@ const styles = {
     padding: '5px 10px',
     borderRadius: '5px', 
   },
-  dropzone: {
-    padding: '20px',
-    width: '300px',
-    height: '400px',
-    borderRadius: '15px',
-    backgroundColor: '#ffffff',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '2%',
-    marginLeft: '5%',
-    marginTop: '5%',
-  },
-  uploadText: {
-    color: '#000000',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    marginBottom: '10px',
-    fontSize: '18px',
-    fontWeight: 'bold',
-  },
   submitButton: {
     padding: '10px 20px',
-    marginLeft: '5%',
+    width: '10%',
+    margin: '2%',
     fontSize: '16px',
     backgroundColor: '#FFF',
     border: 'none',
@@ -193,45 +182,20 @@ const styles = {
     color: 'black',
     fontWeight: 'bold',
   },
-  addButton: {
-    marginLeft: '10px',
-    padding: '5px 10px',
-    fontSize: '16px',
-    backgroundColor: '#FFF',
-    border: '1px solid #000', 
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  uploadHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%', 
-    padding: '0 20px', 
-    marginBottom: '10px', 
-  },
   mainContent: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#7AA6B9',
   },
-  dragTextContainer: {
-    marginLeft: '20px',
-    fontSize: '170%', 
-    marginRight: '10%',
-    fontWeight: 'bold',
-    color: '#FFF',
-    maxWidth: '800%', 
-    textAlign: 'left',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   buttonContainer: {
     flex: 1,
     flexDirection: 'column',
     alignSelf: 'flex-start',
+  },
+  queryContainer: {
+    display: 'flex',
+
   }
   
 };
