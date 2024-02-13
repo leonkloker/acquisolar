@@ -29,7 +29,7 @@ def extract_pdf_info(pdf_path):
     doc = fitz.open(pdf_path)
     full_text = ""
     num_pages = len(doc)
-    title = os.path.splitext(os.path.basename(pdf_path))[0]
+    title = os.path.basename(pdf_path)
 
     for page_num in range(num_pages):
         page = doc.load_page(page_num)
@@ -50,6 +50,7 @@ def extract_pdf_info(pdf_path):
                     new_text += stripped_line + " "
         full_text += new_text
     doc.close()
+    print(title)
     return full_text, num_pages, title
 
 def truncate_query_to_fit_context(query, max_length=10000):
@@ -98,6 +99,20 @@ def output_extracted_text_to_file(extracted_text, output_path):
         f.write(extracted_text)
 
 #query and output
+def process_json_add_extension(data):
+    # Extract the full file extension from 'original_title'
+    _, file_extension = os.path.splitext(data.get('original_title', ''))
+    
+    # Append the file extension to the suggested titles if not already present
+    for key in ['Suggested_title', 'Suggested_title_v2', 'Suggested_title_v3']:
+        if key in data:
+            # Check if the current value does not end with the file extension
+            if not data[key].endswith(file_extension):
+                # Append the file extension
+                data[key] += file_extension
+
+    return data
+
 def process_pdf(pdf_path, output_dir, folder_structure_indented):
     """
     Adjusted to ensure the 'document_folder_path' uses the correct 'project_name/unclassified'.
@@ -119,6 +134,8 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
         "open_tasks" : "",
 
     })
+
+    data = process_json_add_extension(data) # add extension to suggested titles
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
     document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
