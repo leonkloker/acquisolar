@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import subprocess
 
-#import classification
+import classification
 import searchengine
 
 # Create the Flask app
@@ -44,7 +44,7 @@ def upload():
         if filenames:
             print('Uploaded files:', filenames)
 
-            '''
+            
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
@@ -54,7 +54,7 @@ def upload():
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
-            '''
+            
 
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
