@@ -213,11 +213,11 @@ const Main = () => {
 
       {/* Submit button */}
       <div style={styles.buttonContainer}>
-      {!showSearch && (
-        <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
-      )}
       {showSearch && (
       <button onClick={handleNavigate} style={styles.submitButton} > Structure Folders</button>
+      )}
+      {!showSearch && (
+      <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
       )}
       </div>
     </div>
@@ -232,7 +232,6 @@ const styles = {
     backgroundColor: '#7AA6B9',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start',
   },
   header: {
     display: 'flex',
@@ -252,14 +251,6 @@ const styles = {
     padding: '5px 10px',
     borderRadius: '5px', 
   },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start', 
-    padding: '20px',
-    paddingTop: '10px',
-    width: '100%',
-  },
   dropzone: {
     padding: '20px',
     width: '300px',
@@ -270,7 +261,9 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '10px',
+    marginBottom: '2%',
+    marginLeft: '5%',
+    marginTop: '5%',
   },
   uploadText: {
     color: '#000000',
@@ -282,14 +275,13 @@ const styles = {
   },
   submitButton: {
     padding: '10px 20px',
-    marginLeft: '20px',
+    marginLeft: '60px',
     fontSize: '16px',
     backgroundColor: '#FFF',
     border: 'none',
     borderRadius: '20px',
     cursor: 'pointer',
     color: 'black',
-    alignSelf: 'flex-start', 
     fontWeight: 'bold',
   },
   addButton: {
@@ -314,8 +306,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '20px',
-    paddingTop: '10px',
+    backgroundColor: '#7AA6B9',
   },
   dragTextContainer: {
     marginLeft: '20px',
@@ -325,6 +316,8 @@ const styles = {
     color: '#FFF',
     maxWidth: '800%', 
     textAlign: 'left',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonContainer: {
     flex: 1,

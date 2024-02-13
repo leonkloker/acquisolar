@@ -7,16 +7,13 @@ const initialFolders = {
     'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
     'Photos': ['photo1.jpg', 'photo2.png'],
     'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    /*'Documents2': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos2': ['photo1.jpg', 'photo2.png'],
-    'Music2': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    'Documents3': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos3': ['photo1.jpg', 'photo2.png'],
-    'Music3': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    'Documents4': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos4': ['photo1.jpg', 'photo2.png'],
-    'Music4': ['song1.mp3', 'song2.wav', 'album1.zip'],*/
   };
+
+  // url of aws server and port 80
+  // change to 'http://localhost:3001' for localhost
+  // or http://54.90.226.66:80' for aws
+  // Changed this variable name or causes issues with other parts of code
+  const URLServer = 'http://localhost:3001'
 
   const FolderIcon = ({ name, fileCount, onView }) => (
     <div style={styles.folderIconContainer} onDoubleClick={onView}>
@@ -30,7 +27,22 @@ const initialFolders = {
 
 const Folder = () => {
     const navigate = useNavigate();
-    const [folders, setFolders] = useState(initialFolders);
+    // Replace [] in useState with initialFolder for an example
+    const [folders, setFolders] = useState([]);
+
+    useEffect(() => {
+      // Function to fetch folders data from the backend
+      const fetchFolders = async () => {
+          try {
+              const response = await axios.get(URLServer + '/get-folders');
+              setFolders(response.data);
+          } catch (error) {
+              console.error('Error fetching data: ', error);
+          }
+      };
+
+      fetchFolders();
+  }, []);
 
     const handleViewFolder = (folderName) => {
         // Logic to navigate to the folder's content view

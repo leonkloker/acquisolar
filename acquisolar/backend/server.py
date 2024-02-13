@@ -77,6 +77,21 @@ def search():
     # return strings, document name
     return stream_with_context(response_gen)
 
+'''
+@app.route('/get-folders', methods=['GET'])
+def get_folders():
+    folder_structure = calculate_folders()
+    return jsonify(folder_structure)
+
+
+def calculate_folders():
+    folders = {
+        'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
+        'Photos': ['photo1.jpg', 'photo2.png'],
+        'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
+    }
+    return folders '''
+
 # Serve the frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

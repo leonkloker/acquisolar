@@ -21,7 +21,6 @@ const initialFolders = {
   const FileIcon = ({ name }) => (
     <div style={styles.fileIconContainer}>
       <div style={styles.fileContent}>
-        {/* Assuming you have a generic file icon, or you can choose an icon based on file type */}
         <img src={folderIcon} alt="File" style={styles.image} />
         <p>{name}</p>
       </div>
