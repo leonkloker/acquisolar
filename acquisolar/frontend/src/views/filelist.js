@@ -29,7 +29,7 @@ const styles = {
     fileListContainer: {
       width: '100%',
       height: '100%',
-      backgroundColor: '#E6F0EF',
+      backgroundColor: '#BCD5E0',
       borderRadius: '10px',
       padding: '0px',
       textAlign: 'left',

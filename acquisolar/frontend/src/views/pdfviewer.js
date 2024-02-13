@@ -70,7 +70,7 @@ const styles = {
       height: '40px',
       fontSize: '18px',
       padding: '0 15px',
-      border: '2px solid #9ACAC4',
+      border: '2px solid #7AA6B9',
       borderRadius: '20px',
       marginRight: '10px',
       outline: 'none',

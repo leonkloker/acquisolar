@@ -1,0 +1,30 @@
+/* App.css */
+.App-header {
+    text-align: center;
+  }
+  
+  .folder-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .folder-icon {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .folder-icon img {
+    width: 100px; /* Adjust based on your actual folder icon size */
+  }
+  
+  .folder-info p {
+    margin: 5px 0;
+  }
+  
+  button {
+    margin-top: 10px;
+    cursor: pointer;
+  }

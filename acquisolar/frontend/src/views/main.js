@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
 import FileList from './filelist';
 import PDFViewer from './pdfviewer';
+import { useNavigate } from 'react-router-dom';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -14,6 +15,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const URLServer = 'http://localhost:3001'
 
 const Main = () => {
+  const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const [fileNames, setFileNames] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
@@ -159,6 +161,11 @@ const Main = () => {
     }
   };
 
+  const handleNavigate = () => {
+    // Programmatically navigate to the /folders route
+    navigate('/folders');
+  };
+
   return (
     <div style={styles.container}>
       {/* Header */}
@@ -205,9 +212,14 @@ const Main = () => {
       </div>
 
       {/* Submit button */}
+      <div style={styles.buttonContainer}>
       {!showSearch && (
         <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
       )}
+      {showSearch && (
+      <button onClick={handleNavigate} style={styles.submitButton} > Structure Folders</button>
+      )}
+      </div>
     </div>
   );
 };
@@ -217,7 +229,7 @@ const styles = {
     fontFamily: 'Arial, sans-serif',
     height: '100vh',
     width: '100%',
-    backgroundColor: '#9ACAC4',
+    backgroundColor: '#7AA6B9',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -236,7 +248,7 @@ const styles = {
   aboutLink: {
     color: 'white',
     textDecoration: 'none',
-    backgroundColor: '#9ACAC4', 
+    backgroundColor: '#7AA6B9', 
     padding: '5px 10px',
     borderRadius: '5px', 
   },
@@ -307,13 +319,18 @@ const styles = {
   },
   dragTextContainer: {
     marginLeft: '20px',
-    fontSize: '24px', 
-    marginRight: '15%',
+    fontSize: '170%', 
+    marginRight: '10%',
     fontWeight: 'bold',
     color: '#FFF',
-    maxWidth: '400px', 
+    maxWidth: '800%', 
     textAlign: 'left',
   },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'flex-start',
+  }
   
 };
 
