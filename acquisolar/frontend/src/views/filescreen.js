@@ -37,6 +37,7 @@ const initialFolders = {
 
   const File = () => {
     const [folders, setFolders] = useState(initialFolders);
+    const [folderContens, setFolderContents] = useState([]);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
 
     const fetchFolderContents = async (folderName) => {
