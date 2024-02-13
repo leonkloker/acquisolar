@@ -22,7 +22,7 @@ const FolderIcon = ({ name, fileCount, onView }) => (
 );
 
 const Folder = () =>  {
-  const [folders, setFolders] = useState(initialFolders);
+  const [folders, setFolders] = useState([initialFolders]);
 
   const handleViewFolder = (folderName) => {
     // Logic to navigate to the folder's content view

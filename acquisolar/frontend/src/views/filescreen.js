@@ -1,23 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import folderIcon from '../icons/folder-icon.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // Example dictionary of folders and files
-const initialFolders = {
-    'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos': ['photo1.jpg', 'photo2.png'],
-    'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    /*'Documents2': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos2': ['photo1.jpg', 'photo2.png'],
-    'Music2': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    'Documents3': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos3': ['photo1.jpg', 'photo2.png'],
-    'Music3': ['song1.mp3', 'song2.wav', 'album1.zip'],
-    'Documents4': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos4': ['photo1.jpg', 'photo2.png'],
-    'Music4': ['song1.mp3', 'song2.wav', 'album1.zip'],*/
-  };
+const initialFiles = ['doc1.txt', 'doc2.txt', 'report.pdf'];
 
    // url of aws server and port 80
   // change to 'http://localhost:3001' for localhost
@@ -36,19 +23,25 @@ const initialFolders = {
 
 
   const File = () => {
-    const [folders, setFolders] = useState(initialFolders);
-    const [folderContens, setFolderContents] = useState([]);
+    const location = useLocation();
+    const { folderName } = location.state || {};
+    const [folders, setFolders] = useState([]);
+    const [files, setFiles] = useState([]);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
 
-    const fetchFolderContents = async (folderName) => {
-      try {
-          const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
-          setFolderContents(response.data.data); // Update state with folder contents
-      } catch (error) {
-          console.error('Error fetching folder contents:', error);
-          setFolderContents([]); // Reset or handle error
-      }
-  };
+    
+    useEffect(() => {
+        const fetchFolderContents = async (folderName) => {
+          try {
+              const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
+              setFiles(response.data); // Update state with folder contents
+          } catch (error) {
+              console.error('Error fetching folder contents:', error);
+              setFiles([]); // Reset or handle error
+          }
+      };
+      fetchFolderContents(folderName);
+      }, []);
 
     return (
         <div style={styles.container}>
@@ -59,6 +52,14 @@ const initialFolders = {
             </header>
             {/* If a folder is open, display the file icons */}
             {/*<FilesScreen files={folders[openFolder]} />*/}
+            <div style={styles.folderContainer}>
+            {Object.keys(files).map((fileIndex) => (
+                <FileIcon
+                key={fileIndex}
+                name={files[fileIndex]}
+                />
+            ))}
+        </div>
         </div>
     );
 };
@@ -128,6 +129,12 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  folderContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 };
 

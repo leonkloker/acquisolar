@@ -29,8 +29,9 @@ const initialFolders = {
 const Folder = () => {
     const navigate = useNavigate();
     // Replace [] in useState with initialFolder for an example
-    const [folders, setFolders] = useState(initialFolders);
+    const [folders, setFolders] = useState([]);
 
+    
     useEffect(() => {
       // Function to fetch folders data from the backend
       const fetchFolders = async () => {
@@ -46,9 +47,7 @@ const Folder = () => {
   }, []);
 
     const handleViewFolder = (folderName) => {
-        // Logic to navigate to the folder's content view
-        // For now, we'll just log the folder name to the console
-        navigate('/filescreen');
+        navigate('/filescreen', { state: { folderName } });
         console.log(`Viewing contents of ${folderName}`);
     };
     return (

@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import subprocess
 
-import classification
+#import classification
 import searchengine
 
 # Create the Flask app
@@ -44,14 +44,17 @@ def upload():
         if filenames:
             print('Uploaded files:', filenames)
 
+            '''
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
             classification.main(doc_dir, output_dir)
+            
 
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
+            '''
 
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
@@ -77,7 +80,7 @@ def search():
     # return strings, document name
     return stream_with_context(response_gen)
 
-'''
+
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
     folder_structure = calculate_folders()
@@ -89,19 +92,22 @@ def calculate_folders():
         'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
         'Photos': ['photo1.jpg', 'photo2.png'],
         'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
+        'Videos': ['song1.mp3', 'song2.wav', 'album1.zip'],
     }
-    return folders '''
+    return folders
 
-'''
+
 @app.route('/get-folder-contents', methods=['POST'])
 def get_folder_contents():
+    folders_data = calculate_folders()
     data = request.json
     folder_name = data.get('folderName')
     if folder_name and folder_name in folders_data:
-        return jsonify({'status': 'success', 'data': folders_data[folder_name]})
+        return jsonify(folders_data[folder_name])
+        #return jsonify({'status': 'success', 'data': folders_data[folder_name]})
     else:
         return jsonify({'status': 'error', 'message': 'Folder not found'}), 404
-'''
+
 
 # Serve the frontend
 @app.route('/', defaults={'path': ''})
