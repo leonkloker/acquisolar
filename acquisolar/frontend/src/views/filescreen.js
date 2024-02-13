@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import folderIcon from '../icons/folder-icon.png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 // Example dictionary of folders and files
 const initialFolders = {
@@ -18,6 +19,12 @@ const initialFolders = {
     'Music4': ['song1.mp3', 'song2.wav', 'album1.zip'],*/
   };
 
+   // url of aws server and port 80
+  // change to 'http://localhost:3001' for localhost
+  // or http://54.90.226.66:80' for aws
+  // Changed this variable name or causes issues with other parts of code
+  const URLServer = 'http://localhost:3001'
+
   const FileIcon = ({ name }) => (
     <div style={styles.fileIconContainer}>
       <div style={styles.fileContent}>
@@ -27,9 +34,20 @@ const initialFolders = {
     </div>
   );
 
+
   const File = () => {
     const [folders, setFolders] = useState(initialFolders);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
+
+    const fetchFolderContents = async (folderName) => {
+      try {
+          const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
+          setFolderContents(response.data.data); // Update state with folder contents
+      } catch (error) {
+          console.error('Error fetching folder contents:', error);
+          setFolderContents([]); // Reset or handle error
+      }
+  };
 
     return (
         <div style={styles.container}>

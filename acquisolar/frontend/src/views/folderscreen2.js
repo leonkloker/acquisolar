@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import folderIcon from '../icons/folder-icon.png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 // Example dictionary of folders and files
 const initialFolders = {

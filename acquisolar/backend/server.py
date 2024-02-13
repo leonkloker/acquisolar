@@ -92,6 +92,17 @@ def calculate_folders():
     }
     return folders '''
 
+'''
+@app.route('/get-folder-contents', methods=['POST'])
+def get_folder_contents():
+    data = request.json
+    folder_name = data.get('folderName')
+    if folder_name and folder_name in folders_data:
+        return jsonify({'status': 'success', 'data': folders_data[folder_name]})
+    else:
+        return jsonify({'status': 'error', 'message': 'Folder not found'}), 404
+'''
+
 # Serve the frontend
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
