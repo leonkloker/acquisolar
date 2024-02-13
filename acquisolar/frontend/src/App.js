@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutUs from './views/aboutus';
 import Main from './views/main';
 import Folder from './views/folderscreen2';
+import File from './views/filescreen';
 //import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Main/>} />
           <Route path="/folders" element={<Folder/>} />
           <Route path="/about" element={<AboutUs />}/>
+          <Route path="/filescreen" element={<File />}/>
         </Routes>
         </div>
       </div>

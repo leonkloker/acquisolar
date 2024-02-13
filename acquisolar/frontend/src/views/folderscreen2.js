@@ -35,7 +35,7 @@ const Folder = () => {
     const handleViewFolder = (folderName) => {
         // Logic to navigate to the folder's content view
         // For now, we'll just log the folder name to the console
-        navigate('/');
+        navigate('/filescreen');
         console.log(`Viewing contents of ${folderName}`);
     };
     return (
