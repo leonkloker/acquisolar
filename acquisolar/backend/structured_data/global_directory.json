@@ -1,82 +1,72 @@
 [
-  {
-    "id": 1,
-    "name": "MegaSolar",
-    "type": "directory",
-    "parent_id": null
-  },
-  {
-    "id": 2,
-    "name": "Envionmental",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 3,
-    "name": "EPC",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 4,
-    "name": "Interconnection",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 5,
-    "name": "Permitting",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 6,
-    "name": "PPA",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 7,
-    "name": "Site control",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 8,
-    "name": "Unclassified",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 9,
-    "name": "2011-0051 (PPA on p66).pdf",
-    "type": "file",
-    "size": 76843237,
-    "parent_id": 6
-  },
-  {
-    "id": 10,
-    "name": "2014-0359 (PPA on p37).pdf",
-    "type": "file",
-    "size": 19542699,
-    "parent_id": 6
-  },
-  {
-    "id": 11,
-    "name": "Leases",
-    "type": "directory",
-    "parent_id": 7
-  },
-  {
-    "id": 12,
-    "name": "Other Ownership documents",
-    "type": "directory",
-    "parent_id": 7
-  },
-  {
-    "id": 13,
-    "name": "Titles",
-    "type": "directory",
-    "parent_id": 7
-  }
+    {
+        "id": 1,
+        "name": "MegaSolar",
+        "type": "directory",
+        "parent_id": null
+    },
+    {
+        "id": 2,
+        "name": "Envionmental",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 3,
+        "name": "EPC",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 4,
+        "name": "Interconnection",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 5,
+        "name": "Permitting",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 6,
+        "name": "PPA",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 7,
+        "name": "Unclassified",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 8,
+        "name": "2011-0051 (PPA on p66).pdf",
+        "type": "file",
+        "size": 76843237,
+        "parent_id": 6
+    },
+    {
+        "id": 9,
+        "name": "2014-0359 (PPA on p37).pdf",
+        "type": "file",
+        "size": 19542699,
+        "parent_id": 6
+    },
+    {
+        "id": 10,
+        "name": "2015-0389 (PPA on p114).pdf",
+        "type": "file",
+        "size": 67322689,
+        "parent_id": 6
+    },
+    {
+        "id": 11,
+        "name": "2020-0137 (PPA on p41).pdf",
+        "type": "file",
+        "size": 35725468,
+        "parent_id": 1
+    }
 ]

@@ -1,21 +1,7 @@
 [
     {
-        "Document_date": "May 4, 2015",
-        "Document_summary": "This document is an application by Hawaiian Electric Company seeking approval for a Power Purchase Agreement with Waiawa PV, LLC for a 45.9 MW AC net photovoltaic project in Waiawa, O'ahu. The document outlines the project's alignment with the Commission's Inclinations and the State's energy policy goals, emphasizing the importance of the Project in integrating low-cost renewable generation in Hawai'i. It also discusses the financial implications and regulatory considerations related to the project.",
-        "Suggested_title": "05-04-2015 Solar Project Approval",
-        "Suggested_title_v2": "05-04-2015 Renewable Energy PPA Application",
-        "Suggested_title_v3": "05-04-2015 Hawaiian Electric Solar Project",
-        "Document_folder_path": "MegaSolar/PPA",
-        "number_of_pages": 440,
-        "original_title": "2014-0359 (PPA on p37)",
-        "current_title": "2014-0359 (PPA on p37)",
-        "notes": "",
-        "questions": "",
-        "open_tasks": ""
-    },
-    {
         "Document_date": "Feb-18, 2011",
-        "Document_summary": "This document is an application for approval of a Power Purchase Agreement between Hawaiian Electric Company, Inc. and Kalaeloa Solar Two, LLC. It outlines the terms and conditions of the agreement, including the construction and operation of a 5 MW photovoltaic energy facility. The document also discusses the implications of the agreement on Hawaiian Electric's system and the renewable energy goals of Hawaii.",
+        "Document_summary": "This document is an application for approval of a Power Purchase Agreement between Hawaiian Electric Company, Inc. and Kalaeloa Solar Two, LLC. It outlines the terms and conditions of the agreement, including the construction and operation of a 5 MW photovoltaic energy facility. The implications include meeting Hawaii's Renewable Energy Portfolio Standards and reducing reliance on fossil fuels.",
         "Suggested_title": "02-18-2011 Solar PPA Approval",
         "Suggested_title_v2": "02-18-2011 Photovoltaic Energy Agreement",
         "Suggested_title_v3": "02-18-2011 Renewable Energy Contract",
@@ -25,6 +11,67 @@
         "current_title": "2011-0051 (PPA on p66)",
         "notes": "",
         "questions": "",
-        "open_tasks": ""
+        "open_tasks": "",
+        "id": 1
+    },
+    {
+        "Document_date": "Feb-18, 2011",
+        "Document_summary": "This document is an application for approval of a Power Purchase Agreement (PPA) between Hawaiian Electric Company, Inc. and Kalaeloa Solar Two, LLC. The PPA includes provisions for the purchase of as-available energy and the construction of interconnection facilities. The document outlines the terms and conditions of the PPA, including pricing structures, renewable energy goals, and interconnection requirements.",
+        "Suggested_title": "02-18-2011 Solar PPA Approval",
+        "Suggested_title_v2": "02-18-2011 Energy Purchase Agreement",
+        "Suggested_title_v3": "02-18-2011 Interconnection Facilities Application",
+        "Document_folder_path": "MegaSolar/PPA",
+        "number_of_pages": 285,
+        "original_title": "2011-0051 (PPA on p66)",
+        "current_title": "2011-0051 (PPA on p66)",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 2
+    },
+    {
+        "Document_date": "Dec-03, 2014",
+        "Document_summary": "This document is an application by Hawaiian Electric Company seeking approval for a Power Purchase Agreement with Waiawa PV, LLC for a 45.9 MW AC net photovoltaic project. The application emphasizes the importance of timely approval to meet construction milestones and highlights the benefits of the project in meeting renewable energy goals in Hawaii.",
+        "Suggested_title": "12-03-2014 Renewable Energy PPA Approval",
+        "Suggested_title_v2": "12-03-2014 Solar Project Agreement",
+        "Suggested_title_v3": "12-03-2014 Energy Project Approval",
+        "Document_folder_path": "MegaSolar/PPA",
+        "number_of_pages": 440,
+        "original_title": "2014-0359 (PPA on p37)",
+        "current_title": "2014-0359 (PPA on p37)",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 3
+    },
+    {
+        "Document_date": "November 30, 2015",
+        "Document_summary": "This document is a revised Community-Based Renewable Energy Program Phase 1, outlining the availability, customer participation, credit rates, O&M fees, developer participation, and requirements for participation in the CBRE Program. It sets forth eligibility criteria for residential and commercial customers, limits on purchasing interests in CBRE Program Facilities, upfront payments, O&M fees, and credit rates.",
+        "Suggested_title": "11-30-2015 CBRE Program Phase 1 Details",
+        "Suggested_title_v2": "11-30-2015 Revised CBRE Program Phase 1 Overview",
+        "Suggested_title_v3": "11-30-2015 Community-Based Renewable Energy Program Phase 1 Revision",
+        "Document_folder_path": "MegaSolar/PPA",
+        "number_of_pages": 257,
+        "original_title": "2015-0389 (PPA on p114)",
+        "current_title": "2015-0389 (PPA on p114)",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 4
+    },
+    {
+        "Document_date": "Oct-09, 2019",
+        "Document_summary": "This document is an application for approval of a Power Purchase Agreement (PPA) for a renewable dispatchable generation project in Hawaii. The PPA aims to increase renewable energy utilization, reduce fossil fuel consumption, and meet the State's energy policy goals. The document outlines the project details, community outreach efforts, financial impacts, and requests for approvals from the Public Utilities Commission.",
+        "Suggested_title": "10-09-2019 Renewable Dispatchable Generation PPA",
+        "Suggested_title_v2": "Renewable Energy PPA Application 10-09-2019",
+        "Suggested_title_v3": "Hawaiian Electric Renewable PPA Request",
+        "Document_folder_path": "MegaSolar/PPA",
+        "number_of_pages": 513,
+        "original_title": "2020-0137 (PPA on p41)",
+        "current_title": "2020-0137 (PPA on p41)",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 5
     }
 ]

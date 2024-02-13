@@ -75,7 +75,7 @@ def truncate_query_to_fit_context(query, max_length=10000):
             break  # Stop adding lines if the next line would exceed the limit
         truncated_query += line + "\n"  # Add the line back with its newline character
         token_count += line_token_count
-    
+    print(truncated_query)
     return truncated_query.rstrip()  # Remove the last newline character to clean up
 def construct_query(extracted_text,folder_structure_indented):
     query = f"""

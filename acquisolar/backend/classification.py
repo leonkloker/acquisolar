@@ -143,20 +143,41 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
     print(f"Finished processing {os.path.basename(pdf_path)}. JSON and PDF saved to {final_path}.")
 
 def append_to_complete_metadata_file(data, file_path):
-    try:
-        if os.path.exists(file_path):
+    highest_id = 0  # Default to 0 if file is empty or does not exist
+    new_data = data  # Assuming 'data' is the dictionary for the new entry
+
+    # Check if the metadata file exists and is not empty
+    if os.path.exists(file_path):
+        try:
             with open(file_path, 'r+', encoding='utf-8') as file:
-                file_data = json.load(file)
-                file_data.append(data)
+                # Load the existing data
+                try:
+                    file_data = json.load(file)
+                    if file_data:  # If there are existing entries
+                        # Find the highest ID
+                        highest_id = max(entry.get('id', 0) for entry in file_data)
+                except json.JSONDecodeError:
+                    file_data = []  # Reset to an empty list if there's a JSON decode error
+
+                # Assign a new ID to the new entry
+                new_data['id'] = highest_id + 1
+
+                # Append the new entry
+                file_data.append(new_data)
+
+                # Rewrite the updated data back to the file
                 file.seek(0)
                 file.truncate()  # Clear the file before re-writing
                 json.dump(file_data, file, indent=4)
-        else:
-            with open(file_path, 'w', encoding='utf-8') as file:
-                json.dump([data], file, indent=4)
-    except json.JSONDecodeError:
+
+        except IOError as e:
+            print(f"Failed to open or read from {file_path}. Error: {e}")
+    else:
+        # If the file does not exist, start with the new entry as the first item
+        new_data['id'] = 1  # Start IDs from 1
         with open(file_path, 'w', encoding='utf-8') as file:
-            json.dump([data], file, indent=4)
+            json.dump([new_data], file, indent=4)
+
 
 def make_json_valid(response_content):
     """
