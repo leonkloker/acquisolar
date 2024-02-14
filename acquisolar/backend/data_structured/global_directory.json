@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "SAMPLE_PROJECT",
+    "type": "directory",
+    "parent_id": null
+  },
+  {
+    "id": 2,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 3,
+    "name": "Kloker_Leon_CV_tech_new.pdf",
+    "type": "file",
+    "size": 111913,
+    "parent_id": 2
+  },
+  {
+    "id": 4,
+    "name": "HR_Clearway_LOI_Fully_Executed.pdf",
+    "type": "file",
+    "size": 10156335,
+    "parent_id": 2
+  },
+  {
+    "id": 5,
+    "name": "2010-0179_IA_on_p3.pdf",
+    "type": "file",
+    "size": 2297492,
+    "parent_id": 2
+  }
+]

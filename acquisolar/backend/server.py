@@ -11,7 +11,7 @@ import searchengine
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
 
-# Enable CORS only on AWS
+# Enable cross-origin resource sharing
 CORS(app)
 
 # Configuration for file uploads
@@ -48,7 +48,7 @@ def upload():
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
-            classification.main(doc_dir, output_dir)
+            classification.main(doc_dir, output_dir, 'SAMPLE_PROJECT')
             
 
             # Index the uploaded files
