@@ -94,6 +94,7 @@ def index(doc_dir='./documents', index_dir='./index_storage'):
     
     # load the documents and create the index
     documents = SimpleDirectoryReader(doc_dir, file_extractor={'.pdf': loader()}, recursive=True).load_data()
+
     vector_index = VectorStoreIndex.from_documents(documents, service_context=SERVICE_CONTEXT)
 
     # store it for later

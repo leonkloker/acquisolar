@@ -29,3 +29,8 @@ yarn-error.log*
 # data
 **documents**
 **index_storage**
+
+**.bin/
+**.cache/
+
+TODO.txt

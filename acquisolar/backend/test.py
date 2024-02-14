@@ -1,11 +1,17 @@
 import searchengine
+import server
+import classification
 
+doc_dir = './documents'
 index_dir = './index_storage'
-query = "What is a brief summary of the interconnection agreement?"
-response_gen, source = searchengine.query(query, index_dir)
+searchengine.index(doc_dir, index_dir=index_dir)
 
-for word in response_gen:
-    print(word, end="", flush=True)
+full_text,_,_=classification.extract_pdf_info('./documents/HR_Clearway_LOI_Fully_Executed.pdf')
+print(full_text)
+
+
+
+
 
 
 

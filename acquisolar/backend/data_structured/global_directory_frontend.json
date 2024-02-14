@@ -1,0 +1,6 @@
+{
+    "Documents" : ["doc1.txt", "doc2.txt", "report.pdf"],
+    "Photos^" : ["photo1.jpg", "photo2.jpg", "photo3.jpg"],
+    "Videos" : ["video1.mp4", "video2.mp4"],
+    "Music" : ["song1.mp3", "song2.mp3"]
+}
