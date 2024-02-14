@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
 import FileList from './viewcomponents/filelist';
@@ -21,7 +21,8 @@ const location = useLocation();
   const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentPdf, setCurrentPdf] = useState(location.state || {});
+  const [currentPdf, setCurrentPdf] = useState(null);
+  const [blobUrl, setBlobUrl] = useState('');
   const [numPages, setNumPages] = useState(null); 
   const [instances, setInstances] = useState([]);
   const [currentInstance, setCurrentInstance] = useState(0);
@@ -62,6 +63,20 @@ const location = useLocation();
     setPageNumber(instances[nextInstance].page);
   };
 
+  useEffect(() => {
+    if (location.state && location.state.file) {
+      const newBlobUrl = URL.createObjectURL(location.state.file);
+      setBlobUrl(newBlobUrl);
+      setCurrentPdf(location.state.file); // Save the File object if needed
+    }
+
+    // Clean up the blob URL when the component unmounts
+    return () => {
+      if (blobUrl) {
+        URL.revokeObjectURL(blobUrl);
+      }
+    };
+  }, [location]);
   
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -95,7 +110,12 @@ const location = useLocation();
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {
+    console.log("Document is loaded with " + numPages + " pages");
     setNumPages(numPages);
+  };
+
+  const onDocumentLoadError = (error) => {
+    console.error('Error while loading document!', error);
   };
 
   const handleNavigate = () => {
@@ -129,6 +149,7 @@ const location = useLocation();
           goToNextInstance={goToNextInstance}
           goToPreviousInstance={goToPreviousInstance}
           pageNumber={pageNumber}
+          onDocumentLoadError={onDocumentLoadError}
         />
       </div>
       <div style={styles.queryContainer}>

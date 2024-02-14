@@ -1,9 +1,15 @@
 // UI for the pdfviewer
 import React from 'react';
+import { useEffect } from 'react';
 import { Document, Page } from 'react-pdf';
 
 const PDFViewer = ({ showSearch, currentPdf, numPages, searchQuery, handleSearchInputChange, handleSearchSubmit, onDocumentLoadSuccess, 
-    instances, currentInstance, findInstancesOfSearchTerm, goToNextInstance, pageNumber, goToPreviousInstance }) => {
+    instances, currentInstance, findInstancesOfSearchTerm, goToNextInstance, pageNumber, goToPreviousInstance, onDocumentLoadError }) => {
+
+        useEffect(() => {
+            console.log(currentPdf);
+          }, []);
+
 return (
     <div style={styles.pdfViewer}>
         <div style={styles.searchHeader}>
@@ -34,15 +40,18 @@ return (
             </div>
         </div>
 
-
+        {currentPdf && (
         <div style={styles.pdfContainer}>
-            <Document
-            file={currentPdf}
-            onLoadSuccess={onDocumentLoadSuccess}
-            >
-            <Page pageNumber={pageNumber} />
-            </Document>
+        <Document
+        file={currentPdf}
+        onLoadSuccess={onDocumentLoadSuccess}
+        onLoadError={onDocumentLoadError}
+        >
+        <Page pageNumber={pageNumber} />
+        </Document>
         </div>
+        )}
+
 
     </div>
     );

@@ -145,6 +145,7 @@ const Main = () => {
 
     console.log(formData);
 
+
     try {
       const response = await fetch(URLServer + '/upload', {
         method: 'POST',
@@ -160,7 +161,11 @@ const Main = () => {
       console.error('Error uploading files', error);
     }
 
-    navigate('/searchscreen', { state: { currentPdf } });
+    console.log(currentPdf)
+    console.log(currentPdf?.name); // Files and Blobs have a name property
+    console.log(currentPdf?.size); // Files and Blobs have a size property
+    console.log(currentPdf?.type); // Files and Blobs have a type property
+    navigate('/searchscreen', { state: { file: currentPdf } });
   };
 
   const handleNavigate = () => {
