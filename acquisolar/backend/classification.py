@@ -428,9 +428,11 @@ def main(input_dir, output_dir, project_name):
 
 
 
+"""
 if __name__ == "__main__":
     root_directory = set_root_directory()
     input_dir, output_dir = construct_relative_paths(root_directory)
     project_name = "MegaSolar"
     
     main(input_dir, output_dir, project_name)
+"""
