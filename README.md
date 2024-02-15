@@ -15,10 +15,23 @@ Zara:
 * Plan for Sprint 3: A more professional UI design and finish up integrating the backend fully. Also need to determine the best way to store a user's files efficiently. Allowing a user to search through multiple files for text content.  
 
 Jürgen:
-* Accomplished in Sprint 2: 
+* Accomplished in Sprint 2:
+My primary responsibility is to explore how to build a file-classification and summary process that is >98% accurate. Therefore, I: 
+- Developed a workflow to read and process pdf (status: functional and effective)
+- tokenize them (status: functional, but not optimized)
+- prompt GPT to classify them (status: currently using few-shot prompting)
+
+This included data anotation in reports to create rules and heuristics for GPT to use to classify. 
+
 * Plan for Sprint 3:
+1. Implementing the new version of few-shot prompting into the architecture
+2. Finding and generating more data that we can use to 1) create few-shot examples 2) create a hold-out dataset to measure our accuracy
+3. Experimenting with LDA and LangChain to improve our summary  
 
 
+
+
+-- 
 
 ## Summary Sprint 1
 
