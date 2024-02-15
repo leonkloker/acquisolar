@@ -11,8 +11,8 @@ Leon:
 * Plan for Sprint 3: Be even more involved in the frontend development. Optimize the document processing and query engine and keep track of which documents have already been indexed or summarized and which still have to be processed. Present the layout to interviewees to get feedback on layout and functionality.
 
 Zara:
-* Accomplished in Sprint 2: 
-* Plan for Sprint 3:
+* Accomplished in Sprint 2: Integrated backend and frontend for file uploads and data retrieval in javascript that Leon converted to python. Implemented the UI side for displaying and allowing users to search for specific text in pdf documents. 4 screens file upload - search - suggested folder structure - folder contents look. Researching the best practices for secure and efficient file storage.  
+* Plan for Sprint 3: A more professional UI design and finish up integrating the backend fully. Also need to determine the best way to store a user's files efficiently. Allowing a user to search through multiple files for text content.  
 
 Jürgen:
 * Accomplished in Sprint 2: 
