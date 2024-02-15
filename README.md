@@ -17,17 +17,17 @@ Zara:
 Jürgen:
 * Accomplished in Sprint 2:
 Primary responsibility is to explore how to build a file-classification and summary process. 
-_Developed a workflow to read and process pdf (status: functional and effective)
-_tokenize them (status: functional, but not optimized)
-_prompt GPT to classify them (status: currently using few-shot prompting)
+- Developed a workflow to read and process pdf (status: functional and effective)
+- tokenize them (status: functional, but not optimized)
+- prompt GPT to classify them (status: currently using few-shot prompting)
 
 This included data anotation in reports to create rules and heuristics for GPT to use to classify. 
 
 * Plan for Sprint 3:
 Optimize the file-classification and summary until >95% accurate:
-_Implementing the new version of few-shot prompting into the architecture
-_Finding and generating more data that we can use to 1) create few-shot examples 2) create a hold-out dataset to measure our accuracy
-_Experimenting with LDA and LangChain to improve the summary
+- Implementing the new version of few-shot prompting into the architecture
+- Finding and generating more data that we can use to 1) create few-shot examples 2) create a hold-out dataset to measure our accuracy
+- Experimenting with LDA and LangChain to improve the summary
 
 
 
