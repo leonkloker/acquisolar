@@ -7,8 +7,8 @@ Magnus:
 * Plan for Sprint 3:
 
 Leon: 
-* Accomplished in Sprint 2: 
-* Plan for Sprint 3:
+* Accomplished in Sprint 2: Connected backend to frontend with a python flask based backend. Decided on going with LlamaIndex for RAG. Implemented server endpoints for querying the vector database and streaming the response back to the frontend together with the sources, uploading documents to the backend, returning the folder structure and metadata after each document is processed, clasified and summarized. Looked into some UI development to help Zara. Set up an AWS instance to host the backend on a AWS server and the frontend on some frontend server for clearer separation and encapsulation for development.
+* Plan for Sprint 3: Be even more involved in the frontend development. Optimize the document processing and query engine and keep track of which documents have already been indexed or summarized and which still have to be processed. Present the layout to interviewees to get feedback on layout and functionality.
 
 Zara:
 * Accomplished in Sprint 2: 
