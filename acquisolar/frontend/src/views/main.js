@@ -60,7 +60,6 @@ const Main = () => {
     setCurrentInstance(nextInstance);
     setPageNumber(instances[nextInstance].page);
   };
-
   
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);

@@ -5,9 +5,22 @@ import axios from 'axios';
 
 // Example dictionary of folders and files
 const initialFolders = {
-    'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
-    'Photos': ['photo1.jpg', 'photo2.png'],
-    'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
+    "Environmental": [],
+    "EPC": [],
+    "Interconnection": [],
+    "Permitting": [],
+    "PPA": [
+        "2014-0359 (PPA on p37).pdf",
+        "2015-0389 (PPA on p114).pdf",
+        "2020-0137 (PPA on p41).pdf",
+        "Interconnection agreement 1.pdf",
+        "PPA1.pdf"
+    ],
+    "Unclassified": [
+        "HR_Clearway_LOI_Fully Executed.pdf",
+        "Offtaker sheet - BFA Energy.pdf",
+        "Waikoloa Purchase and Sale Agreement.pdf"
+    ]
   };
 
   // url of aws server and port 80
@@ -29,7 +42,7 @@ const initialFolders = {
 const Folder = () => {
     const navigate = useNavigate();
     // Replace [] in useState with initialFolder for an example
-    const [folders, setFolders] = useState([]);
+    const [folders, setFolders] = useState(initialFolders);
 
     
     useEffect(() => {
