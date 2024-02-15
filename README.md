@@ -3,8 +3,9 @@
 ## Summary Sprint 2
 
 Magnus: 
-* Accomplished in Sprint 2: 
+* Accomplished in Sprint 2: created a visual mockup to guide further development. coded the pipeline from a document coming in, metadata and information being extracted, and the files being placed in a new folder structure. created functions to format directories for the frontend and move and rename files
 * Plan for Sprint 3:
+* set up calls to teat initial functionality with users. complete visual prototype. optimize summary and title generation
 
 Leon: 
 * Accomplished in Sprint 2: Connected backend to frontend with a python flask based backend. Decided on going with LlamaIndex for RAG. Implemented server endpoints for querying the vector database and streaming the response back to the frontend together with the sources, uploading documents to the backend, returning the folder structure and metadata after each document is processed, clasified and summarized. Looked into some UI development to help Zara. Set up an AWS instance to host the backend on a AWS server and the frontend on some frontend server for clearer separation and encapsulation for development.
