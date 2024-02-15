@@ -147,21 +147,7 @@ const location = useLocation();
             />
             <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
             </div>
-            <div style={styles.instanceContainer}>
-            {instances.length > 0 && (
-                <>
-                <span style={styles.instanceText}>
-                    Instance ({currentInstance + 1}/{instances.length})
-                </span>
-                <button style={styles.searchButton} onClick={goToPreviousInstance}>
-                    Previous
-                </button>
-                <button style={styles.searchButton} onClick={goToNextInstance}>
-                    Next
-                </button>
-                </>
-            )}
-            </div>
+
         </div>
         <QueryResult/>
         </div>

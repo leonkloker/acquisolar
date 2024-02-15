@@ -1,6 +1,5 @@
 from flask import Flask, request, send_from_directory, jsonify, stream_with_context
 from flask_cors import CORS
-import json
 import os
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -12,7 +11,7 @@ import searchengine
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
 
-# Enable cross-origin resource sharing
+# Enable CORS only on AWS
 CORS(app)
 
 # Configuration for file uploads
@@ -49,7 +48,7 @@ def upload():
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
-            classification.main(doc_dir, output_dir, 'SAMPLE_PROJECT')
+            classification.main(doc_dir, output_dir)
             
 
             # Index the uploaded files
@@ -88,27 +87,23 @@ def get_folders():
     return jsonify(folder_structure)
 
 
-# return folder structure and corresponding metadata
 def calculate_folders():
-    f = open('./data_structured/global_directory_frontend.json', 'r')
-    folders = json.load(f)
-    f.close()
-
-    f = open('./data_structured/complete_file_metadata.json', 'r')
-    metadata = json.load(f)
-    f.close()
-
-    return folders, metadata
+    folders = {
+        'Documents': ['doc1.txt', 'doc2.txt', 'report.pdf'],
+        'Photos': ['photo1.jpg', 'photo2.png'],
+        'Music': ['song1.mp3', 'song2.wav', 'album1.zip'],
+        'Videos': ['song1.mp3', 'song2.wav', 'album1.zip'],
+    }
+    return folders
 
 
-# Get the contents of a folder
 @app.route('/get-folder-contents', methods=['POST'])
 def get_folder_contents():
-    folders, metadata = calculate_folders()
+    folders_data = calculate_folders()
     data = request.json
     folder_name = data.get('folderName')
-    if folder_name and folder_name in folders:
-        return jsonify(folders[folder_name])
+    if folder_name and folder_name in folders_data:
+        return jsonify(folders_data[folder_name])
         #return jsonify({'status': 'success', 'data': folders_data[folder_name]})
     else:
         return jsonify({'status': 'error', 'message': 'Folder not found'}), 404
