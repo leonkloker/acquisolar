@@ -132,8 +132,40 @@ const location = useLocation();
       </header>
 
       {/* Submit button */}
-      <button onClick={handleNavigate} style={styles.submitButton} >Folders</button>
+      <button onClick={handleNavigate} style={styles.submitButton}>Folders</button>
         <div style={styles.mainContent}>
+          
+        <div>
+        <div style={styles.searchHeader}>
+            <div style={styles.searchContainer}>
+            <input
+                type="text"
+                placeholder="Search..."
+                style={styles.searchInput}
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+            />
+            <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
+            </div>
+            <div style={styles.instanceContainer}>
+            {instances.length > 0 && (
+                <>
+                <span style={styles.instanceText}>
+                    Instance ({currentInstance + 1}/{instances.length})
+                </span>
+                <button style={styles.searchButton} onClick={goToPreviousInstance}>
+                    Previous
+                </button>
+                <button style={styles.searchButton} onClick={goToNextInstance}>
+                    Next
+                </button>
+                </>
+            )}
+            </div>
+        </div>
+        <QueryResult/>
+        </div>
+
         {/* PDF viewer and search functionality */}
         <PDFViewer 
           showSearch={showSearch} 
@@ -152,10 +184,6 @@ const location = useLocation();
           onDocumentLoadError={onDocumentLoadError}
         />
       </div>
-      <div style={styles.queryContainer}>
-      <QueryResult/>
-      </div>
-
     </div>
   );
 };
@@ -202,6 +230,7 @@ const styles = {
     cursor: 'pointer',
     color: 'black',
     fontWeight: 'bold',
+    
   },
   mainContent: {
     display: 'flex',
@@ -216,8 +245,45 @@ const styles = {
   },
   queryContainer: {
     display: 'flex',
-
-  }
+  },
+  searchHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '10px', 
+},
+searchContainer: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+},
+instanceContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+},
+searchInput: {
+  height: '40px',
+  marginLeft: "3%",
+  fontSize: '18px',
+  padding: '0 15px',
+  border: '2px solid #7AA6B9',
+  borderRadius: '20px',
+  marginRight: '10px',
+  outline: 'none',
+},
+searchButton: {
+  padding: '10px 20px',
+  fontSize: '16px',
+  backgroundColor: '#FFF',
+  color: 'black',
+  border: 'none',
+  borderRadius: '20px',
+  cursor: 'pointer',
+  outline: 'none',
+  fontWeight: 'bold',
+  margin: '4px'
+},
   
 };
 

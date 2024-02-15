@@ -12,42 +12,13 @@ const PDFViewer = ({ showSearch, currentPdf, numPages, searchQuery, handleSearch
 
 return (
     <div style={styles.pdfViewer}>
-        <div style={styles.searchHeader}>
-            <div style={styles.searchContainer}>
-            <input
-                type="text"
-                placeholder="Search..."
-                style={styles.searchInput}
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-            />
-            <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
-            </div>
-            <div style={styles.instanceContainer}>
-            {instances.length > 0 && (
-                <>
-                <span style={styles.instanceText}>
-                    Instance ({currentInstance + 1}/{instances.length})
-                </span>
-                <button style={styles.searchButton} onClick={goToPreviousInstance}>
-                    Previous
-                </button>
-                <button style={styles.searchButton} onClick={goToNextInstance}>
-                    Next
-                </button>
-                </>
-            )}
-            </div>
-        </div>
-
         {currentPdf && (
         <div style={styles.pdfContainer}>
         <Document
         file={currentPdf}
         onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={onDocumentLoadError}
         >
-        <Page pageNumber={pageNumber} />
+        <Page pageNumber={pageNumber} width={window.innerWidth * 0.6 /* Example dynamic width */} />
         </Document>
         </div>
         )}
