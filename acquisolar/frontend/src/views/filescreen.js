@@ -3,6 +3,12 @@ import folderIcon from '../icons/folder-icon.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
+// url of aws server and port 80
+// change to 'http://localhost:3001' for localhost
+// or http://54.90.226.66:80' for aws
+// Changed this variable name or causes issues with other parts of code
+const URLServer = 'http://localhost:3001'
+
 // Example dictionary of folders and files
 const initialFiles = [
   {
@@ -122,7 +128,7 @@ const FileIcon = ({ file, onUpdateTitle }) => {
   const File = () => {
     const location = useLocation();
     const { folderName } = location.state || {};
-    const [files, setFiles] = useState(initialFiles);
+    const [files, setFiles] = useState([]);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
 
     const updateTitle = (id, newTitle) => {
@@ -130,7 +136,7 @@ const FileIcon = ({ file, onUpdateTitle }) => {
         file.id === id ? { ...file, current_title: newTitle } : file
       ));
     };
-    /*useEffect(() => {
+    useEffect(() => {
         const fetchFolderContents = async (folderName) => {
           try {
               const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
@@ -142,7 +148,7 @@ const FileIcon = ({ file, onUpdateTitle }) => {
       };
       fetchFolderContents(folderName);
       console.log(files[0]["original_title"])
-      }, []);*/
+      }, []);
 
     return (
         <div style={styles.container}>
