@@ -2,9 +2,17 @@
 
 ## Summary Sprint 2
 
+Setup instructions:
+cd into backend
+
+install necessary modules using pip install -r requirements.txt
+
+run python server.py and copy url link and paste in URL
+
 Magnus: 
-* Accomplished in Sprint 2: 
+* Accomplished in Sprint 2: created a visual mockup to guide further development. coded the pipeline from a document coming in, metadata and information being extracted, and the files being placed in a new folder structure. created functions to format directories for the frontend and move and rename files
 * Plan for Sprint 3:
+* set up calls to teat initial functionality with users. complete visual prototype. optimize summary and title generation
 
 Leon: 
 * Accomplished in Sprint 2: Connected backend to frontend with a python flask based backend. Decided on going with LlamaIndex for RAG. Implemented server endpoints for querying the vector database and streaming the response back to the frontend together with the sources, uploading documents to the backend, returning the folder structure and metadata after each document is processed, clasified and summarized. Looked into some UI development to help Zara. Set up an AWS instance to host the backend on a AWS server and the frontend on some frontend server for clearer separation and encapsulation for development.
@@ -15,10 +23,24 @@ Zara:
 * Plan for Sprint 3: A more professional UI design and finish up integrating the backend fully. Also need to determine the best way to store a user's files efficiently. Allowing a user to search through multiple files for text content.  
 
 Jürgen:
-* Accomplished in Sprint 2: 
+* Accomplished in Sprint 2:
+Primary responsibility is to explore how to build a file-classification and summary process. 
+- Developed a workflow to read and process pdf (status: functional and effective)
+- tokenize them (status: functional, but not optimized)
+- prompt GPT to classify them (status: currently using few-shot prompting)
+
+This included data anotation in reports to create rules and heuristics for GPT to use to classify. 
+
 * Plan for Sprint 3:
+Optimize the file-classification and summary until >95% accurate:
+- Implementing the new version of few-shot prompting into the architecture
+- Finding and generating more data that we can use to 1) create few-shot examples 2) create a hold-out dataset to measure our accuracy
+- Experimenting with LDA and LangChain to improve the summary
 
 
+
+
+-- 
 
 ## Summary Sprint 1
 
