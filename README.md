@@ -2,6 +2,11 @@
 
 ## Summary Sprint 2
 
+Setup instructions:
+cd into backend
+install necessary modules using pip install -r requirements.txt
+run python server.py and copy url link and paste in URL
+
 Magnus: 
 * Accomplished in Sprint 2: created a visual mockup to guide further development. coded the pipeline from a document coming in, metadata and information being extracted, and the files being placed in a new folder structure. created functions to format directories for the frontend and move and rename files
 * Plan for Sprint 3:
