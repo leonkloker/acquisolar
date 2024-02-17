@@ -115,16 +115,6 @@ const FileIcon = ({ file, onUpdateTitle }) => {
 };
 
 
-  const FileIcon2 = ({ name, date }) => (
-    <div style={styles.fileIconContainer}>
-        <div>
-        <img src={folderIcon} alt="File" style={styles.image} />
-        <p style={styles.fileName}>{name}</p>
-        </div>
-        <p style={styles.fileName}>{date}</p> 
-    </div>
-  );
-
   const File = () => {
     const location = useLocation();
     const { folderName } = location.state || {};
@@ -136,14 +126,16 @@ const FileIcon = ({ file, onUpdateTitle }) => {
         file.id === id ? { ...file, current_title: newTitle } : file
       ));
     };
+    
     useEffect(() => {
         const fetchFolderContents = async (folderName) => {
           try {
               const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
-              setFiles(response.data); // Update state with folder contents
+              console.log(response.data);
+              //setFiles(response.data); // Update state with folder contents
           } catch (error) {
               console.error('Error fetching folder contents:', error);
-              setFiles([]); // Reset or handle error
+              //setFiles([]); // Reset or handle error
           }
       };
       fetchFolderContents(folderName);

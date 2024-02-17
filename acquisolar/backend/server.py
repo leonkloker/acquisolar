@@ -98,17 +98,21 @@ def calculate_folders():
     folders = json.load(f)
     f.close()
 
+
+    return folders
+
+def calculate_metadata():
     f = open('./structured_data/complete_file_metadata.json', 'r')
     metadata = json.load(f)
     f.close()
-
-    return folders, metadata
+    return metadata
 
 
 # Get the contents of a folder
 @app.route('/get-folder-contents', methods=['POST'])
 def get_folder_contents():
-    folders, metadata = calculate_folders()
+    folders = calculate_folders()
+    metadata = calculate_metadata()
     data = request.json
     folder_name = data.get('folderName')
     if folder_name and folder_name in folders:
