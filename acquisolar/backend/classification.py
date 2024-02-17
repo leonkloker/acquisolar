@@ -223,6 +223,7 @@ def make_openai_api_call(truncated_query):
     """
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo-0125",
+        #model="gpt-4-0125-preview",
         messages=[
             {"role": "system", "content": "You are a solar M&A analyst and great at extracting summaries and text from M&A documentation. Under no circumstances do you halucinate, instead you say that you leave a field blank if you cannot answer"},
             {"role": "user", "content": truncated_query}
@@ -428,11 +429,17 @@ def main(input_dir, output_dir, project_name):
 
 
 
-"""
 if __name__ == "__main__":
     root_directory = set_root_directory()
     input_dir, output_dir = construct_relative_paths(root_directory)
     project_name = "MegaSolar"
     
     main(input_dir, output_dir, project_name)
+
+"""
+root_directory = set_root_directory()
+input_dir, output_dir = construct_relative_paths(root_directory)
+project_name = "MegaSolar"
+
+main(input_dir, output_dir, project_name)
 """

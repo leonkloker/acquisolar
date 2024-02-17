@@ -49,7 +49,6 @@ def save_json_data(output_data, output_directory):
         json.dump(output_data, file, indent=4)
     print(f"Output saved to: {output_file_path}")
 
-
 def convert_directory_structure():
     set_root_directory()
     json_file_path = 'structured_data/global_directory.json'
@@ -57,29 +56,4 @@ def convert_directory_structure():
     converted_json_with_empty_folders = convert_structure(input_json)
     save_json_data(converted_json_with_empty_folders, input_directory)
 
-
-import os
-import json
-
-def calculate_folders_from_json():
-    # Set the current working directory to the script's directory
-    script_directory = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(script_directory)
-    
-    # Now define the path to the JSON file relative to the script's directory
-    json_file_path = os.path.join('structured_data', 'global_directory_frontend.json')
-    
-    # Attempt to load and return the JSON data
-    try:
-        with open(json_file_path, 'r') as file:
-            folders = json.load(file)
-        return folders
-    except FileNotFoundError:
-        print(f"File not found: {json_file_path}")
-        return {}
-    except json.JSONDecodeError:
-        print(f"Error decoding JSON from file: {json_file_path}")
-        return {}
-
-
-print(calculate_folders_from_json())
+convert_directory_structure()
