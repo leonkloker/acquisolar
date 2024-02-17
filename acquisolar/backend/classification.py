@@ -6,9 +6,21 @@ import json
 import tiktoken
 import zipfile
 import shutil
+from tqdm import tqdm
 
-client = OpenAI(api_key="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")  # Text completion
-project_name = "MegaSolar"
+
+#save text file for testing
+def save_txt_file(title, contents, enable_testing_output = False):
+    # Create a directory if it doesn't exist
+    if enable_testing_output == True:
+        folder_name = "classification_testing(can_be_deleted)"
+        if not os.path.exists(folder_name):
+            os.makedirs(folder_name)
+
+        # Write the response content to a file inside the folder
+        file_path = os.path.join(folder_name, title)
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(contents)
 
 #set root directory
 def set_root_directory():
@@ -24,7 +36,8 @@ def construct_relative_paths(root_directory):
     output_dir = os.path.join(root_directory, "structured_data")
     return input_dir, output_dir
 
-#go from pdf to query
+#Extract text, name and page number from pdf
+#@profile
 def extract_pdf_info(pdf_path):
     doc = fitz.open(pdf_path)
     full_text = ""
@@ -50,27 +63,26 @@ def extract_pdf_info(pdf_path):
                     new_text += stripped_line + " "
         full_text += new_text
     doc.close()
-    print(title)
     return full_text, num_pages, title
 
-def truncate_query_to_fit_context(query, max_length=10000):
+def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output=False): #35k is ok for gpt-4-0125-preview #10k max for gpt-3.5-turbo-0125
     """
     Truncate a query to ensure it fits within the specified maximum length, preserving new lines and indentation.
     This version considers the query as a series of lines.
     
     Parameters:
     - query: The text query to be truncated.
-    - max_length: The maximum allowed length in tokens. Defaults to 2048.
+    - max_length: The maximum allowed length in tokens. Defaults to 50000.
     
     Returns:
     - Truncated query with preserved formatting.
     """
     # Split the query into lines instead of words to preserve formatting
     lines = query.split('\n')
-    
     truncated_query = ""
     token_count = 0
-    
+    total_token_count = sum(len(line.split()) for line in lines)  # Total tokens in the original query
+
     for line in lines:
         line_token_count = len(line.split())  # Estimate token count for the line
         if token_count + line_token_count > max_length:
@@ -78,8 +90,14 @@ def truncate_query_to_fit_context(query, max_length=10000):
         truncated_query += line + "\n"  # Add the line back with its newline character
         token_count += line_token_count
     
+    # Calculate and print the percentage of the query used
+    percentage_used = (token_count / total_token_count) * 100 if total_token_count > 0 else 0
+    print(f"Percentage of the document used: {percentage_used:.2f}%")
+    
+    save_txt_file("truncated_query.txt", truncated_query, enable_testing_output)
     return truncated_query.rstrip()  # Remove the last newline character to clean up
-def construct_query(extracted_text,folder_structure_indented):
+
+def construct_query(extracted_text,folder_structure_indented,enable_testing_output=False):
     query = f"""
 Extract the following fields from the document text provided and format the response as valid JSON:
 - "Document_date" in the format '3 letter month name-DD, YYYY'.
@@ -93,6 +111,8 @@ Extract the following fields from the document text provided and format the resp
 The provided document text is:
 {extracted_text}
 """
+    # Write the query to a text file
+    save_txt_file("query.txt", query, enable_testing_output)
     return query
 def output_extracted_text_to_file(extracted_text, output_path):
     with open(output_path, "w", encoding="utf-8") as f:
@@ -113,13 +133,14 @@ def process_json_add_extension(data):
 
     return data
 
-def process_pdf(pdf_path, output_dir, folder_structure_indented):
+def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, copy_or_move="move"):
     """
     Adjusted to ensure the 'document_folder_path' uses the correct 'project_name/unclassified'.
     """
     print(f"Processing {os.path.basename(pdf_path)}...")
     
     extracted_text, num_pages, title = extract_pdf_info(pdf_path)
+    print("Document is", num_pages, "pages long")
     query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
     output_json = make_openai_api_call(truncated_query)
@@ -139,17 +160,23 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
     document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
-    
+
     # Correctly handle the 'Unclassified' case and ensure the path starts with 'project_name/'
     if not document_folder_path.startswith(project_name):
+        print("checking the if not document_folder_path:")
         document_folder_path = os.path.join(project_name, "Unclassified")
-
+    print('output_dir:', output_dir)
+    print('document_folder_path:', document_folder_path)
     # Build the correct final path within the output directory
     final_path = os.path.join(output_dir, document_folder_path)
     os.makedirs(final_path, exist_ok=True)  # Ensure the folder exists
     
-    # Move the PDF to the designated folder
-    shutil.move(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
+    # Move or copy the PDF to the designated folder
+    if copy_or_move == "copy":
+        print("copying file, not moving")
+        shutil.copy(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
+    else:    
+        shutil.move(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
 
     complete_metadata_file_path = os.path.join(output_dir, "complete_file_metadata.json")
 
@@ -157,7 +184,7 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented):
     append_to_complete_metadata_file(data, complete_metadata_file_path)
 
 
-    print(f"Finished processing {os.path.basename(pdf_path)}. JSON and PDF saved to {final_path}.")
+    print(f"Finished processing {os.path.basename(pdf_path)}. File saved to {final_path}.")
 
 def append_to_complete_metadata_file(data, file_path):
     highest_id = 0  # Default to 0 if file is empty or does not exist
@@ -215,6 +242,16 @@ def make_json_valid(response_content):
         print("Valid JSON object not found in the response.")
         response_content = "{}"
 
+    try:
+        json_obj = json.loads(response_content)
+        if "Document_summary" in json_obj and json_obj["Document_summary"]:
+            return response_content
+        else:
+            print("\n###########ERROR###########\nGenerated JSON is empty or 'document_summary' entry is missing.\nMay need to truncate query \n###########ERROR###########\n")
+    except json.JSONDecodeError:
+        raise print("Failed to parse JSON.")
+
+
     return response_content
 
 def make_openai_api_call(truncated_query):
@@ -231,7 +268,7 @@ def make_openai_api_call(truncated_query):
         temperature=0
     )
     response_content = completion.choices[0].message.content
-
+    save_txt_file("raw_gpt_response.txt", response_content, enable_testing_output)
     # Clean the response content to ensure it's a valid JSON string
     valid_json_string = make_json_valid(response_content)
 
@@ -351,10 +388,10 @@ def find_and_create_zip_structure(input_dir, output_dir, project_name):
     if folder_structure_list is not None:
         # Create the folder structure starting at output_dir
         create_folder_structure_from_list(folder_structure_list, output_dir)
-        print(f"Folder structure created under {output_dir}")
+        print(f"Folder structure created under {output_dir}\n")
         return folder_structure_indented
     else:
-        print("No folder structure to create.")
+        print("No folder structure to create.\n")
 
 
 # outputing directory of all files
@@ -408,7 +445,7 @@ def generate_directory_json(output_dir, project_name):
     with open(os.path.join(output_dir, 'global_directory.json'), 'w', encoding='utf-8') as f:
         json.dump(directory_tree, f, indent=2)
 
-def main(input_dir, output_dir, project_name):
+def main(input_dir, output_dir, project_name, copy_or_move ="move"):
     """
     Main function to process all PDF files in the input directory.
     """
@@ -421,25 +458,28 @@ def main(input_dir, output_dir, project_name):
     # List all PDF files in the input directory
     pdf_files = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
     
-    for pdf_name in pdf_files:
+    total_documents = len(pdf_files)
+    print(total_documents, "documents found in input folder\n")
+    # Process each PDF file and update progress
+    for idx, pdf_name in enumerate(pdf_files, start=1):
         pdf_path = os.path.join(input_dir, pdf_name)
-        process_pdf(pdf_path, output_dir, folder_structure_indented)
+        process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, copy_or_move)
+        
+        # Print progress update
+        print(f"{idx} out of {total_documents} documents processed\n")
     
     generate_directory_json(output_dir, project_name)
 
 
-
-if __name__ == "__main__":
-    root_directory = set_root_directory()
-    input_dir, output_dir = construct_relative_paths(root_directory)
-    project_name = "MegaSolar"
-    
-    main(input_dir, output_dir, project_name)
-
-"""
+client = OpenAI(api_key="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")
+enable_testing_output = True
+copy_or_move = "move" #better to chose move for testing complete functionality. and clearing output folders first
 root_directory = set_root_directory()
 input_dir, output_dir = construct_relative_paths(root_directory)
 project_name = "MegaSolar"
 
-main(input_dir, output_dir, project_name)
-"""
+if __name__ == "__main__":
+    project_name = "MegaSolar"
+    root_directory = set_root_directory()
+    input_dir, output_dir = construct_relative_paths(root_directory)
+    main(input_dir, output_dir, project_name, copy_or_move)

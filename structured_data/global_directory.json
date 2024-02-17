@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "name": "MegaSolar",
+    "type": "directory",
+    "parent_id": null
+  },
+  {
+    "id": 2,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 3,
+    "name": "LOI.pdf",
+    "type": "file",
+    "size": 10156335,
+    "parent_id": 2
+  },
+  {
+    "id": 4,
+    "name": "PPA1.pdf",
+    "type": "file",
+    "size": 76843237,
+    "parent_id": 2
+  },
+  {
+    "id": 5,
+    "name": "PPA2.pdf",
+    "type": "file",
+    "size": 2297492,
+    "parent_id": 2
+  },
+  {
+    "id": 6,
+    "name": "PPA3.pdf",
+    "type": "file",
+    "size": 6573496,
+    "parent_id": 2
+  },
+  {
+    "id": 7,
+    "name": "Waikoloa_Purchase_and_Sale_Agreement.pdf",
+    "type": "file",
+    "size": 2274544,
+    "parent_id": 2
+  }
+]
