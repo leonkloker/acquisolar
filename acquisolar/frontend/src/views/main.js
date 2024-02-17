@@ -4,6 +4,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import FileList from './viewcomponents/filelist';
 import PDFViewer from './viewcomponents/pdfviewer';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -19,78 +20,8 @@ const Main = () => {
   const [files, setFiles] = useState([]);
   const [fileNames, setFileNames] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [currentPdf, setCurrentPdf] = useState(null);
   const [numPages, setNumPages] = useState(null); 
-  const [instances, setInstances] = useState([]);
-  const [currentInstance, setCurrentInstance] = useState(0);
-  const [pageNumber, setPageNumber] = useState(1);
-
-  const findInstancesOfSearchTerm = async () => {
-    let instancesFound = [];
-    if (!currentPdf) return;
-
-    const pdfDocument = await pdfjs.getDocument(URL.createObjectURL(currentPdf)).promise;
-
-    for (let i = 1; i <= numPages; i++) {
-      const page = await pdfDocument.getPage(i);
-      const textContent = await page.getTextContent();
-      // Look for instances of the search term in the text content
-      textContent.items.forEach((item) => {
-        if (item.str.includes(searchQuery)) {
-          instancesFound.push({ page: i, instance: item.str });
-        }
-      });
-    }
-    setInstances(instancesFound);
-    if (instancesFound.length > 0) {
-      setPageNumber(instancesFound[0].page); // Go to the first instance page
-    }
-  };
-
-  const goToNextInstance = () => {
-    if (instances.length === 0) return;
-    const nextInstance = (currentInstance + 1) % instances.length;
-    setCurrentInstance(nextInstance);
-    setPageNumber(instances[nextInstance].page);
-  };
-
-  const goToPreviousInstance = () => {
-    const nextInstance = (currentInstance - 1) % instances.length;
-    setCurrentInstance(nextInstance);
-    setPageNumber(instances[nextInstance].page);
-  };
-  
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = async () => {
-    if (!searchQuery) {
-      alert('Please enter a search query.');
-      return;
-    }
-  
-    try {
-      const response = await fetch(URLServer + '/search', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query: searchQuery }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        console.error('Search failed', response);
-      }
-    } catch (error) {
-      console.error('Error during search', error);
-    }
-    findInstancesOfSearchTerm();
-  };
 
   const onDrop = useCallback((acceptedFiles) => {
     // Prevents duplicates from being uploaded (based on filename atm)
@@ -110,10 +41,6 @@ const Main = () => {
       return [...prevFiles, ...uniqueNewFileNames];
     });
   }, [currentPdf]);
-
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
 
   const removeFile = (fileName, event) => {
     event.stopPropagation(); // Prevent the event from bubbling up to parent elements
@@ -142,10 +69,9 @@ const Main = () => {
       formData.append('files', file);
     });
 
-    console.log(formData);
-
-
     try {
+      console.log("Uploading")
+      //const response = await axios.post(URLServer + '/upload');
       const response = await fetch(URLServer + '/upload', {
         method: 'POST',
         body: formData,
@@ -160,16 +86,9 @@ const Main = () => {
       console.error('Error uploading files', error);
     }
 
-    console.log(currentPdf)
-    console.log(currentPdf?.name); // Files and Blobs have a name property
-    console.log(currentPdf?.size); // Files and Blobs have a size property
-    console.log(currentPdf?.type); // Files and Blobs have a type property
-    navigate('/searchscreen', { state: { file: currentPdf } });
-  };
+    console.log('Navigating to search')
 
-  const handleNavigate = () => {
-    // Programmatically navigate to the /folders route
-    navigate('/folders');
+    navigate('/searchscreen', { state: { file: currentPdf } });
   };
 
   return (
@@ -192,25 +111,8 @@ const Main = () => {
           <FileList fileNames={fileNames} removeFile={removeFile} />
         </div>
 
-        {/* PDF viewer and search functionality */}
-        <PDFViewer 
-          showSearch={showSearch} 
-          currentPdf={currentPdf} 
-          numPages={numPages} 
-          searchQuery={searchQuery} 
-          handleSearchInputChange={handleSearchInputChange} 
-          handleSearchSubmit={handleSearchSubmit} 
-          onDocumentLoadSuccess = {onDocumentLoadSuccess}
-          instances={instances}
-          currentInstance={currentInstance}
-          findInstancesOfSearchTerm={findInstancesOfSearchTerm}
-          goToNextInstance={goToNextInstance}
-          goToPreviousInstance={goToPreviousInstance}
-          pageNumber={pageNumber}
-        />
-
         {/* Instructions for users */}
-        {!showSearch && (
+      {!showSearch && (
           <div style={styles.dragTextContainer}>
             <p style={styles.dragText}>Add your files in the box on the left and click Submit.</p>
           </div>
@@ -219,9 +121,6 @@ const Main = () => {
 
       {/* Submit button */}
       <div style={styles.buttonContainer}>
-      {showSearch && (
-      <button onClick={handleNavigate} style={styles.submitButton} > Structure Folders</button>
-      )}
       {!showSearch && (
       <button style={styles.submitButton} onClick={uploadFilesToServer}>Submit</button>
       )}
