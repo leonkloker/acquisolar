@@ -8,6 +8,7 @@ import subprocess
 
 import classification
 import searchengine
+import Convert_directory
 
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
@@ -19,7 +20,7 @@ CORS(app)
 app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
 app.config['UPLOADED_FILES_INDEX'] = 'index_storage'  # where files are indexed
 app.config['UPLOADED_FILES_ALLOW'] = ['pdf']  # allowed file types
-app.config['STRUCTURED_DATA'] = 'data_structured'  # where structured data is stored
+app.config['STRUCTURED_DATA'] = 'structured_data'  # where structured data is stored
 
 # Configure file uploads
 files = UploadSet('files', ['pdf'])
@@ -49,12 +50,15 @@ def upload():
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
-            classification.main(doc_dir, output_dir, 'SAMPLE_PROJECT')
+            classification.main(doc_dir, output_dir, 'MegaSolar')
             
 
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
+
+            # create directory for frontend
+            Convert_directory.convert_directory_structure()
             
 
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
@@ -93,20 +97,18 @@ def calculate_folders():
     f = open('./structured_data/global_directory_frontend.json', 'r')
     folders = json.load(f)
     f.close()
-    return folders
 
-def calculate_metadata():
     f = open('./structured_data/complete_file_metadata.json', 'r')
     metadata = json.load(f)
     f.close()
-    return metadata
+
+    return folders, metadata
+
 
 # Get the contents of a folder
 @app.route('/get-folder-contents', methods=['POST'])
 def get_folder_contents():
-    folders = calculate_folders()
-    metadata = calculate_metadata
-
+    folders, metadata = calculate_folders()
     data = request.json
     folder_name = data.get('folderName')
     if folder_name and folder_name in folders:

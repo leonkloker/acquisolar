@@ -8,7 +8,7 @@ import zipfile
 import shutil
 
 client = OpenAI(api_key="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")  # Text completion
-project_name = "SAMPLE_PROJECT"
+project_name = "MegaSolar"
 
 #set root directory
 def set_root_directory():

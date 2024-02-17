@@ -56,4 +56,6 @@ def convert_directory_structure():
     converted_json_with_empty_folders = convert_structure(input_json)
     save_json_data(converted_json_with_empty_folders, input_directory)
 
-convert_directory_structure()
+
+if __name__ == "__convert_directory_structure__":
+    convert_directory_structure()

@@ -1,18 +1,10 @@
 {
-    "Environmental": [],
+    "Envionmental": [],
     "EPC": [],
     "Interconnection": [],
     "Permitting": [],
-    "PPA": [
-        "2014-0359 (PPA on p37).pdf",
-        "2015-0389 (PPA on p114).pdf",
-        "2020-0137 (PPA on p41).pdf",
-        "Interconnection agreement 1.pdf",
-        "PPA1.pdf"
-    ],
+    "PPA": [],
     "Unclassified": [
-        "HR_Clearway_LOI_Fully Executed.pdf",
-        "Offtaker sheet - BFA Energy.pdf",
-        "Waikoloa Purchase and Sale Agreement.pdf"
+        "LOI.pdf"
     ]
 }
