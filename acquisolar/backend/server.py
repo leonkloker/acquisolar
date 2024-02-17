@@ -89,6 +89,7 @@ def search():
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
     folder_structure = calculate_folders()
+    print(folder_structure)
     return jsonify(folder_structure)
 
 
@@ -115,8 +116,9 @@ def get_folder_contents():
     metadata = calculate_metadata()
     data = request.json
     folder_name = data.get('folderName')
+    print(folder_name)
     if folder_name and folder_name in folders:
-        return jsonify(folders[folder_name])
+        return jsonify(metadata)
         #return jsonify({'status': 'success', 'data': folders_data[folder_name]})
     else:
         return jsonify({'status': 'error', 'message': 'Folder not found'}), 404

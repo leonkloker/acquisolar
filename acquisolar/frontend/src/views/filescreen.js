@@ -126,20 +126,17 @@ const FileIcon = ({ file, onUpdateTitle }) => {
         file.id === id ? { ...file, current_title: newTitle } : file
       ));
     };
-    
+
     useEffect(() => {
         const fetchFolderContents = async (folderName) => {
           try {
               const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
-              console.log(response.data);
-              //setFiles(response.data); // Update state with folder contents
+              setFiles(response.data); // Update state with folder contents
           } catch (error) {
               console.error('Error fetching folder contents:', error);
-              //setFiles([]); // Reset or handle error
           }
       };
       fetchFolderContents(folderName);
-      console.log(files[0]["original_title"])
       }, []);
 
     return (
