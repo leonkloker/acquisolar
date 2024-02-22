@@ -1,8 +1,8 @@
 {
-  "Document_date": "Oct-09, 2019",
-  "Document_summary": "This document is an application for approval of a Power Purchase Agreement (PPA) for Renewable Dispatchable Generation with Waiawa Phase 2 Solar, LLC. The PPA aims to facilitate the increasing contribution from new renewable resources while mitigating financial risks for the seller. The document outlines the benefits of the PPA, including grid services, energy storage, and reduction in fossil fuel consumption.",
-  "Suggested_title": "10-09-2019 Renewable Dispatchable Generation PPA",
-  "Suggested_title_v2": "10-09-2019 Solar Energy Purchase Agreement",
-  "Suggested_title_v3": "10-09-2019 Renewable Energy Contract",
-  "Document_folder_path": "MegaSolar/Unclassified"
+    "Document_date": "Oct-30, 2019",
+    "Document_summary": "This document is a Purchase and Sale Agreement between Waikoloa Highlands, Inc. and Waikoloa Land Holdings, LLC for a property in Waikoloa, Hawaii. The agreement outlines the sale of approximately 706.63 acres of land for the development of a Solar Project, subject to various contingencies and conditions. Buyer plans to submit a proposal for a photovoltaic system paired with battery storage in response to Hawaii Electric Light Company's Request for Proposals, with key milestones for selection by HELCO outlined in the agreement.",
+    "Suggested_title": "10-30-2019 Solar Property Sale",
+    "Suggested_title_v2": "10-30-2019 Solar Development Agreement",
+    "Suggested_title_v3": "10-30-2019 Solar Project Purchase",
+    "Document_folder_path": "MegaSolar/Unclassified"
 }
