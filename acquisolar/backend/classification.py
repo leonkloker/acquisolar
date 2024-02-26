@@ -14,7 +14,7 @@ from tqdm import tqdm
 def save_txt_file(title, contents, enable_testing_output = False):
     # Create a directory if it doesn't exist
     if enable_testing_output == True:
-        folder_name = "classification_testing(can_be_deleted)"
+        folder_name = "classification_testing"
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
 

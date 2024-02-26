@@ -5,6 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import subprocess
+import shutil
 
 import classification
 import searchengine
@@ -130,7 +131,22 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
+def clean_environment():
+    if os.path.exists(app.config['UPLOADED_FILES_DEST']):
+        shutil.rmtree(app.config['UPLOADED_FILES_DEST'])
+    if os.path.exists(app.config['STRUCTURED_DATA']):
+        shutil.rmtree(app.config['STRUCTURED_DATA'])
+    if os.path.exists(app.config['UPLOADED_FILES_INDEX']):
+        shutil.rmtree(app.config['UPLOADED_FILES_INDEX'])
+    if os.path.exists('classification_testing'):
+        shutil.rmtree('classification_testing') 
+
 if __name__ == '__main__':
+    # Clean the environment
+    clean_environment()
+
     # 3001 for localhost, 80 for remote on AWS
     port = 3001
+
+    # Run the app
     app.run(host='0.0.0.0', port=port, debug=True)
