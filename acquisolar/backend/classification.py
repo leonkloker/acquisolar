@@ -458,7 +458,7 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     print(f"Finished processing {os.path.basename(pdf_path)}. File saved to {final_path}.")
 
 """Main function"""
-def main(input_dir, output_dir, preferences_dir, project_name, copy_or_move ="move"):
+def main(input_dir, output_dir, preferences_dir="preferences", project_name="TESTSOLAR", copy_or_move ="move"):
     """
     Main function to process all PDF files in the input directory.
     """

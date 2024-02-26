@@ -1,0 +1,17 @@
+[
+    {
+        "Document_date": "Feb-24, 2024",
+        "Document_summary": "This document discusses the Hamilton-Jacobi-Bellman (HJB) equation for controlled diffusions in the context of stochastic differential equations (SDE). It emphasizes the verification lemma and the implications of classical solutions for the HJB equation.",
+        "Suggested_title": "02-24-2024 Stochastic Diffusion Equations.pdf",
+        "Suggested_title_v2": "02-24-2024 HJB Equation Analysis.pdf",
+        "Suggested_title_v3": "02-24-2024 Controlled Diffusions Overview.pdf",
+        "Document_folder_path": "Unclassified",
+        "number_of_pages": 3,
+        "original_title": "HJB_diff.pdf",
+        "current_title": "HJB_diff.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 1
+    }
+]

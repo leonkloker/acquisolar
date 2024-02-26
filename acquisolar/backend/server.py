@@ -50,7 +50,7 @@ def upload():
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
-            classification.main(doc_dir, output_dir, 'MegaSolar')
+            classification.main(doc_dir, output_dir)
             
 
             # Index the uploaded files

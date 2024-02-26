@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "name": "MegaSolar",
+    "name": "TESTSOLAR",
     "type": "directory",
     "parent_id": null
   },
   {
     "id": 2,
-    "name": "Envionmental",
+    "name": "EPC",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 3,
-    "name": "EPC",
+    "name": "Unclassified",
     "type": "directory",
     "parent_id": 1
   },
@@ -25,20 +25,27 @@
   },
   {
     "id": 5,
-    "name": "Permitting",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 6,
     "name": "PPA",
     "type": "directory",
     "parent_id": 1
   },
   {
-    "id": 7,
-    "name": "Unclassified",
+    "id": 6,
+    "name": "Envionmental",
     "type": "directory",
     "parent_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Permitting",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 8,
+    "name": "HJB_diff.pdf",
+    "type": "file",
+    "size": 110551,
+    "parent_id": 3
   }
 ]
