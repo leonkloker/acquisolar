@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutUs from './views/aboutus';
 import Main from './views/main';
 import Folder from './views/folderscreen2';
-import File from './views/filescreen';
+import File from './views/newfilescreen';
 import Search from './views/searchscreen';
 //import './App.css';
 

@@ -146,8 +146,7 @@ const FileIcon = ({ file, onUpdateTitle }) => {
                 <h1 style={styles.title}>AcquiSolar</h1>
                 <a href="/about" style={styles.aboutLink}>About Us</a>
             </header>
-            {/* If a folder is open, display the file icons */}
-            {/*<FilesScreen files={folders[openFolder]} />*/}
+
             <div style={styles.folderContainer}>
             {files.map((file) => (
             <FileIcon
