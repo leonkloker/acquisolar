@@ -1,9 +1,7 @@
 import fitz  # PyMuPDF
 import os
 from openai import OpenAI
-import requests
 import json
-import tiktoken
 import zipfile
 import shutil
 from tqdm import tqdm
@@ -39,31 +37,38 @@ def construct_relative_paths(root_directory):
 #Extract text, name and page number from pdf
 #@profile
 def extract_pdf_info(pdf_path):
-    doc = fitz.open(pdf_path)
-    full_text = ""
-    num_pages = len(doc)
-    title = os.path.basename(pdf_path)
+    try:
+        doc = fitz.open(pdf_path)
+    except Exception as e:
+        print(f"Error opening PDF file {pdf_path}: {e}")
+        return "", 0, ""  # Return empty values on error
 
-    for page_num in range(num_pages):
-        page = doc.load_page(page_num)
-        text = page.get_text()
-        # Split text into lines
-        lines = text.split('\n')
-        # Reassemble text with conditional newlines
-        new_text = ""
-        for line in lines:
-            # Strip leading and trailing whitespace
-            stripped_line = line.strip()
-            if stripped_line:  # Ensure line is not empty
-                # Check if line ends with a sentence-ending punctuation or is likely a list item
-                if stripped_line.endswith(('.', '?', '!', ':', ';', '-', '—')) or stripped_line[-1].isdigit():
-                    new_text += stripped_line + "\n"
-                else:
-                    # Append a space to continue the sentence if it's broken up
-                    new_text += stripped_line + " "
-        full_text += new_text
-    doc.close()
+    full_text = ""
+    title = os.path.basename(pdf_path)
+    num_pages = len(doc)
+    try:
+        for page_num in range(num_pages):
+            page = doc.load_page(page_num)
+            text = page.get_text()
+            # The text processing logic remains the same
+            lines = text.split('\n')
+            new_text = ""
+            for line in lines:
+                stripped_line = line.strip()
+                if stripped_line:
+                    if stripped_line.endswith(('.', '?', '!', ':', ';', '-', '—')) or stripped_line[-1].isdigit():
+                        new_text += stripped_line + "\n"
+                    else:
+                        new_text += stripped_line + " "
+            full_text += new_text
+    except Exception as e:
+        print(f"Error processing PDF file {pdf_path}: {e}")
+        # Optionally, return what was processed so far instead of empty values
+    finally:
+        doc.close()
+
     return full_text, num_pages, title
+
 
 def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output=False): #35k is ok for gpt-4-0125-preview #10k max for gpt-3.5-turbo-0125
     """
@@ -133,18 +138,29 @@ def process_json_add_extension(data):
 
     return data
 
-def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, copy_or_move="move"):
+def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, action="copy"):
     """
-    Adjusted to ensure the 'document_folder_path' uses the correct 'project_name/unclassified'.
+    Process a PDF file by moving or copying it to a designated folder.
+
+    Parameters:
+    - pdf_path: Path to the PDF file.
+    - output_dir: The base output directory where the structured data folder is located.
+    - folder_structure_indented: Indented string representation of the folder structure.
+    - project_name: Name of the project, used in constructing the folder path.
+    - action: Specifies the action to perform on the file: "move" or "copy".
     """
     print(f"Processing {os.path.basename(pdf_path)}...")
     
     extracted_text, num_pages, title = extract_pdf_info(pdf_path)
+    if not extracted_text or num_pages == 0:
+        print(f"Skipping {os.path.basename(pdf_path)} due to extraction error.")
+        return  # Skip further processing for this PDF
+    
     print("Document is", num_pages, "pages long")
     query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
     output_json = make_openai_api_call(truncated_query)
-    data = json.loads(output_json) # Assuming output_json is a string; parse it to a dict
+    data = json.loads(output_json)  # Assuming output_json is a string; parse it to a dict
 
     data.update({
         "number_of_pages": num_pages,
@@ -170,13 +186,15 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     # Build the correct final path within the output directory
     final_path = os.path.join(output_dir, document_folder_path)
     os.makedirs(final_path, exist_ok=True)  # Ensure the folder exists
-    
-    # Move or copy the PDF to the designated folder
-    if copy_or_move == "copy":
-        print("copying file, not moving")
+
+       # Determine action based on the 'action' parameter
+    if action == "copy":
         shutil.copy(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
-    else:    
+        print(f"Copied {os.path.basename(pdf_path)} to {final_path}.")
+    else:
         shutil.move(pdf_path, os.path.join(final_path, os.path.basename(pdf_path)))
+        print(f"Moved {os.path.basename(pdf_path)} to {final_path}.")
+    
 
     complete_metadata_file_path = os.path.join(output_dir, "complete_file_metadata.json")
 
@@ -255,19 +273,19 @@ def make_json_valid(response_content):
     return response_content
 
 def make_openai_api_call(truncated_query):
-    """
-    Make an API call to OpenAI with the given truncated query and return the JSON response.
-    """
-    completion = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
-        #model="gpt-4-0125-preview",
-        messages=[
-            {"role": "system", "content": "You are a solar M&A analyst and great at extracting summaries and text from M&A documentation. Under no circumstances do you halucinate, instead you say that you leave a field blank if you cannot answer"},
-            {"role": "user", "content": truncated_query}
-        ],
-        temperature=0
-    )
-    response_content = completion.choices[0].message.content
+    try:
+        completion = client.chat.completions.create(
+            model="gpt-3.5-turbo-0125",
+            messages=[
+                {"role": "system", "content": "You are a solar M&A analyst..."},
+                {"role": "user", "content": truncated_query}
+            ],
+            temperature=0
+        )
+        response_content = completion.choices[0].message.content
+    except Exception as e:
+        print(f"Error making OpenAI API call: {e}")
+        return "{}"  # Return a default empty JSON structure in case of error
     save_txt_file("raw_gpt_response.txt", response_content, enable_testing_output)
     # Clean the response content to ensure it's a valid JSON string
     valid_json_string = make_json_valid(response_content)
@@ -445,30 +463,26 @@ def generate_directory_json(output_dir, project_name):
     with open(os.path.join(output_dir, 'global_directory.json'), 'w', encoding='utf-8') as f:
         json.dump(directory_tree, f, indent=2)
 
-def main(input_dir, output_dir, project_name, copy_or_move ="move"):
-    """
-    Main function to process all PDF files in the input directory.
-    """
+def main(input_dir, output_dir, project_name, action="move"):
     # Ensure the output directory exists
     os.makedirs(output_dir, exist_ok=True)
     
-    # extract file structure from the zip. save folder_structure_indented as the folder structure to be used in the query
+    # Extract file structure from the zip. Save folder_structure_indented as the folder structure to be used in the query
     folder_structure_indented = find_and_create_zip_structure(input_dir, output_dir, project_name)
 
-    # List all PDF files in the input directory
+    # List all PDF files in the input directory - Only one enumeration needed
     pdf_files = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
     
     total_documents = len(pdf_files)
-    print(total_documents, "documents found in input folder\n")
-    # Process each PDF file and update progress
-    for idx, pdf_name in enumerate(pdf_files, start=1):
-        pdf_path = os.path.join(input_dir, pdf_name)
-        process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, copy_or_move)
-        
-        # Print progress update
-        print(f"{idx} out of {total_documents} documents processed\n")
+    print(f"{total_documents} documents found in input folder\n")
     
+    # Process each PDF file and update progress - Main processing loop
+    for idx, pdf_name in enumerate(tqdm(pdf_files), start=1):  # Use tqdm here for progress indication
+        pdf_path = os.path.join(input_dir, pdf_name)
+        process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, action)
+        
     generate_directory_json(output_dir, project_name)
+
 
 
 client = OpenAI(api_key="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")
@@ -482,25 +496,24 @@ if __name__ == "__main__":
     project_name = "MegaSolar"
     root_directory = set_root_directory()
     input_dir, output_dir = construct_relative_paths(root_directory)
-    main(input_dir, output_dir, project_name, copy_or_move)
+    action = "copy"  # or "move", this could be determined by user input or another logic
+    main(input_dir, output_dir, project_name, action)
 
 
 
 ### Convert_Directory.py
 
-def set_root_directory():
-    # Get the directory where the current script resides
-    root_directory = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(root_directory)
-    print("Root directory set to:", root_directory)
-    return root_directory
-
+# New function definition
 def load_json_data(file_path):
-    # Load JSON data from a specified file path
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    # Return both data and the directory of the file path
-    return data, os.path.dirname(file_path)
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"No such file: {file_path}")
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from {file_path}")
+    return None
+
 
 def convert_structure(input_json):
     # Your existing conversion logic
@@ -528,20 +541,22 @@ def convert_structure(input_json):
 
     return output
 
-def save_json_data(output_data, output_directory):
-    # Define the output file path
-    output_file_path = os.path.join(output_directory, 'global_directory_frontend.json')
-    # Write the converted data to a JSON file
-    with open(output_file_path, 'w') as file:
-        json.dump(output_data, file, indent=4)
-    print(f"Output saved to: {output_file_path}")
+def save_json_data(data, file_path, indent=4):
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=indent)
+        print(f"Data successfully saved to {file_path}")
+    except IOError as e:
+        print(f"Failed to save data to {file_path}: {e}")
 
 def convert_directory_structure():
     set_root_directory()
     json_file_path = 'structured_data/global_directory.json'
-    input_json, input_directory = load_json_data(json_file_path)
+    input_json = load_json_data(json_file_path)  # New load function usage
+    input_directory = os.path.dirname(json_file_path)  # Manually getting directory
     converted_json_with_empty_folders = convert_structure(input_json)
-    save_json_data(converted_json_with_empty_folders, input_directory)
+    output_file_path = os.path.join(input_directory, 'global_directory_frontend.json')
+    save_json_data(converted_json_with_empty_folders, output_file_path)
     print("directory structure converted")
 
 
@@ -587,7 +602,8 @@ def save_json_data_with_accuracy(output_data, accuracy, output_directory):
 def convert_directory_structure():
     set_root_directory()
     json_file_path = 'structured_data/global_directory.json'
-    input_json, input_directory = load_json_data(json_file_path)
+    input_json = load_json_data(json_file_path)
+    input_directory = os.path.dirname(json_file_path)
     converted_json = convert_structure(input_json)
     expected_classifications = load_expected_classifications()
     accuracy = calculate_accuracy(converted_json, expected_classifications)
