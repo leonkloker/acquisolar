@@ -1,8 +1,13 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import folderIcon from '../icons/folder-icon.png';
+import { Document, Page, pdfjs } from 'react-pdf';
 import { useNavigate, useLocation } from 'react-router-dom';
+import PDFViewer from './viewcomponents/pdfviewer2';
 import axios from 'axios';
 import FileIcon from './viewcomponents/fileicon';
+
+// Set the workerSrc for pdfjs
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 // url of aws server and port 80
 // change to 'http://localhost:3001' for localhost
@@ -64,12 +69,20 @@ const initialFiles = [
     const { folderName } = location.state || {};
     const [files, setFiles] = useState(initialFiles);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
+    const [showPdf, setShowPdf] = useState(false);
+    const [selectedPdf, setSelectedPdf] = useState(null);
+    const [test, setTest] = useState("");
 
     const updateTitle = (id, newTitle) => {
       setFiles(files.map(file => 
         file.id === id ? { ...file, current_title: newTitle } : file
       ));
     };
+
+    const onShowPdf = (file) => {
+      setShowPdf(true);
+      setSelectedPdf(file);
+    }
 
     useEffect(() => {
         const fetchFolderContents = async (folderName) => {
@@ -89,16 +102,18 @@ const initialFiles = [
             <header style={styles.header}>
                 <h1 style={styles.title}>ACQUISOLAR</h1>
             </header>
-            {/* If a folder is open, display the file icons */}
-            {/*<FilesScreen files={folders[openFolder]} />*/}
+
+
             <div style={styles.folderContainer}>
                 {files.map((file) => (
                     <FileIcon
                     file={file}
                     onUpdateTitle={updateTitle}
+                    onShowPdf={onShowPdf}
                     />
                 ))}
             </div>
+ 
         </div>
     );
 };
@@ -126,13 +141,6 @@ const styles = {
   title: {
     margin: 0,
   },
-  aboutLink: {
-    color: 'white',
-    textDecoration: 'none',
-    backgroundColor: '#7AA6B9', 
-    padding: '5px 10px',
-    borderRadius: '5px', 
-  },
   content: {
     display: 'flex',
     flexDirection: 'column',
@@ -147,15 +155,7 @@ const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  pdfViewer: {
-    position: 'fixed',
-    right: 0,
-    top: 0,
-    height: '100%',
-    width: '50%',
-    transition: 'transform 0.5s ease-in-out',
-    transform: 'translateX(0)',
-  }
+
 };
 
 export default File;

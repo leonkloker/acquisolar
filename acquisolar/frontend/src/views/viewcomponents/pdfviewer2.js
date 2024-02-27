@@ -83,7 +83,7 @@ const styles = {
     },
     pdfContainer: {
         maxWidth: '80%',
-        maxHeight: '600px',
+        maxHeight: '100%',
         overflowY: 'auto',
         marginLeft: '5%',
         marginRight: '10%',
@@ -91,6 +91,7 @@ const styles = {
     pdfViewer: {
         flex: 1,
         flexDirection: 'column',
+        
     },
     instanceText: {
         color: 'white', 

@@ -5,14 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
-    const [showOptions, setShowOptions] = useState(false);
     const [contentToShow, setContentToShow] = useState(null);
-  
-    const handleToggleOptions = () => {
-      setShowOptions(!showOptions);
-      // Reset the content to show whenever we toggle the options
-      setContentToShow(null);
-    };
   
     const handleShowContent = (content) => {
         return () => {
@@ -21,15 +14,17 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
             } else {
                 setContentToShow(null);
             }
-
         };
     };
   
     const handleConfirmTitle = () => {
         onUpdateTitle(file.id, file.Suggested_title);
-        setShowOptions(false);
         setContentToShow(null)
     };
+
+    const handleSearch = () => {
+        onShowPdf(file);
+    }
   
     return (
     <div style={styles.fileIconContainer}>
@@ -47,7 +42,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
             </p>
 
             <p style={styles.summaryText}>
-                {file.number_of_pages}
+                {file.number_of_pages} page(s)
             </p>
         </div>
 
@@ -59,6 +54,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
                 <img src={fileIcon} alt="File" style={styles.image} />
                 <DarkenButton 
                     text="Search"
+                    onClick={handleSearch}
                 />
 
                 <DarkenButton 
@@ -122,6 +118,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
         flexDirection: 'column',
         width: '18%', 
         height: '30%', 
+        maxHeight: '30%',
         borderRadius: '5px',
         backgroundColor: '#ffffff',
         margin: '10px',
