@@ -87,29 +87,30 @@ const initialFiles = [
         <div style={styles.container}>
             {/* Header */}
             <header style={styles.header}>
-                <h1 style={styles.title}>AcquiSolar</h1>
+                <h1 style={styles.title}>ACQUISOLAR</h1>
             </header>
             {/* If a folder is open, display the file icons */}
             {/*<FilesScreen files={folders[openFolder]} />*/}
             <div style={styles.folderContainer}>
-            {files.map((file) => (
-            <FileIcon
-              file={file}
-              onUpdateTitle={updateTitle}
-            />
-            
-          ))}
-        </div>
+                {files.map((file) => (
+                    <FileIcon
+                    file={file}
+                    onUpdateTitle={updateTitle}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
+
+
 
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     height: '100vh',
     width: '100%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F9F9F9',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -140,91 +141,21 @@ const styles = {
     paddingTop: '10px',
     width: '100%',
   },
-  image: {
-    width: '30px', 
-    height: '30px', 
-    objectFit: 'contain', 
-  },
-  fileIconContainer: {
-    width: '15%', 
-    minWidth: '15%',
-    height: '30%', 
-    borderRadius: '15px',
-    backgroundColor: '#ffffff',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around', 
-    overflow: 'hidden', 
-    margin: '10px',
-  },
   folderContainer: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  fileName: {
-    textAlign: 'center',
-    wordWrap: 'break-word', 
-    maxWidth: '90%', 
-    marginLeft: '15%', 
-    marginRight: '15%',
-  },
-  closeButton: {
-    position: 'absolute',
-    top: '5px',
-    right: '5px',
-    borderRadius: '20px',
-    backgroundColor: '#BCD5E0',
-    // Style as needed
-  },
-  confirmButton: {
-    position: 'absolute',
-    bottom: '5px',
-    right: '5px',
-    borderRadius: '20px',
-    backgroundColor: '#BCD5E0'
-    // Style as needed
-  },
-  tooltip: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    padding: '10px',
-    border: '1px solid #ccc',
-    zIndex: 100, // Ensure the tooltip appears above other elements
-    borderRadius: '15px',
-    backgroundColor: '#ffffff',
-
-    // Adjust the position as needed
-  },
-  toggleButton: {
-    marginLeft: '5px',
-    cursor: 'pointer',
-    backgroundColor: '#BCD5E0',
-    border: 'none',
-    // Style the button to look like a small square or whatever you prefer
-  },
-  summaryBox: {
-    marginTop: '10px',
-    padding: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '4px',
-    maxHeight: '100px', // Control the size of the summary box
-    overflowY: 'auto', // Add scroll if the content is too long
-    fontSize: '12px', // Adjust the font size as needed
-  },
-  optionButton: {
-    margin: '5px',
-    marginRight: '14px',
-    cursor: 'pointer',
-    backgroundColor: '#BCD5E0',
-    border: 'none',
-    padding: '3px',
-    borderRadius: '15px',
-    // Style the button to look like a small square or whatever you prefer
-  },
+  pdfViewer: {
+    position: 'fixed',
+    right: 0,
+    top: 0,
+    height: '100%',
+    width: '50%',
+    transition: 'transform 0.5s ease-in-out',
+    transform: 'translateX(0)',
+  }
 };
 
 export default File;

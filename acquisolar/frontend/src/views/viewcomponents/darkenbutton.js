@@ -9,7 +9,10 @@ const DarkenButton = ({ text, onClick }) => {
     color: 'black',
     borderRadius: '10px',
     margin: '4px',
+
     padding: '3px',
+    paddingLeft: '5px',
+    paddingRight: '5px',
     width: '100%',
     border: 'none',
     cursor: 'pointer',

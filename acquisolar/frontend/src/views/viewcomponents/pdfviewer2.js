@@ -6,9 +6,9 @@ import { Document, Page } from 'react-pdf';
 const PDFViewer = ({ showSearch, currentPdf, numPages, searchQuery, handleSearchInputChange, handleSearchSubmit, onDocumentLoadSuccess, 
     instances, currentInstance, findInstancesOfSearchTerm, goToNextInstance, pageNumber, goToPreviousInstance, onDocumentLoadError }) => {
 
-        useEffect(() => {
-            console.log(currentPdf);
-          }, []);
+    useEffect(() => {
+        console.log(currentPdf);
+        }, []);
 
 return (
     <div style={styles.pdfViewer}>

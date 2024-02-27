@@ -4,7 +4,7 @@ import DarkenButton from './darkenbutton';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const FileIcon = ({ file, onUpdateTitle }) => {
+const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
     const [showOptions, setShowOptions] = useState(false);
     const [contentToShow, setContentToShow] = useState(null);
   
@@ -15,18 +15,26 @@ const FileIcon = ({ file, onUpdateTitle }) => {
     };
   
     const handleShowContent = (content) => {
-      setContentToShow(content);
+        return () => {
+            if (!contentToShow) {
+                setContentToShow(content);
+            } else {
+                setContentToShow(null);
+            }
+
+        };
     };
   
     const handleConfirmTitle = () => {
-      onUpdateTitle(file.id, file.Suggested_title);
-      setShowOptions(false);
+        onUpdateTitle(file.id, file.Suggested_title);
+        setShowOptions(false);
+        setContentToShow(null)
     };
   
     return (
     <div style={styles.fileIconContainer}>
         <div style={styles.titleContainer}>
-            {/* TITLE FILE HERE */}
+            {/* Title */}
             <p style={styles.titleText}>
                 {file.current_title}
             </p>
@@ -51,13 +59,21 @@ const FileIcon = ({ file, onUpdateTitle }) => {
                 <img src={fileIcon} alt="File" style={styles.image} />
                 <DarkenButton 
                     text="Search"
-
                 />
 
                 <DarkenButton 
                     text="Summary"
+                    onClick={handleShowContent('summary')}
                 />
-
+                {contentToShow === 'summary' && (
+                    <div style={styles.contentBox}>
+                        <p>{file.Document_summary}</p>
+                        <DarkenButton 
+                                text="Close Summary"
+                                onClick= {handleShowContent('summary')}
+                        />
+                    </div>
+                )}
 
             </div>
 
@@ -65,7 +81,24 @@ const FileIcon = ({ file, onUpdateTitle }) => {
                 {/* Four buttons */}
                 <DarkenButton 
                     text="Rename"
+                    onClick={handleShowContent('title')}
                 />
+                {contentToShow === 'title' && (
+                    <div style={styles.contentBox}>
+                        <p>Rename file: {file.Suggested_title}</p>
+
+                        <div style={styles.buttonContainer}>
+                            <DarkenButton 
+                                text="X"
+                                onClick= {handleShowContent('title')}
+                            />
+                            <DarkenButton
+                                text="Confirm"
+                                onClick={handleConfirmTitle}
+                            />
+                        </div>
+                    </div>
+                )}
                 <DarkenButton 
                     text="Move"
                 />
@@ -87,15 +120,15 @@ const FileIcon = ({ file, onUpdateTitle }) => {
     fileIconContainer: {
         display: 'flex',
         flexDirection: 'column',
-        width: '15%', 
+        width: '18%', 
         height: '30%', 
-        maxWidth: '15%',
         borderRadius: '5px',
         backgroundColor: '#ffffff',
         margin: '10px',
         overflow: 'auto',
         padding: 5,
         boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+        position: 'relative'
     },
     image: {
         width: '50px', 
@@ -119,22 +152,42 @@ const FileIcon = ({ file, onUpdateTitle }) => {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        margin: '3px',
+        justifyContent: 'space-evenly',
+
     },
     subContainer: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
+    buttonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    contentBox: {
+        position: 'absolute',
+        zIndex: 1000, 
+        backgroundColor: 'white', 
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+        borderRadius: '4px',
+        padding: '20px', 
+        maxWidth: '90%', 
+        maxHeight: '90%', 
+        overflow: 'auto',
+        top: 0, 
+        right: 0, 
+        bottom: 0,
+        left: 0, 
+
+    },
     titleText: {
         fontWeight: 'bold',
     },
     summaryText: {
-
+        color: '#9499A1',
+        fontSize: 14,
     },
 
-    
   };
   
   export default FileIcon;
