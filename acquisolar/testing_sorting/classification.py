@@ -612,3 +612,52 @@ def convert_directory_structure():
 
 if __name__ == "__main__":
     convert_directory_structure()
+
+
+#### Accuracy Tracker
+import pandas as pd
+import json
+from datetime import datetime
+
+def update_accuracy_tracker_v3(json_file_path, csv_file_path):
+    # Load JSON data
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    
+    accuracies = data['accuracy']
+    
+    # Load or initialize the CSV file
+    try:
+        df = pd.read_csv(csv_file_path)
+        # Ensure test_id is treated as integer
+        df['test_id'] = pd.to_numeric(df['test_id'], errors='coerce').fillna(0).astype(int)
+        # Generate the next test_id by adding 1 to the maximum test_id found
+        next_test_id = df['test_id'].max() + 1
+    except (FileNotFoundError, ValueError):
+        # Initialize with the new observation's keys if the file doesn't exist
+        # Or handle ValueError if 'test_id' column is empty (max() on empty series)
+        df = pd.DataFrame(columns=['test_id', 'date_time'] + [f'Accuracy_{category.replace(" ", "_")}' for category in accuracies.keys()])
+        next_test_id = 1  # Start from 1 if file doesn't exist or is empty
+    
+    # Prepare the new observation
+    new_observation = {
+        'test_id': next_test_id,
+        'date_time': datetime.now().strftime('%m/%d/%y %H:%M'),  # Adjusted format per your example
+    }
+    
+    # Prefix category accuracies and add them to the observation
+    for category, accuracy in accuracies.items():
+        # Use a consistent naming convention for accuracy columns
+        new_observation[f'Accuracy_{category.replace(" ", "_")}'] = accuracy if accuracy != "N/A" else ""
+    
+    # Append the new observation
+    df = pd.concat([df, pd.DataFrame([new_observation])], ignore_index=True)
+    
+    # Save the updated DataFrame back to CSV
+    df.to_csv(csv_file_path, index=False)
+    print(f"CSV file has been updated with the new observation. Test ID: {next_test_id}")
+
+# Example usage
+json_file_path = 'structured_data/global_directory_frontend.json'  # Update with the actual path to your JSON file
+csv_file_path = 'accuracy_tracker.csv'  # Update with the actual path to your CSV file
+update_accuracy_tracker_v3(json_file_path, csv_file_path)
