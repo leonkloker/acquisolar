@@ -8,7 +8,7 @@ Leon:
 Zara:
 * Accomplished Sprint 3: Using Magnus' figma design to redevelop the website in a more accessible and professional way and worked on some backend functionality to improve user flow.
 * Plan for Sprint 4: Finishing up this UI redesign and cleaning up code, allowing the backend to search more effectively through pdfs (temporarily not working because of redesign)
-* 
+
 ## Summary Sprint 2
 
 Setup instructions:
