@@ -1,16 +1,14 @@
 # AcquiSolar
-## Summary Sprint 2
-Set up instructions:
-cd into backend
-install necessary modules using pip install -r requirements.txt
+## Summary Sprint 3
 
-run python.server.py, copy url link and paste in browser
-
-This should work!
+Leon:
+* Familiarized with frontend engineering (especially using graphical design tools like Webflow) and hosting a frontend on e.g. an AWS S3 bucket using CI/CD frameworks. Helped Zara design the website.
+* Hosting website, helping to clean up the UI and integrate with the backend, improve the performance of RAG for querying documents
 
 Zara:
 * Accomplished Sprint 3: Using Magnus' figma design to redevelop the website in a more accessible and professional way and worked on some backend functionality to improve user flow.
-* Plan for Sprint 3: Finishing up this UI redesign and cleaning up code, allowing the backend to search more effectively through pdfs (temporarily not working because of redesign)
+* Plan for Sprint 4: Finishing up this UI redesign and cleaning up code, allowing the backend to search more effectively through pdfs (temporarily not working because of redesign)
+* 
 ## Summary Sprint 2
 
 Setup instructions:
