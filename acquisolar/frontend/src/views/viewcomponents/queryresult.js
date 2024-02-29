@@ -17,18 +17,19 @@ function QueryResult() {
 
 const styles = {
   textArea: {
-    width: '300px', // Width of the square, adjust as needed
-    height: '300px', // Height to make it square-shaped
+    width: '80%',
+    height: '500px',
     padding: '10px',
-    margin: '10px',
-    borderRadius: '15px', // Rounded edges
-    border: '1px solid #ccc', // Border color
-    outline: 'none', // Removes the default focus outline
-    fontSize: '16px', // Text size
-    backgroundColor: '#f9f9f9', // Light grey background to indicate non-editability
-    resize: 'none', // Prevents resizing
-    overflowY: 'auto', // Adds vertical scroll if content overflows
-    boxSizing: 'border-box', // Includes padding and border in the element's total width and height
+    borderRadius: '15px', 
+    marginTop: 10,
+    border: '1px solid #ccc', 
+    outline: 'none', 
+    fontSize: '16px',
+    fontFamily: 'Arial',
+    backgroundColor: '#f9f9f9', 
+    resize: 'none', 
+    overflowY: 'auto', 
+    boxSizing: 'border-box', 
   },
 };
 

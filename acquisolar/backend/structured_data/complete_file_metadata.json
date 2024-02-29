@@ -1,0 +1,32 @@
+[
+    {
+        "Document_date": "JUL-24, 2023",
+        "Document_summary": "This document is a technical analysis of signal processing techniques applied to a message signal. It covers the process of filtering and modulation to manipulate the signal's frequency content. The analysis demonstrates the impact of different filter types and modulation phases on the signal's spectrum.",
+        "Suggested_title": "07-24-2023 Signal Processing Analysis.pdf",
+        "Suggested_title_v2": "07-24-2023 Frequency Manipulation Study.pdf",
+        "Suggested_title_v3": "07-24-2023 Spectrum Filtering Investigation.pdf",
+        "Document_folder_path": "TESTSOLAR/Unclassified",
+        "number_of_pages": 27,
+        "original_title": "EE102A_PSET_6_merged_1.pdf",
+        "current_title": "EE102A_PSET_6_merged_1.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 1
+    },
+    {
+        "Document_date": "JUL-24, 2023",
+        "Document_summary": "This document is a technical analysis of signal processing techniques applied to solar energy systems. It delves into the modulation and filtering of signals to optimize energy conversion. The document provides insights into how different filters impact signal frequencies and the resulting energy output.",
+        "Suggested_title": "07-24-2023 Signal Processing Analysis.pdf",
+        "Suggested_title_v2": "07-24-2023 Solar Signal Optimization.pdf",
+        "Suggested_title_v3": "07-24-2023 Energy Conversion Techniques.pdf",
+        "Document_folder_path": "TESTSOLAR/Unclassified",
+        "number_of_pages": 27,
+        "original_title": "EE102A_PSET_6_merged.pdf",
+        "current_title": "EE102A_PSET_6_merged.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 2
+    }
+]

@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import Header from './viewcomponents/header';
 import PDFViewer from './viewcomponents/pdfviewer2';
 import { useNavigate, useLocation } from 'react-router-dom';
+import QueryResult from './viewcomponents/queryresult';
 
 const Search = () => {
     const location = useLocation();
@@ -20,31 +21,24 @@ const Search = () => {
 
         {/* Whole Content */}
         <div style={styles.content}>
-            HIIIII {filename}
-            <iframe src={`http://localhost:5000/get-pdf/${filename}`} width="100%" height="800px">
-          This browser does not support PDFs. Please download the PDF to view it: <a href={`http://localhost:5000/get-pdf/${filename}`}>Download PDF</a>.
-        </iframe>
             {/* Search Content */}
             <div style={styles.searchContainer}>
                 <div style={styles.searchBar}>
-                    <div style={styles.searchText}>
-
-                    </div>
-                    <button style={styles.searchButton}>
-
-                    </button>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    style={styles.searchInput}
+                />
+                <button style={styles.searchButton}>Search</button>
                 </div>
-
-                <div style={styles.searchResponse}>
-
-                </div>
+                <QueryResult/>
             </div>
 
             {/* PDF Viewer */}
             <div style={styles.pdfContainer}>
-                <div style={styles.instanceContainer}>
-
-                </div>
+                    <iframe src={`http://localhost:3001/get-pdf/${filename}`} width="100%" height="600px">
+                    This browser does not support PDFs. Please download the PDF to view it: <a href={`http://localhost:3001/get-pdf/${filename}`}>Download PDF</a>.
+                    </iframe>
                 <div style={styles.pdfContent}>
 
                 </div>
@@ -63,14 +57,58 @@ const styles = {
         backgroundColor: '#FFFFFF',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
     },
     content: {
         display: 'flex',
         flexDirection: 'row',
-        margin: 5,
-        border: 5,
-    }
+    },
+    pdfContainer: {
+        display: 'flex',
+        width: '65%',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        marginTop: 20,
+        margin: 15,
+    },
+    searchContainer: {
+        display: 'flex',
+        width: '35%',
+        backgroundColor: 'white',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+    },
+    searchText: {
+        color: 'grey',
+    },
+    searchBar: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    searchButton: {
+        padding: '10px 20px',
+        fontSize: '16px',
+        backgroundColor: '#156CF7',
+        color: 'white',
+        border: 'none',
+        borderRadius: '15px',
+        cursor: 'pointer',
+        outline: 'none',
+        margin: '4px'
+      },
+    searchInput: {
+        height: '40px',
+        marginLeft: "3%",
+        fontSize: '18px',
+        padding: '0 15px',
+        backgroundColor: '#F3F3F3',
+        border: 0,
+        borderRadius: '15px',
+        marginRight: '10px',
+        outline: 'none',
+    },
+
 };
 
 export default Search;

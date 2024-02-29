@@ -89,13 +89,14 @@ def search():
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
     # Define the directory where your PDF files are stored
-    pdf_directory = './uploads'
+    pdf_directory = './structured_data/TESTSOLAR/Unclassified'
+    filepath ='./structured_data/TESTSOLAR/Unclassified'
     
     # Construct the full file path
     filepath = os.path.join(pdf_directory, filename)
     
     # If validation passes, send the requested PDF file
-    return send_file(filepath, attachment_filename=filename)
+    return send_file(filepath)
 
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
@@ -125,7 +126,9 @@ def get_folder_contents():
     metadata = calculate_metadata()
     data = request.json
     folder_name = data.get('folderName')
+    print('HIII')
     if folder_name and folder_name in folders:
+        print(metadata)
         return jsonify(metadata)
         #return jsonify({'status': 'success', 'data': folders_data[folder_name]})
     else:

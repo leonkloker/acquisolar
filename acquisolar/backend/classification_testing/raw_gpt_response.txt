@@ -1,0 +1,8 @@
+{
+  "Document_date": "JUL-24, 2023",
+  "Document_summary": "This document is a technical analysis of signal processing techniques applied to solar energy systems. It delves into the modulation and filtering of signals to optimize energy conversion. The document provides insights into how different filters impact signal frequencies and the resulting energy output.",
+  "Suggested_title": "07-24-2023 Signal Processing Analysis",
+  "Suggested_title_v2": "07-24-2023 Solar Signal Optimization",
+  "Suggested_title_v3": "07-24-2023 Energy Conversion Techniques",
+  "Document_folder_path": "TESTSOLAR/Unclassified"
+}

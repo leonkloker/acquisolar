@@ -138,7 +138,6 @@ const styles = {
     halfBox: {
         display: 'flex',
         width: '50%',
-
         justifyContent: 'center',
     },
     uploadArea: {
@@ -157,7 +156,7 @@ const styles = {
         justifyContent: 'center',
     },
     loadingBox: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
         width: '50%',
     },
     uploadText: {

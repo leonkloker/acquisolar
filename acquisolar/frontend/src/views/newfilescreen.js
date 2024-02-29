@@ -68,7 +68,7 @@ const initialFiles = [
   const File = () => {
     const location = useLocation();
     const { folderName } = location.state || {};
-    const [files, setFiles] = useState(initialFiles);
+    const [files, setFiles] = useState([]);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
     const [showPdf, setShowPdf] = useState(false);
     const [selectedPdf, setSelectedPdf] = useState(null);
@@ -86,9 +86,11 @@ const initialFiles = [
     }
 
     useEffect(() => {
+      console.log(folderName);
         const fetchFolderContents = async (folderName) => {
           try {
               const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
+              console.log(response.data)
               setFiles(response.data); // Update state with folder contents
           } catch (error) {
               console.error('Error fetching folder contents:', error);
@@ -111,7 +113,7 @@ const initialFiles = [
                     />
                 ))}
             </div>
- 
+
         </div>
     );
 };
