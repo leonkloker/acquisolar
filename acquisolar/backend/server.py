@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory, jsonify, stream_with_context
+from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file
 from flask_cors import CORS
 import json
 import os
@@ -86,6 +86,16 @@ def search():
     # return strings, document name
     return stream_with_context(response_gen)
 
+@app.route('/get-pdf/<filename>')
+def get_pdf(filename):
+    # Define the directory where your PDF files are stored
+    pdf_directory = './uploads'
+    
+    # Construct the full file path
+    filepath = os.path.join(pdf_directory, filename)
+    
+    # If validation passes, send the requested PDF file
+    return send_file(filepath, attachment_filename=filename)
 
 @app.route('/get-folders', methods=['GET'])
 def get_folders():

@@ -88,7 +88,7 @@ const Main = () => {
 
     console.log('Navigating to search')
 
-    navigate('/searchscreen', { state: { file: currentPdf } });
+    navigate('/searchscreen', { file: currentPdf } );
   };
 
   return (

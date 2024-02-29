@@ -4,7 +4,7 @@ import React from 'react';
 const FileList = ({ fileNames, removeFile }) => {
   return (
     <div style={styles.fileListContainer}>
-      <p style={styles.filesTitle}>Files:</p>
+      <p style={styles.filesTitle}>Files to Upload:</p>
       <ul style={styles.fileList}>
         {fileNames.map((fileName, index) => (
           <li key={index} style={styles.fileName}>
@@ -24,12 +24,14 @@ const FileList = ({ fileNames, removeFile }) => {
 
 const styles = {
     filesTitle: {
-        margin: '8px', 
+        margin: '5px', 
+        fontWeight: 'bold',
+        fontSize: 18,
       },
     fileListContainer: {
       width: '100%',
       height: '100%',
-      backgroundColor: '#BCD5E0',
+      backgroundColor: 'white',
       borderRadius: '10px',
       padding: '0px',
       textAlign: 'left',
@@ -45,6 +47,10 @@ const styles = {
       fontSize: '16px',
       lineHeight: '24px',
       margin: '8px',
+      backgroundColor: '#F6F7F9',
+      borderRadius: 15,
+      padding: 5,
+      boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
     },
     removeButton: {
       marginLeft: '10px',

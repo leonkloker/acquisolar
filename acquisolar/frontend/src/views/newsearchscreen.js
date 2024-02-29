@@ -1,18 +1,29 @@
 import React, { useCallback, useState, useEffect } from 'react';
-
+import Header from './viewcomponents/header';
+import PDFViewer from './viewcomponents/pdfviewer2';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Search = () => {
+    const location = useLocation();
+    const [filename, SetFilename] = useState("")
+
+    useEffect(() => {
+        if (location.state && location.state.filename) {
+          SetFilename(location.state.filename)
+        }
+    }, [location]);
 
   return (
     <div style={styles.container}>
         {/* Header */}
-        <header style={styles.header}>
-            <h1 style={styles.title}>ACQUISOLAR</h1>
-        </header>
+        <Header/>
 
         {/* Whole Content */}
         <div style={styles.content}>
-
+            HIIIII {filename}
+            <iframe src={`http://localhost:5000/get-pdf/${filename}`} width="100%" height="800px">
+          This browser does not support PDFs. Please download the PDF to view it: <a href={`http://localhost:5000/get-pdf/${filename}`}>Download PDF</a>.
+        </iframe>
             {/* Search Content */}
             <div style={styles.searchContainer}>
                 <div style={styles.searchBar}>
@@ -49,21 +60,10 @@ const styles = {
         fontFamily: 'Arial, sans-serif',
         height: '100vh',
         width: '100%',
-        backgroundColor: '#F9F9F9',
+        backgroundColor: '#FFFFFF',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-    },
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px',
-        color: 'black',
-        fontSize: '24px',
-    },
-    title: {
-        margin: 0,
     },
     content: {
         display: 'flex',

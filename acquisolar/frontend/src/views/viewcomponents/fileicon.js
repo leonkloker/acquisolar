@@ -1,10 +1,12 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import fileIcon from '../../icons/file-icon.png';
+import fileIcon from '../../icons/pngegg.png';
+import searchIcon from '../../icons/search.png';
 import DarkenButton from './darkenbutton';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
+    const navigate = useNavigate();
     const [contentToShow, setContentToShow] = useState(null);
   
     const handleShowContent = (content) => {
@@ -24,6 +26,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
 
     const handleSearch = () => {
         onShowPdf(file);
+        navigate('/searchscreen', { state: { filename: file.original_title } });
     }
   
     return (
@@ -52,10 +55,10 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
             <div style={styles.subContainer}>
                 {/* Image and two buttons */}
                 <img src={fileIcon} alt="File" style={styles.image} />
-                <DarkenButton 
-                    text="Search"
-                    onClick={handleSearch}
-                />
+                <button style={styles.searchButton} onClick={handleSearch}>
+                    <img src={searchIcon} alt="Search" style={styles.searchImage} />                    
+                    Search...
+                </button>
 
                 <DarkenButton 
                     text="Summary"
@@ -85,7 +88,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
 
                         <div style={styles.buttonContainer}>
                             <DarkenButton 
-                                text="X"
+                                text="Cancel"
                                 onClick= {handleShowContent('title')}
                             />
                             <DarkenButton
@@ -128,8 +131,8 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
         position: 'relative'
     },
     image: {
-        width: '50px', 
-        height: '50px', 
+        width: '70px', 
+        height: '70px', 
         objectFit: 'contain', 
     },
     titleContainer: {
@@ -184,6 +187,25 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
         color: '#9499A1',
         fontSize: 14,
     },
+    searchButton: {
+        backgroundColor: '#FFFFFF',
+        color: 'black',
+        borderRadius: '10px',
+        margin: '4px',
+        padding: '2px',
+        paddingLeft: '5px',
+        paddingRight: '5px',
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#979797',
+        cursor: 'pointer',
+    },
+    searchImage: {
+        width: '10px', 
+        height: '10px', 
+        objectFit: 'contain', 
+        marginRight: 4,
+    }
 
   };
   

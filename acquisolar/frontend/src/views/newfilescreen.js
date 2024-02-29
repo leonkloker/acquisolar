@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import PDFViewer from './viewcomponents/pdfviewer2';
 import axios from 'axios';
 import FileIcon from './viewcomponents/fileicon';
+import Header from './viewcomponents/header';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -99,10 +100,7 @@ const initialFiles = [
     return (
         <div style={styles.container}>
             {/* Header */}
-            <header style={styles.header}>
-                <h1 style={styles.title}>ACQUISOLAR</h1>
-            </header>
-
+            <Header/>
 
             <div style={styles.folderContainer}>
                 {files.map((file) => (
@@ -125,7 +123,8 @@ const styles = {
     fontFamily: 'Arial, sans-serif',
     height: '100vh',
     width: '100%',
-    backgroundColor: '#F9F9F9',
+    //backgroundColor: '#F9F9F9',
+    backgroundColor: '#FFFFFF',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',

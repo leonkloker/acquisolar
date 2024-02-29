@@ -3,10 +3,16 @@ import React from 'react';
 // Header component
 const Header = () => {
     return (
+
       <header style={styles.header}>
-        <h1 style={styles.title}>AcquiSolar</h1>
-        <a href="/about" style={styles.aboutLink}>About Us</a>
+        <h1 style={styles.title}>ACQUISOLAR</h1>
+        <div>
+          <button style={styles.headerButton}>Upload</button>
+          <button style={styles.headerButton}>View Files</button>
+        </div>
+        
       </header>
+
     );
   };
 
@@ -17,19 +23,22 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '20px',
-        color: 'white',
-        fontSize: '24px',
+        color: 'black',
+        fontSize: '16px',
+        backgroundColor: '#FFFFFF',
+        fontFamily: 'Helvetica Neue',
+        borderBottom: '1px solid #DEE2E6', 
       },
     title: {
         margin: 0,
       },
-    aboutLink: {
-        color: 'white',
-        textDecoration: 'none',
-        backgroundColor: '#7AA6B9', 
-        padding: '5px 10px',
-        borderRadius: '5px', 
-    },
+      headerButton: {
+        fontFamily: 'Helvetica Neue',
+        border: 0,
+        backgroundColor: "white",
+        fontSize: '18px',
+        margin: 10,
+      },
   };
 
   export default Header;

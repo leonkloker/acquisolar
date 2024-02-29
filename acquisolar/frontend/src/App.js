@@ -4,7 +4,8 @@ import AboutUs from './views/aboutus';
 import Main from './views/main';
 import Folder from './views/folderscreen2';
 import File from './views/newfilescreen';
-import Search from './views/searchscreen';
+import Search from './views/newsearchscreen';
+import Upload from './views/uploadscreen';
 //import './App.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         
         <div className="content">
         <Routes>
-          <Route path="/" element={<Main/>} />
+          <Route path="/" element={<Upload/>} />
           <Route path="/folders" element={<Folder/>} />
           <Route path="/about" element={<AboutUs />}/>
           <Route path="/filescreen" element={<File />}/>
