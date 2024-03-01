@@ -9,6 +9,11 @@ Zara:
 * Accomplished Sprint 3: Using Magnus' figma design to redevelop the website in a more accessible and professional way and worked on some backend functionality to improve user flow.
 * Plan for Sprint 4: Finishing up this UI redesign and cleaning up code, allowing the backend to search more effectively through pdfs (temporarily not working because of redesign)
 
+Jürgen:
+* Accomplished Sprint 3: Setting up a structure to test and evaluate the sorting. Splitting up data-files, manually annotating them and looking for patterns and heuristics to feed into the prompt. Searching the web for alternative data sources and trying to generate some ourselves. 
+* Plan for Sprint 4: Implement the insights from the data-research process into different versions of prompts and test them. Implement a multi dimensional prompt design to have more control over how the sorting performs. 
+
+
 ## Summary Sprint 2
 
 Setup instructions:
