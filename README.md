@@ -1,4 +1,21 @@
 # AcquiSolar
+## Summary Sprint 3
+
+Leon:
+* Familiarized with frontend engineering (especially using graphical design tools like Webflow) and hosting a frontend on e.g. an AWS S3 bucket using CI/CD frameworks. Helped Zara design the website.
+* Hosting website, helping to clean up the UI and integrate with the backend, improve the performance of RAG for querying documents
+
+Zara:
+* Accomplished Sprint 3: Using Magnus' figma design to redevelop the website in a more accessible and professional way and worked on some backend functionality to improve user flow.
+* Plan for Sprint 4: Finishing up this UI redesign and cleaning up code, allowing the backend to search more effectively through pdfs (temporarily not working because of redesign)
+
+Jürgen:
+* Accomplished Sprint 3: Setting up a structure to test and evaluate the sorting. Splitting up data-files, manually annotating them and looking for patterns and heuristics to feed into the prompt. Searching the web for alternative data sources and trying to generate some ourselves. 
+* Plan for Sprint 4: Implement the insights from the data-research process into different versions of prompts and test them. Implement a multi dimensional prompt design to have more control over how the sorting performs. 
+
+Magnus:
+* Accomplished Sprint 3: Minor code adjustments to fit with the frontend. For instance altering functions to create the directory so you can view how files load. Did several interviews to understand directoin going forward. Attended a 2 day course on M&A to understand the process and what you look for in documents.
+* Plan for Sprint 4: Setting up interviews to test the software. Create and test new visual prototypes with users.
 
 ## Summary Sprint 2
 
