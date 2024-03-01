@@ -1,7 +1,14 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import folderIcon from '../icons/folder-icon.png';
+import { Document, Page, pdfjs } from 'react-pdf';
 import { useNavigate, useLocation } from 'react-router-dom';
+import PDFViewer from './viewcomponents/pdfviewer2';
 import axios from 'axios';
+import FileIcon from './viewcomponents/fileicon';
+import Header from './viewcomponents/header';
+
+// Set the workerSrc for pdfjs
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 // url of aws server and port 80
 // change to 'http://localhost:3001' for localhost
@@ -58,68 +65,14 @@ const initialFiles = [
   }
 ]
 
-const FileIcon = ({ file, onUpdateTitle }) => {
-  const [showOptions, setShowOptions] = useState(false);
-  const [contentToShow, setContentToShow] = useState(null);
-
-  const handleToggleOptions = () => {
-    setShowOptions(!showOptions);
-    // Reset the content to show whenever we toggle the options
-    setContentToShow(null);
-  };
-
-  const handleShowContent = (content) => {
-    setContentToShow(content);
-  };
-
-  const handleConfirmTitle = () => {
-    onUpdateTitle(file.id, file.Suggested_title);
-    setShowOptions(false);
-  };
-
-  return (
-    <div style={styles.fileIconContainer}>
-      <img src={folderIcon} alt="File" style={styles.image} />
-      <div style={styles.titleContainer}>
-        <p style={styles.fileName}>
-          {file.current_title}
-        </p>
-        <button style={styles.optionButton} onClick={handleToggleOptions}>?</button>
-      </div>
-      {showOptions && (
-        <div style={styles.tooltip}>
-          <button style={styles.closeButton} onClick={handleToggleOptions}>X</button>
-          {contentToShow === null && (
-            <>
-              <button style={styles.optionButton} onClick={() => handleShowContent('summary')}>See Summary</button>
-              <button style={styles.optionButton} onClick={() => handleShowContent('title')}>Suggest Title</button>
-            </>
-          )}
-          {contentToShow === 'summary' && (
-            <div style={styles.contentBox}>
-              <p>{file.Document_summary}</p>
-            </div>
-          )}
-          {contentToShow === 'title' && (
-            <div style={styles.contentBox}>
-              <p>Suggested title:</p>
-              <p>{file.Suggested_title}</p>
-              <button style={styles.confirmButton} onClick={handleConfirmTitle}>Confirm</button>
-            </div>
-          )}
-        </div>
-      )}
-      <p style={styles.fileName}>{file.Document_date}</p>
-    </div>
-  );
-};
-
-
   const File = () => {
     const location = useLocation();
     const { folderName } = location.state || {};
     const [files, setFiles] = useState([]);
     const [openFolder, setOpenFolder] = useState(null); // Tracks the currently open folder
+    const [showPdf, setShowPdf] = useState(false);
+    const [selectedPdf, setSelectedPdf] = useState(null);
+    const [test, setTest] = useState("");
 
     const updateTitle = (id, newTitle) => {
       setFiles(files.map(file => 
@@ -127,10 +80,17 @@ const FileIcon = ({ file, onUpdateTitle }) => {
       ));
     };
 
+    const onShowPdf = (file) => {
+      setShowPdf(true);
+      setSelectedPdf(file);
+    }
+
     useEffect(() => {
+      console.log(folderName);
         const fetchFolderContents = async (folderName) => {
           try {
               const response = await axios.post(URLServer + '/get-folder-contents', { folderName });
+              console.log(response.data)
               setFiles(response.data); // Update state with folder contents
           } catch (error) {
               console.error('Error fetching folder contents:', error);
@@ -142,30 +102,31 @@ const FileIcon = ({ file, onUpdateTitle }) => {
     return (
         <div style={styles.container}>
             {/* Header */}
-            <header style={styles.header}>
-                <h1 style={styles.title}>AcquiSolar</h1>
-                <a href="/about" style={styles.aboutLink}>About Us</a>
-            </header>
+            <Header/>
 
             <div style={styles.folderContainer}>
-            {files.map((file) => (
-            <FileIcon
-              file={file}
-              onUpdateTitle={updateTitle}
-            />
-            
-          ))}
-        </div>
+                {files.map((file) => (
+                    <FileIcon
+                    file={file}
+                    onUpdateTitle={updateTitle}
+                    onShowPdf={onShowPdf}
+                    />
+                ))}
+            </div>
+
         </div>
     );
 };
+
+
 
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     height: '100vh',
     width: '100%',
-    backgroundColor: '#7AA6B9',
+    //backgroundColor: '#F9F9F9',
+    backgroundColor: '#FFFFFF',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -175,18 +136,11 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '20px',
-    color: 'white',
+    color: 'black',
     fontSize: '24px',
   },
   title: {
     margin: 0,
-  },
-  aboutLink: {
-    color: 'white',
-    textDecoration: 'none',
-    backgroundColor: '#7AA6B9', 
-    padding: '5px 10px',
-    borderRadius: '5px', 
   },
   content: {
     display: 'flex',
@@ -196,91 +150,13 @@ const styles = {
     paddingTop: '10px',
     width: '100%',
   },
-  image: {
-    width: '30px', 
-    height: '30px', 
-    objectFit: 'contain', 
-  },
-  fileIconContainer: {
-    width: '15%', 
-    minWidth: '15%',
-    height: '30%', 
-    borderRadius: '15px',
-    backgroundColor: '#ffffff',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around', 
-    overflow: 'hidden', 
-    margin: '10px',
-  },
   folderContainer: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  fileName: {
-    textAlign: 'center',
-    wordWrap: 'break-word', 
-    maxWidth: '90%', 
-    marginLeft: '15%', 
-    marginRight: '15%',
-  },
-  closeButton: {
-    position: 'absolute',
-    top: '5px',
-    right: '5px',
-    borderRadius: '20px',
-    backgroundColor: '#BCD5E0',
-    // Style as needed
-  },
-  confirmButton: {
-    position: 'absolute',
-    bottom: '5px',
-    right: '5px',
-    borderRadius: '20px',
-    backgroundColor: '#BCD5E0'
-    // Style as needed
-  },
-  tooltip: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    padding: '10px',
-    border: '1px solid #ccc',
-    zIndex: 100, // Ensure the tooltip appears above other elements
-    borderRadius: '15px',
-    backgroundColor: '#ffffff',
 
-    // Adjust the position as needed
-  },
-  toggleButton: {
-    marginLeft: '5px',
-    cursor: 'pointer',
-    backgroundColor: '#BCD5E0',
-    border: 'none',
-    // Style the button to look like a small square or whatever you prefer
-  },
-  summaryBox: {
-    marginTop: '10px',
-    padding: '5px',
-    border: '1px solid #ccc',
-    backgroundColor: '#f9f9f9',
-    borderRadius: '4px',
-    maxHeight: '100px', // Control the size of the summary box
-    overflowY: 'auto', // Add scroll if the content is too long
-    fontSize: '12px', // Adjust the font size as needed
-  },
-  optionButton: {
-    margin: '5px',
-    marginRight: '14px',
-    cursor: 'pointer',
-    backgroundColor: '#BCD5E0',
-    border: 'none',
-    padding: '3px',
-    borderRadius: '15px',
-    // Style the button to look like a small square or whatever you prefer
-  },
 };
 
 export default File;

@@ -19,22 +19,18 @@ const URLServer = 'http://localhost:3001'
 
 
 const Upload = () => {
-    const navigate = useNavigate();
-    const [files, setFiles] = useState([]);
-    const [fileNames, setFileNames] = useState([]);
-    const [showSearch, setShowSearch] = useState(false);
-    const [currentPdf, setCurrentPdf] = useState(null);
-    const [numPages, setNumPages] = useState(null); 
+  const navigate = useNavigate();
+  const [files, setFiles] = useState([]);
+  const [fileNames, setFileNames] = useState([]);
+  const [isUploading, setIsUploading] = useState(false); // New state for tracking upload status
+  const [hasUploaded, setHasUploaded] = useState(false)
+
   
     const onDrop = useCallback((acceptedFiles) => {
       // Prevents duplicates from being uploaded (based on filename atm)
       const filteredFiles = acceptedFiles.filter(file => file.type === 'application/pdf');
       setFiles((prevFiles) => [...prevFiles, ...filteredFiles]);
   
-      // If there's no currently selected PDF, display the first one dropped
-      if (filteredFiles.length && !currentPdf) {
-        setCurrentPdf(filteredFiles[0]);
-      }
   
       // Filenames that are displayed when file is uploaded
       setFileNames((prevFiles) => {
@@ -43,7 +39,7 @@ const Upload = () => {
         const uniqueNewFileNames = newFileNames.filter((fileName) => !existingFileNames.has(fileName));
         return [...prevFiles, ...uniqueNewFileNames];
       });
-    }, [currentPdf]);
+    },);
   
     const removeFile = (fileName, event) => {
       event.stopPropagation(); // Prevent the event from bubbling up to parent elements
@@ -63,23 +59,23 @@ const Upload = () => {
         alert('Please submit a file.');
         return;
       }
-      
-      setShowSearch(true); 
+
+      setIsUploading(true); // Start uploading
+
       const formData = new FormData();
       
-      // Append each file to the form data
       files.forEach((file) => {
         formData.append('files', file);
       });
   
       try {
-        console.log("Uploading")
-        //const response = await axios.post(URLServer + '/upload');
+        // Use axios or fetch here to upload the files
+        // Example with fetch:
         const response = await fetch(URLServer + '/upload', {
           method: 'POST',
           body: formData,
         });
-  
+
         if (response.ok) {
           console.log('Files successfully uploaded');
         } else {
@@ -87,12 +83,17 @@ const Upload = () => {
         }
       } catch (error) {
         console.error('Error uploading files', error);
+      } finally {
+        setHasUploaded(true);
+        setIsUploading(false);
       }
-  
-      console.log('Navigating to search')
-  
-      navigate('/folders', { file: currentPdf } );
     };
+
+    const navigateFolders = () => {
+      if(!isUploading && hasUploaded) {
+        navigate('/folders'); 
+      }
+    }
   
 
   return (
@@ -119,8 +120,15 @@ const Upload = () => {
 
       <div style={styles.halfBox}>
         <div style={styles.listContainer}>
-      <FileList fileNames={fileNames} removeFile={removeFile} />
-      </div>
+          <FileList fileNames={fileNames} removeFile={removeFile} />
+        </div>
+        <button 
+              style={(isUploading || !hasUploaded) ? { ...styles.navigateButton, backgroundColor: '#DEE2E6' } : styles.navigateButton}
+              onClick={navigateFolders}
+              disabled={isUploading}
+            >
+              {isUploading ? 'Uploading Files...' : 'See Folders'}
+            </button>
       </div>
       </div>
     </div>
@@ -138,7 +146,9 @@ const styles = {
     halfBox: {
         display: 'flex',
         width: '50%',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'column',
     },
     uploadArea: {
         display: 'flex',
@@ -205,6 +215,22 @@ const styles = {
         width: '80%',
         height: '50%',
         margin: 20,
+    },
+    navigateButton: {
+      display: 'flex',
+      width: '80%',
+      height: '10%',
+      padding: 5,
+      margin: 15,
+      borderRadius: 15,
+      fontSize: 18,
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      backgroundColor: '#156CF7',
+      color: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
     }
 };  
 
