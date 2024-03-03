@@ -541,6 +541,7 @@ def convert_structure(input_json):
 
     return output
 
+
 def save_json_data(data, file_path, indent=4):
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
@@ -548,6 +549,7 @@ def save_json_data(data, file_path, indent=4):
         print(f"Data successfully saved to {file_path}")
     except IOError as e:
         print(f"Failed to save data to {file_path}: {e}")
+
 
 def convert_directory_structure():
     set_root_directory()
