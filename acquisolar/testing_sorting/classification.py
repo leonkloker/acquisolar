@@ -110,11 +110,14 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you really cant find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders.
+- "Document_folder_path", Choose the folder or sub-folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you can not find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders. For context: "Interconnection Agreement" should contain only the actual interconnection agreement. All other documents concerning the Interconnection Agreement should be placed in the "Interconnection Agreement Supplementary Documents" folder. "PPA" should contain only the actual PPA agreement. All other documents concerning a PPA should be placed in the "PPA Supplementary Documents" folder.
+
 {folder_structure_indented}
 
 The provided document text is:
 {extracted_text}
+ Think through the answer to each prompt step by step to ensure that the output is perfect; there is no room for error.
+
 """
     # Write the query to a text file
     save_txt_file("query.txt", query, enable_testing_output)
@@ -275,7 +278,7 @@ def make_json_valid(response_content):
 def make_openai_api_call(truncated_query):
     try:
         completion = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125",
+            model="gpt-3.5-turbo-0125", #"gpt-3.5-turbo-0125"
             messages=[
                 {"role": "system", "content": "You are a solar M&A analyst..."},
                 {"role": "user", "content": truncated_query}
