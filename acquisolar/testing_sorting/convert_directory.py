@@ -19,38 +19,37 @@ def convert_structure(input_json):
     """
     Converts the directory structure from the JSON format into a format that
     lists each file along with its directory (classification).
-
-    Parameters:
-    - input_json: The loaded JSON data representing the directory structure.
-
-    Returns:
-    - A list of dictionaries, each containing 'name' (file name) and 'classification' (directory name).
     """
-    # Map directory IDs to names
-    directory_names = {item['id']: item['name'] for item in input_json if item['type'] == 'directory'}
+    # Initialize empty dictionary to hold the converted structure
+    converted_structure = {}
     
-    # Initialize output list
-    output = []
+    # Iterate through the input JSON to build a mapping of directory IDs to names
+    for item in input_json:
+        if item['type'] == 'directory':
+            # Create a new list in the converted structure for each directory
+            converted_structure[item['name']] = []
     
-    # Iterate over items in input_json
+    # Second pass to assign files to their directories
     for item in input_json:
         if item['type'] == 'file':
-            # For each file, find its parent directory's name to use as classification
-            classification = directory_names.get(item['parent_id'], 'Unclassified')
-            output.append({
-                "name": item['name'],
-                "classification": classification
-            })
-
-    return output
-
+            # Assuming file items have 'parent_id' that matches directory 'id'
+            # Find parent directory name using 'parent_id'
+            parent_directory = next((dir_item['name'] for dir_item in input_json if dir_item['type'] == 'directory' and dir_item['id'] == item['parent_id']), None)
+            if parent_directory:
+                converted_structure[parent_directory].append(item['name'])
+    
+    return converted_structure
 
 def save_json_data(data, file_path, indent=4):
     """
     Saves data as JSON to a specified file path.
     """
-    with open(file_path, 'w', encoding='utf-8') as file:
-        json.dump(data, file, indent=indent)
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=indent)
+        print(f"Data successfully saved to {file_path}")
+    except IOError as e:
+        print(f"Failed to save data to {file_path}: {e}")
 
 def convert_and_save_directory_structure(input_json_path, output_json_path):
     """
@@ -60,10 +59,16 @@ def convert_and_save_directory_structure(input_json_path, output_json_path):
     input_json = load_json_data(input_json_path)
     if input_json is not None:
         converted_structure = convert_structure(input_json)
-        save_json_data(converted_structure, output_json_path)
+        if converted_structure:
+            save_json_data(converted_structure, output_json_path)
+        else:
+            print("Converted structure is empty. Nothing to save.")
     else:
         print("Failed to load input JSON data.")
 
+
+
+
 # Optionally, add a conditional block for direct execution
 if __name__ == "__main__":
-    convert_and_save_directory_structure('structured_data/global_directory.json', 'structured_data/directory_for_frontend.json')
+    convert_and_save_directory_structure('acquisolar/testing_sorting/structured_data/global_directory.json', 'acquisolar/testing_sorting/structured_data/directory_for_frontend.json')

@@ -1,13 +1,30 @@
 test_id,date_time,Accuracy_test,Accuracy_Interconnection_Agreement,Accuracy_Interconnection_Agreement_Supplementary_Documents,Accuracy_Site_Control,Accuracy_PPA,Accuracy_PPA_Supplementary_Documents,Accuracy_Unclassified,Notes,DateTime,Accuracy
-0.0,3/3/24 11:38,,100.00%,,,25.00%,0.00%,50.00%,,,
-1.0,3/3/24 11:43,,100.00%,,,100.00%,,66.67%,,,
-2.0,3/3/24 11:48,,100.00%,,,100.00%,,66.67%,,,
-3.0,3/3/24 11:58,,100.00%,,100.00%,100.00%,0.00%,50.00%,,,
-4.0,3/3/24 12:00,,100.00%,,100.00%,100.00%,0.00%,50.00%,,,
-5.0,3/3/24 12:01,,100.00%,,,66.67%,,62.50%,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,2024-03-03 12:24:12,0.0
-,,,,,,,,,,2024-03-03 12:29:06,0.0
+0,3/3/24 11:38,,100.00%,,,25.00%,0.00%,50.00%,,,
+1,3/3/24 11:43,,100.00%,,,100.00%,,66.67%,,,
+2,3/3/24 11:48,,100.00%,,,100.00%,,66.67%,,,
+3,3/3/24 11:58,,100.00%,,100.00%,100.00%,0.00%,50.00%,,,
+4,3/3/24 12:00,,100.00%,,100.00%,100.00%,0.00%,50.00%,,,
+5,3/3/24 12:01,,100.00%,,,66.67%,,62.50%,,,
+0,,,,,,,,,,,
+0,,,,,,,,,,,
+0,,,,,,,,,,,
+0,,,,,,,,,,,
+0,,,,,,,,,,3/3/24 12:24,0
+0,,,,,,,,,,3/3/24 12:29,0
+0,,,,,,,,,,3/4/24 7:26,0
+0,,,,,,,,,,3/4/24 7:41,0
+6,3/4/24 7:52,,,,,100.00%,,60.00%,"- ""Document_folder_path"", Choose the folder or sub-folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format ""project_name/sub_folder..."" where project name is the top folder. If you can not find a folder that fits, put it in ""project_name/Unclassified"". Dont make up any new folders. For context: ""Interconnection Agreement"" should contain only the actual interconnection agreement. All other documents concerning the Interconnection Agreement should be placed in the ""Interconnection Agreement Supplementary Documents"" folder. ""PPA"" should contain only the actual PPA agreement. All other documents concerning a PPA should be placed in the ""PPA Supplementary Documents"" folder.",,
+7,3/4/24 7:57,,100.00%,,,50.00%,,60.00%,,,
+8,3/4/24 8:07,,100.00%,,,25.00%,,60.00%,,,
+0,,,,,,,,,,3/4/24 8:17,0
+0,,,,,,,,,,3/4/24 8:22,0
+9,3/4/24 8:24,,100.00%,,,28.57%,,75.00%,,,
+0,,,,,,,,,,3/4/24 8:26,0
+0,,,,,,,,,,3/4/24 8:28,0
+0,,,,,,,,,,3/4/24 8:32,0
+0,,,,,,,,,,3/4/24 8:41,0
+0,,,,,,,,,,3/4/24 8:49,0
+0,,,,,,,,,,3/4/24 9:56,0
+10,3/4/24 9:58,,100.00%,,,25.00%,,66.67%,"- ""Document_folder_path"": Select the most suitable folder or sub-folder from the list using ""project_name/sub_folder..."". If no match, use ""project_name/Unclassified"". No new folders. ""Interconnection Agreement"" for the agreement itself, related documents in ""Interconnection Agreement Supplementary Documents"". ""PPA"" for the agreement, related documents in ""PPA Supplementary Documents"".",,
+11,3/4/24 10:03,,100.00%,,,0.00%,,0.00%,Different function structure (failed),,
+12,3/4/24 10:06,,100.00%,,,25.00%,,66.67%,,,

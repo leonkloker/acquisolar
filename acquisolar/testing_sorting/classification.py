@@ -110,7 +110,7 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path", Choose the folder or sub-folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you can not find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders. For context: "Interconnection Agreement" should contain only the actual interconnection agreement. All other documents concerning the Interconnection Agreement should be placed in the "Interconnection Agreement Supplementary Documents" folder. "PPA" should contain only the actual PPA agreement. All other documents concerning a PPA should be placed in the "PPA Supplementary Documents" folder.
+- "Document_folder_path": Select the most suitable folder or sub-folder from the list using "project_name/sub_folder...". If no match, use "project_name/Unclassified". No new folders. "Interconnection Agreement" for the agreement itself, related documents in "Interconnection Agreement Supplementary Documents". "PPA" for the agreement, related documents in "PPA Supplementary Documents".
 
 {folder_structure_indented}
 
@@ -122,6 +122,7 @@ The provided document text is:
     # Write the query to a text file
     save_txt_file("query.txt", query, enable_testing_output)
     return query
+
 def output_extracted_text_to_file(extracted_text, output_path):
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(extracted_text)

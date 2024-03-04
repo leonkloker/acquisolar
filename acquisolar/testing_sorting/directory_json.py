@@ -59,3 +59,31 @@ def generate_directory_json(output_dir, project_name):
     with open(os.path.join(output_dir, 'global_directory.json'), 'w', encoding='utf-8') as f:
         json.dump(directory_tree, f, indent=4)
 
+#### TESTING
+        
+if __name__ == "__main__":
+    # Example test for generate_directory_json
+    import tempfile
+    import shutil
+
+    # Create a temporary directory for testing
+    test_dir = tempfile.mkdtemp()
+    try:
+        project_name = "TestProject"
+        os.makedirs(os.path.join(test_dir, project_name, "SubDir"))
+        with open(os.path.join(test_dir, project_name, "test_file.txt"), "w") as f:
+            f.write("Test content")
+
+        # Call the function with the test directory
+        generate_directory_json(test_dir, project_name)
+
+        # Verify the output
+        output_json_path = os.path.join(test_dir, 'global_directory.json')
+        if os.path.exists(output_json_path):
+            print("generate_directory_json Test Passed: JSON file created successfully.")
+        else:
+            print("generate_directory_json Test Failed: JSON file not found.")
+
+    finally:
+        # Clean up
+        shutil.rmtree(test_dir)
