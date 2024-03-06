@@ -5,7 +5,34 @@ import json
 import zipfile
 import shutil
 from tqdm import tqdm
+import pandas as pd
 
+#### Delete folder if exist
+
+import os
+import shutil
+
+def delete_folder_if_exists(folder_path):
+    """
+    Deletes the specified folder and all its contents if it exists.
+
+    Parameters:
+    - folder_path (str): The path to the folder to be deleted.
+    """
+    if os.path.exists(folder_path) and os.path.isdir(folder_path):
+        shutil.rmtree(folder_path)
+        print(f"Folder '{folder_path}' has been deleted.")
+    else:
+        print(f"Folder '{folder_path}' does not exist or is not a directory.")
+
+# Example usage
+folder_to_delete = 'acquisolar/testing_sorting/structured_data'
+delete_folder_if_exists(folder_to_delete)
+folder_to_delete = 'acquisolar/testing_sorting/classification_testing(can_be_deleted)'
+delete_folder_if_exists(folder_to_delete)
+
+
+#### 
 
 #save text file for testing
 def save_txt_file(title, contents, enable_testing_output = False):
@@ -106,16 +133,16 @@ def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output
 def prompt_constructor(*args):
     prompt = ""
     for arg in args:
-        # Make sure to construct the path to the prompts directory correctly
         prompt_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'prompts', arg)
+        print(f"Accessing file: {prompt_file_path}")  # Debugging line to see the constructed file path
         with open(prompt_file_path, 'r', encoding='utf-8') as file:
-            prompt += file.read().strip() + "\n\n"  # Add a newline for separation between prompts
+            prompt += file.read().strip() + "\n\n"
     return prompt
 
 
 def construct_query(extracted_text, folder_structure_indented, enable_testing_output=False):
     # Example usage of prompt_constructor
-    constructed_prompt = prompt_constructor("prompt_part1.txt")  # Add as many parts as needed
+    constructed_prompt = prompt_constructor("action.txt", "sorting_guidelines.txt")
     
     query = f"""
 {constructed_prompt}
@@ -131,13 +158,12 @@ Think through the answer to each prompt step by step to ensure that the output i
     return query
 
 
-
-
-
-
 def output_extracted_text_to_file(extracted_text, output_path):
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(extracted_text)
+
+
+
 
 #query and output
 def process_json_add_extension(data):
