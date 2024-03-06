@@ -198,6 +198,7 @@ const styles = {
         border: 'none',
         cursor: 'pointer',
         fontWeight: 'bold',
+        fontSize: '90%',
     },
     cancelButton: {
         backgroundColor: '#DEE2E6', // Default background
@@ -209,6 +210,7 @@ const styles = {
         border: 'none',
         cursor: 'pointer',
         fontWeight: 'bold',
+        fontSize: '90%',
     },
     listContainer: {
         display: 'flex',

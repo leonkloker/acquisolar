@@ -1,8 +1,8 @@
 {
-  "Document_date": "JUL-24, 2023",
-  "Document_summary": "This document is a technical analysis of signal processing techniques applied to a message signal. It covers the process of filtering and modulation to manipulate the signal's frequency content. The analysis demonstrates the impact of different filter types and modulation phases on the signal's spectrum.",
-  "Suggested_title": "07-24-2023 Signal Processing Analysis",
-  "Suggested_title_v2": "07-24-2023 Frequency Manipulation Study",
-  "Suggested_title_v3": "07-24-2023 Spectrum Filtering Investigation",
-  "Document_folder_path": "TESTSOLAR/Unclassified"
+    "Document_date": "N/A",
+    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form includes sections for personal information, areas of interest in EE, and plans for further academic pursuits.",
+    "Suggested_title": "N/A",
+    "Suggested_title_v2": "N/A",
+    "Suggested_title_v3": "N/A",
+    "Document_folder_path": "Unclassified"
 }

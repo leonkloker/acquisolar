@@ -59,6 +59,7 @@ const styles = {
       cursor: 'pointer',
       color: 'red',
       fontWeight: 'bold',
+      fontSize: '100%',
     },
   };
 
