@@ -31,6 +31,7 @@ def set_root_directory():
     os.chdir(root_directory)
     print("Root directory set to:", root_directory)
     return root_directory
+
 # Function to construct relative paths for input and output directories
 def construct_relative_paths(root_directory):
     input_dir = os.path.join(root_directory, "documents")
@@ -38,48 +39,46 @@ def construct_relative_paths(root_directory):
     preferences_dir = os.path.join(root_directory, "preferences")
     return input_dir, output_dir, preferences_dir
 
-"""Find folder structure from zip file and keep track of where documents are placed"""
-#Extract file structure
-def find_and_note_zip_structure(preferences_dir, project_name):
+def get_directory_structure(preferences_dir, project_name):
     """
-    Find the first zip file in the specified input directory, analyze its folder structure
-    (excluding individual files), replace the top-level folder name with project_name,
-    and returns both a nested list and an indented text representation of the folder structure.
+    Reads a directory structure from a JSON file and converts it into various formats.
+    
+    This function looks for a 'folder_structure.json' file in the specified preferences directory.
+    It loads the folder structure from this JSON file and then converts this structure into
+    a nested list format, a plain text list, and a text representation with indentation
+    to reflect the directory hierarchy.
+    
+    Parameters:
+    - preferences_dir (str): The path to the directory where 'folder_structure.json' is expected to be located.
+    - project_name (str): The name of the project, used for logging purposes (currently unused in the function body).
+    
+    Returns:
+    - tuple: A tuple containing three elements:
+        1. folder_structure_list (list): The directory structure converted into a nested list.
+        2. folder_structure_indented (str): A string representation of the directory structure with indentation.
+        3. folder_structure_text_list (list): The directory structure converted into a flat list with textual representation.
+    
+    Note:
+    If 'folder_structure.json' does not exist in the specified preferences directory,
+    the function prints a message and returns (None, None, None).
     """
-    zip_file = None
-    for file in os.listdir(preferences_dir):
-        if file.lower().endswith('.zip'):
-            zip_file = os.path.join(preferences_dir, file)
-            break
+    folder_structure_file = os.path.join(preferences_dir, "folder_structure.json")
 
-    if zip_file is None:
-        print("No zip file found in the input directory.")
-        return None, None, None  # Return None for all values if no zip file is found
+    if not os.path.exists(folder_structure_file):
+        print("No folder structure file found in the input directory.")
+        return None, None, None
 
-    print(f"Analyzing folder structure of: {zip_file}")
+    print(f"Analyzing directory structure of: {folder_structure_file}")
 
-    with zipfile.ZipFile(zip_file, 'r') as zip_ref:
-        zip_contents = zip_ref.namelist()
-
-        # Initialize a dictionary to hold the folder structure
-        folder_structure = {}
-
-        for item in zip_contents:
-            path_parts = item.split('/')
-            # Replace top-level folder name with project_name
-            if path_parts[0]:  # Check if the first part is not empty
-                path_parts[0] = project_name
-            current_level = folder_structure
-
-            for part in path_parts[:-1]:  # Exclude the last part if it's a filename
-                if part not in current_level:
-                    current_level[part] = {}
-                current_level = current_level[part]
+    f = open(folder_structure_file, 'r')
+    folder_structure = json.load(f)
+    f.close()
 
     folder_structure_list = dict_to_nested_list(folder_structure)
     folder_structure_text_list = nested_list_to_text_list(folder_structure_list)
     folder_structure_indented = folder_structure_to_text(folder_structure_list)
     return folder_structure_list, folder_structure_indented, folder_structure_text_list
+
 def dict_to_nested_list(d):
     """
     Convert a dictionary to a nested list representing folder structure.
@@ -105,6 +104,7 @@ def folder_structure_to_text(structure, level=0):
         else:
             text += f"{indent}- {folder}\n"
     return text
+
 def nested_list_to_text_list(structure, level=0):
     """
     Convert a nested list representing folder structure into a structured list in text form.
@@ -136,22 +136,33 @@ def create_folder_structure_from_list(folder_list, base_path):
             folder_path = os.path.join(base_path, item)
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)
-def find_and_create_zip_structure(preferences_dir, output_dir,  project_name):
-    """
-    Find the first zip file in the specified input directory, analyze its folder structure,
-    replace the top-level folder name with project_name, and create this folder structure
-    in the output directory.
-    """
-    # The modified find_and_note_zip_structure function here
-    # Assuming it sets folder_structure_list correctly
 
-    folder_structure_list, folder_structure_indented, _ = find_and_note_zip_structure(preferences_dir, project_name)
+def create_directory_structure(preferences_dir, output_dir,  project_name):
+    """
+    Creates a directory structure in the specified output directory based on a folder structure
+    defined in a JSON file located in the preferences directory.
+    
+    This function uses `get_directory_structure` to read the directory structure from a JSON file
+    named 'folder_structure.json' located in the preferences directory. It then creates this directory
+    structure in the specified output directory. The structure is created based on a nested list
+    obtained from the JSON file.
+    
+    Parameters:
+    - preferences_dir (str): The path to the directory where 'folder_structure.json' is expected to be found.
+    - output_dir (str): The path to the directory where the folder structure will be created.
+    - project_name (str): The name of the project, used for logging and identification purposes.
+    
+    Returns:
+    - str or None: A string representation of the directory structure with indentation if the folder
+      structure is successfully created; otherwise, None if no folder structure is found or created.
+    """
+    folder_structure_list, folder_structure_indented, _ = get_directory_structure(preferences_dir, project_name)
 
     if folder_structure_list is not None:
-        # Create the folder structure starting at output_dir
         create_folder_structure_from_list(folder_structure_list, output_dir)
         print(f"Folder structure created under {output_dir}\n")
         return folder_structure_indented
+
     else:
         print("No folder structure to create.\n")
 
@@ -268,6 +279,7 @@ The provided document text is:
     # Write the query to a text file
     save_txt_file("query.txt", query, enable_testing_output)
     return query
+
 # Truncate query
 def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output=False): #35k is ok for gpt-4-0125-preview #10k max for gpt-3.5-turbo-0125
     """
@@ -300,6 +312,7 @@ def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output
     
     save_txt_file("truncated_query.txt", truncated_query, enable_testing_output)
     return truncated_query.rstrip()  # Remove the last newline character to clean up
+
 # put query into chatgpt
 def make_openai_api_call(truncated_query):
     """
@@ -466,7 +479,7 @@ def main(input_dir, output_dir, preferences_dir="preferences", project_name="TES
     os.makedirs(output_dir, exist_ok=True)
     
     # extract file structure from the zip. save folder_structure_indented as the folder structure to be used in the query
-    folder_structure_indented = find_and_create_zip_structure(preferences_dir, output_dir, project_name)
+    folder_structure_indented = create_directory_structure(preferences_dir, output_dir, project_name)
 
     # List all PDF files in the input directory
     pdf_files = [f for f in os.listdir(input_dir) if f.lower().endswith('.pdf')]
@@ -521,8 +534,6 @@ copy_or_move = "move" #have to choose move for implementation. copy breaks the d
 root_directory = set_root_directory()
 input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)
 project_name = "MegaSolar"
-
-
 
 if __name__ == "__main__":
     project_name = "MegaSolar"

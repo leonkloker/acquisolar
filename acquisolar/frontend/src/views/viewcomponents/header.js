@@ -1,19 +1,35 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Header component
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const buttonStyle = (path) => ({
+    ...styles.headerButton,
+    backgroundColor: isActive(path) ? '#dddddd' : 'white',
+    color: 'black',
+  });
 
   const handleUploadClick = () => {
     console.log('Upload button clicked');
-    navigate('/'); 
+    navigate('/');
   };
   
   const handleFilesClick = () => {
     console.log('Files button clicked');
     navigate('/folders'); 
   };
+
+  const handlePreferenceClick = () => {
+    console.log('Preferences button clicked');
+    navigate('/preferences');
+  }
   
   const handleSearchClick = () => {
     console.log('Search button clicked');
@@ -25,13 +41,13 @@ const Header = () => {
     <header style={styles.header}>
       <h1 style={styles.title}>ACQUISOLAR</h1>
       <div>
-        <button style={styles.headerButton} onClick={handleUploadClick}>Upload</button>
-        <button style={styles.headerButton} onClick={handleFilesClick}>Files</button>
-        <button style={styles.headerButton} onClick={handleSearchClick}>Search</button>
+        <button style={buttonStyle('/')} onClick={handleUploadClick}>Upload</button>
+        <button style={buttonStyle('/folders')} onClick={handleFilesClick}>Files</button>
+        <button style={buttonStyle('/searchscreen')} onClick={handleSearchClick}>Search</button>
+        <button style={buttonStyle('/preferences')} onClick={handlePreferenceClick()}>Preferences</button>
       </div>
       
     </header>
-
   );
 };
 
@@ -59,6 +75,7 @@ const styles = {
         margin: 10,
         marginRight: 40,
         cursor: 'pointer',
+        borderRadius: '5px',
       },
   };
 
