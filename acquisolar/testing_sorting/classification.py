@@ -102,26 +102,38 @@ def truncate_query_to_fit_context(query, max_length=10000, enable_testing_output
     save_txt_file("truncated_query.txt", truncated_query, enable_testing_output)
     return truncated_query.rstrip()  # Remove the last newline character to clean up
 
-def construct_query(extracted_text,folder_structure_indented,enable_testing_output=False):
+
+def prompt_constructor(*args):
+    prompt = ""
+    for arg in args:
+        # Make sure to construct the path to the prompts directory correctly
+        prompt_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'prompts', arg)
+        with open(prompt_file_path, 'r', encoding='utf-8') as file:
+            prompt += file.read().strip() + "\n\n"  # Add a newline for separation between prompts
+    return prompt
+
+
+def construct_query(extracted_text, folder_structure_indented, enable_testing_output=False):
+    # Example usage of prompt_constructor
+    constructed_prompt = prompt_constructor("prompt_part1.txt")  # Add as many parts as needed
+    
     query = f"""
-Extract the following fields from the document text provided and format the response as valid JSON:
-- "Document_date" in the format '3 letter month name-DD, YYYY'.
-- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
-- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
-- "Suggested_title_v2" in same format as "suggested title" but with different wording
-- "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path": Select the most suitable folder or sub-folder from the list using "project_name/sub_folder...". If no match, use "project_name/Unclassified". No new folders. "Interconnection Agreement" for the agreement itself, related documents in "Interconnection Agreement Supplementary Documents". "PPA" for the agreement, related documents in "PPA Supplementary Documents".
+{constructed_prompt}
 
 {folder_structure_indented}
-
 The provided document text is:
 {extracted_text}
- Think through the answer to each prompt step by step to ensure that the output is perfect; there is no room for error.
+Think through the answer to each prompt step by step to ensure that the output is perfect; there is no room for error.
 
 """
     # Write the query to a text file
     save_txt_file("query.txt", query, enable_testing_output)
     return query
+
+
+
+
+
 
 def output_extracted_text_to_file(extracted_text, output_path):
     with open(output_path, "w", encoding="utf-8") as f:
