@@ -30,7 +30,7 @@ yarn-error.log*
 **documents**
 **index_storage**
 
-**.bin/
-**.cache/
+**.bin**
+**.cache**
 
 TODO.txt
