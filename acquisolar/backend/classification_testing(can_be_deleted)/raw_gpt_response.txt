@@ -4,5 +4,5 @@
     "Suggested_title": "",
     "Suggested_title_v2": "",
     "Suggested_title_v3": "",
-    "Document_folder_path": "project_name/Unclassified"
+    "Document_folder_path": "project/Unclassified"
 }

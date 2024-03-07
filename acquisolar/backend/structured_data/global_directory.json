@@ -43,13 +43,34 @@
   },
   {
     "id": 8,
+    "name": "Payment_Received_Transfer_of_Ownership_Application_Case_26005150ref00Dt00Gyxg5008y0A0c8iref.pdf",
+    "type": "file",
+    "size": 108606,
+    "parent_id": 3
+  },
+  {
+    "id": 9,
+    "name": "Homework_4_due_Friday_February_9.pdf",
+    "type": "file",
+    "size": 438708,
+    "parent_id": 3
+  },
+  {
+    "id": 10,
     "name": "pdDeclare_EE_Major_Form.pdf",
     "type": "file",
     "size": 264632,
     "parent_id": 3
   },
   {
-    "id": 9,
+    "id": 11,
+    "name": "pdEE_PS_2324.pdf",
+    "type": "file",
+    "size": 272166,
+    "parent_id": 3
+  },
+  {
+    "id": 12,
     "name": "PPA1.pdf",
     "type": "file",
     "size": 76843237,
