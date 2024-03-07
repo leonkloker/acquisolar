@@ -1,0 +1,6 @@
+\n\n PREFERENCE LEVEL 1
+
+Here are the guidelines for this prompt:
+
+1. Follow the output instructions precisely and do not make any assumptions. Your output will not be controlled by a human; it will be directly executed. Adding anything else or deviating from the instructions will cause the output to fail.
+2. Think through the answer to each prompt step by step to ensure that the output is perfect; there is no room for error.
