@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Document, Page, pdfjs } from 'react-pdf';
 import FileList from './viewcomponents/filelist';
-import PDFViewer from './viewcomponents/pdfviewer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import uploadIcon from '../icons/upload.png';

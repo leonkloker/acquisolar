@@ -1,8 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import folderIcon from '../icons/folder-icon.png';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { useNavigate, useLocation } from 'react-router-dom';
-import PDFViewer from './viewcomponents/pdfviewer2';
 import axios from 'axios';
 import FileIcon from './viewcomponents/fileicon';
 import Header from './viewcomponents/header';

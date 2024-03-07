@@ -1,276 +1,200 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { useDropzone } from 'react-dropzone';
-import { Document, Page, pdfjs } from 'react-pdf';
-import FileList from './viewcomponents/filelist';
-import PDFViewer from './viewcomponents/pdfviewer2';
+import Header from './viewcomponents/header';
 import { useNavigate, useLocation } from 'react-router-dom';
 import QueryResult from './viewcomponents/queryresult';
-import axios from 'axios';
+import { Document, Page, pdfjs } from 'react-pdf';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-// url of aws server and port 80
-// change to 'http://localhost:3001' for localhost
-// or http://54.90.226.66:80' for aws
-// Changed this variable name or causes issues with other parts of code
-const URLServer = 'http://localhost:3001'
-
 const Search = () => {
-const location = useLocation();
-  const navigate = useNavigate();
-  const [showSearch, setShowSearch] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [currentPdf, setCurrentPdf] = useState(null);
-  const [blobUrl, setBlobUrl] = useState('');
-  const [numPages, setNumPages] = useState(null); 
-  const [instances, setInstances] = useState([]);
-  const [currentInstance, setCurrentInstance] = useState(0);
-  const [pageNumber, setPageNumber] = useState(1);
+    const location = useLocation();
+    const [filename, setFilename] = useState("");
+    const [searchText, setSearchText] = useState("");
+    const [searchResult, setSearchResult] = useState("");
+    const [occurrences, setOccurrences] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchQueryResult, setSearchQueryResult] = useState(null);
 
-  const findInstancesOfSearchTerm = async () => {
-    let instancesFound = [];
-    if (!currentPdf) return;
-
-    const pdfDocument = await pdfjs.getDocument(URL.createObjectURL(currentPdf)).promise;
-
-    for (let i = 1; i <= numPages; i++) {
-      const page = await pdfDocument.getPage(i);
-      const textContent = await page.getTextContent();
-      // Look for instances of the search term in the text content
-      textContent.items.forEach((item) => {
-        if (item.str.includes(searchQuery)) {
-          instancesFound.push({ page: i, instance: item.str });
+    useEffect(() => {
+        if (location.state && location.state.filename) {
+          setFilename(location.state.filename)
         }
-      });
-    }
-    setInstances(instancesFound);
-    if (instancesFound.length > 0) {
-      setPageNumber(instancesFound[0].page); // Go to the first instance page
-    }
-  };
+    }, [location]);
 
-  const goToNextInstance = () => {
-    if (instances.length === 0) return;
-    const nextInstance = (currentInstance + 1) % instances.length;
-    setCurrentInstance(nextInstance);
-    setPageNumber(instances[nextInstance].page);
-  };
+    useEffect(() => {
+        console.log(searchQueryResult);
+    }, [searchQueryResult]); 
 
-  const goToPreviousInstance = () => {
-    const nextInstance = (currentInstance - 1) % instances.length;
-    setCurrentInstance(nextInstance);
-    setPageNumber(instances[nextInstance].page);
-  };
+      const handleSearch = async () => {
+        
+        try {
+            const response = await fetch('http://localhost:3001/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: searchText }),
+            });
+            const textResponse = await response.text(); // Assuming the response is a stream of text
+            console.log(textResponse)
+            setSearchQueryResult(textResponse);
+        } catch (error) {
+            console.error('Failed to fetch search results:', error);
+        }
 
-  useEffect(() => {
-    if (location.state && location.state.file) {
-      const newBlobUrl = URL.createObjectURL(location.state.file);
-      setBlobUrl(newBlobUrl);
-      setCurrentPdf(location.state.file); // Save the File object if needed
-    }
+        console.log(searchQueryResult)
 
-    // Clean up the blob URL when the component unmounts
-    return () => {
-      if (blobUrl) {
-        URL.revokeObjectURL(blobUrl);
-      }
+
+        const url = `http://localhost:3001/get-pdf/${filename}`;
+        let pdf = await pdfjs.getDocument(url).promise;
+        let foundPages = [];
+    
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            const text = textContent.items.map(item => item.str).join(" ");
+            if (text.match(new RegExp(searchText, "gi"))) {
+                foundPages.push(i);
+            }
+        }
+    
+        setOccurrences(foundPages);
+        setCurrentPage(foundPages[0] || 1); // Set to first found page or back to 1 if no occurrence
+        setSearchResult(`Found "${searchText}" ${foundPages.length} times.`);
+
+
+        console.log(searchQueryResult)
     };
-  }, [location]);
-  
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
-  const handleSearchSubmit = async () => {
-    if (!searchQuery) {
-      alert('Please enter a search query.');
-      return;
-    }
-  
-    try {
-      const response = await fetch(URLServer + '/search', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query: searchQuery }),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        console.error('Search failed', response);
-      }
-    } catch (error) {
-      console.error('Error during search', error);
-    }
-    findInstancesOfSearchTerm();
-  };
+    const goToNextOccurrence = () => {
+        const currentIndex = occurrences.indexOf(currentPage);
+        const nextIndex = (currentIndex + 1) % occurrences.length; // Loop back to the first occurrence
+        setCurrentPage(occurrences[nextIndex]);
+        console.log(currentPage + ' page')
+    };
+    
+    const goToPrevOccurrence = () => {
+        const currentIndex = occurrences.indexOf(currentPage);
+        const prevIndex = (currentIndex - 1 + occurrences.length) % occurrences.length; // Loop to the last occurrence
+        setCurrentPage(occurrences[prevIndex]);
+        console.log(currentPage + ' page')
+    };
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    console.log("Document is loaded with " + numPages + " pages");
-    setNumPages(numPages);
-  };
-
-  const onDocumentLoadError = (error) => {
-    console.error('Error while loading document!', error);
-  };
-
-  const handleNavigate = () => {
-    // Programmatically navigate to the /folders route
-    navigate('/folders');
-  };
-
-  return (
+return (
     <div style={styles.container}>
-      {/* Header */}
-      <header style={styles.header}>
-        <h1 style={styles.title}>AcquiSolar</h1>
-        <a href="/about" style={styles.aboutLink}>About Us</a>
-      </header>
-
-      {/* Submit button */}
-      <button onClick={handleNavigate} style={styles.submitButton}>Folders</button>
-        <div style={styles.mainContent}>
-          
-        <div>
-        <div style={styles.searchHeader}>
+        <Header/>
+        <div style={styles.content}>
             <div style={styles.searchContainer}>
-            <input
-                type="text"
-                placeholder="Search..."
-                style={styles.searchInput}
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-            />
-            <button style={styles.searchButton} onClick={handleSearchSubmit}>Search</button>
+                <div style={styles.searchBar}>
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        style={styles.searchInput}
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                    />
+                    <button style={styles.searchButton} onClick={handleSearch}>Search</button>
+                </div>
+                <QueryResult querySearchResult={searchQueryResult} />
             </div>
-
+            <div style={styles.pdfContainer}>
+                {/* Render the PDF Document */}
+                {occurrences.length > 0 && (
+                    <div>
+                        {occurrences.length} matches found
+                        <button style={styles.pageButton} onClick={goToPrevOccurrence}>Previous</button>
+                        <button style={styles.pageButton} onClick={goToNextOccurrence}>Next</button>
+                    </div>
+                )}
+                <iframe
+                    key={currentPage}
+                    src={`http://localhost:3001/get-pdf/${filename}#page=${currentPage}`}
+                    width="100%"
+                    height="600px"
+                    style={{ border: 'none' }}
+                >
+                    This browser does not support PDFs. Please download the PDF to view it: <a href={`http://localhost:3001/get-pdf/${filename}`}>Download PDF</a>.
+                </iframe>
+            </div>
         </div>
-        <QueryResult/>
-        </div>
-
-        {/* PDF viewer and search functionality */}
-        <PDFViewer 
-          showSearch={showSearch} 
-          currentPdf={currentPdf} 
-          numPages={numPages} 
-          searchQuery={searchQuery} 
-          handleSearchInputChange={handleSearchInputChange} 
-          handleSearchSubmit={handleSearchSubmit} 
-          onDocumentLoadSuccess = {onDocumentLoadSuccess}
-          instances={instances}
-          currentInstance={currentInstance}
-          findInstancesOfSearchTerm={findInstancesOfSearchTerm}
-          goToNextInstance={goToNextInstance}
-          goToPreviousInstance={goToPreviousInstance}
-          pageNumber={pageNumber}
-          onDocumentLoadError={onDocumentLoadError}
-        />
-      </div>
     </div>
-  );
+);
 };
 
 const styles = {
-  container: {
-    fontFamily: 'Arial, sans-serif',
-    height: '100vh',
-    width: '100%',
-    backgroundColor: '#7AA6B9',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  mainContent: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '20px',
-    color: 'white',
-    fontSize: '24px',
-  },
-  title: {
-    margin: 0,
-  },
-  aboutLink: {
-    color: 'white',
-    textDecoration: 'none',
-    backgroundColor: '#7AA6B9', 
-    padding: '5px 10px',
-    borderRadius: '5px', 
-  },
-  submitButton: {
-    padding: '10px 20px',
-    width: '10%',
-    margin: '2%',
-    fontSize: '16px',
-    backgroundColor: '#FFF',
-    border: 'none',
-    borderRadius: '20px',
-    cursor: 'pointer',
-    color: 'black',
-    fontWeight: 'bold',
-    
-  },
-  mainContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#7AA6B9',
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    alignSelf: 'flex-start',
-  },
-  queryContainer: {
-    display: 'flex',
-  },
-  searchHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '10px', 
-},
-searchContainer: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-},
-instanceContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-},
-searchInput: {
-  height: '40px',
-  marginLeft: "3%",
-  fontSize: '18px',
-  padding: '0 15px',
-  border: '2px solid #7AA6B9',
-  borderRadius: '20px',
-  marginRight: '10px',
-  outline: 'none',
-},
-searchButton: {
-  padding: '10px 20px',
-  fontSize: '16px',
-  backgroundColor: '#FFF',
-  color: 'black',
-  border: 'none',
-  borderRadius: '20px',
-  cursor: 'pointer',
-  outline: 'none',
-  fontWeight: 'bold',
-  margin: '4px'
-},
-  
+    container: {
+        fontFamily: 'Arial, sans-serif',
+        height: '100vh',
+        width: '100%',
+        backgroundColor: '#FFFFFF',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    pdfContainer: {
+        display: 'flex',
+        width: '65%',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        marginTop: '2%',
+        margin: 15,
+        flexDirection: 'column',
+    },
+    searchContainer: {
+        display: 'flex',
+        width: '35%',
+        backgroundColor: 'white',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        marginLeft: "2%",
+        marginTop: '2%',
+    },
+    searchText: {
+        color: 'grey',
+    },
+    searchBar: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    searchButton: {
+        padding: '10px 20px',
+        fontSize: '16px',
+        backgroundColor: '#156CF7',
+        color: 'white',
+        border: 'none',
+        borderRadius: '15px',
+        cursor: 'pointer',
+        outline: 'none',
+        margin: '4px'
+      },
+    searchInput: {
+        height: '40px',
+        fontSize: '18px',
+        padding: '0 15px',
+        backgroundColor: '#F3F3F3',
+        border: 0,
+        borderRadius: '15px',
+        marginRight: '10px',
+        outline: 'none',
+    },
+    pageButton: {
+        padding: '5px 10px',
+        fontSize: '14px',
+        backgroundColor: '#156CF7',
+        color: 'white',
+        border: 'none',
+        borderRadius: '15px',
+        cursor: 'pointer',
+        outline: 'none',
+        margin: '4px',
+    },
+
 };
 
 export default Search;

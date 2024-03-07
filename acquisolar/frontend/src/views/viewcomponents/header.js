@@ -26,10 +26,11 @@ const Header = () => {
     navigate('/folders'); 
   };
 
+  /*
   const handlePreferenceClick = () => {
     console.log('Preferences button clicked');
     navigate('/preferences');
-  }
+  }*/
   
   const handleSearchClick = () => {
     console.log('Search button clicked');
@@ -44,7 +45,7 @@ const Header = () => {
         <button style={buttonStyle('/')} onClick={handleUploadClick}>Upload</button>
         <button style={buttonStyle('/folders')} onClick={handleFilesClick}>Files</button>
         <button style={buttonStyle('/searchscreen')} onClick={handleSearchClick}>Search</button>
-        <button style={buttonStyle('/preferences')} onClick={handlePreferenceClick()}>Preferences</button>
+        {/*<button style={buttonStyle('/preferences')} onClick={handlePreferenceClick()}>Preferences</button>*/}
       </div>
       
     </header>
@@ -76,6 +77,7 @@ const styles = {
         marginRight: 40,
         cursor: 'pointer',
         borderRadius: '5px',
+        fontSize: '100%',
       },
   };
 
