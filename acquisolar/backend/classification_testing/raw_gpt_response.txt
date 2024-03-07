@@ -1,8 +1,0 @@
-{
-  "Document_date": "May-04, 2015",
-  "Document_summary": "This document is an application by Hawaiian Electric Company seeking approval for a Power Purchase Agreement with Waiawa PV, LLC for a solar project in Hawaii. The document outlines the project details, requested approvals, and financial impacts. Time sensitivity is emphasized due to the project's construction milestones and the need for Commission approval by May 4, 2015.",
-  "Suggested_title": "05-04-2015 Solar Project Approval",
-  "Suggested_title_v2": "05-04-2015 Solar PPA Application",
-  "Suggested_title_v3": "05-04-2015 Solar Project Commission Approval",
-  "Document_folder_path": "project/PPA"
-}

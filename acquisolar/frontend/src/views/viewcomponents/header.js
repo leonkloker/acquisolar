@@ -38,7 +38,6 @@ const Header = () => {
   };
 
   return (
-
     <header style={styles.header}>
       <h1 style={styles.title}>ACQUISOLAR</h1>
       <div>

@@ -14,7 +14,7 @@ function App() {
         
         <div className="content">
         <Routes>
-          <Route path="/" element={<Folder/>} />
+          <Route path="/" element={<Upload/>} />
           <Route path="/folders" element={<Folder/>} />
           <Route path="/about" element={<AboutUs />}/>
           <Route path="/filescreen" element={<File />}/>
