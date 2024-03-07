@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file
+from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file, Response
 from flask_cors import CORS
 import json
 import os
@@ -76,27 +76,52 @@ def search():
     # Search the index and return a streaming response
     response_gen, sources = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
 
-    # Return the streaming response
-    for word in response_gen:
-        print(word, end='', flush=True)
+    print(sources)
 
-    for source in sources:
-        print(source)
+    # Return the streaming response
+    def generate():
+        for word in response_gen:
+            yield word
+        for source in sources:
+            yield source
 
     # return strings, document name
-    return stream_with_context(response_gen)
+    return response_gen
+
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
-    # Define the directory where your PDF files are stored
-    pdf_directory = './structured_data/TESTSOLAR/Unclassified'
-    filepath ='./structured_data/TESTSOLAR/Unclassified'
+    json_file_path = 'structured_data/complete_file_metadata.json'
     
-    # Construct the full file path
-    filepath = os.path.join(pdf_directory, filename)
+    # Load the JSON content
+    with open(json_file_path, 'r') as file:
+        documents = json.load(file)
+
+    base_directory = './structured_data'
     
-    # If validation passes, send the requested PDF file
-    return send_file(filepath)
+    # Initialize document_folder_path as None
+    document_folder_path = None
+
+    # Loop through the documents to find a match
+    for document in documents:
+        if document["original_title"] == filename:
+            document_folder_path = document["Document_folder_path"]
+            break
+
+
+    # Construct the full file path if document_folder_path is found
+    if document_folder_path:
+        pdf_directory = ""
+        if document_folder_path == 'Unclassified':
+            pdf_directory = os.path.join(base_directory, '/TESTSOLAR')
+
+        pdf_directory = os.path.join(pdf_directory, document_folder_path)
+        filepath = os.path.join(pdf_directory, filename)
+
+        # If validation passes, send the requested PDF file
+        return send_file(filepath)
+    else:
+        return "File not found", 404
 
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
@@ -126,11 +151,14 @@ def get_folder_contents():
     metadata = calculate_metadata()
     data = request.json
     folder_name = data.get('folderName')
-    print('HIII')
+
     if folder_name and folder_name in folders:
-        print(metadata)
-        return jsonify(metadata)
-        #return jsonify({'status': 'success', 'data': folders_data[folder_name]})
+        # Filter metadata for files in the correct folder
+        filtered_metadata = [item for item in metadata if folder_name in item["Document_folder_path"].split('/')]
+        if filtered_metadata:
+            return jsonify(filtered_metadata)
+        else:
+            return jsonify({'status': 'error', 'message': 'No files found in the specified folder'}), 404
     else:
         return jsonify({'status': 'error', 'message': 'Folder not found'}), 404
 

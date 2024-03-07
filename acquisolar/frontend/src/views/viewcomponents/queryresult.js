@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function QueryResult() {
+function QueryResult({ querySearchResult }) { // Destructure props correctly
   const [queryResult, setQueryResult] = useState('');
+
+  useEffect(() => {
+    const resultString = typeof querySearchResult === 'string' ? querySearchResult : '';
+    setQueryResult(resultString);
+  }, [querySearchResult]);
 
   return (
     <div>
@@ -17,7 +22,7 @@ function QueryResult() {
 
 const styles = {
   textArea: {
-    width: '80%',
+    width: '100%',
     height: '500px',
     padding: '10px',
     borderRadius: '15px', 
