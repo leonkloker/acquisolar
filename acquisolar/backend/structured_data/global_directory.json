@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "project",
+    "type": "directory",
+    "parent_id": null
+  },
+  {
+    "id": 2,
+    "name": "EPC",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 3,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 4,
+    "name": "Interconnection",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 5,
+    "name": "PPA",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 6,
+    "name": "Envionmental",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Permitting",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 8,
+    "name": "pdDeclare_EE_Major_Form.pdf",
+    "type": "file",
+    "size": 264632,
+    "parent_id": 3
+  },
+  {
+    "id": 9,
+    "name": "PPA1.pdf",
+    "type": "file",
+    "size": 76843237,
+    "parent_id": 5
+  }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "Document_date": "Feb-18, 2011",
+        "Document_summary": "This document is an application for approval of a Power Purchase Agreement (PPA) between Hawaiian Electric Company, Inc. and Kalaeloa Solar Two, LLC. It outlines the terms and conditions of the PPA, including the approval process, interconnection facilities, competitive bidding process, and renewable energy goals in Hawaii. The document also details the implications of failure to achieve the Guaranteed Commercial Operations Date and the provisions for curtailment of energy delivery.",
+        "Suggested_title": "02-18-2011 PPA Approval Application.pdf",
+        "Suggested_title_v2": "02-18-2011 Energy Purchase Agreement Request.pdf",
+        "Suggested_title_v3": "02-18-2011 Renewable Energy Approval Application.pdf",
+        "Document_folder_path": "project/PPA",
+        "number_of_pages": 285,
+        "original_title": "PPA1.pdf",
+        "current_title": "PPA1.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 1
+    },
+    {
+        "Document_date": "N/A",
+        "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and meeting with the Associate Chair of Undergraduate Education. The form includes sections for personal information, areas of interest in EE, and advisor assignment.",
+        "Suggested_title": "N/A.pdf",
+        "Suggested_title_v2": "N/A.pdf",
+        "Suggested_title_v3": "N/A.pdf",
+        "Document_folder_path": "project/Unclassified",
+        "number_of_pages": 1,
+        "original_title": "pdDeclare_EE_Major_Form.pdf",
+        "current_title": "pdDeclare_EE_Major_Form.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 2
+    },
+    {
+        "Document_date": "",
+        "Document_summary": "",
+        "Suggested_title": ".pdf",
+        "Suggested_title_v2": ".pdf",
+        "Suggested_title_v3": ".pdf",
+        "Document_folder_path": "project_name/Unclassified",
+        "number_of_pages": 2,
+        "original_title": "pdEE_PS_2324.pdf",
+        "current_title": "pdEE_PS_2324.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 3
+    }
+]

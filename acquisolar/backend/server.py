@@ -22,6 +22,7 @@ app.config['UPLOADED_FILES_DEST'] = 'documents'  # where files are stored
 app.config['UPLOADED_FILES_INDEX'] = 'index_storage'  # where files are indexed
 app.config['UPLOADED_FILES_ALLOW'] = ['pdf']  # allowed file types
 app.config['STRUCTURED_DATA'] = 'structured_data'  # where structured data is stored
+app.config['PREFERENCES'] = 'preferences' # where preferences are stored 
 
 # Configure file uploads
 files = UploadSet('files', ['pdf'])
@@ -51,7 +52,10 @@ def upload():
             # Classify the uploaded files
             doc_dir = app.config['UPLOADED_FILES_DEST']
             output_dir = app.config['STRUCTURED_DATA']
-            classification.main(doc_dir, output_dir)
+            preferences_dir = app.config['PREFERENCES']
+            project_name = "project"
+            copy_or_move = "move"
+            classification.main(doc_dir, output_dir, preferences_dir, project_name, copy_or_move)
             
 
             # Index the uploaded files
@@ -71,6 +75,13 @@ def upload():
 @app.route('/search', methods=['POST'])
 def search():
     search_query = request.json.get('query', '')
+
+    ### FILENAME THAT CORRESPONDS TO WHAT FILE THE USER IS SEARCHING IN
+    filename = request.json.get('file', '')
+    print(filename)
+
+
+
     print('Received search query:', search_query)
     
     # Search the index and return a streaming response
@@ -111,11 +122,7 @@ def get_pdf(filename):
 
     # Construct the full file path if document_folder_path is found
     if document_folder_path:
-        pdf_directory = ""
-        if document_folder_path == 'Unclassified':
-            pdf_directory = os.path.join(base_directory, '/TESTSOLAR')
-
-        pdf_directory = os.path.join(pdf_directory, document_folder_path)
+        pdf_directory = os.path.join(base_directory, document_folder_path)
         filepath = os.path.join(pdf_directory, filename)
 
         # If validation passes, send the requested PDF file

@@ -34,7 +34,7 @@ const Search = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ query: searchText }),
+                body: JSON.stringify({ query: searchText, file: filename }),
             });
             const textResponse = await response.text(); // Assuming the response is a stream of text
             console.log(textResponse)
