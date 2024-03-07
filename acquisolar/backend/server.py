@@ -32,6 +32,10 @@ configure_uploads(app, files)
 if not os.path.exists(app.config['UPLOADED_FILES_DEST']):
     os.makedirs(app.config['UPLOADED_FILES_DEST'])
 
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
 # File upload endpoint
 @app.route('/upload', methods=['POST'])
 def upload():
