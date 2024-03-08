@@ -317,7 +317,7 @@ def make_json_valid(response_content):
 def make_openai_api_call(truncated_query):
     try:
         completion = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125", #"gpt-3.5-turbo-0125"
+            model="gpt-3.5-turbo-0125", #"gpt-3.5-turbo-0125" #gpt-4-0125-preview
             messages=[
                 {"role": "system", "content": "You are a solar M&A analyst..."},
                 {"role": "user", "content": truncated_query}
