@@ -14,7 +14,7 @@ from tqdm import tqdm
 def save_txt_file(title, contents, enable_testing_output = False):
     # Create a directory if it doesn't exist
     if enable_testing_output == True:
-        folder_name = "classification_testing"
+        folder_name = "classification_testing(can_be_deleted)"
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
 
@@ -458,7 +458,7 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     print(f"Finished processing {os.path.basename(pdf_path)}. File saved to {final_path}.")
 
 """Main function"""
-def main(input_dir, output_dir, preferences_dir="preferences", project_name="TESTSOLAR", copy_or_move ="move"):
+def main(input_dir, output_dir, preferences_dir, project_name, copy_or_move ="move"):
     """
     Main function to process all PDF files in the input directory.
     """
@@ -520,14 +520,14 @@ enable_testing_output = True
 copy_or_move = "move" #have to choose move for implementation. copy breaks the directory function
 root_directory = set_root_directory()
 input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)
-project_name = "MegaSolar"
+project_name = "project"
 
 
 
 if __name__ == "__main__":
-    project_name = "MegaSolar"
+    project_name = "project"
     root_directory = set_root_directory()
     input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)
-    #clear_directory_contents(output_dir) #use if you want to clear file structure before running
+    clear_directory_contents(output_dir) #use if you want to clear file structure before running
     main(input_dir, output_dir, preferences_dir, project_name, copy_or_move)
 

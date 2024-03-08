@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutUs from './views/aboutus';
-import Main from './views/main';
 import Folder from './views/folderscreen';
 import File from './views/filescreen';
-import Search from './views/newsearchscreen';
+import Search from './views/searchscreen';
 import Upload from './views/uploadscreen';
 //import './App.css';
 

@@ -1,8 +1,0 @@
-{
-    "Document_date": "N/A",
-    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form includes sections for personal information, areas of interest in EE, and plans for further academic pursuits.",
-    "Suggested_title": "N/A",
-    "Suggested_title_v2": "N/A",
-    "Suggested_title_v3": "N/A",
-    "Document_folder_path": "Unclassified"
-}

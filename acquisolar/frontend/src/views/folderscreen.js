@@ -59,7 +59,7 @@ const initialFolders = {
 const Folder = () => {
     const navigate = useNavigate();
     // Replace [] in useState with initialFolder for an example
-    const [folders, setFolders] = useState({});
+    const [folders, setFolders] = useState([]);
 
     
     useEffect(() => {
@@ -163,7 +163,7 @@ const styles = {
     overflow: 'hidden', // This ensures that the content doesn't spill out
   },
   image: {
-    width: '30%', // Set a max-width that fits within the container
+    width: '20%', // Set a max-width that fits within the container
     objectFit: 'contain', // This ensures that the aspect ratio of the image is maintained
     marginTop: 10,
   },

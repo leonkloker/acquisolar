@@ -30,9 +30,11 @@ effdet==0.4.1
 emoji==2.10.1
 etelemetry==0.3.1
 executing==2.0.1
+PyMuPDF==1.23.21
+PyMuPDFb==1.23.9
+fitz
 filelock==3.13.1
 filetype==1.2.0
-fitz==0.0.1.dev2
 Flask==3.0.2
 Flask-Cors==4.0.0
 Flask-Reuploaded==1.4.0
@@ -78,7 +80,7 @@ nltk==3.8.1
 numpy==1.26.4
 omegaconf==2.3.0
 onnx==1.15.0
-onnxruntime==1.17.0
+onnxruntime==1.15.0
 openai==1.11.1
 opencv-python==4.9.0.80
 packaging==23.2
@@ -104,8 +106,6 @@ pydantic==2.6.1
 pydantic_core==2.16.2
 pydot==2.0.0
 Pygments==2.17.2
-PyMuPDF==1.23.21
-PyMuPDFb==1.23.9
 pyparsing==3.1.1
 pypdf==4.0.1
 PyPDF2==3.0.1
