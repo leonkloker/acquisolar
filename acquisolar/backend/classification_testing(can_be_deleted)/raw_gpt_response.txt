@@ -1,8 +1,8 @@
 {
-    "Document_date": "N/A",
-    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form needs to be filled out and brought to an interview with Professor John Pauly for approval.",
-    "Suggested_title": "N/A",
-    "Suggested_title_v2": "N/A",
-    "Suggested_title_v3": "N/A",
+    "Document_date": "",
+    "Document_summary": "",
+    "Suggested_title": "",
+    "Suggested_title_v2": "",
+    "Suggested_title_v3": "",
     "Document_folder_path": "project/Unclassified"
 }

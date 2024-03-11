@@ -143,9 +143,19 @@ def get_folders():
 
 # return folder structure and corresponding metadata
 def calculate_folders():
-    f = open('./structured_data/global_directory_frontend.json', 'r')
-    folders = json.load(f)
-    f.close()
+
+    with open('./structured_data/global_directory.json', 'r') as file:
+        data = json.load(file)
+    
+    folders = {}
+    
+    directory_entries = [item for item in data if item['type'] == 'directory' and item['parent_id'] == 1]
+    
+    for directory in directory_entries:
+        files = [item['name'] for item in data if item['type'] == 'file' and item['parent_id'] == directory['id']]
+        
+        folders[directory['name']] = files
+    
     return folders
 
 def calculate_metadata():

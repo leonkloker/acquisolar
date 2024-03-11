@@ -1,10 +1,25 @@
 [
     {
+        "Document_date": "Mar-08, 2024",
+        "Document_summary": "This document is a problem set related to mathematical foundations of computing, specifically focusing on concepts like fixed-point theorem, unstarring a language, and executable computability theory. It showcases the application of theoretical concepts in solving computational problems.",
+        "Suggested_title": "03-08-2024 Computing Problems Set.pdf",
+        "Suggested_title_v2": "03-08-2024 Computational Challenges.pdf",
+        "Suggested_title_v3": "03-08-2024 Computing Theory Exercises.pdf",
+        "Document_folder_path": "Unclassified",
+        "number_of_pages": 7,
+        "original_title": "pset8_cs103.pdf",
+        "current_title": "pset8_cs103.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 1
+    },
+    {
         "Document_date": "Feb-16, 2024",
-        "Document_summary": "This document is a confirmation of payment received for a Transfer of Ownership Application. The application process is ongoing, and the status may take 3-4 weeks to be updated.",
+        "Document_summary": "This document is a confirmation of payment received for a Transfer of Ownership Application. The application process is ongoing, and the status may take a few weeks to update. The California Department of Motor Vehicles is handling the application.",
         "Suggested_title": "02-16-2024 Ownership Transfer Payment.pdf",
         "Suggested_title_v2": "02-16-2024 Transfer Payment Confirmation.pdf",
-        "Suggested_title_v3": "02-16-2024 Ownership Change Payment.pdf",
+        "Suggested_title_v3": "02-16-2024 DMV Application Payment.pdf",
         "Document_folder_path": "Unclassified",
         "number_of_pages": 2,
         "original_title": "Payment_Received_Transfer_of_Ownership_Application_Case_26005150ref00Dt00Gyxg5008y0A0c8iref.pdf",
@@ -12,7 +27,22 @@
         "notes": "",
         "questions": "",
         "open_tasks": "",
-        "id": 1
+        "id": 2
+    },
+    {
+        "Document_date": "___",
+        "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form includes sections for personal information, areas of interest in EE, and plans for further academic pursuits.",
+        "Suggested_title": "___.pdf",
+        "Suggested_title_v2": "___.pdf",
+        "Suggested_title_v3": "___.pdf",
+        "Document_folder_path": "project/Unclassified",
+        "number_of_pages": 1,
+        "original_title": "pdDeclare_EE_Major_Form.pdf",
+        "current_title": "pdDeclare_EE_Major_Form.pdf",
+        "notes": "",
+        "questions": "",
+        "open_tasks": "",
+        "id": 3
     },
     {
         "Document_date": "",
@@ -22,26 +52,11 @@
         "Suggested_title_v3": ".pdf",
         "Document_folder_path": "project/Unclassified",
         "number_of_pages": 1,
-        "original_title": "pdDeclare_EE_Major_Form.pdf",
-        "current_title": "pdDeclare_EE_Major_Form.pdf",
-        "notes": "",
-        "questions": "",
-        "open_tasks": "",
-        "id": 2
-    },
-    {
-        "Document_date": "N/A",
-        "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form needs to be filled out and brought to an interview with Professor John Pauly for approval.",
-        "Suggested_title": "N/A.pdf",
-        "Suggested_title_v2": "N/A.pdf",
-        "Suggested_title_v3": "N/A.pdf",
-        "Document_folder_path": "project/Unclassified",
-        "number_of_pages": 1,
         "original_title": "pdDeclare_EE_Major_Form_2.pdf",
         "current_title": "pdDeclare_EE_Major_Form_2.pdf",
         "notes": "",
         "questions": "",
         "open_tasks": "",
-        "id": 3
+        "id": 4
     }
 ]
