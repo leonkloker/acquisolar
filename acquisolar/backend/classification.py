@@ -80,6 +80,7 @@ def find_and_note_zip_structure(preferences_dir, project_name):
     folder_structure_text_list = nested_list_to_text_list(folder_structure_list)
     folder_structure_indented = folder_structure_to_text(folder_structure_list)
     return folder_structure_list, folder_structure_indented, folder_structure_text_list
+
 def dict_to_nested_list(d):
     """
     Convert a dictionary to a nested list representing folder structure.
@@ -151,6 +152,7 @@ def find_and_create_zip_structure(preferences_dir, output_dir,  project_name):
         # Create the folder structure starting at output_dir
         create_folder_structure_from_list(folder_structure_list, output_dir)
         print(f"Folder structure created under {output_dir}\n")
+        print(folder_structure_indented)
         return folder_structure_indented
     else:
         print("No folder structure to create.\n")

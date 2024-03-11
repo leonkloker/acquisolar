@@ -7,13 +7,13 @@
   },
   {
     "id": 2,
-    "name": "EPC",
+    "name": "Environmental",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 3,
-    "name": "Unclassified",
+    "name": "EPC",
     "type": "directory",
     "parent_id": 1
   },
@@ -25,34 +25,34 @@
   },
   {
     "id": 5,
-    "name": "PPA",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 6,
-    "name": "Envionmental",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 7,
     "name": "Permitting",
     "type": "directory",
     "parent_id": 1
   },
   {
+    "id": 6,
+    "name": "PPA",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
     "id": 8,
-    "name": "Payment_Received_Transfer_of_Ownership_Application_Case_26005150ref00Dt00Gyxg5008y0A0c8iref.pdf",
+    "name": "Nellie_Tong_-_DNV_Energy_Storage_MA_Transaction__Project_Structure_Development_Framework.pdf",
     "type": "file",
-    "size": 108606,
-    "parent_id": 3
+    "size": 842544,
+    "parent_id": 7
   },
   {
     "id": 9,
-    "name": "pdDeclare_EE_Major_Form.pdf",
+    "name": "Rochelle_Rabeler_-_Holland__Hart_Key_Contract_Terms_in_ESS_MA_Transactions_and_Project_Development.pdf",
     "type": "file",
-    "size": 264632,
-    "parent_id": 3
+    "size": 1285253,
+    "parent_id": 7
   }
 ]

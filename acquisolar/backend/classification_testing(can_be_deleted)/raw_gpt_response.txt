@@ -1,8 +1,8 @@
 {
-    "Document_date": "N/A",
-    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form needs to be filled out and brought to an interview with Professor John Pauly.",
-    "Suggested_title": "N/A",
-    "Suggested_title_v2": "N/A",
-    "Suggested_title_v3": "N/A",
+    "Document_date": "Feb-28, 2024",
+    "Document_summary": "This document provides insights into key contract terms in M&A transactions and project development, emphasizing the importance of project finance, risk evaluation, and contract integration. It delves into the considerations for successful project completion and revenue generation, highlighting the significance of regulatory approvals, commercial operation milestones, and force majeure clauses.",
+    "Suggested_title": "02-28-2024 Contract Terms Overview",
+    "Suggested_title_v2": "02-28-2024 M&A Contract Insights",
+    "Suggested_title_v3": "02-28-2024 Project Finance and Contracts Guide",
     "Document_folder_path": "project/Unclassified"
 }

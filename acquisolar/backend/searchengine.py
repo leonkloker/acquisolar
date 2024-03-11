@@ -1,24 +1,31 @@
 import openai
 import os
 import os.path
-from llama_index import (
+from llama_index.core import (
     VectorStoreIndex,
     SimpleDirectoryReader,
     StorageContext,
     load_index_from_storage,
     ServiceContext,
+    Settings,
     SummaryIndex,
     get_response_synthesizer,
     download_loader
 )
-from llama_index.llms import OpenAI, Replicate
-from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine, CitationQueryEngine
+
+
+#from llama_index.llms import OpenAI, Replicate
+from llama_index.llms.openai import OpenAI
+#from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine, CitationQueryEngine
+
+"""
 from llama_index.tools import (
     QueryEngineTool,
     ToolMetadata,
 )
 from llama_index.response.notebook_utils import display_response
 from llama_index.prompts import PromptTemplate
+"""
 
 # API keys
 os.environ["OPENAI_API_KEY"] = "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"
@@ -32,7 +39,7 @@ os.environ["REPLICATE_API_TOKEN"] = "r8_JGumNCYSrS3ikipf7vqjvSTLyfYiWtp3cxYjo"
 LLM = OpenAI(temperature=0, model='gpt-3.5-turbo')
 
 # Service context
-SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
+#SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
 SYNTH = get_response_synthesizer(streaming=True)
 
 # Loaders
