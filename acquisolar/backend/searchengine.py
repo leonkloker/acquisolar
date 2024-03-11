@@ -13,7 +13,6 @@ from llama_index.core import (
     download_loader
 )
 
-
 #from llama_index.llms import OpenAI, Replicate
 from llama_index.llms.openai import OpenAI
 #from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine, CitationQueryEngine
@@ -39,11 +38,11 @@ os.environ["REPLICATE_API_TOKEN"] = "r8_JGumNCYSrS3ikipf7vqjvSTLyfYiWtp3cxYjo"
 LLM = OpenAI(temperature=0, model='gpt-3.5-turbo')
 
 # Service context
-#SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
+SERVICE_CONTEXT = ServiceContext.from_defaults(chunk_size=1024, llm=LLM)
 SYNTH = get_response_synthesizer(streaming=True)
 
 # Loaders
-loader = download_loader("PDFMinerReader")
+#loader = download_loader("PDFMinerReader")
 #loader = download_loader("UnstructuredReader")
 
 def query(text, index_dir = './index_storage'):
@@ -100,7 +99,7 @@ def index(doc_dir='./documents', index_dir='./index_storage'):
         os.makedirs(index_dir)
     
     # load the documents and create the index
-    documents = SimpleDirectoryReader(doc_dir, file_extractor={'.pdf': loader()}, recursive=True).load_data()
+    documents = SimpleDirectoryReader(doc_dir, recursive=True).load_data() #file_extractor={'.pdf': loader()}, recursive=True).load_data()
 
     vector_index = VectorStoreIndex.from_documents(documents, service_context=SERVICE_CONTEXT)
 

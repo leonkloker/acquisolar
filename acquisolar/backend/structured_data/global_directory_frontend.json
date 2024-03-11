@@ -1,11 +1,10 @@
 {
-    "Environmental": [],
     "EPC": [],
-    "Interconnection": [],
-    "Permitting": [],
-    "PPA": [],
     "Unclassified": [
-        "Nellie_Tong_-_DNV_Energy_Storage_MA_Transaction__Project_Structure_Development_Framework.pdf",
-        "Rochelle_Rabeler_-_Holland__Hart_Key_Contract_Terms_in_ESS_MA_Transactions_and_Project_Development.pdf"
-    ]
+        "poster.pdf"
+    ],
+    "Environmental": [],
+    "Interconnection": [],
+    "PPA": [],
+    "Permitting": []
 }

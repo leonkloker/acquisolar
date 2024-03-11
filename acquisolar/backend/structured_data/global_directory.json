@@ -7,25 +7,25 @@
   },
   {
     "id": 2,
-    "name": "Environmental",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 3,
     "name": "EPC",
     "type": "directory",
     "parent_id": 1
   },
   {
+    "id": 3,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
     "id": 4,
-    "name": "Interconnection",
+    "name": "Environmental",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 5,
-    "name": "Permitting",
+    "name": "Interconnection",
     "type": "directory",
     "parent_id": 1
   },
@@ -37,22 +37,15 @@
   },
   {
     "id": 7,
-    "name": "Unclassified",
+    "name": "Permitting",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 8,
-    "name": "Nellie_Tong_-_DNV_Energy_Storage_MA_Transaction__Project_Structure_Development_Framework.pdf",
+    "name": "poster.pdf",
     "type": "file",
-    "size": 842544,
-    "parent_id": 7
-  },
-  {
-    "id": 9,
-    "name": "Rochelle_Rabeler_-_Holland__Hart_Key_Contract_Terms_in_ESS_MA_Transactions_and_Project_Development.pdf",
-    "type": "file",
-    "size": 1285253,
-    "parent_id": 7
+    "size": 961705,
+    "parent_id": 3
   }
 ]

@@ -1,8 +1,8 @@
 {
-    "Document_date": "Feb-28, 2024",
-    "Document_summary": "This document provides insights into key contract terms in M&A transactions and project development, emphasizing the importance of project finance, risk evaluation, and contract integration. It delves into the considerations for successful project completion and revenue generation, highlighting the significance of regulatory approvals, commercial operation milestones, and force majeure clauses.",
-    "Suggested_title": "02-28-2024 Contract Terms Overview",
-    "Suggested_title_v2": "02-28-2024 M&A Contract Insights",
-    "Suggested_title_v3": "02-28-2024 Project Finance and Contracts Guide",
-    "Document_folder_path": "project/Unclassified"
+  "Document_date": "Aug-2022",
+  "Document_summary": "This document outlines a project focused on developing a machine learning model to compute the reactivity values of RNA molecules based on their sequences. By utilizing SHAPE data, the project aims to bridge the gap between RNA sequence and structure to enable the prediction of tertiary structure. Various models were deployed and evaluated, with the best performing model incorporating a BERT-style foundation model with a GRU prediction head.",
+  "Suggested_title": "08-2022 RNA Reactivity Prediction Project",
+  "Suggested_title_v2": "08-2022 RNA Structure Prediction Initiative",
+  "Suggested_title_v3": "08-2022 RNA Modeling for Structure Prediction",
+  "Document_folder_path": "project/Unclassified"
 }
