@@ -119,7 +119,7 @@ def renameFile():
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
-    json_file_path = 'structured_data/global_directory.json'
+    json_file_path = './structured_data/global_directory.json'
     
     # Load the JSON content
     with open(json_file_path, 'r') as file:
@@ -148,8 +148,6 @@ def get_pdf(filename):
     # Construct and return the path
     path = construct_path(file_item)
     path = os.path.join('./structured_data', construct_path(file_item), filename)
-
-    print('hi' + path)
     
 # Check if file exists
     if not os.path.isfile(path):
@@ -183,6 +181,7 @@ def calculate_folders():
     return folders
 
 def calculate_metadata():
+    #f = open('./structured_data/complete_file_metadata.json', 'r')
     f = open(os.path.join(app.config['STRUCTURED_DATA'], 'complete_file_metadata.json', 'r'))
     metadata = json.load(f)
     f.close()
@@ -229,7 +228,7 @@ def clean_environment():
 
 if __name__ == '__main__':
     # Clean the environment
-    # clean_environment()
+    clean_environment()
 
     # 3001 for localhost, 80 for remote on AWS
     port = 3001
