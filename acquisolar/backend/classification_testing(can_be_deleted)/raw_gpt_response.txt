@@ -1,8 +1,8 @@
 {
-    "Document_date": "N/A",
-    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form needs to be filled out and brought to an interview with Professor John Pauly for approval.",
-    "Suggested_title": "N/A",
-    "Suggested_title_v2": "N/A",
-    "Suggested_title_v3": "N/A",
-    "Document_folder_path": "project/Unclassified"
+  "Document_date": "Oct-28, 2010",
+  "Document_summary": "This document is an Interconnection Agreement between Kauai Island Utility Cooperative and Kapaa Solar LLC regarding the connection of a Small Generating Facility to the Cooperative's system. It outlines the terms, responsibilities, and procedures for interconnection, operation, and maintenance. The Agreement includes provisions for dispute resolution, insurance requirements, and compliance with laws and regulations.",
+  "Suggested_title": "10-28-2010 Interconnection Agreement",
+  "Suggested_title_v2": "Interconnection Agreement - 10-28-2010",
+  "Suggested_title_v3": "Small Generating Facility Interconnection - 10-28-2010",
+  "Document_folder_path": "Interconnection"
 }

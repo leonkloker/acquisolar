@@ -1,3 +1,21 @@
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project/sub_folder...". If you really cant find a folder that fits, put it in "project/Unclassified". Dont make up any new folders.
+- project
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Unclassified
+
+
+The provided document text is:
 MORIMARA LAU dr' FONG LLP A LIMITED LIABILITY LAW PARTNERSHIP CD U Ch =2 CD October 28, 2010
 HAND DELIVER The Honorable Chairman and Members of the Hawaii Public Utilities Commission 465 South King Street Kekuanaoa Building, Room 103
 Honolulu, Hawaii 96813
@@ -597,178 +615,3 @@ in Docket No. 2006-0498
 KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC Tariff No. 2
 Original Sheet No. 104
 Attachment 9 (Continued) INTERCONNECTION AGREEMENT GLOSSARY OF TERMS Good Distributed Generation Practice - Any: of the practices, methods and acts engaged in or approved by a significant portion of the,distributed generation industry during the relevant time period, or·any of the practices, methods:and acts which, in the exercise of reasonable judgment in light of the facts known at the time the decision was made,.could have been expected to accomplish the desired result at a reasonable cost consistent with good business practices, reliability, safety and expedition. Good Distributed Generation Practices is not intended to be limited to the optimum practice, method, or act to the exclusion of all others, but rather to be acceptable practices, methods, or acts generally accepted in the region. Without limiting the generality of the above, Good Distributed Generation Practices shall at all times means actions in compliance with Applicable Laws and Regulations, the National Electric Safety Code, the American National Standards Institute, IEEE, Underwriter's Laboratory, and Operating Requirements and other applicable national and,state codes, standards and requirements, as well as to utilize reasonably best efforts to minimize the likelihood of ally disturbance or other impact adversely affecting or impairing the system or equipment of KIUC-from a safety, reliability ahd/or power quality standpoint.
-Good Utility Practice - Any of the practices, methods and acts engaged in or approved by a significant portion ofthe electric industry during the relevant time period, or any ofthe practices, methods and acts which, in the exercise of reasonable judgment· in light of the facts known at the time the decision was made, could have been expected to accomplish the desired result at a reasonable cost consistent with good business practices, reliability, safely and expedition. Good Utility Practice is not intended to be limited to the optimum practice, method, or act to the exclusion of all others, but rather to be acceptable practices, methods, or acts generally accepted in the region.
-Governmental Authority - Any federal, state, local or other,governmental regulatory or administrative·agency,.court, commission, department, board,.or other governmental subdivision, legislature, rulemaking board, tribunal, or other governmental authority havingjurisdiction over the Partied, their respective facilities, or the respective services they provide, and exercising or entitled to exercise any administrative, executive, police, or taxing authority or power; provided, however, that such term does not include the Interconnection Customer, the Cooperative, or any Affiliate thereof.
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on.June 26,2008
-in Docket No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai,.Hawaii KIUC TariffNo. 2
-Original Sheet No. 105
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT GLOSSARY OF TERMS Interconnection Customer - Any entity that proposes to interconnect.its Small Generating Facility with the Cooperative's Transmission and/or Distribution System.
-Interconnection Facilities - The Cooperative's Interconnection. Facilities and the Interconnection Customer's Interconnection Facilities. Collectively, Interconnection Facilities include all facilities and eyuipment between the.Small Generating Facility and the Point of Interconnection, including any modification, additions or upgrades that are necessary to physically and electrically interconnect the Small Generating.Facility to'the Cooperative's Transmission and/or Distribution System. Interconnection Facilities·are sole use facilities and shall not include Distribution Upgrades or Network Upgrades.
-Interconnection Request - The Interconnection Customer's request, in accordance with the Policies and Procedures: to interconnect a new Small Generating Facility, or to increase the capacity of, or make a Material Modification to the operating characteristics of, an existing Small Generating Facility that is interconnected with the Cooperative's Transmission and/or Distribution System.
-Material·Modification - A modification that has a material impact on the cost or timing of any Interconnection Request.
-NEM - Net Energy Metering Network Upgrades - Additions, modifications, and upgrades to the Cooperative's Transmission and/or Distribution System required at or beyond the point at which the Small Generating Facility interconnects with the Cooperative's Transmission and/or Distribution System to accommodate the interconnection of the Small Generating Facility with the Cooperative's Transmission and/or Distribution System. Network Upgrades do not include Distribution Upgrades.
-Operating Requirements - Any operating and technical requirements that may be applicable due to the·control area, or the Cooperative's requirements, including those set forth in Kauai Island Utility Cooperative Small Generator Interconnection Agreement and/or the Policies and Procedures.
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June 26,2008
-in Docket No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC Tari ff No. 2
-Original Sheet No. 106
-Attachment 9.'(Continued) INTERCONNECTION AGREEMENT GLOSSARY OF TERMS Party or Parties - The Cooperative and the Interconnection Customer, either individually (Party) or together (Parties).
-Point of Interconnection - The point where the Interconnection Facilities connect with the Cooperativ.e's Transmission and/or Distribution System.
-Policies and Procedures - The document titled Small Generator Interconnection Policies and Procedures (For Distributed Generation Facilities No Larger Than 20 MW).
-Queue Position - The orderof a valid Interconnection Request, relative to all other pending valid Interconnection Requests, that is established based upon the date and time of receipt of the valid Interconnection Request by the Cooperative.
-Reasonable Efforts - With respect to an action required to be attempted or taken by a Party under the Small Generator Interconnection Agreement, efforts that are timely and consistent with Good Utility Practice or Good Distributed Generation Practice (as applicable) and are otherwise substantially equivalent to those a Party would use to protect its own interests.
-Small Generating Facility - The Interconnection Customer's device·for the production of electricity identified in the Interconnection Request, but shall not include the Interconnection Customer's Interconnection Facilities.
-Transmission System - The facilities owned, controlled or opeiated by the Cooperative Upgrades - The required additions and modifications to the Cooperative's Transmission and/or Distribution System at or beyond the Point of Interconnection. Upgrades may be Network Upgrades or Distribution Upgrades. Upgrades do not include Interconnection Facilities.
-Issued: July 1, 2008
-By: Randall J. Hee, President and C.E.O.
-Effective::May 22,2008
-.Decision and Order No. 242j8
-and Order filed on.June 26,2008
-in Docket No. 2006-0498
-kAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC TariffNo. 2
-Original Sheet No. 107
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT Exhibit 2
-DESCRIPTION AND COSTS OF THE SMALL GENERATING FACILITY, INTERCONNECTION FACILITIES, AND METERING EQUIPMENT Equipment, including the Small Generating Facility, Interconnection Facilities, and metering equipment shall be iterniked and idEntified as being owned by the Interconnection Customer or the Cooperative. The Cooperative will provide a best estimate itemized cost, including overheads, o f its Interconnection Facilities and metering equipment, and a best estimate itemized cost of the annual operation and maintenance expenses associated with its Interconnection Facilities and metering equipment.
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June·26,2008
-in Docket.No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC TariffNo. 2
-Original Sheet No. 108
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT Exhibit 3
-ONE-LINE DIAGRAM DEPICTING THE SMALL GENERATING FACILITY, INTERCONNECTION FACILITIES, METERING EQUIPMENT, AND UPGRADES EX!51-1740
-(-) N I /:EL 9431.1, - Il'lli a: 1
-0
-iIi 5-•' P«.F -KIVE 9/1 xer - NEW ,p,47 POrt.E - KILIC lEe„:
-DEMARCATIC,N , it K 1 (M) Pe-?IKS i KII»K']DKV.• 'TMR 1 319-1 :47/414: V KiL'C 3 luc CCM.•.Re,« r ION KAPAA 521-11
-L. . --1
-KAP.,4 A SCI.AR METER catili,Al:
-Kauti Island Kth * Utility Cooperative /-4= KIUCKAP.'LA SOLAR. 87ERet»NEr]7120
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June 26,2008
-in Docket No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC TariffNo. 2
-Original Sheet No. 109
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT Exhibit 4
-MILESTONES Parallel operation In-Service Date:
-12/30/2010
-Critical milestones and responsibilities as agreed to by the Parties:
-Milestone Date Responsible Party LXA executed payment received 10/31/10 Kapaa Solar Interconnection upgrade complete 12/1/10
-KIUC Switchboard complete 12/10/10 Kapaa Solar Metering Installed 12/14/10 KIUC Energize testing 12/24/10 KIUC/Kapaa Solar Commercial on-line 12/30/10 Kapaa Solar Agreed to by:
-KAUAI ISLAND UTILITY COOPERATIVE By FLJAPkr*k * Name: Ck, Al. 61566 l.(-
-Name: Kurt Bosshard Tme·.CA) / A-©44</g (.Er) Title:
-President Date: j 0  '3-40' /fo Date: (6) 2--\.  ID Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June 26,2008
-in Docket No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC TariffNo. 2
-.Original Sheet No. 110
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT Exhibit 5
-ADDITIONAL OPERATING REQUIREMENTS FOR THE COOPERATIVE'S TRANSMISSION AND/OR DISTRIBUTION SYSTEM NEEDED TO SUPPORT THE INTERCONNECTION CUSTOMER'S NEEDS The Cooberative shall also provide requiremettts that,must be met by the ·Interconnection Customer prior to initiating parallel.operation and operations test criteria after connecting with the Cooperative's Transmission and/or Distribution System.
-1. Interconnecting customer's standard operating procedures shall be subject to the Cooperative's review and approval.
-2. . Interconnecting customer shall not alter, modify or otherwise change any protective relay or control characteristics of the facility without KIUC approval.
-3. Testing of operational criteria before and after parallel operation will be done,in accordance with Good Utility Practice.
-4. Inverter under frequency trip setpoint 57.0 Hz at 0.1 second.
-5. Inverter undervoltage time delay 2.5 seconds.
-6. Inverter overvoltage time delay 2.5 seconds.
-7. Interconnecting customer must be willing and able to generate report of inverter activities based on request by KIUC within 30 days ofrequest.
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June 26,2008
-in Docket No. 2006-0498
-KAUAI ISLAND UTILITY COOPERATIVE Lihue, Kauai, Hawaii KIUC TariffNo. 2
-Original Sheet No.. 111
-Attachment 9 (Continued) INTERCONNECTION AGREEMENT Exhibit 6
-COOPERATIVE'S DESCRIPTION OF ITS UPGRADES AND BEST ESTIMATE OF UPGRADE COSTS Quantity Overhead Items $/unit Total Labor Cost $ - $0·00
-$ 1 P55-2, 3-Phase Crossarm 5,676.00
-$5,676.00
-1 P45-1, 3-Phase Term Pole with 2 U/G·CKTS $ - $0.00
-1 24" Anchor with guys $ - $0.00
-$ 1 24" Anchor with guys 793.01
-$793.01
-3-Phase, 1/0 AAAC or smaller with 1/0 AAAC for 100
-Neutral $ - $0.00
-3-Phase, 1/0 MAC or smaller with 1/0 AAAC for $ 125
-Neutral 25.00
-$3,125.00
-Subtotal - Overhead $9,594.01
-Quantity Underground Items $/unit Total 100
-Install 2-3-Phase, 15 CNUG Cable(#2) $ - $0.00
-$ 30 Install 2-3-Phase, 15 CNUG Cable(#2) 101.00
-$3,030.00
-1 Install 1000KVA.Pad Mt. Transformer $ - $0.00
-6 Install Stanchions $ - $0.00
-1 Install Retaining wall $10,000.00
-$10,000.00
-Subtotal - Underground Items $13,030.00
-1 Install.3**5' Pullbox $0.00
-$0.00
-1 · Install Transformer Pad $0.00
-$0.00
-20 Install U.G. Conduit $150.00
-$3,000.00
-10 Install U.G. Conduit $0.00
-$0.00
-Subtotal - Underground Facilities $3,000.00
-TOTAL BUDGET PURPOSE COST BP Cost plus 10% BP Cost plus 40% for Contractor $25,624.01
-$28,186.41
-S35,873.61
-Issued: July 1,2008
-By: Randall J. Hee, President and C.E.O.
-Effective: May 22,2008
-Decision and Order No. 24238
-and Order filed on June 26,2008
-in Docket No. 2006-0498
-FIRST AMENDMENT TO POWER PURCHASE AGREEMENT THIS FIRST AMENDMENT TO POWER PURCHASE AGREEMENT (the "Amendment" ) is made this , day of September, 2010, by and between Kaua'i Island Utility Cooperative, a cooperative association formed pursuant to the provision of Chapter 421C of the Hawai' i Revised Statutes, with .a place of business at Suite 1, 4463 Pahe. e Street, Lihu e, KauA'i, Hawaii 96766 (hereinafter called the "Cooperative") and Kapaa Solar .LLC, a Hawai'i limited liability company (hereinafter called· th€ "Seller"), with respect to that certain Power Purchase Agreement. made August :3, 2010 by and between the Cooperative and the Seller (the " Power Purchase Agreement").
-In consideration of the premises and the re'spective promises contained in the Power Purchase Agreement, the Cooperative and the Seller hereby agree to amend the Power Purchase Agreement as follows:
-Paragraph 11 of .Appendix A·of the Power Purchase Agreement is hereby amended by striking the last sentence thereof, and inserting in its place the following sentence:
-"The sole member of Kapaa Solar LLC is Kurt Bosshard." IN WITNESS· WHEREOF, the Cooperative and the Seller have executed this Amendment as of the day and year first above written.
-Kauai Island Utility Cooperative ("Cooperative") By:
-David J., ®-ssell Its: Financial Vice-President/CFO & Acting CEO Date:
-Kapaa Solar LLC ("Seller") By:
-KdrtBosshard Its: President Date:
-1
-SECOND AMENDMENT TO POWER PURCHASE AGREEMENT THIS SECOND AMENDMENT TO POWER PURCHASE AGREEMENT (the "Amendment") is made this 14* day of September, 2010, by and between Kaua'i Island Utility Cooperative, a cooperative association formed pursuant to the provision of Chapter 421C of the Hawai i Revised Statutes, with a place of business at Suite 1, 4463 Pahe'e Street, Lihu e, Kada'i, Hawaii 96766 Thereinafter called the "Cooperative") and Kapaa Solar LLC, a Hawai'i limited liability company (hereinafter called the "Seller"), with respect to that. certain Power Purchase Agreement made August. 3, 2.010 by and between the Cooperative and the Seller (the " Power Putchase Agreement").
-In consideration ofL the premises and· the respective promises contained in the Power Purchase· Agreement, the cooperative and, the Seller hereby agree to amend the Poker Purchase Agreement as follows:
-The cover page of the Power Purchase Agreement is hereby amended by striking the figure and words "1.1844 MWpdc Photovoltaic System," and inserting in its place the "1.2096 MWpdc Photov.ol,taic following figure and words:
-System".
-Paragraph 7(b) of Appendix A of the Power Purchase Agreement is hereby amended by striking the figure "1184.4
-kWpoc" following the words "Total Seller's Facility Capacity:" and .inserting in its place the following figure:
-"12.09.6 kWpac".
-Paragraph 7 (b) of Appendix A of the Power Purchase Agreement is hereby amended by strikihg the figure "5264-
-preceding the words "REC AE-US 225
-Watt photovoltaic modules" and inserting in its place the following figure:
-"5376".
-Paragraph 7(b) of Appendix A of the Power Purchase Agreement is hereby amended by striking the figure "296.1
-kWpDC" following» the words "Rated Powet" under eath of the subheadings "Generator.
-No.
-"Generator No.
-2," "Generator No. 3" and "Generator No.
-4", inserting in its place the following figure:
-"302.4' kWpdc".
-Paragraph 7·(e) Of Appendix A of the Power Purchase Agreement is hereby amended by striking the figure "1184.4
-kWpac" and inserting in its place the following figure:
-"1209.6 kWpdc " · IN WITNESS WHEREOF, the Cooperative and the Seller have executed this Amendment as of the day a'nd year first above written.
-Kauai Island Utility Cooperative ( "Cooperative" ) By: 0#jAABill David J.
-M¢psell Its: Financial Vice-President/CFO & Acting CEO Date:
-9 2.f lo Kapaa Solar LiC ("Seller") By:
-1 , 1.12...n, Kukt Bosshard Its: President Date:
-2

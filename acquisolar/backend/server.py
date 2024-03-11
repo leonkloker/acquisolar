@@ -84,8 +84,6 @@ def search():
     filename = request.json.get('file', '')
     print(filename)
 
-
-
     print('Received search query:', search_query)
     
     # Search the index and return a streaming response
@@ -93,27 +91,19 @@ def search():
 
     print(sources)
 
-    # Return the streaming response
-    def generate():
-        for word in response_gen:
-            yield word
-        for source in sources:
-            yield source
-
     # return strings, document name
     return response_gen
 
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
-    json_file_path = 'structured_data/complete_file_metadata.json'
+    base_directory = app.config['STRUCTURED_DATA']
+    json_file_path = os.path.join(base_directory, '/complete_file_metadata.json')
     
     # Load the JSON content
     with open(json_file_path, 'r') as file:
         documents = json.load(file)
 
-    base_directory = './structured_data'
-    
     # Initialize document_folder_path as None
     document_folder_path = None
 
@@ -122,7 +112,6 @@ def get_pdf(filename):
         if document["original_title"] == filename:
             document_folder_path = document["Document_folder_path"]
             break
-
 
     # Construct the full file path if document_folder_path is found
     if document_folder_path:
@@ -143,13 +132,13 @@ def get_folders():
 
 # return folder structure and corresponding metadata
 def calculate_folders():
-    f = open('./structured_data/global_directory_frontend.json', 'r')
+    f = open(os.path.join(app.config['STRUCTURED_DATA'], 'global_directory_frontend.json'), 'r')
     folders = json.load(f)
     f.close()
     return folders
 
 def calculate_metadata():
-    f = open('./structured_data/complete_file_metadata.json', 'r')
+    f = open(os.path.join(app.config['STRUCTURED_DATA'], 'complete_file_metadata.json', 'r'))
     metadata = json.load(f)
     f.close()
     return metadata
@@ -195,7 +184,7 @@ def clean_environment():
 
 if __name__ == '__main__':
     # Clean the environment
-    clean_environment()
+    # clean_environment()
 
     # 3001 for localhost, 80 for remote on AWS
     port = 3001
