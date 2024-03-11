@@ -5,6 +5,8 @@ import DarkenButton from './darkenbutton';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
+const ENDPOINT = 'http://localhost:3001';
+
 const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
     const navigate = useNavigate();
     const [contentToShow, setContentToShow] = useState(null);
@@ -21,12 +23,25 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
   
     const handleConfirmTitle = () => {
         onUpdateTitle(file.id, file.Suggested_title);
-        setContentToShow(null)
+        setContentToShow(null);
+
+        const data = {
+            originalFilename: file.original_title,
+            newFilename: file.Suggested_title,
+        };
+
+        axios.post(ENDPOINT + '/renameFile', data)
+            .then((response) => {
+                console.log('File rename successful', response);
+            })
+            .catch((error) => {
+                console.error('Error renaming file', error);
+            });
     };
 
     const handleSearch = () => {
         onShowPdf(file);
-        navigate('/searchscreen', { state: { filename: file.original_title } });
+        navigate('/searchscreen', { state: { filename: file.current_title } });
     }
   
     return (

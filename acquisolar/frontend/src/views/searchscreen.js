@@ -83,7 +83,7 @@ const Search = () => {
         console.log(currentPage + ' page')
     };
     const handleBack = () => {
-        navigate('/folders');
+        navigate(-1);
       }
 
 return (

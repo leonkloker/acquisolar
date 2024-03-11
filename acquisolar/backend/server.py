@@ -1,5 +1,5 @@
 from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file, Response
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import json
 import os
 from werkzeug.utils import secure_filename
@@ -10,6 +10,7 @@ import shutil
 import classification
 import searchengine
 import Convert_directory
+import Metadata_changes
 
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
@@ -103,36 +104,68 @@ def search():
     # return strings, document name
     return response_gen
 
+@app.route('/renameFile', methods=['POST'])
+@cross_origin()
+def renameFile():
+    # Ensure there is JSON data and extract it
+    if not request.json:
+        return jsonify({'error': 'Missing request data'}), 400
+
+    data = request.get_json()
+    originalFilename = data.get('originalFilename')
+    newFilename = data.get('newFilename')
+
+    if not originalFilename or not newFilename:
+        return jsonify({'error': 'Missing filenames in the request'}), 400
+
+
+    try:
+        Metadata_changes.rename_file(originalFilename, newFilename)
+        return jsonify({'message': 'File renamed successfully'}), 200
+    except:
+        return jsonify({'error': 'Original file not found'}), 404
+
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
-    json_file_path = 'structured_data/complete_file_metadata.json'
+    json_file_path = 'structured_data/global_directory.json'
     
     # Load the JSON content
     with open(json_file_path, 'r') as file:
-        documents = json.load(file)
+        directories = json.load(file)
 
-    base_directory = './structured_data'
+    # Function to find a directory or file by ID
+    def find_by_id(d_id):
+        return next((item for item in directories if item["id"] == d_id), None)
     
-    # Initialize document_folder_path as None
-    document_folder_path = None
+    # Function to construct the path for a given file
+    def construct_path(file_item):
+        path = []
+        current_item = file_item
+        while current_item["parent_id"] is not None:
+            current_item = find_by_id(current_item["parent_id"])
+            path.insert(0, current_item["name"])
+        return "/".join(path)
 
-    # Loop through the documents to find a match
-    for document in documents:
-        if document["original_title"] == filename:
-            document_folder_path = document["Document_folder_path"]
-            break
+    # Find the file in the directory structure
+    file_item = next((item for item in directories if item["name"] == filename), None)
+    
+    # If file is not found, return an error
+    if not file_item:
+        return jsonify(error="File not found"), 404
 
+    # Construct and return the path
+    path = construct_path(file_item)
+    path = os.path.join('./structured_data', construct_path(file_item), filename)
 
-    # Construct the full file path if document_folder_path is found
-    if document_folder_path:
-        pdf_directory = os.path.join(base_directory, document_folder_path)
-        filepath = os.path.join(pdf_directory, filename)
+    print('hi' + path)
+    
+# Check if file exists
+    if not os.path.isfile(path):
+        return jsonify(error="File does not exist on server"), 404
 
-        # If validation passes, send the requested PDF file
-        return send_file(filepath)
-    else:
-        return "File not found", 404
+    # Send the file
+    return send_file(path)
 
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
