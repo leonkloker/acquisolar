@@ -3,6 +3,7 @@ import folderIcon from '../icons/folder-icon.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './viewcomponents/header';
+import backButton from './../icons/backbutton.png';
 
 // Example dictionary of folders and files
 const initialFolders = {
@@ -80,11 +81,15 @@ const Folder = () => {
         navigate('/filescreen', { state: { folderName } });
         console.log(`Viewing contents of ${folderName}`);
     };
+
+    const handleBack = () => {
+      navigate('/');
+    }
     return (
     <div style={styles.container}>
         {/* Header */}
         <Header/>
-
+        <img src={backButton} alt="Backbutton" style={styles.imageIcon} onClick={handleBack}/>
         <div style={styles.folderContainer}>
             {Object.keys(folders).map((folderName) => (
                 <FolderIcon
@@ -176,6 +181,12 @@ const styles = {
     cursor: 'pointer',
     fontWeight: 'bold',
   },
+  imageIcon: {
+    width: '40px', 
+    height: '40px', 
+    objectFit: 'contain', 
+  },
+  
 };
 
 export default Folder;

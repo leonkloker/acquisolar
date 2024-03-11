@@ -1,8 +1,8 @@
 {
-  "Document_date": "Aug-2022",
-  "Document_summary": "This document outlines a project focused on developing a machine learning model to compute the reactivity values of RNA molecules based on their sequences. By utilizing SHAPE data, the project aims to bridge the gap between RNA sequence and structure to enable the prediction of tertiary structure. Various models were deployed and evaluated, with the best performing model incorporating a BERT-style foundation model with a GRU prediction head.",
-  "Suggested_title": "08-2022 RNA Reactivity Prediction Project",
-  "Suggested_title_v2": "08-2022 RNA Structure Prediction Initiative",
-  "Suggested_title_v3": "08-2022 RNA Modeling for Structure Prediction",
-  "Document_folder_path": "project/Unclassified"
+    "Document_date": "N/A",
+    "Document_summary": "This document appears to be a declaration form for a major in Electrical Engineering at Stanford University. It outlines the process for declaring the major and the steps involved in meeting with the Associate Chair of Undergraduate Education. The form needs to be filled out and brought to an interview with Professor John Pauly for approval.",
+    "Suggested_title": "N/A",
+    "Suggested_title_v2": "N/A",
+    "Suggested_title_v3": "N/A",
+    "Document_folder_path": "project/Unclassified"
 }

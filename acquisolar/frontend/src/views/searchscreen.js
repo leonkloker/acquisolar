@@ -3,11 +3,13 @@ import Header from './viewcomponents/header';
 import { useNavigate, useLocation } from 'react-router-dom';
 import QueryResult from './viewcomponents/queryresult';
 import { Document, Page, pdfjs } from 'react-pdf';
+import backButton from './../icons/backbutton.png';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Search = () => {
+    const navigate = useNavigate()
     const location = useLocation();
     const [filename, setFilename] = useState("");
     const [searchText, setSearchText] = useState("");
@@ -80,10 +82,14 @@ const Search = () => {
         setCurrentPage(occurrences[prevIndex]);
         console.log(currentPage + ' page')
     };
+    const handleBack = () => {
+        navigate('/folders');
+      }
 
 return (
     <div style={styles.container}>
         <Header/>
+        <img src={backButton} alt="Backbutton" style={styles.imageIcon} onClick={handleBack}/>
         <div style={styles.content}>
             <div style={styles.searchContainer}>
                 <div style={styles.searchBar}>
@@ -194,6 +200,11 @@ const styles = {
         outline: 'none',
         margin: '4px',
     },
+    imageIcon: {
+        width: '40px', 
+        height: '40px', 
+        objectFit: 'contain', 
+      },
 
 };
 

@@ -1,0 +1,36 @@
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project/sub_folder...". If you really cant find a folder that fits, put it in "project/Unclassified". Dont make up any new folders.
+- project
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Unclassified
+
+
+The provided document text is:
+David Packard Electrical Engineering 350 Jane Stanford Way Stanford, CA 94305-9505
+TEL 650-723-3931
+FAX 650-723-1882
+Declaring a Major in Electrical Engineering ● Fill in the requested information below.
+● Declare the major on Axess. Do not declare the EE Honors major at this time (if you decide to do an Honors thesis, you will declare EE Honors on Axess later).
+● Bring this form and an unofficial copy of your transcript to an interview with Associate Chair of Undergraduate Education Professor John Pauly (pauly@stanford.edu; Packard 358).
+● Once you have met with Prof. Pauly (to discuss the major and determine who your initial advisor will be), this form will be returned to the Degree Progress Officer Laura Krebs (lwuet72@stanford.edu). She will approve your major declaration and enter your advisor in Axess.
+First Name:
+Last Name:
+Student ID#:
+Email:
+Phone:
+Area(s) of Initial Interest in EE (You will discuss with Prof. Pauly):
+• Hardware and Software • Information Systems and Science • Physical Technology and Science • Other • Not sure yet Are you interested in the Coterminal MS program?    REU (summer research program)?
+• Yes • No • Yes • No BS Degree anticipated in (e.g. Quarter and Year):
+Advisor in Major (to be discussed with and assigned by Prof. Pauly):
+UG Associate Chair Signature Date Zararuth@stanford.edu Rutherford 06625318
+Zara

@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import FileIcon from './viewcomponents/fileicon';
 import Header from './viewcomponents/header';
+import backButton from './../icons/backbutton.png';
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -15,6 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const URLServer = 'http://localhost:3001'
 
 const File = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { folderName } = location.state || {};
   const [files, setFiles] = useState([]);
@@ -32,6 +34,9 @@ const File = () => {
   const onShowPdf = (file) => {
     setShowPdf(true);
     setSelectedPdf(file);
+  }
+  const handleBack = () => {
+    navigate('/folders');
   }
 
   useEffect(() => {
@@ -52,6 +57,8 @@ const File = () => {
       <div style={styles.container}>
           {/* Header */}
           <Header/>
+
+          <img src={backButton} alt="Backbutton" style={styles.imageIcon} onClick={handleBack}/>
 
           <div style={styles.folderContainer}>
               {files.map((file) => (
@@ -102,6 +109,11 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  imageIcon: {
+    width: '40px', 
+    height: '40px', 
+    objectFit: 'contain', 
   },
 
 };
