@@ -249,6 +249,7 @@ def extract_pdf_info(pdf_path):
                     new_text += stripped_line + " "
         full_text += new_text
     doc.close()
+    save_txt_file("Extracted_text", full_text, enable_testing_output = True)
     return full_text, num_pages, title
 
 """Creating and truncating query"""
@@ -261,7 +262,7 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project_name/sub_folder..." where project name is the top folder. If you really cant find a folder that fits, put it in "project_name/Unclassified". Dont make up any new folders.
+- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project/sub_folder...". If you really cant find a folder that fits, put it in "project/Unclassified". Dont make up any new folders.
 {folder_structure_indented}
 
 The provided document text is:
@@ -417,6 +418,8 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     print("Document is", num_pages, "pages long")
     query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
+    name_of_testing_doc = "query_for_"+title+".txt"
+    save_txt_file(name_of_testing_doc, truncated_query, enable_testing_output = True)
     output_json = make_openai_api_call(truncated_query)
     data = json.loads(output_json) # Assuming output_json is a string; parse it to a dict
 
@@ -478,7 +481,7 @@ def main(input_dir, output_dir, preferences_dir, project_name, copy_or_move ="mo
 
     generate_directory_json(output_dir, project_name, input_dir)
     print("directory generated")
-    
+
     # Process each PDF file and update progress
     for idx, pdf_name in enumerate(pdf_files, start=1):
         pdf_path = os.path.join(input_dir, pdf_name)

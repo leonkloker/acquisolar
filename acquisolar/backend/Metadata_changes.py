@@ -204,22 +204,23 @@ def take_notes(file_name, input_text):
 
 
 
-""" Example use
-file_name = "PPA2.pdf"
-new_name = "PPA1.pdf"
-"""
+""" Example use"""
+#file_name = "PPA.pdf"
+#new_name = "PPA_new_name.pdf"
+
 #rename_file(file_name, new_name)
 
-""" Example use
-file_name = "PPA1.pdf"
-new_dir_id = 2
-"""
+""" Example use """
+#file_name = "PPA_new_name.pdf"
+#new_dir_id = 2
+
 #move_file(file_name, new_dir_id)
 
-file_name = "PPA1.pdf"
+
+#file_name = "PPA_new_name.pdf"
 input_text = f"""
 HEllo 
 here are some notes
 that i want to store
 """
-take_notes(file_name, input_text)
+#take_notes(file_name, input_text)
