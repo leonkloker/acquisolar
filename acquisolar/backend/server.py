@@ -8,7 +8,7 @@ import subprocess
 import shutil
 
 import classification
-#import searchengine
+import searchengine
 import Convert_directory
 
 # Create the Flask app
@@ -63,8 +63,8 @@ def upload():
             
 
             # Index the uploaded files
-            #index_dir = app.config['UPLOADED_FILES_INDEX']
-            #searchengine.index(output_dir, index_dir=index_dir)
+            index_dir = app.config['UPLOADED_FILES_INDEX']
+            searchengine.index(output_dir, index_dir=index_dir)
 
             # create directory for frontend
             Convert_directory.convert_directory_structure()
