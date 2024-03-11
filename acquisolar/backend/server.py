@@ -85,21 +85,12 @@ def search():
     filename = request.json.get('file', '')
     print(filename)
 
-
-
     print('Received search query:', search_query)
     
     # Search the index and return a streaming response
     response_gen, sources = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
 
     print(sources)
-
-    # Return the streaming response
-    def generate():
-        for word in response_gen:
-            yield word
-        for source in sources:
-            yield source
 
     # return strings, document name
     return response_gen
@@ -192,7 +183,7 @@ def calculate_folders():
     return folders
 
 def calculate_metadata():
-    f = open('./structured_data/complete_file_metadata.json', 'r')
+    f = open(os.path.join(app.config['STRUCTURED_DATA'], 'complete_file_metadata.json', 'r'))
     metadata = json.load(f)
     f.close()
     return metadata
@@ -238,7 +229,7 @@ def clean_environment():
 
 if __name__ == '__main__':
     # Clean the environment
-    clean_environment()
+    # clean_environment()
 
     # 3001 for localhost, 80 for remote on AWS
     port = 3001
