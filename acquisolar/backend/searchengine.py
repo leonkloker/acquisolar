@@ -13,18 +13,7 @@ from llama_index.core import (
     download_loader
 )
 
-#from llama_index.llms import OpenAI, Replicate
 from llama_index.llms.openai import OpenAI
-#from llama_index.query_engine import RouterQueryEngine, RetrieverQueryEngine, CitationQueryEngine
-
-"""
-from llama_index.tools import (
-    QueryEngineTool,
-    ToolMetadata,
-)
-from llama_index.response.notebook_utils import display_response
-from llama_index.prompts import PromptTemplate
-"""
 
 # API keys
 os.environ["OPENAI_API_KEY"] = "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"
@@ -45,51 +34,45 @@ SYNTH = get_response_synthesizer(streaming=True)
 #loader = download_loader("PDFMinerReader")
 #loader = download_loader("UnstructuredReader")
 
-def query(text, index_dir = './index_storage'):
+def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     if not os.path.exists(index_dir):
         return "Index does not exist"
 
+    query_engine = get_query_engine(index_dir, filenames)
+
+    response = query_engine.query(text)
+    response_gen = response.response_gen
+    source_nodes = response.source_nodes
+    source_texts = [source_node.node.text for source_node in source_nodes]
+    source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
+    source_docs = [source_node.node.metadata["file_path"] for source_node in source_nodes]
+    source_docs = ["/".join(doc.split("/")[-3:]) for doc in source_docs]
+
+    if not generator:
+        response_gen = "".join(list(response_gen))
+
+    return response_gen, source_texts, source_pages, source_docs
+
+def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the existing storage
     vector_storage_context = StorageContext.from_defaults(persist_dir=index_dir)
 
     # load the index from storage
     vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
 
-    """ # either way we can now query the index
-    vector_tool = QueryEngineTool(
-        vector_index.as_query_engine(similarity_top_k=5, response_mode='compact', streaming=True),
-        metadata=ToolMetadata(
-            name="vector_search",
-            description="Useful for searching for specific facts."
-        )
-    ) """
+    document_nodes = []
+    if len(filenames) != 0:
+        for node in vector_index.index_struct.nodes:
+            if node.extra_info["file_name"] in filenames:
+                document_nodes.append(node)
 
-    """ summary_tool = QueryEngineTool(
-        vector_index.as_query_engine(similarity_top_k=5, response_mode='tree_summarize', streaming=True),
-        metadata=ToolMetadata(
-            name="summary_search",
-            description="Useful for searching for general summary information."
-        )
-    ) """
-    
-    """ query_engine = RouterQueryEngine.from_defaults(
-        [vector_tool, summary_tool],
-        service_context=SERVICE_CONTEXT,
-        select_multi=True,
-    ) """
+    if len(document_nodes) == 0:
+        query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
+    else:
+        query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True,
+                                                    document_nodes=document_nodes)
 
-    query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
-
-    """ query_engine = CitationQueryEngine.from_args(
-        vector_index,
-        similarity_top_k=3,
-        citation_chunk_size=1024,
-        streaming=True
-    ) """
-
-    response = query_engine.query(text)
-
-    return response.response_gen, response.source_nodes
+    return query_engine
 
 def index(doc_dir='./documents', index_dir='./index_storage'):
     if not os.path.exists(doc_dir):
@@ -107,3 +90,46 @@ def index(doc_dir='./documents', index_dir='./index_storage'):
     vector_index.storage_context.persist(persist_dir=index_dir)
 
     return "Index created"
+
+def delete_documents(doc_names, index_dir='./index_storage'):
+    if not os.path.exists(index_dir):
+        return "Index does not exist"
+    
+    # load the existing storage
+    vector_storage_context = StorageContext.from_defaults(persist_dir=index_dir)
+
+    # load the index from storage
+    vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
+
+    # remove the document from the index
+    for idx_id, idx_name in vector_index.docstore.items():
+        for doc_name in doc_names:
+            if idx_name in doc_name:
+                vector_index.remove_documents(idx_id)
+                break
+
+    # store it for later
+    vector_index.storage_context.persist(persist_dir=index_dir)
+
+    return "Documents removed from index"
+
+def add_documents(doc_paths, index_dir='./index_storage'):
+    if not os.path.exists(index_dir):
+        return "Index does not exist"
+    
+    # load the existing storage
+    vector_storage_context = StorageContext.from_defaults(persist_dir=index_dir)
+
+    # load the index from storage
+    vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
+
+    # load the documents and create the index
+    new_index = SimpleDirectoryReader(input_files=doc_paths, recursive=False).load_data()
+
+    for idx in new_index:
+        vector_index.insert(idx)
+
+    # store it for later
+    vector_index.storage_context.persist(persist_dir=index_dir)
+
+    return "Documents added to index"
