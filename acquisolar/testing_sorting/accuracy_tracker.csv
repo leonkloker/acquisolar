@@ -1,20 +1,42 @@
-test_id,date_time,Accuracy_test,Accuracy_Interconnection_Agreement,Accuracy_Interconnection_Agreement_Supplementary_Documents,Accuracy_Site_Control,Accuracy_PPA_(Power_Purchase_Agreement),Accuracy_PPA_Supplementary_Documents,Accuracy_Unclassified,Notes,Unnamed: 10
-0,,,,,,,,,,
-1,3/6/24 10:53,,0.00%,,,0.00%,,57.14%,,
-2,3/6/24 11:00,,,,,,,50.00%,,
-3,3/6/24 11:08,,,,,,,50.00%,,
-4,3/6/24 11:11,,,,,,,50.00%,,
-5,3/6/24 11:25,,,,,,,50.00%,new prompt structure puts everyone into unclassified,
-6,3/6/24 11:27,,100.00%,,,20.00%,,0.00%,prompt_part1.txt still works,
-7,3/6/24 11:29,,100.00%,,,0.00%,,66.67%,only action.txt. And sorting_guidelines.txt,
-8,3/6/24 14:24,,100.00%,,,0.00%,,55.56%,only action.txt. And sorting_guidelines.txt,
-9,3/6/24 14:27,,,,,0.00%,,54.55%,Added hierarchy.txt,
-10,3/6/24 14:30,,,0.00%,100.00%,28.57%,0.00%,,gpt-4-0125-preview,
-11,3/6/24 14:54,,,,,100.00%,,,,
-12,3/6/24 14:55,,,,,0.00%,,,,
-13,3/6/24 14:57,,,,,0.00%,0.00%,,,
-14,3/6/24 15:02,,,,100.00%,0.00%,0.00%,100.00%,,
-15,3/8/24 10:43,,0.00%,,,0.00%,,50.00%,,
-16,3/8/24 10:45,,0.00%,,,0.00%,,57.14%,,
-17,3/8/24 10:53,,,,100.00%,0.00%,,50.00%,,
-18,3/8/24 10:56,,,,,0.00%,,50.00%,only action.txt. And sorting_guidelines.txt,
+test_id,date_time,Accuracy_test,Accuracy_Interconnection_Agreement,Accuracy_Interconnection_Agreement_Supplementary_Documents,Accuracy_Site_Control,Accuracy_PPA_(Power_Purchase_Agreement),Accuracy_PPA_Supplementary_Documents,Accuracy_Unclassified,Notes,Unnamed: 10,Accuracy_PPA_Meeting_Proceedings,Accuracy_Miscellaneous
+0,,,,,,,,,,,,
+1,3/6/24 10:53,,0.00%,,,0.00%,,57.14%,,,,
+2,3/6/24 11:00,,,,,,,50.00%,,,,
+3,3/6/24 11:08,,,,,,,50.00%,,,,
+4,3/6/24 11:11,,,,,,,50.00%,,,,
+5,3/6/24 11:25,,,,,,,50.00%,new prompt structure puts everyone into unclassified,,,
+6,3/6/24 11:27,,100.00%,,,20.00%,,0.00%,prompt_part1.txt still works,,,
+7,3/6/24 11:29,,100.00%,,,0.00%,,66.67%,only action.txt. And sorting_guidelines.txt,,,
+8,3/6/24 14:24,,100.00%,,,0.00%,,55.56%,only action.txt. And sorting_guidelines.txt,,,
+9,3/6/24 14:27,,,,,0.00%,,54.55%,Added hierarchy.txt,,,
+10,3/6/24 14:30,,,0.00%,100.00%,28.57%,0.00%,,gpt-4-0125-preview,,,
+14,3/6/24 15:02,,,,100.00%,0.00%,0.00%,100.00%,,,,
+15,3/8/24 10:43,,0.00%,,,0.00%,,50.00%,,,,
+16,3/8/24 10:45,,0.00%,,,0.00%,,57.14%,,,,
+17,3/8/24 10:53,,,,100.00%,0.00%,,50.00%,,,,
+18,3/8/24 10:56,,,,,0.00%,,50.00%,only action.txt. And sorting_guidelines.txt,,,
+19,3/11/24 12:32,,0.00%,,,,0.00%,50.00%,New IA Prompt,,,
+20,3/11/24 12:39,,,,,0.00%,,40.00%,New Site Control Prompt,,,
+21,3/11/24 12:41,,100.00%,,,0.00%,,80.00%,"Eliminated Hierarchy, levels and guidelines from the prompt",,,
+22,3/11/24 12:45,,50.00%,,,0.00%,,71.43%,"New header prompt: You are a pragmatic Solar M&A Senior Analyst in the US. Your role involves analyzing documents related to solar project acquisitions and mergers. These documents contain vital information that needs to be extracted accurately to aid in decision-making processes. Your task is to process the provided document text to extract specific fields and format the response as valid JSON. This information will serve multiple purposes, including metadata addition, document summarization, and appropriate document sorting.",,,
+23,3/11/24 12:47,,100.00%,,,0.00%,,57.14%,,,,
+24,3/11/24 12:50,,100.00%,,,0.00%,0.00%,66.67%,,,,
+25,3/11/24 13:01,,100.00%,,,0.00%,0.00%,50.00%,"Bug Fixes, Old Prompt",,,
+26,3/11/24 13:04,,100.00%,,,0.00%,0.00%,80.00%,,,,
+27,3/11/24 13:07,,100.00%,,,0.00%,0.00%,80.00%,"New prompt: 1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
+
+    2. Classify documents with precision, using these category definitions:
+
+        ""Interconnection Agreement"": Contains contracts and agreements for connecting the solar project to the power grid. Look for phrases like ""the interconnection customer agrees"" and ""interconnection requests"".
+
+        ""Site Control"": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
+
+        ""PPA (Power Purchase Agreement)"": Features contracts between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards. No documents that contain amendments or additional information. 
+
+        ""PPA Supplementary Documents"": Encompasses additional documents related to PPAs, such as amendments, technical specifications, applications, communications, Exhibits or Annexes, and O&M Agreements.
+
+    3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
+",,,
+28,03/12/24 22:14,,100.00%,,,0.00%,0.00%,75.00%,,,,
+29,03/12/24 22:19,,100.00%,,,0.00%,0.00%,,,,,0.00%
+30,03/12/24 22:22,,100.00%,,,0.00%,0.00%,,,,,0.00%

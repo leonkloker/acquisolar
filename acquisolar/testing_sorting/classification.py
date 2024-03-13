@@ -142,7 +142,7 @@ def prompt_constructor(*args):
 
 def construct_query(extracted_text, folder_structure_indented, enable_testing_output=False):
     # Example usage of prompt_constructor
-    constructed_prompt = prompt_constructor("action.txt", "sorting_guidelines.txt")
+    constructed_prompt = prompt_constructor("One_Prompt.txt")
     
     query = f"""
 {constructed_prompt}
@@ -217,12 +217,12 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, a
     data = process_json_add_extension(data) # add extension to suggested titles
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
-    document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
+    document_folder_path = data.get("Document_folder_path", project_name + "/Miscellaneous")
 
-    # Correctly handle the 'Unclassified' case and ensure the path starts with 'project_name/'
+    # Correctly handle the 'Miscellaneous' case and ensure the path starts with 'project_name/'
     if not document_folder_path.startswith(project_name):
         print("checking the if not document_folder_path:")
-        document_folder_path = os.path.join(project_name, "Unclassified")
+        document_folder_path = os.path.join(project_name, "Miscellaneous")
     print('output_dir:', output_dir)
     print('document_folder_path:', document_folder_path)
     # Build the correct final path within the output directory
@@ -283,36 +283,40 @@ def append_to_complete_metadata_file(data, file_path):
             json.dump([new_data], file, indent=4)
 
 
+import json
+
 def make_json_valid(response_content):
     """
     Clean the response content by removing any text outside the outermost JSON object braces.
-    
+
     Parameters:
     - response_content (str): The potentially malformed JSON string.
-    
+
     Returns:
     - str: A cleaned JSON string.
     """
     start_index = response_content.find('{')
     end_index = response_content.rfind('}')
-    
+
     if start_index != -1 and end_index != -1 and end_index > start_index:
         response_content = response_content[start_index:end_index+1]
     else:
         print("Valid JSON object not found in the response.")
-        response_content = "{}"
+        return "{}"  # Return an empty JSON object
 
     try:
         json_obj = json.loads(response_content)
         if "Document_summary" in json_obj and json_obj["Document_summary"]:
             return response_content
         else:
-            print("\n###########ERROR###########\nGenerated JSON is empty or 'document_summary' entry is missing.\nMay need to truncate query \n###########ERROR###########\n")
-    except json.JSONDecodeError:
-        raise print("Failed to parse JSON.")
-
+            print("\n###########ERROR###########\nGenerated JSON is empty or 'Document_summary' entry is missing.\nMay need to truncate query.\n###########ERROR###########\n")
+            return "{}"  # Return an empty JSON object for safety
+    except json.JSONDecodeError as e:
+        print(f"Failed to parse JSON. Error: {e}")
+        return "{}"  # Return an empty JSON object in case of parsing failure
 
     return response_content
+
 
 def make_openai_api_call(truncated_query):
     try:
