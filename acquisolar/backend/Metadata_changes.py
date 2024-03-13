@@ -205,10 +205,10 @@ def take_notes(file_name, input_text):
 
 
 """ Example use"""
-#file_name = "PPA.pdf"
-#new_name = "PPA_new_name.pdf"
+file_name = "LOI2.pdf"
+new_name = "LOI.pdf"
 
-#rename_file(file_name, new_name)
+rename_file(file_name, new_name)
 
 """ Example use """
 #file_name = "PPA_new_name.pdf"
@@ -224,3 +224,30 @@ here are some notes
 that i want to store
 """
 #take_notes(file_name, input_text)
+
+
+def retrieve_original_file_name(current_file_name):
+    """
+    Retrieves the original file name based on the current file name.
+    
+    Parameters:
+    - current_file_name: The current name of the file.
+    - metadata_path: The path to the file containing the metadata.
+    
+    Returns:
+    The original file name if found, else None.
+    """
+    root_directory = set_root_directory()
+    metadata_path, _ = set_metadata_and_directory_file_path(root_directory)
+    with open(metadata_path, 'r', encoding='utf-8') as file:
+        metadata = json.load(file)
+        for entry in metadata:
+            if entry.get("current_title") == current_file_name:
+                # Assuming "original_title" is the key for the original file name
+                return entry.get("original_title")
+    return None
+
+# Usage example
+current_file_name = "LOI.pdf"
+original_file_name = retrieve_original_file_name(current_file_name)
+print(original_file_name)
