@@ -219,6 +219,8 @@ def generate_directory_json(output_dir, project_name, input_dir):
             next_id += 1
     
     # Save the structure to a JSON file
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     with open(os.path.join(output_dir, 'global_directory.json'), 'w', encoding='utf-8') as f:
         json.dump(directory_tree, f, indent=2)
 

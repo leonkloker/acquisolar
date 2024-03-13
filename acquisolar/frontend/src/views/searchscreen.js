@@ -38,9 +38,10 @@ const Search = () => {
                 },
                 body: JSON.stringify({ query: searchText, file: filename }),
             });
-            const textResponse = await response.text(); // Assuming the response is a stream of text
-            console.log(textResponse)
-            setSearchQueryResult(textResponse);
+            //const textResponse = await response.text(); // Assuming the response is a stream of text
+            const textResponse = await response.json(); // Assuming the response is a JSON object
+            console.log(textResponse['response'])
+            setSearchQueryResult(textResponse['response']);
         } catch (error) {
             console.error('Failed to fetch search results:', error);
         }

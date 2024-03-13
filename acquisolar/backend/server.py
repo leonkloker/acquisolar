@@ -1,5 +1,5 @@
 from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file, Response
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import json
 import os
 from werkzeug.utils import secure_filename
@@ -10,7 +10,6 @@ import shutil
 import classification
 import searchengine
 import Convert_directory
-import Metadata_changes
 
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
@@ -62,7 +61,6 @@ def upload():
             copy_or_move = "move"
             classification.main(doc_dir, output_dir, preferences_dir, project_name, copy_or_move)
             
-
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
@@ -70,7 +68,6 @@ def upload():
             # create directory for frontend
             Convert_directory.convert_directory_structure()
             
-
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
             return jsonify(error="No valid PDF files selected!"), 400
@@ -83,90 +80,60 @@ def search():
 
     ### FILENAME THAT CORRESPONDS TO WHAT FILE THE USER IS SEARCHING IN
     filename = request.json.get('file', '')
-    print(filename)
-
     print('Received search query:', search_query)
+    print('within file:', filename)
     
     # Search the index and return a streaming response
-    response_gen, sources = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'])
+    response_gen, texts, pages, docs = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'],
+                                                          filename, generator=False)
 
-    print(sources)
+    json_response = {
+        'response': response_gen,
+        'texts': texts,
+        'pages': pages,
+        'docs': docs
+    }
 
     # return strings, document name
-    return response_gen
-
-@app.route('/renameFile', methods=['POST'])
-@cross_origin()
-def renameFile():
-    # Ensure there is JSON data and extract it
-    if not request.json:
-        return jsonify({'error': 'Missing request data'}), 400
-
-    data = request.get_json()
-    originalFilename = data.get('originalFilename')
-    newFilename = data.get('newFilename')
-
-    if not originalFilename or not newFilename:
-        return jsonify({'error': 'Missing filenames in the request'}), 400
-
-
-    try:
-        Metadata_changes.rename_file(originalFilename, newFilename)
-        return jsonify({'message': 'File renamed successfully'}), 200
-    except:
-        return jsonify({'error': 'Original file not found'}), 404
+    return jsonify(json_response)
 
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
-    json_file_path = './structured_data/global_directory.json'
+    base_directory = os.path.join(app.config['STRUCTURED_DATA'], 'project')
+    json_file_path = os.path.join(base_directory, 'complete_file_metadata.json')
     
     # Load the JSON content
     with open(json_file_path, 'r') as file:
-        directories = json.load(file)
+        documents = json.load(file)
 
-    # Function to find a directory or file by ID
-    def find_by_id(d_id):
-        return next((item for item in directories if item["id"] == d_id), None)
-    
-    # Function to construct the path for a given file
-    def construct_path(file_item):
-        path = []
-        current_item = file_item
-        while current_item["parent_id"] is not None:
-            current_item = find_by_id(current_item["parent_id"])
-            path.insert(0, current_item["name"])
-        return "/".join(path)
+    # Initialize document_folder_path as None
+    document_folder_path = None
 
-    # Find the file in the directory structure
-    file_item = next((item for item in directories if item["name"] == filename), None)
-    
-    # If file is not found, return an error
-    if not file_item:
-        return jsonify(error="File not found"), 404
+    # Loop through the documents to find a match
+    for document in documents:
+        if document["original_title"] == filename:
+            document_folder_path = document["Document_folder_path"]
+            break
 
-    # Construct and return the path
-    path = construct_path(file_item)
-    path = os.path.join('./structured_data', construct_path(file_item), filename)
-    
-# Check if file exists
-    if not os.path.isfile(path):
-        return jsonify(error="File does not exist on server"), 404
+    # Construct the full file path if document_folder_path is found
+    if document_folder_path:
+        pdf_directory = os.path.join(base_directory, document_folder_path)
+        filepath = os.path.join(pdf_directory, filename)
 
-    # Send the file
-    return send_file(path)
+        # If validation passes, send the requested PDF file
+        return send_file(filepath)
+    else:
+        return "File not found", 404
 
 @app.route('/get-folders', methods=['GET'])
 def get_folders():
     folder_structure = calculate_folders()
-    print('test')
     return jsonify(folder_structure)
-
 
 # return folder structure and corresponding metadata
 def calculate_folders():
-
-    with open('./structured_data/global_directory.json', 'r') as file:
+    with open('structured_data/global_directory.json', 'r') as file:
         data = json.load(file)
     
     folders = {}
@@ -181,8 +148,7 @@ def calculate_folders():
     return folders
 
 def calculate_metadata():
-    #f = open('./structured_data/complete_file_metadata.json', 'r')
-    f = open(os.path.join(app.config['STRUCTURED_DATA'], 'complete_file_metadata.json', 'r'))
+    f = open('structured_data/complete_file_metadata.json', 'r')
     metadata = json.load(f)
     f.close()
     return metadata
@@ -227,8 +193,12 @@ def clean_environment():
         shutil.rmtree('classification_testing') 
 
 if __name__ == '__main__':
+
     # Clean the environment
     clean_environment()
+
+    classification.find_and_create_zip_structure('preferences', 'structured_data', 'project')
+    classification.generate_directory_json('structured_data', 'project', 'structured_data')
 
     # 3001 for localhost, 80 for remote on AWS
     port = 3001

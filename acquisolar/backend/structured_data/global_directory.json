@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "project",
+    "type": "directory",
+    "parent_id": null
+  },
+  {
+    "id": 2,
+    "name": "EPC",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 3,
+    "name": "Unclassified",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 4,
+    "name": "Environmental",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 5,
+    "name": "Interconnection",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 6,
+    "name": "PPA",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 7,
+    "name": "Permitting",
+    "type": "directory",
+    "parent_id": 1
+  }
+]
