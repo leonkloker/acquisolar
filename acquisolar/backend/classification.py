@@ -266,11 +266,11 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path": Select the most suitable folder or sub-folder from the list using "project_name/sub_folder...". Follow instructions below. 
+- "Document_folder_path": Select the most suitable folder from the list using "folder...". Follow instructions below. 
+- "Document Label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
 - "Reasoning": Provide reasoning for every documents you classified. 
 
-For "Document_folder_path", please follow these guidelines:
-
+For "Document_folder_path", please follow these guidelines: 
 
     1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
 
@@ -280,12 +280,15 @@ For "Document_folder_path", please follow these guidelines:
 
         "Site Control": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
 
-        "PPA (Power Purchase Agreement)": Features contracts between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards. No documents that contain amendments or additional information. 
+        "PPA": Features power purchasing agreements between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards, as well as supplementary documents.  
 
-        "PPA Supplementary Documents": Encompasses additional documents related to PPAs, such as amendments, technical specifications, applications, communications, Exhibits or Annexes, and O&M Agreements.
+        "Environmental": Documents related to environmental impact assessments, permits, and compliance reports for the solar project. Includes studies on flora, fauna, water, soil, and air quality impacts, as well as mitigation strategies.
+
+        "EPC": Contains contracts, plans, and documentation related to the engineering design, procurement of materials, and construction of the solar project. This includes agreements with contractors, project timelines, and construction permits.
 
     3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
     4. Only classify documents as "Miscellaneous" if no other folder is likely. 
+
 {folder_structure_indented}
 
 The provided document text is:
