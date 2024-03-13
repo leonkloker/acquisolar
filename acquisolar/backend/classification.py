@@ -397,6 +397,16 @@ def make_json_valid(response_content):
 
     return response_content
 
+def correct_json_folder_path(json_file):
+
+    # Update the 'Document_folder_path' in the JSON data
+    document_folder_path = json_file.get("Document_folder_path", project_name + "/Unclassified")
+    
+    # Prepend "project/" to the 'Document_folder_path' field in the JSON data
+    document_folder_path_with_project = "project/" + document_folder_path
+    json_file["Document_folder_path"] = document_folder_path_with_project
+    return json_file
+
 def append_to_complete_metadata_file(data, file_path):
     highest_id = 0  # Default to 0 if file is empty or does not exist
     new_data = data  # Assuming 'data' is the dictionary for the new entry
@@ -460,6 +470,8 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     })
 
     data = process_json_add_extension(data) # add extension to suggested titles
+    data = correct_json_folder_path(data)
+
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
     document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
@@ -487,6 +499,9 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     append_to_complete_metadata_file(data, complete_metadata_file_path)
 
     print(f"Finished processing {os.path.basename(pdf_path)}. File saved to {final_path}.")
+
+
+
 
 """Main function"""
 def main(input_dir, output_dir, preferences_dir, project_name, copy_or_move ="move"):
