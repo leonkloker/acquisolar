@@ -202,30 +202,6 @@ def take_notes(file_name, input_text):
         else:
             print(f"File {file_name} not found in metadata.")
 
-
-
-""" Example use"""
-file_name = "LOI2.pdf"
-new_name = "LOI.pdf"
-
-rename_file(file_name, new_name)
-
-""" Example use """
-#file_name = "PPA_new_name.pdf"
-#new_dir_id = 2
-
-#move_file(file_name, new_dir_id)
-
-
-#file_name = "PPA_new_name.pdf"
-input_text = f"""
-HEllo 
-here are some notes
-that i want to store
-"""
-#take_notes(file_name, input_text)
-
-
 def retrieve_original_file_name(current_file_name):
     """
     Retrieves the original file name based on the current file name.
@@ -247,7 +223,28 @@ def retrieve_original_file_name(current_file_name):
                 return entry.get("original_title")
     return None
 
-# Usage example
-current_file_name = "LOI.pdf"
-original_file_name = retrieve_original_file_name(current_file_name)
-print(original_file_name)
+""" Example use"""
+#file_name = "LOI2.pdf"
+#new_name = "LOI.pdf"
+
+#rename_file(file_name, new_name)
+
+""" Example use """
+#file_name = "PPA_new_name.pdf"
+#new_dir_id = 2
+
+#move_file(file_name, new_dir_id)
+
+""" Example use """
+#file_name = "PPA_new_name.pdf"
+input_text = f"""
+HEllo 
+here are some notes
+that i want to store
+"""
+#take_notes(file_name, input_text)
+
+
+""" Example use """
+
+#original_file_name = retrieve_original_file_name(current_file_name)
