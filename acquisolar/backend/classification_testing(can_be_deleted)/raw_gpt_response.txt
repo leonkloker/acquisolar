@@ -1,10 +1,8 @@
-```json
 {
-    "Document_date": "Oct-14, 2019",
-    "Document_summary": "This document is a Letter of Intent between Haleakala Ranch Company and Clearway Renew LLC for the development of a 40 megawatt solar renewable energy project in Maui County, Hawaii. The implications are that the parties are agreeing to negotiate the terms of definitive agreements for the project.",
-    "Suggested_title": "10-14-2019 Solar Project Letter",
-    "Suggested_title_v2": "10-14-2019 Renewable Energy Agreement",
-    "Suggested_title_v3": "10-14-2019 Solar Development Intent",
-    "Document_folder_path": "project/PPA"
+  "Document_date": "Jan-22, 2019",
+  "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. The motion outlines the interests and qualifications of Ho'ohana Solar 1, LLC to participate in the decision-making process. The document is at the stage of seeking approval for participation in the M&A process.",
+  "Suggested_title": "01-22-2019 Solar Participation Motion",
+  "Suggested_title_v2": "01-22-2019 Solar PPA Participation",
+  "Suggested_title_v3": "01-22-2019 Solar M&A Participation",
+  "Document_folder_path": "PPA"
 }
-```

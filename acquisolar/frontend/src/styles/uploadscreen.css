@@ -1,0 +1,7 @@
+@keyframes stepRotate {
+  to { transform: rotate(1turn); }
+}
+
+.rotating {
+  animation: stepRotate 2s steps(16) infinite;
+}

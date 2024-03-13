@@ -6,6 +6,8 @@ import FileList from './viewcomponents/filelist';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import uploadIcon from '../icons/upload.png';
+import loadingIcon from '../icons/loadingIcon.svg';
+import stylesLoad from '../styles/uploadscreen.css'
 
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -127,7 +129,11 @@ const Upload = () => {
               disabled={isUploading}
             >
               {isUploading ? 'Uploading Files...' : 'See Folders'}
+              
             </button>
+        { isUploading  && (
+            <img src={loadingIcon} className="rotating" alt="Loading" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
+          )}
       </div>
       </div>
     </div>
@@ -232,6 +238,12 @@ const styles = {
       color: 'white',
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    loadingBox: {
+      display: 'flex',
+      maxWidth: '20%',
+      flex: '1',
+      justifyContent: 'flex-end',
     }
 };  
 
