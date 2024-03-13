@@ -10,7 +10,7 @@ Extract the following fields from the document text provided and format the resp
 - "Document Label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
 - "Reasoning": Provide reasoning for every documents you classified. 
 
-For "Document_folder_path", please follow these guidelines: {sorting_guidelines}
+For "Document_folder_path", please follow these guidelines:
 
     1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
 
