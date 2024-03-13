@@ -1,10 +1,8 @@
-```json
 {
-    "Document_date": "Oct-28, 2010",
-    "Document_summary": "This document is an Interconnection Agreement between Kauai Island Utility Cooperative and Kapaa Solar LLC, outlining the terms and conditions for the interconnection of a Small Generating Facility. It covers responsibilities, costs, termination, disputes, insurance, and other key aspects of the agreement.",
-    "Suggested_title": "10-28-2010 Solar Interconnection Agreement",
-    "Suggested_title_v2": "10-28-2010 Utility-Solar Interconnection",
-    "Suggested_title_v3": "10-28-2010 Solar Facility Interconnection",
-    "Document_folder_path": "Interconnection"
+    "Document_date": "___",
+    "Document_summary": "This document appears to be a solutions manual accompanying a textbook on arbitrage theory in continuous time. It provides detailed solutions to problems and exercises in the textbook, aiding in understanding the concepts and applications of arbitrage theory in a continuous time framework.",
+    "Suggested_title": "___",
+    "Suggested_title_v2": "___",
+    "Suggested_title_v3": "___",
+    "Document_folder_path": "project/Unclassified"
 }
-```

@@ -1,0 +1,233 @@
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project/sub_folder...". If you really cant find a folder that fits, put it in "project/Unclassified". Dont make up any new folders.
+- project
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Unclassified
+
+
+The provided document text is:
+Form 8843
+Department of the Treasury Internal Revenue Service Statement for Exempt Individuals and Individuals With a Medical Condition For use by alien individuals only.
+Go to www.irs.gov/Form8843 for the latest information.
+For the year January 1—December 31, 2023, or other tax year beginning , 2023, and ending , 20
+.
+OMB No. 1545-0074
+2023
+Attachment Sequence No. 102
+Your first name and initial Last name Your U.S. taxpayer identification number (TIN), if any Fill in your addresses only if you are filing this form by itself and not with your U.S.
+tax return.
+Address in country of residence Address in the United States Part I General Information 1a Type of U.S. visa (for example, F, J, M, Q, etc.) and date you entered the United States:
+b Current nonimmigrant status. If your status has changed, also enter date of change and previous status. See instructions.
+2
+Of what country or countries were you a citizen during the tax year?
+3a What country or countries issued you a passport?
+b Enter your passport number(s):
+4a Enter the actual number of days you were present in the United States during:
+2023
+2022
+2021
+b Enter the number of days in 2023 you claim you can exclude for purposes of the substantial presence test:
+Part II Teachers and Trainees 5
+For teachers, enter the name, address, and telephone number of the academic institution where you taught in 2023:
+6
+For trainees, enter the name, address, and telephone number of the director of the academic or other specialized program you participated in during 2023:
+7
+Enter the type of U.S. visa (J or Q) you held during:
+2017
+2018
+2019
+2020
+2021
+2022
+. If the type of visa you held during any of these years changed, attach a statement showing the new visa type and the date it was acquired.
+8
+Were you exempt as a teacher, trainee, or student for any part of 2 of the preceding 6 calendar years (2017
+through 2022)? .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+Yes No If you checked the “Yes” box on line 8, you cannot exclude days of presence as a teacher or trainee unless you meet the Exception explained in the instructions.
+Part III Students 9
+Enter the name, address, and telephone number of the academic institution you attended during 2023:
+10
+Enter the name, address, and telephone number of the director of the academic or other specialized program you participated in during 2023:
+11
+Enter the type of U.S. visa (F, J, M, or Q) you held during:
+2017
+2018
+2019
+2020
+2021
+2022
+. If the type of visa you held during any of these years changed, attach a statement showing the new visa type and the date it was acquired.
+12
+Were you exempt as a teacher, trainee, or student for any part of more than 5 calendar years?
+.
+.
+.
+.
+Yes No If you checked the “Yes” box on line 12, you must provide sufficient facts on an attached statement to establish that you do not intend to reside permanently in the United States.
+13
+During 2023, did you apply for, or take other affirmative steps to apply for, lawful permanent resident status in the United States or have an application pending to change your status to that of a lawful permanent resident of the United States? .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+Yes No 14
+If you checked the “Yes” box on line 13, explain:
+For Paperwork Reduction Act Notice, see instructions.
+Cat. No. 17227H Form 8843 (2023) Leon H Kloker F 09/15/2022
+Germany Germany C89WWWK7L 252
+95
+0
+Stanford University, 450 Jane Stanford Way, Stanford CA 94305, 650-723-2300
+Gianluca Iaccarino, 475 Via Ortega, Stanford CA 94305, 650-725-0704
+F   Form 8843 (2023) Page 2
+Part IV Professional Athletes 15
+Enter the name of the charitable sports event(s) in the United States in which you competed during 2023 and the dates of competition:
+16
+Enter the name(s) and employer identification number(s) of the charitable organization(s) that benefited from the sports event(s):
+Note: You must attach a statement to verify that all of the net proceeds of the sports event(s) were contributed to the charitable organization(s) listed on line 16.
+Part V Individuals With a Medical Condition or Medical Problem 17a Describe the medical condition or medical problem that prevented you from leaving the United States.
+See instructions.
+b Enter the date you intended to leave the United States prior to the onset of the medical condition or medical problem described on line 17a:
+c Enter the date you actually left the United States:
+18
+Physician’s Statement:
+I certify that Name of taxpayer was unable to leave the United States on the date shown on line 17b because of the medical condition or medical problem described on line 17a and there was no indication that their condition or problem was preexisting.
+Name of physician or other medical official Physician’s or other medical official’s address and telephone number Physician’s or other medical official’s signature Date Sign here only if you are filing this form by itself and not with your U.S. tax return.
+Under penalties of perjury, I declare that I have examined this form and the accompanying attachments, and, to the best of my knowledge and belief, they are true, correct, and complete.
+Your signature Date Form 8843 (2023) Form 8843 (2023) Page 3
+Section references are to the Internal Revenue Code unless otherwise specified.
+Future Developments For the latest information about developments related to Form 8843 and its instructions, such as legislation enacted after they were published, go to www.irs.gov/Form8843.
+General Instructions Who Must File If you are an alien individual (other than a foreign government-related individual), you must file Form 8843 to explain the basis of your claim that you can exclude days of presence in the United States for purposes of the substantial presence test because you:
+• Were an exempt individual, or • Were unable to leave the United States because of a medical condition or medical problem.
+When and Where To File If you are filing a 2023 Form 1040-NR, attach Form 8843 to it. Mail your tax return by the due date (including extensions) to the address shown in your tax return instructions.
+If you don’t have to file a 2023 tax return, mail Form 8843 to the Department of the Treasury, Internal Revenue Service Center, Austin, TX 73301-0215 by the due date (including extensions) for filing Form 1040-NR.
+Penalty for Not Filing Form 8843
+If you don’t file Form 8843 on time, you may not exclude the days you were present in the United States as a professional athlete or because of a medical condition or medical problem that arose while you were in the United States.
+Failure to exclude days of presence in the United States could result in your being considered a U.S. resident under the substantial presence test.
+You won’t be penalized if you can show by clear and convincing evidence that you took reasonable actions to become aware of the filing requirements and significant steps to comply with those requirements.
+Substantial Presence Test You are considered a U.S. resident if you meet the substantial presence test for 2023. You meet this test if you were physically present in the United States for at least:
+• 31 days during 2023; and • 183 days during the period 2023, 2022, and 2021, counting all the days of physical presence in 2023 but only 1/3 the number of days of presence in 2022 and only 1/6
+the number of days in 2021.
+Note: To claim the closer connection to a foreign country(ies) exception to the substantial presence test described in Regulations section 301.7701(b)-2, you must file Form 8840.
+Days of presence in the United States.
+Generally, you are treated as being present in the United States on any day that you are physically present in the country at any time during the day. However, you don’t count the following days of presence in the United States for purposes of the substantial presence test.
+1. Days you regularly commuted to work in the United States from a residence in Canada or Mexico.
+2. Days you were in the United States for less than 24 hours when you were traveling between two places outside the United States.
+3. Days you were temporarily in the United States as a regular crew member of a foreign vessel engaged in transportation between the United States and a foreign country or a territory of the United States unless you otherwise engaged in trade or business on such a day.
+4. Days you were unable to leave the United States because of a medical condition or medical problem that arose while you were in the United States.
+5. Days you are in the United States under a NATO visa as a member of a force or civilian component to NATO.  However, this exception does not apply to an immediate family member who is present in the United States under a NATO visa.  A dependent family member must count every day of presence for purposes of the substantial presence test.
+6. Days you were an exempt individual.
+Exempt Individuals For purposes of the substantial presence test, an exempt individual includes anyone in the following categories.
+• A teacher or trainee (defined on this page).
+• A student (defined on the next page).
+• A professional athlete temporarily present in the United States to compete in a charitable sports event.
+The term “exempt individual” also includes an individual temporarily present in the United States as a foreign government-related individual under an “A” or “G” visa, other than individuals holding “A-3” or “G-5” class visas. An individual present under an “A-3” or “G-5” class visa is not considered a foreign government-
+related individual and must count all their days of presence in the United States for purposes of the substantial presence test.
+For more details, see Pub. 519. If you are present under any other “A” or “G” class visa, you are not required to file Form 8843.
+Specific Instructions Part I—General Information If you are attaching Form 8843 to Form 1040-NR, you aren’t required to complete lines 1a through 4a of Form 8843 if you provide the requested information on the corresponding lines of Form 1040-NR. See Schedule OI of those forms.
+In this case, enter “Information provided on Form 1040-NR” on line 1a of Form 8843. Complete line 4b and the rest of Form 8843.
+If Form 8843 is filed separately, you must complete all entries on the form.
+Line 1a. Enter your nonimmigrant visa type (for example, F-1, F-2, J-1, J-2, H1-B, etc.) and the corresponding date of the most recent entry to the United States. See your USCIS Form I-94, Arrival-Departure Record.
+Line 1b. Enter your current nonimmigrant status, as of the last day of the tax year, such as that shown on your current USCIS Form I-94. Usually, this is the same as your entry on line1a, unless you changed your status while in the United States since your last entry. If your status has changed while in the United States (for example, you entered with a B-1 or B-2 visitor visa and without leaving, you changed to an F-1 or M-1 student visa status), enter the date of change and previous status. See USCIS Form I-797, Notice of Action, for information on the date that your change of status was approved.
+Part II—Teachers and Trainees A teacher or trainee is an individual who is temporarily present in the United States under a “J” or “Q” visa (other than as a student) and who substantially complies with the requirements of the visa.
+If you were a teacher or trainee under a “J” or “Q” visa, you are considered to have substantially complied with the visa requirements if you haven’t engaged in activities that are prohibited by U.S.
+immigration laws that could result in the loss of your “J” or “Q” visa status.
+Even if you meet these requirements, you can’t exclude days of presence in 2023
+as a teacher or trainee if you were exempt as a teacher, trainee, or student for any part of 2 of the 6 prior calendar years. But see the Exception, later.
+If you qualify to exclude days of presence as a teacher or trainee, complete Parts I and II of Form 8843. If you have a “Q” visa, complete Part I and only lines 6
+through 8 of Part II. On line 6, enter the name, address, and telephone number of the director of the cultural exchange program in which you participated.
+Exception. If you were exempt as a teacher, trainee, or student for any part of 2
+of the 6 prior calendar years, you can exclude days of presence in 2023 as a teacher or trainee only if all four of the following apply.
+1. You were exempt as a teacher, trainee, or student for any part of 3 (or fewer) of the 6 prior calendar years.
+2. A foreign employer paid all your compensation during 2023.
+3. You were present in the United States as a teacher or trainee in any of the 6 prior years.
+4. A foreign employer paid all of your compensation during each of those prior 6
+years you were present in the United States as a teacher or trainee.
+Form 8843 (2023) Page 4
+For more details, see Pub. 519.
+If you meet this exception, you must attach information to verify that a foreign employer paid all the compensation you received in 2023 and all prior years that you were present in the United States as a teacher or trainee.
+Part III—Students A student is an individual who is temporarily present in the United States under an “F,” “J,” “M,” or “Q” visa and who substantially complies with the requirements of the visa.
+If you were a student under an “F,” “J,” “M,” or “Q” visa, you are considered to have substantially complied with the visa requirements if you haven’t engaged in activities that are prohibited by U.S.
+immigration laws and could result in the loss of your visa status.
+Even if you meet these requirements, you can’t exclude days of presence in 2023
+as a student if you were exempt as a teacher, trainee, or student for any part of more than 5 calendar years unless you establish that you don’t intend to reside permanently in the United States. The facts and circumstances to be considered in determining if you have established that you don’t intend to reside permanently in the United States include, but aren’t limited to:
+1. Whether you have maintained a closer connection to a foreign country than to the United States (for details, see Pub. 519), and 2. Whether you have taken affirmative steps to change your status from nonimmigrant to lawful permanent resident.
+If you qualify to exclude days of presence as a student, complete Parts I and III of Form 8843. If you have a “Q” visa, complete Part I and only lines 10
+through 14 of Part III. On line 10, enter the name, address, and telephone number of the director of the cultural exchange program in which you participated.
+Part IV—Professional Athletes A professional athlete is an individual who is temporarily present in the United States to compete in a charitable sports event.
+For details on charitable sports events, see Pub. 519.
+If you qualify to exclude days of presence as a professional athlete, complete Parts I and IV of Form 8843.
+Part V—Individuals With a Medical Condition or Medical Problem For purposes of the substantial presence test, don’t count the days you intended to leave the United States but couldn’t do so because of a medical condition or medical problem that arose while you were in the United States. Whether you intended to leave the United States on a particular day is determined based on all the facts and circumstances. For more details, see Pub.
+519.
+If you qualify to exclude days of presence because of a medical condition or medical problem, complete Part I and lines 17a through 17c of Part V. Have your physician or other medical official complete line 18.
+Note: You cannot exclude any days of presence in the United States under any of the following circumstances.
+• You entered or returned to the United States for medical treatment. It does not matter whether you intended to leave the United States immediately after the medical treatment but couldn’t do so because of unforeseen complications from the medical treatment.
+• The medical condition existed before your arrival in the United States and you were aware of the condition. It does not matter whether you needed treatment for the condition when you entered the United States.
+• You were initially prevented from leaving, were then able to leave, but remained in the United States beyond a reasonable period for making arrangements to leave.
+Paperwork Reduction Act Notice. We ask for the information on this form to carry out the Internal Revenue laws of the United States. Section 7701(b) and its regulations require that you give us the information.
+We need it to determine if you can exclude days of presence in the United States for purposes of the substantial presence test.
+You aren’t required to provide the information requested on a form that is subject to the Paperwork Reduction Act unless the form displays a valid OMB control number. Books or records relating to a form or its instructions must be retained as long as their contents may become material in the administration of any Internal Revenue law. Generally, tax returns and return information are confidential, as required by section 6103.
+The average time and expenses required to complete and file this form will vary depending on individual circumstances.
+For the estimated averages, see the instructions for your income tax return.
+If you have suggestions for making this form simpler, we would be happy to hear from you. See the instructions for your income tax return.
