@@ -1,8 +1,10 @@
+```json
 {
-  "Document_date": "Oct-28, 2010",
-  "Document_summary": "This document is an Interconnection Agreement between Kauai Island Utility Cooperative and Kapaa Solar LLC, outlining the terms and conditions for the interconnection of a Small Generating Facility. It covers responsibilities, costs, termination, disputes, insurance, confidentiality, and more. The Agreement is detailed and comprehensive, ensuring compliance with laws and regulations for a smooth interconnection process.",
-  "Suggested_title": "10-28-2010 Interconnection Agreement",
-  "Suggested_title_v2": "Interconnection Agreement - 10-28-2010",
-  "Suggested_title_v3": "Small Generating Facility Interconnection - Oct-28-2010",
-  "Document_folder_path": "Interconnection"
+    "Document_date": "Oct-28, 2010",
+    "Document_summary": "This document is an Interconnection Agreement between Kauai Island Utility Cooperative and Kapaa Solar LLC, outlining the terms and conditions for the interconnection of a Small Generating Facility. It covers responsibilities, costs, termination, disputes, insurance, and other key aspects of the agreement.",
+    "Suggested_title": "10-28-2010 Solar Interconnection Agreement",
+    "Suggested_title_v2": "10-28-2010 Utility-Solar Interconnection",
+    "Suggested_title_v3": "10-28-2010 Solar Facility Interconnection",
+    "Document_folder_path": "Interconnection"
 }
+```

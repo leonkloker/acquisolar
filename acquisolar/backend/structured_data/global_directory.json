@@ -40,5 +40,12 @@
     "name": "Permitting",
     "type": "directory",
     "parent_id": 1
+  },
+  {
+    "id": 8,
+    "name": "2010-0179_IA_on_p3.pdf",
+    "type": "file",
+    "size": 2297492,
+    "parent_id": 3
   }
 ]

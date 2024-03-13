@@ -5,26 +5,6 @@ import axios from 'axios';
 import Header from './viewcomponents/header';
 import backButton from './../icons/backbutton.png';
 
-// Example dictionary of folders and files
-const initialFolders = {
-    "Environmental": [],
-    "EPC": [],
-    "Interconnection": [],
-    "Permitting": [],
-    "PPA": [
-        "2014-0359 (PPA on p37).pdf",
-        "2015-0389 (PPA on p114).pdf",
-        "2020-0137 (PPA on p41).pdf",
-        "Interconnection agreement 1.pdf",
-        "PPA1.pdf"
-    ],
-    "Unclassified": [
-        "HR_Clearway_LOI_Fully Executed.pdf",
-        "Offtaker sheet - BFA Energy.pdf",
-        "Waikoloa Purchase and Sale Agreement.pdf"
-    ]
-  };
-
   // url of aws server and port 80
   // change to 'http://localhost:3001' for localhost
   // or http://54.90.226.66:80' for aws
