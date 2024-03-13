@@ -1,8 +1,10 @@
+```json
 {
-    "Document_date": "___",
-    "Document_summary": "This document appears to be a solutions manual accompanying a textbook on arbitrage theory in continuous time. It provides detailed solutions to problems and exercises in the textbook, aiding in understanding the concepts and applications of arbitrage theory in a continuous time framework.",
-    "Suggested_title": "___",
-    "Suggested_title_v2": "___",
-    "Suggested_title_v3": "___",
-    "Document_folder_path": "project/Unclassified"
+    "Document_date": "Oct-14, 2019",
+    "Document_summary": "This document is a Letter of Intent between Haleakala Ranch Company and Clearway Renew LLC for the development of a 40 megawatt solar renewable energy project in Maui County, Hawaii. The implications are that the parties are agreeing to negotiate the terms of definitive agreements for the project.",
+    "Suggested_title": "10-14-2019 Solar Project Letter",
+    "Suggested_title_v2": "10-14-2019 Renewable Energy Agreement",
+    "Suggested_title_v3": "10-14-2019 Solar Development Intent",
+    "Document_folder_path": "project/PPA"
 }
+```

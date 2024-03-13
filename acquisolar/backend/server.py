@@ -192,19 +192,25 @@ def calculate_metadata():
 @app.route('/get-folder-contents', methods=['POST'])
 def get_folder_contents():
     folders = calculate_folders()
+    print(folders)
     metadata = calculate_metadata()
     data = request.json
     folder_name = data.get('folderName')
 
+    filtered_metadata = []
+    for file in metadata:
+        if folder_name and folder_name in folders:
+            if file["current_title"] in folders[folder_name]:
+                filtered_metadata.append(file)
+        else:
+            return jsonify({'status': 'error', 'message': 'Folder not found'}), 404   
+
     if folder_name and folder_name in folders:
-        # Filter metadata for files in the correct folder
-        filtered_metadata = [item for item in metadata if folder_name in item["Document_folder_path"].split('/')]
         if filtered_metadata:
             return jsonify(filtered_metadata)
         else:
             return jsonify({'status': 'error', 'message': 'No files found in the specified folder'}), 404
-    else:
-        return jsonify({'status': 'error', 'message': 'Folder not found'}), 404
+
 
 
 # Serve the frontend
