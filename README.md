@@ -1,4 +1,13 @@
 # AcquiSolar
+## Summary Sprint 4
+Leon:
+
+Zara: Continued developing UI design and integrating with the flask backend. A user is now able to easily search through and structure files. Worked on the backend a lot to allow for smooth file changes when necessary.
+
+Jürgen:
+
+Magnus:
+
 ## Summary Sprint 3
 
 Leon:
