@@ -1,8 +1,8 @@
 {
-  "Document_date": "N/A",
-  "Document_summary": "Unable to extract a valid summary from the provided text.",
-  "Suggested_title": "N/A",
-  "Suggested_title_v2": "N/A",
-  "Suggested_title_v3": "N/A",
-  "Document_folder_path": "project/Unclassified"
+  "Document_date": "Jan-22, 2019",
+  "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. The motion outlines the interests and qualifications of Ho'ohana Solar 1, LLC to participate in the decision-making process. The document is at the stage of seeking approval for participation in the M&A process.",
+  "Suggested_title": "01-22-2019 Solar Participation Motion",
+  "Suggested_title_v2": "01-22-2019 Solar PPA Participation",
+  "Suggested_title_v3": "01-22-2019 Solar M&A Participation",
+  "Document_folder_path": "PPA"
 }

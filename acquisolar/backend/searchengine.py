@@ -16,7 +16,7 @@ from llama_index.core import (
 from llama_index.llms.openai import OpenAI
 
 # API keys
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 os.environ["REPLICATE_API_TOKEN"] = "r8_JGumNCYSrS3ikipf7vqjvSTLyfYiWtp3cxYjo"
 
 # LLM
