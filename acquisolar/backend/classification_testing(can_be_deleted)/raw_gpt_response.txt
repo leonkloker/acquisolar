@@ -1,10 +1,10 @@
 {
     "Document_date": "Jan-22, 2019",
-    "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. The motion outlines the company's interest in the project and its request to assist the Commission in making an informed decision. The document is at the stage of seeking approval and participation in the regulatory process.",
-    "Suggested_title": "01-22-2019 Solar Participation Motion",
-    "Suggested_title_v2": "01-22-2019 Solar Project Participation",
-    "Suggested_title_v3": "01-22-2019 Solar PPA Approval Motion",
+    "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. It outlines the company's interest in the project and its request to be admitted as a participant. The document is focused on seeking approval and support for the PPA and related approvals.",
+    "Suggested_title": "01-22-2019 Solar PPA Participation",
+    "Suggested_title_v2": "01-22-2019 Solar Project Approval Motion",
+    "Suggested_title_v3": "01-22-2019 Solar Power Agreement Involvement",
     "Document_folder_path": "PPA",
     "Document-label": "Communication",
-    "Reasoning": "The document is a motion related to the approval of a Power Purchase Agreement (PPA) for a solar project, specifically requesting participation in the regulatory process. The primary focus is on the PPA and the involvement of Ho'ohana Solar 1, LLC in the project."
+    "Reasoning": "The document is primarily focused on seeking approval for a Power Purchase Agreement (PPA) for a solar project, making it suitable for classification under the 'PPA' folder. The content revolves around the application for approval and participation in the PPA process."
 }
