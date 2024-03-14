@@ -21,15 +21,15 @@ Metadata_changes.zip_directory()
 
 Move file:
 Moves the file specified by its "current_name" to the given directory ID
-#file_name = "PPA.pdf"
-#new_dir_id = 2
-#move_file(file_name, new_dir_id)
+file_name = "PPA.pdf"
+new_dir_id = 2
+Metadata_changes.move_file(file_name, new_dir_id)
 
 Add notes to file:
 adds notes defined in string to metadata of the file
 file_name = "PPA.pdf"
 input_text = "these are notes"
-take_notes(file_name, input_text)
+Metadata_changes.take_notes(file_name, input_text)
 """
 
 

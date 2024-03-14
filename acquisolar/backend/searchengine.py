@@ -82,6 +82,43 @@ def index(doc_dir='./documents', index_dir='./index_storage'):
 
     return "Index created"
 
+"""
+# FUNTION TO LOOP OVER EACH SINGLE INCOMING DOCUMENT
+# check if gloval index dir exists
+    # if not create a new one
+# remove "." in filename to create name for file index
+# add single document to global index (or reindex the whole shit if easiest)
+# Index document to local file index (if having it in global is not enough)
+
+
+def index_v2(file_name, doc_dir='./documents', index_dir='./index_storage'):
+    
+    # Globabl index
+    if not os.path.exists(doc_dir):
+        return "Directory does not exist"
+    
+    if not os.path.exists(index_dir):
+        os.makedirs(index_dir)
+
+    # load the documents and create the index
+    documents = SimpleDirectoryReader(doc_dir, recursive=True).load_data() #file_extractor={'.pdf': loader()}, recursive=True).load_data()
+
+    vector_index = VectorStoreIndex.from_documents(documents, service_context=SERVICE_CONTEXT)
+
+    # store it for later
+    vector_index.storage_context.persist(persist_dir=index_dir)
+
+    # Local index
+    
+    
+
+
+    return "Index created"
+
+"""
+
+
+
 def delete_documents(doc_names, index_dir='./index_storage'):
     if not os.path.exists(index_dir):
         return "Index does not exist"
@@ -124,3 +161,7 @@ def add_documents(doc_paths, index_dir='./index_storage'):
     vector_index.storage_context.persist(persist_dir=index_dir)
 
     return "Documents added to index"
+
+
+
+
