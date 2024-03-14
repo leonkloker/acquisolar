@@ -141,6 +141,7 @@ def updateNotes():
     data = request.get_json()
     file_name = data.get('filename')
     notes = data.get('notes')
+    print(notes)
 
     if not id or not notes:
         return jsonify({'error': 'Missing arguments in the request'}), 400

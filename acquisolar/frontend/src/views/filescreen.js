@@ -31,6 +31,12 @@ const File = () => {
     ));
   };
 
+  const updateFileNotes = (id, newNote) => {
+    setFiles(files.map(file => 
+      file.id === id ? { ...file, notes: newNote } : file
+    ));
+  }
+
   const onShowPdf = (file) => {
     setShowPdf(true);
     setSelectedPdf(file);
@@ -66,6 +72,7 @@ const File = () => {
                   file={file}
                   onUpdateTitle={updateTitle}
                   onShowPdf={onShowPdf}
+                  onUpdateNote={updateFileNotes}
                   />
               ))}
           </div>
