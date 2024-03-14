@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import zipfile
 
 
 # Set directories
@@ -13,6 +14,8 @@ def set_root_directory():
 def set_metadata_and_directory_file_path(root_directory):
     metadata_path = os.path.join(root_directory, "structured_data", "complete_file_metadata.json")
     directory_path = os.path.join(root_directory, "structured_data", "global_directory.json")
+    
+
     return metadata_path, directory_path
 def load_directory_data(directory_path):
     with open(directory_path, 'r', encoding='utf-8') as file:
@@ -223,19 +226,41 @@ def retrieve_original_file_name(current_file_name):
                 return entry.get("original_title")
     return None
 
-""" Example use"""
+def zip_directory(project_name = "project"):
+    root_directory = set_root_directory()
+    zip_dir_path = os.path.join(root_directory, "zip_output", f"{project_name}.zip")
+    print(zip_dir_path)
+    project_path = os.path.join(root_directory, "structured_data", project_name)
+    # Ensure the ZIP file's directory exists
+    os.makedirs(os.path.dirname(zip_dir_path), exist_ok=True)
+    # Create a ZIP file
+    with zipfile.ZipFile(zip_dir_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(project_path):
+            for file in files:
+                # Create the full path to the file
+                file_path = os.path.join(root, file)
+                # Calculate the relative path to maintain the directory structure
+                rel_path = os.path.relpath(file_path, os.path.commonpath([project_path, file_path]))
+                # Add the file to the ZIP archive
+                zipf.write(file_path, rel_path)
+
+    print(f"ZIP file created at: {zip_dir_path}")
+    return True
+
+
+""" Example use: change name"""
 #file_name = "LOI2.pdf"
 #new_name = "LOI.pdf"
 
 #rename_file(file_name, new_name)
 
-""" Example use """
+""" Example use: move file"""
 #file_name = "PPA_new_name.pdf"
 #new_dir_id = 2
 
 #move_file(file_name, new_dir_id)
 
-""" Example use """
+""" Example use: add text"""
 #file_name = "PPA_new_name.pdf"
 input_text = f"""
 HEllo 
@@ -248,3 +273,8 @@ that i want to store
 """ Example use """
 
 #original_file_name = retrieve_original_file_name(current_file_name)
+
+
+
+""" Example use: Zip folder structure"""
+#zip_directory("project")

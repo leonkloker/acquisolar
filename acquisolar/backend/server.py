@@ -11,6 +11,30 @@ import classification
 import searchengine
 import Metadata_changes
 
+
+"""
+INFORMATION ABOUT FUNCTIONS TO BE IMPLEMENTED
+
+Zip directory:
+this function zips together the whole project and places it in the zip_output folder. returns True when complete
+Metadata_changes.zip_directory() 
+
+Move file:
+Moves the file specified by its "current_name" to the given directory ID
+#file_name = "PPA.pdf"
+#new_dir_id = 2
+#move_file(file_name, new_dir_id)
+
+Add notes to file:
+adds notes defined in string to metadata of the file
+file_name = "PPA.pdf"
+input_text = "these are notes"
+take_notes(file_name, input_text)
+"""
+
+
+
+
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
 

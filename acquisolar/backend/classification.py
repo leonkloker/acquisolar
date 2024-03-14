@@ -251,7 +251,7 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
 - "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
-- "Document Label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Document-label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
 - "Reasoning": Provide reasoning for every documents you classified. 
 
 For "Document_folder_path", please follow these guidelines: 
@@ -562,12 +562,3 @@ if __name__ == "__main__":
     input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)
     clear_directory_contents(output_dir) #use if you want to clear file structure before running
     main(input_dir, output_dir, preferences_dir, project_name, copy_or_move)
-
-
-
-
-
-
-
-
-
