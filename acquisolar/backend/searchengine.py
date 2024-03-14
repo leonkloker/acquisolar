@@ -36,7 +36,8 @@ SYNTH = get_response_synthesizer(streaming=True)
 
 def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     if not os.path.exists(index_dir):
-        return "Index does not exist"
+        response = LLM.complete(text).text
+        return response, [], [], []
 
     query_engine = get_query_engine(index_dir, filenames)
 
@@ -44,14 +45,14 @@ def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     response_gen = response.response_gen
     source_nodes = response.source_nodes
     source_texts = [source_node.node.text for source_node in source_nodes]
-    source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
+    #source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
     source_docs = [source_node.node.metadata["file_path"] for source_node in source_nodes]
-    source_docs = ["/".join(doc.split("/")[-3:]) for doc in source_docs]
+    source_docs = ["/".join(doc.split("/")[-2:]) for doc in source_docs]
 
     if not generator:
         response_gen = "".join(list(response_gen))
 
-    return response_gen, source_texts, source_pages, source_docs
+    return response_gen, source_texts, source_docs
 
 def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the existing storage
@@ -60,17 +61,7 @@ def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the index from storage
     vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
 
-    document_nodes = []
-    if len(filenames) != 0:
-        for node in vector_index.index_struct.nodes:
-            if node.extra_info["file_name"] in filenames:
-                document_nodes.append(node)
-
-    if len(document_nodes) == 0:
-        query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
-    else:
-        query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True,
-                                                    document_nodes=document_nodes)
+    query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
 
     return query_engine
 
