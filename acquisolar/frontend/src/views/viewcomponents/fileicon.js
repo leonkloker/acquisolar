@@ -7,20 +7,31 @@ import axios from 'axios';
 
 const ENDPOINT = 'http://localhost:3001';
 
-const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
+const FileIcon = ({ file, onUpdateTitle, onShowPdf, onUpdateNote }) => {
     const navigate = useNavigate();
     const [contentToShow, setContentToShow] = useState(null);
     const [notes, setNotes] = useState(file.notes || "");
-  
+    const [savedNotes, setSavedNotes] = useState(file.notes || ""); 
+
+    useEffect(() => {
+        setSavedNotes(file.notes);
+    }, [file.notes]);
+
     const handleShowContent = (content) => {
         return () => {
             if (!contentToShow) {
                 setContentToShow(content);
-            } else {
+            } 
+            else {
+                if (content === 'notes') {
+                    // Reset notes to original file notes when canceling note edit
+                    setNotes(savedNotes || "");
+                }
                 setContentToShow(null);
             }
         };
     };
+
   
     const handleConfirmTitle = () => {
         onUpdateTitle(file.id, file.Suggested_title);
@@ -46,10 +57,10 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
     };
 
     const handleNotes = () => {
-        // Function to send notes to the backend
+        
         const data = {
             filename: file.current_title,
-            notes: file.notes,
+            notes: notes,
         };
 
         axios.post(ENDPOINT + '/updateNotes', data)
@@ -59,8 +70,9 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
             .catch((error) => {
                 console.error('Error updating notes', error);
             });
-
-        handleShowContent('notes')
+        
+        onUpdateNote(file.id, notes);
+        setContentToShow(null)
     };
 
     const handleNoteChange = (event) => {
