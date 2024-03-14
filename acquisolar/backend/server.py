@@ -11,7 +11,7 @@ from io import BytesIO
 
 import classification
 import searchengine
-#import Metadata_changes
+import Metadata_changes
 
 
 """

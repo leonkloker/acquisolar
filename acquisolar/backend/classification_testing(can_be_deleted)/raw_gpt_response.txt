@@ -1,12 +1,12 @@
 ```json
 {
-    "Document_date": "Jan-22, 2019",
-    "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. It outlines the company's interest in the project and its request for participation without intervention. The document reflects the stage of seeking regulatory approval for a solar power project.",
-    "Suggested_title": "01-22-2019 Solar Project Participation Motion",
-    "Suggested_title_v2": "01-22-2019 Solar Project Involvement Request",
-    "Suggested_title_v3": "01-22-2019 Solar Project Regulatory Approval Motion",
-    "Document_folder_path": "PPA",
-    "Document-label": "Communication",
-    "Reasoning": "The document pertains to a motion related to a Power Purchase Agreement (PPA) for a solar project, making it fitting for the PPA folder. It involves seeking approval and participation in a regulatory proceeding, aligning with the nature of PPA documents."
+    "Document_date": "Oct-30, 2019",
+    "Document_summary": "This document is a Purchase and Sale Agreement between Waikoloa Highlands, Inc. and Waikoloa Land Holdings, LLC for a property in Waikoloa, Hawaii. The agreement outlines the sale of approximately 706.63 acres of land for the development of a Solar Project, subject to various contingencies and conditions.",
+    "Suggested_title": "10-30-2019 Property Sale Agreement",
+    "Suggested_title_v2": "10-30-2019 Waikoloa Property Sale",
+    "Suggested_title_v3": "10-30-2019 Solar Project Land Sale",
+    "Document_folder_path": "Site Control",
+    "Document-label": "Contract",
+    "Reasoning": "The document is a Purchase and Sale Agreement for a property in Waikoloa, Hawaii, indicating the transfer of ownership rights. This falls under 'Site Control' as it confirms the legal authority over the project site and includes details of the land sale."
 }
 ```
