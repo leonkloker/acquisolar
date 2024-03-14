@@ -37,7 +37,7 @@ SYNTH = get_response_synthesizer(streaming=True)
 def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     if not os.path.exists(index_dir):
         response = LLM.complete(text).text
-        return response, [], [], []
+        return response, [], []
 
     query_engine = get_query_engine(index_dir, filenames)
 
@@ -47,7 +47,7 @@ def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     source_texts = [source_node.node.text for source_node in source_nodes]
     #source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
     source_docs = [source_node.node.metadata["file_path"] for source_node in source_nodes]
-    source_docs = ["/".join(doc.split("/")[-2:]) for doc in source_docs]
+    source_docs = ["/".join(doc.split("/")[-1:]) for doc in source_docs]
 
     if not generator:
         response_gen = "".join(list(response_gen))

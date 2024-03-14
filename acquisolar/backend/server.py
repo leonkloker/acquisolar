@@ -136,13 +136,14 @@ def search():
                                                           filenames=filenames, generator=False)
 
     return jsonify({"response": response_gen,
-                    "texts": texts})
+                    "texts": texts,
+                    "source_docs": docs})
 
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
     json_file_path = './structured_data/global_directory.json'
-    
+    print(filename)
     # Load the JSON content
     with open(json_file_path, 'r') as file:
         directories = json.load(file)
