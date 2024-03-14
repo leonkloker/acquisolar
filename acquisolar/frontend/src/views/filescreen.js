@@ -13,7 +13,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // change to 'http://localhost:3001' for localhost
 // or http://54.90.226.66:80' for aws
 // Changed this variable name or causes issues with other parts of code
-const URLServer = 'http://localhost:3001'
+const URLServer = 'http://54.166.201.233:80'
 
 const File = () => {
   const navigate = useNavigate();

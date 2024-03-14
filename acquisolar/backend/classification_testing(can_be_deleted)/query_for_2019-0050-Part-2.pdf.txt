@@ -1,0 +1,584 @@
+
+You are a pragmatic Solar M&A Senior Analyst in the United States. You are about to get instructions to extract information from documents. This information will be used to add meta data, create a summary and sort the documents.
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
+- "Document-label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Reasoning": Provide reasoning for every documents you classified. 
+
+For "Document_folder_path", please follow these guidelines: 
+
+    1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
+
+    2. Classify documents with precision, using these category definitions:
+
+        "Interconnection": Contains contracts and agreements for connecting the solar project to the power grid. Look for phrases like "the interconnection customer agrees" and "interconnection requests".
+
+        "Site Control": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
+
+        "PPA": Features power purchasing agreements between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards, as well as supplementary documents.  
+
+        "Environmental": Documents related to environmental impact assessments, permits, and compliance reports for the solar project. Includes studies on flora, fauna, water, soil, and air quality impacts, as well as mitigation strategies.
+
+        "EPC": Contains contracts, plans, and documentation related to the engineering design, procurement of materials, and construction of the solar project. This includes agreements with contractors, project timelines, and construction permits.
+
+    3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
+    4. Only classify documents as "Miscellaneous" if no other folder is likely. 
+The list of to select folders from below:
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Site Control
+  - Miscellaneous
+
+
+The provided document text is:
+EXHIBIT 1
+Power Purchase Agreement for Renewable Dispatchable Generation, dated February 28, 2019, by and between Hawaiian Electric Company, Inc.
+and AES West Oahu Solar, LLC EXECUTION Eall@f616
+PAGE 1 OF 352
+V .....
+Hawaiian Electric Power Purchase Agreement For Renewable Dispatchable Generation AES West Oahu Solar, LLC a Delaware limited liability company Dated: February 28,2019
+ARTICLE 1
+ARTICLE 2
+FOR ARTICLE 3
+ARTICLE 4
+ARTICLE 5
+ARTICLE 6
+ARTICLE 7
+ARTICLE 8
+ARTICLE 9
+ARTICLE ARTICLE LAW ARTICLE END ARTICLE OPE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE ARTICLE EXHIBIT 1
+PAGE 2 OF 352
+TABLE OF CONTENTS PARALLEL OPERATION .....................................3
+PURCHASE AND SALE OF ENERGY AND DISPATCHABILITY; RATE PURCHASE AND SALE; BILLING AND PAYMENT ..................4
+FACILITY OWNED AND/OR OPERATED BY SELLER ..............37
+COMPANY-OWNED INTERCONNECTION FACILITIES ..............43
+MAINTENANCE RECORDS AND SCHEDULING ....................44
+FORECASTING ...........................................49
+SELLER PAYMENTS .......................................54
+COMPANY DISPATCH ......................................55
+PERSONNEL AND SYSTEM SAFETY ...........................57
+METERING .............................................58
+GOVERNMENTAL APPROVALS, LAND RIGHTS AND COMPLIANCE WITH TERM OF AGREEMENT AND COMPANY'S OPTION TO PURCHASE AT )F TERM ................................................62
+GUARANTEED PROJECT MILESTONES INCLUDING COMMERCIAL TIONS .................................................68
+CREDIT ASSURANCE AND SECURITY ........................74
+EVENTS OF DEFAULT ....................................79
+DAMAGES IN THE EVENT OF TERMINATION BY COMPANY .......85
+INDEMNIFICATION ......................................87
+INSURANCE ............................................92
+TRANSFERS, ASSIGNMENTS, AND FACILITY DEBT ............95
+SALE OF ENERGY TO THIRD PARTIES ......................98
+FORCE MAJEURE ........................................99
+WARRANTIES AND REPRESENTATIONS ......................104
+PROCESS FOR ADDRESSING REVISIONS TO PERFORMANCE 1C 11
+S 12
+C 13
+RA 14
+15
+16
+17
+18
+19
+2C 21
+22
+23
+STANDARDS .................................................106
+ARTICLE 24 FINANCIAL COMPLIANCE ................................112
+ARTICLE 25 GOOD ENGINEERING AND OPERATING PRACTICES ............117
+ARTICLE 26 EQUAL EMPLOYMENT OPPORTUNITY ........................118
+ARTICLE 27 SET OFF .............................................119
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+i EXHIBIT 1
+PAGE 3 OF 352
+ARTICLE 28 DISPUTE RESOLUTION ..................................120
+ARTICLE 29 MISCELLANEOUS .......................................122
+SCHEDULE OF DEFINED TERMS ..............SCHEDULE OF DEFINED TERMS-1
+ATTACHMENT A DESCRIPTION OF GENERATION, CONVERSION AND STORAGE FACILITY ..................................................A-1
+EXHIBIT A-1
+EXHIBIT A-2
+ATTACHMENT EXHIBIT B-1
+EXHIBIT B-2
+ATTACHMENT GOOD STANDING CERTIFICATES .........................A-7
+OWNERSHIP STRUCTURE ................................A-9
+B FACILITY OWNED BY SELLER ..........................B-1
+REQUIRED MODELS ...................................B-44
+GENERATOR AND ENERGY STORAGE CAPABILITY CURVE(S) ..B-45
+C METHODS AND FORMULAS FOR MEASURING PERFORMANCE STANDARDS .................................................C-1
+ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT SCHEDULE H-
+D CONSULTANTS LIST ..................................D-1
+E SINGLE-LINE DRAWING AND INTERFACE BLOCK DIAGRAM ...E-1
+F RELAY LIST AND TRIP SCHEME ........................F-1
+G COMPANY-OWNED INTERCONNECTION FACILITIES ..........G-1
+H FORM OF BILL OF SALE AND ASSIGNMENT ...............H-1
+1 DESCRIPTION OF TANGIBLE PERSONAL PROPERTY AND FIXTURES ..................................................H-4
+SCHEDULE H-2 DESCRIPTION OF INTANGIBLE PERSONAL PROPERTY .......H-5
+ATTACHMENT I FORM OF ASSIGNMENT OF LEASE AND ASSUMPTION ........I-1
+SCHEDULE 1 .....................................................I-7
+ATTACHMENT J COMPANY PAYMENTS FOR ENERGY AVAILABILITY OF BESS ..............
+DISPATCHABILITY AND ................... ....J-1
+ATTACHMENT K GUARANTEED PROJECT MILESTONES [FOR DEVELOPER INTERCONNECTION BUILD] ....................................K-1
+ATTACHMENT K-1 SELLER'S CONDITIONS PRECEDENT AND COMPANY MILESTONES [FOR DEVELOPER INTERCONNECTION BUILD] ..........K-2
+ATTACHMENT K GUARANTEED PROJECT MILESTONES [FOR HAWAIIAN ELECTRIC INTERCONNECTION BUILD] ....................................K-5
+ATTACHMENT K-1 SELLER'S CONDITIONS PRECEDENT AND COMPANY MILESTONES [FOR HAWAIIAN ELECTRIC INTERCONNECTION BUILD] ..K-7
+ATTACHMENT L REPORTING MILESTONES [FOR DEVELOPER INTERCONNECTION BUILD] ....................................................L-1
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+11
+EXHIBIT 1
+PAGE 4 OF 352
+ATTACHMENT L REPORTING MILESTONES [FOR HAWAIIAN ELECTRIC INTERCONNECTION BUILD] ....................................L-3
+ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT ATTACHMENT M FORM OF LETTER OF CREDIT ..........................M-1
+N ACCEPTANCE TEST GENERAL CRITERIA ..................N-1
+0 CONTROL SYSTEM ACCEPTANCE TEST CRITERIA ...........0-1
+P SALE OF FACILITY BY SELLER ........................P-1
+Q [RESERVED] ........................................Q-1
+R REQUIRED INSURANCE ................................R-1
+S FORM OF MONTHLY PROGRESS REPORT ...................S-1
+T MONTHLY REPORTING AND DISPUTE RESOLUTION BY INDEPENDENT AF EVALUATOR ..................................T-1
+ATTACHMENT U CALCULATION AND ADJUSTMENT OF NET ENERGY POTENTIAL U-1
+ATTACHMENT V SUMMARY OF MAINTENANCE AND INSPECTION PERFORMED IN PRIOR CALENDAR YEAR .......................................V-1
+ATTACHMENT W BESS CAPACITY TEST ................................W-1
+ATTACHMENT X BESS ANNUAL EQUIVALENT AVAILABILITY ...............X-1
+ATTACHMENT Y BESS ANNUAL EQUIVALENT FORCED OUTAGE FACTOR .......Y-1
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+111
+EXHIBIT 1
+PAGE 5 OF 352
+POWER PURCHASE AGREEMENT FOR RENEWABLE DISPATCHABLE GENERATION THIS POWER PURCHASE AGREEMENT FOR RENEWABLE DISPATCHABLE GENERATION ("Agreement") is made this 28th day of February, 2019
+(the "Execution Date"), by and between Hawaiian Electric Company, Inc., a Hawai'i corporation (hereinafter called the "Company") and AES West Oahu Solar, LLC, a Delaware limited liability company (hereinafter called the "Seller" ) .
+WHEREAS, Company is an operating electric public utility on the Island of 0'ahu, subject to the Hawai'i Public Utilities Law (Hawai'i Revised Statutes, Chapter 269) and the rules and regulations of the Hawai'i Public Utilities Commission (hereinafter called the "PUC"); and WHEREAS, the Company System is operated as an independent power grid and must both maximize system reliability for its customers by ensuring that sufficient generation is available and meet the requirements for voltage stability, frequency stability, and reliability standards; and WHEREAS, Company desires to minimize fluctuations in its purchased energy costs by acquiring renewable dispatchable generation at a fixed Unit Price; and WHEREAS, Seller is a developer of renewable energy systems and intends to hire a properly licensed general contractor ("EPC Contractor") to build a renewable energy facility that is classified as an eligible resource under Hawai'i's Renewable Portfolio Standards Statute (codified as Hawai'i Revised Statutes (HRS) 269-91 through 269-95) that will be owned and operated by Seller; and WHEREAS, Seller understands the need to use all commercially reasonable efforts to maximize the overall reliability of the Company System; and WHEREAS, Facility will be located on a portion of land north of the University of Hawai'i - West 0'ahu campus and the H-1
+Freeway near the Kualaka'i Parkway in southwest 0'ahu, State of Hawai'i, and is more fully described in Attachment A (Description of Generation, Conversion and Storage Facility) and Attachment B (Facility Owned by Seller) attached hereto and made a part hereof;
+and EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+1
+EXHIBIT 1
+PAGE 6 OF 352
+WHEREAS, Seller desires to sell to Company, and Company agrees to purchase upon the terms and conditions set forth herein, (i) the Actual Output produced by the Facility and delivered to the Point of Interconnection; (ii) the availability of the BESS;
+and (iii) the availability of the Facility's Net Energy Potential for Company Dispatch in accordance with this Agreement.
+NOW, THEREFORE, in consideration of the premises and the respective promises herein, Company and Seller hereby agree as follows:
+DEFINITIONS When the capitalized terms set forth in the Schedule of Defined Terms are used in this Agreement, such terms shall have the meanings set forth in such Schedule.
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+2
+EXHIBIT 1
+PAGE 7 OF 352
+ARTICLE 1
+PARALLEL OPERATION Company agrees to allow Seller to interconnect and operate the Facility to provide renewable dispatchable generation and energy in parallel with the Company System; provided, however, that such interconnection and operation shall not:
+(i) adversely affect Company's property or the operations of its customers and customers' property; (ii) present safety hazards to the Company System, Company's property or employees or Company's customers or the customers' property or employees; or (iii) otherwise fail to comply with this Agreement.
+Such parallel operation shall be contingent upon the satisfactory completion, as determined solely by Company, of the Acceptance Test and, to the extent applicable, the Control System Acceptance Test, in accordance with Good Engineering and Operating Practices.
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 1
+3
+EXHIBIT 1
+PAGE 8 OF 352
+ARTICLE 2
+PURCHASE AND SALE OF ENERGY AND DISPATCHABILITY;
+RATE FOR PURCHASE AND SALE; BILLING AND PAYMENT 2.1
+Purchase and Sale of Electric Energy, Dispatchability of Facility and Availability of the BESS.
+Subject to the other provisions of this Agreement, Company shall, by a Lump Sum Payment, pay for: (i) the Actual Output produced by the Facility and delivered to the Point of Interconnection in response to Company Dispatch of the Facility; (ii) the availability of the Facility's Net Energy Potential for Company Dispatch in accordance with this Agreement; and (iii) the availability of the BESS.
+Included in such purchase and sale are all of the Environmental Credits associated with the electric energy.
+Company will not reimburse Seller for any taxes or fees imposed on Seller including, but not limited to, State of Hawai'i general excise tax.
+2.2
+Payment for Electric Energy.
+Commencing on the Commercial Operations Date, in exchange for the electric energy delivered to the Point of Interconnection in response to Company Dispatch, Seller will be paid an Energy Payment on a monthly basis as provided in Section 1 (Price for Purchase of Electric Energy) of Attachment J (Company Payments for Energy, Dispatchability and Availability of BESS) to this Agreement.
+2.3
+Lump Sum Payment.
+Commencing on the Commercial Operations Date, Company shall pay to Seller a monthly Lump Sum Payment as provided in Section 2 (Lump Sum Payment for Purchase of Dispatchability) of Attachment J (Company Payments for Energy, Dispatchability and Availability of BESS) to this Agreement.
+As more fully set forth in Section 3
+(Calculation of Lump Sum Payment) of said Attachment J (Company Payments for Energy, Dispatchability and Availability of BESS), the monthly Lump Sum Payment shall be calculated and adjusted to reflect changes in the estimate of the Facility's Net Energy Potential as such estimate is revised from time to time as more fully set forth in Attachment U (Calculation and Adjustment of Net Energy Potential) to this Agreement.
+For purposes of calculating the monthly Lump Sum Payment, the monthly Lump Sum Payment shall be adjusted downward to account for the time the Facility inverter(s) are not available for Company Dispatch EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+4
+EXHIBIT 1
+PAGE 9 OF 352
+because of a Force Majeure condition (i) at the Facility or (ii) that otherwise delays or prevents the Seller from making the Facility inverter(s) in question available for Company Dispatch, as more fully set forth in Section 3.iv of Attachment J (Company Payments for Energy, Dispatchability and Availability of BESS) to this Agreement.
+If only the BESS is unavailable due to Force Majeure, the Lump Sum Payment shall be adjusted downward in an amount equal to the pro rata share of the BESS Allocated Portion of the Lump Sum Payment for each Day or portion thereof during the calendar month in question that the BESS was not available to respond to Company Dispatch because of a Force Majeure condition (i) at the Facility or (ii) that otherwise delays or prevents the Seller from making the BESS available for Company Dispatch.
+2.4
+Assurance of Capability of Facility to Deliver Net Energy Potential and Availability of BESS.
+(a) Design, Operation and Maintenance to Achieve Required Performance Metrics; Charging of BESS.
+In order to provide Company with reasonable assurance that, subject to the Renewable Resource Variability, the Facility's Net Energy Potential will be available for Company Dispatch: (i) the PV System Equivalent Availability Factor Performance Metric shall be used to evaluate the availability of the PV System for dispatch by Company;
+(ii) the Guaranteed Performance Ratio ("GPR") Performance Metric shall be used to evaluate the efficiency of the PV System; (iii) the BESS Capacity Performance Metric shall be used to confirm the capability of the BESS to discharge continuously for four (4) hours at Maximum Rated Output or to discharge continuously for a total energy (MWh) equal to the BESS Contract Capacity if the test is conducted at less than Maximum Rated Output; (iv) the BESS EAF Performance Metric shall be used to determine whether the BESS is meeting its expected availability; and (v) the BESS EFOF Performance Metric shall be used to evaluate whether the BESS is experiencing excessive unplanned outages.
+Whenever the PV System potential output is in excess of the Company Dispatch, the excess energy from the PV System shall be used to maximize the BESS State of Charge so long as this does not conflict with the operating parameters of the BESS set forth in Section EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+5
+EXHIBIT 1
+PAGE 10 OF 352
+9(d) (Battery Energy Storage System) of Attachment B (Facility Owned by Seller) to this Agreement.
+Seller shall design, operate and maintain the Facility in a manner consistent with the standard of care reasonably expected of an experienced owner/operator with the desire and financial resources necessary to design, operate and maintain the Facility to achieve the Performance Metrics.
+The foregoing is without limitation to Seller's other obligations under this Agreement, including the obligation to operate the Facility in accordance with Good Engineering and Operating Practices.
+The Performance Metrics set forth in Section 2.5 (PV System Equivalent Availability Factor; Liquidated Damages; Termination Rights) through Section 2.9 (BESS Annual Equivalent Forced Outage Factor; Liquidated Damages) of this Agreement shall be interpreted consistent with the North American Electric Reliability Corporation Generating Availability Data System ("NERC GADS") Data Reporting Instructions.
+(b) [Reserved] 2.5
+PV System Equivalent Availability Factor; Liquidated Damages; Termination Rights.
+(a) Calculation of the PV System Equivalent Availability Factor.
+Following the end of each LD Period, the PV System Equivalent Availability Factor shall be calculated for such LD Period as follows:
+AH-EPDH-EUDH PV System Equivalent = 100% x PH Availability Factor where:
+Period Hours (PH) is the total number of hours in the LD Period counting twenty-four (24) hours per day minus ExcludedTime.
+In a normal year, PH = 8,760 minus ExcludedTime, and in a leap year PH = 8,784 minus ExcludedTime.
+Available Hours (AH) is the number of hours that the PV System is not on Outage.
+It is the sum of all Service Hours (SH) + Reserve Shutdown Hours (RSH).
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+6
+EXHIBIT 1
+PAGE 11 OF 352
+An "Outage" exists whenever the entire PV System is not online producing electric energy and is not in a Reserve Shutdown state, resulting from Seller-Attributable Non-
+Generation but excluding ExcludedTime.
+Service Hours (SH) is the number of hours during the LD Period the PV System is online and producing electric energy to meet Company Dispatch and/or to maintain the BESS State of Charge.
+Reserve Shutdown Hours (RSH) is the number of hours the PV System was available to the Company System but not providing electric energy or is offline for reasons other than Seller-Attributable Non-Generation, or is offline due to insufficient irradiance levels based on the inverter manufacturer's minimum irradiance level for production.
+All hours except for ExcludedTime between 7:00 pm and 6:00 am will be considered RSH.
+The PV System will be considered RSH in these hours, even if the system would otherwise be in an outage or derated state.
+A "Deration" exists if the Facility is available for Company Dispatch, but at less than full potential output for the given irradiance conditions.
+Derations include only periods of Seller-Attributable Non-Generation and derations by Company pursuant to Section 8.3 (Company Rights of Dispatch).
+Derations do not include periods of ExcludedTime.
+Each individual Deration is transformed into equivalent full outage hour(s).
+For derations due to inverter outages, this is calculated by multiplying the actual duration of the derating (hours) by the number of inverters in the PV System offline and dividing by the total number of inverters in the PV System.
+For deration by Company pursuant to Section 8.3
+(Company Rights of Dispatch), this is calculated by the size of the deration (in MW) divided by the Contract Capacity.
+For avoidance of doubt, if the Facility is in an Outage it cannot also be in a Deration.
+Equivalent Planned Derated Hours (EPDH) includes Planned Derations (PD) and Maintenance Derations (D4). A Planned Deration is when the PV System experiences a Deration scheduled well in advance and for a EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+EXHIBIT 1
+PAGE 12 OF 352
+predetermined duration.
+A Maintenance Deration is a Deration that can be deferred beyond the end of the next weekend (Sunday at midnight or before Sunday turns into Monday) but requires a reduction in capacity before the next Planned Deration (PD).
+Each individual Deration is transformed into equivalent full outage hour(s).
+Equivalent Unplanned Derated Hours (EUDH):
+An Unplanned Deration (Forced Deration) occurs when the PV System experiences a Deration that requires a reduction in availability before the end of the nearest following weekend.
+Unplanned Derations include those due to Seller-Attributable Non-Generation.
+Each individual Unplanned Deration is transformed into equivalent full outage hour(s).
+This is calculated by multiplying the actual duration of the deration (in hours) by the number of inverters in the PV System offline and dividing by the total number of inverters in the PV System.
+These equivalent hour(s) are then summed.
+ExcludedTime is unavailability as a result of the PV System or a portion of the PV System being unavailable due to Force Majeure.
+The hours and/or equivalent hours of ExcludedTime shall not be added to Available Hours and shall be subtracted from Period Hours.
+This is calculated by multiplying the actual duration of the event that counts as ExcludedTime (in hours) by the number of inverters in the PV System offline and dividing by the total number of inverters in the PV System.
+These equivalent hour(s) are then summed.
+The effect of Force Majeure is taken into account in calculating the PV System Equivalent Availability Factor over the 12 calendar month LD Period as follows:
+When an LD Period contains a month during which the PV System or a portion of the PV System is unavailable due to Force Majeure, then such month shall be excluded from the LD Period and the LD Period shall be extended back in time to include the next previous month during which there was no such unavailability of the PV System or a portion thereof due to Force Majeure.
+EXAMPLE:
+The following is an example of a PV System Equivalent Availability Factor calculation and is EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+8
+EXHIBIT 1
+PAGE 13 OF 352
+included for illustrative purposes only.
+Assume the following:
+1. PV System has 10 inverters.
+2. LD Period = first 12 calendar months of the Agreement (non-leap year).
+3. PV System was online and producing electric energy for 4,000 hours and was available but not producing electric energy due to lack of sufficient irradiance for production (i.e., not Seller-Attributable Non-
+Generation) for 500 hours.
+4. 3 Inverters were offline for 100 hours due to a Planned Deration between the hours of 6 am and 7 pm.
+5. 2 Inverters were offline for 50 hours due to an Unplanned Deration between the hours of 6 am and 7 pm (Seller-Attributable Non-Generation).
+6. The PV System was offline for 10 hours due to Force Majeure, which occurred between the hours of 6 am and 7
+Pm.
+The PV System Equivalent Availability Factor would be calculated as follows:
+Excluded Time = 10 hrs PH = 8,760 hours in 12 calendar months - 10 hours of Excluded Time = 8,750 hours SH = 4,000 hours RSH = 500 hours + (11 hours/day x 365 days) :
+AH = SH + RSH = 4,000 hours + 4,515 hours :
+: 4,515 hours : 8,515 hours 3 inverters EPDH = 100 hours x ( ) = 30 hours 10 inverters / 2 inverters \ EUDH = 50 hours x I I = 10 hours \10 inverters/ EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+9
+EXHIBIT 1
+PAGE 14 OF 352
+8,515-30-10
+EAF = 100% x = 96.9% 8,750
+(b) PV System Equivalent Availability Factor Performance Metric and Liquidated Damages.
+For each LD Period, a PV System Equivalent Availability Factor shall be calculated as provided in accordance with Section 2.5(a) (Calculation of PV System Equivalent Availability Factor) of this Agreement.
+In the event the PV System Equivalent Availability Factor is less than 98% (the "PV System Equivalent Availability Factor Performance Metric") for any LD Period, Seller shall be subject to liquidated damages as set forth in this Section 2.5(b) (PV System Equivalent Availability Factor Performance Metric and Liquidated Damages).
+For avoidance of doubt, because the PV System Equivalent Availability Factor is calculated over an LD Period of 12 calendar months, the first month for which liquidated damages would be calculated under this Section 2.5(b) (PV System Equivalent Availability Factor Performance Metric and Liquidated Damages) would be the last calendar month of the initial Contract Year.
+If the PV System Equivalent Availability Factor for a LD Period is less than the PV System Equivalent Availability Factor Performance Metric, Seller shall pay, and Company shall accept, as liquidated damages for Seller's failure to achieve the PV System Equivalent Availability Factor Performance Metric for such LD Period, an amount calculated in accordance with the following formula:
+PV System Amount of Liquidated Damages Per Equivalent Calendar Month Availability Factor For each one-tenth of one percent 97.9% and below (0.001) by which the PV System Equivalent Availability Factor for such LD Period falls below the PV System Equivalent Availability Factor Performance Metric, an amount equal to 0.001917 of the Applicable Period Lump Sum Payment for the last calendar month of such LD Period.
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+10
+EXHIBIT 1
+PAGE 15 OF 352
+For purposes of determining liquidated damages under the preceding formula, the amount by which the PV System Equivalent Availability Factor for the LD Period in question falls below the applicable threshold shall be rounded to the nearest one-tenth of one percent (0.001).
+Each Party agrees and acknowledges that (i) the damages that Company would incur if the Seller fails to achieve the PV System Equivalent Availability Factor Performance Metric for a LD Period would be difficult or impossible to calculate with certainty and (ii) the aforesaid liquidated damages are an appropriate approximation of such damages.
+EXAMPLE:
+The following is an example calculation of liquidated damages for the PV System Equivalent Availability Factor Performance Metric and is included for illustrative purposes only.
+Assume the monthly Lump Sum Payment is $1,000,000 and the PV System Equivalent Availability Factor is 96.9% as calculated in the example in Section 2.5(a) (Calculation of the PV System Equivalent Availability Factor) above.
+The liquidated damages would be calculated as follows:
+Applicable Period Lump Sum Payment = $1,000,000
+$1,000,000 x .001917 = $1,917
+98.0% - 96.9% = 1.1% 1.1%/0.1% = 11
+$1,917 x 11 = $21,087
+(C) PV System Equivalent Availability Factor Termination Rights.
+The Parties acknowledge that, although the intent of the liquidated damages payable under Section 2.5(b) (PV System Equivalent Availability Factor Performance Metric and Liquidated Damages) is to compensate Company for the damages that Company would incur if the Seller fails to achieve the PV System Equivalent Availability Factor Performance Metric for a LD Period, such liquidated damages are not intended to EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+11
+EXHIBIT 1
+PAGE 16 OF 352
+compensate Company for the damages that Company would incur if a pattern of underperformance establishes a reasonable expectation that the PV System is likely to continue to substantially underperform the PV System Equivalent Availability Factor Performance Metric.
+Accordingly, and without limitation to Company's rights under said Section 2.5(b) (PV System Equivalent Availability Factor Performance Metric and Liquidated Damages) for those LD Periods during which the Seller failed to achieve the PV System Equivalent Availability Factor Performance Metric, the failure of the Facility to achieve a PV System Equivalent Availability Factor of not less than 84% for each of three consecutive Contract Years shall constitute an Event of Default under Section 15.1(b) of this Agreement for which Company shall have the rights (including but not limited to the termination rights) set forth in Article 15 (Events of Default) and Article 16 (Damages in the Event of Termination by Company).
+2.6 Measured Performance Ratio; Liquidated Damages; Termination Rights.
+(a) Calculation of Measured Performance Ratio.
+(i) The Measured Performance Ratio ("MPR") represents the PV System's measured DC power output compared to its theoretical DC power output as adjusted for the plane of array irradiance conditions measured at the Site.
+The gross PV System output in MW and MVAR will be measured at the point to be identified on the Facility's single-line diagram attached hereto as Attachment E (Single-Line Drawing and Interface Block Diagram).
+(ii) Following the end of each MPR Assessment Period, the MPR shall be calculated for such MPR Assessment Period (using the previous 12 months of data) as follows:
+MPR= i PDC_i (GpoAT Ii IPDcsārc VEFF' Where:
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+12
+EXHIBIT 1
+PAGE 17 OF 352
+i = each 15-minute interval during the MPR Assessment Period where the measured plan of array irradiance exceeds the manufacturer's minimum irradiance level for production Pnc is the measured DC power output of the PV System measured at the inverters DC input averaged over time period i (MW) Gsrc plane of array irradiance at the standard condition of 1000
+PICsārc is the DC rated capacity of the PV System at the standard test conditions of 1000 W/m2 and 25'C (MW), (i.e., the DC power rating of the PV panels at standard test conditions multiplied by the number of PV panels in the Facility);
+GpoA is the measured plane of array irradiance averaged over time period i (W/m2);
+(iii) The time periods used in the foregoing calculation shall be only periods during which, for the entire 15-minute interval, the PV System output is allowed to convert all irradiance to gross DC power (whether directed to the BESS or to the POI) and the plane of array irradiance is not less than the manufacturer's minimum irradiance level for production.
+Data points that may be excluded are limited to data points where there is indication that the inverter is limiting output of the PV array in response to Company signal or internal signal (such as battery SOC reaching 100%), identified by either internal/non-Company SCADA flag, or inverter DC voltage, as collected and supplied by the Facility SCADA system, indicating that the inverter is accepting maximum available PV current.
+The aforementioned 15-minute intervals are fixed intervals that commence, in sequence, at the top of each hour and at 15, 30 and 45 minutes past the hour.
+At the end of each month, Seller shall provide Company, as part of the Monthly Report, such data Ce.g., PV DC production at the inverter input, "PV curtailment" flag, and inverter DC voltage) from the Facility SCADA system as necessary to validate the exclusion of any data EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+13
+EXHIBIT 1
+PAGE 18 OF 352
+points from the calculation set forth in Section 2(a)(ii) above.
+This information shall be validated on a monthly basis.
+(iv) The Measured Performance Ratio shall be calculated using the data for each 15-minute interval during the MPR Assessment Period that satisfies the conditions set forth in clause (iii) above.
+The result of the foregoing calculation for the entire MPR Assessment Period shall be the MPR for the MPR Assessment Period in question.
+EXAMPLE:
+The following is an example of a Measured Performance Ratio calculation and is included for illustrative purposes only.
+Assume the following:
+1. Facility with 120,000 panels with a standard test condition rating of 300 W 2. PDcs'fc= 120,000 X 300 W = 36 MW 3. For illustrative purposes only, 4 hours of data which met the criteria specified in Section 2.6(a)(iii) have been recorded over the MPR Assessment Period.
+should be noted that all available operational data that meets the criteria specified in Section 2.6(a)(iii) shall be included in the actual calculation.:
+Time Average Measured Period Plane of Array Irradiance (W/m2) 1 690
+Average Measured Gross DC Power at Inverter inputs (MW) 16
+2 350
+11
+3 310
+14
+4 440
+19
+5 500
+23
+6 450
+20
+21
+8 910
+23
+9 910
+23
+10
+930
+23
+11
+1020
+24
+12
+1060
+25
+13
+570
+16
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+14
+EXHIBIT 1
+PAGE 19 OF 352
+14
+310
+12
+15
+470
+16
+16
+750
+19
+MPR= i PDC_i (GpoAC Ei IpDCSTC (7:JET, iPAC_i = 16 MW + 11 MW + 14 MW + 19 MW + 23 MW + 20 MW + 21 MW + 23 MW + 23 MW + 23 MW + 24 MW + 25 MW + 16 MW + 12 MW + 16 MW + 19 MW = 305MW (GpoA:11
+1-611 - 36 MW x [(690/1000) + (350/1000) + El IPDCSTC \ GsIC / 1
+(310/1000) + (440/1000) + (500/1000) + (450/1000) + (740/1000) + (910/1000) + (910/1000) + (930/1000) + (1020/1000) + (1060/1000) + (570/1000) + (310/1000) + (470/1000) + (750/1000)] = 374.76 MW MPR = 305 MW/ 374.76 MW = 0.814
+(V) MPR Test.
+In the event that the set of operational data points under Section 2.6(a)(iii) that is available for any month to calculate the MPR cannot be validated to Company's reasonable satisfaction or in the event there were not at least 16 such data points during such month that could be used to calculate the MPR, the Company shall have the right to perform a test ("MPR Test") to collect the data points for such month to be used to calculate the MPR in lieu of the use of operational data for such month.
+The Company shall retain sole discretion as to when to conduct the MPR Test and the MPR Test may be conducted at any point during the month following the month for which Company was either unable to validate the set of operational data points for such month or there were not at least 16
+data points available during such month. The MPR Test shall have a minimum duration of three (3) days and shall run until at least 48 data points are collected that meet the criteria set forth in Section 2(a)(iii) above.
+During an MPR Test, the MPR shall be calculated from the data points collected during said MPR Test using the formula set forth in Section 2(a)(ii) above. To the extent EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+15
+EXHIBIT 1
+PAGE 20 OF 352
+possible, the Company shall schedule the MPR Test for a period where all inverters in the PV System are available and weather conditions are expected to be optimum allowing the PV System to generate at full capacity for the duration of the MPR Test (if possible).
+However, if Company chooses a period where inverter(s) are unavailable, PDCs]āc shall be adjusted to remove the expected contribution of the unavailable inverter(s).
+The result of the calculation based on the MPR Test shall be the MPR for the MPR Assessment Period in question.
+(b) Determination of GPR Performance Metric.
+(i) Upon Commencement of Commercial Operations.
+If a copy of the IE Energy Assessment Report together with the supporting data (plane of array irradiance and corresponding power output) is not provided to Company in accordance with Section 1(c) CNEP IE Estimate and Company-Designated NEP Estimate) of Attachment U (Calculation and Adjustment of Net Energy Potential), the GPR Performance Metric for the period commencing on the Commercial Operations Date through the end of the calendar month during which the Initial OEPR is issued shall be 0.85.
+If a copy of the IE Energy Assessment Report together with the supporting data (plane of array irradiance and corresponding power output) is provided to Company in accordance with Section 1(c) CNEP IE Estimate and Company-Designated NEP Estimate) of Attachment U (Calculation and Adjustment of Net Energy Potential), the GPR Performance Metric shall be the GPR set forth in the IE Energy Assessment Report, provided that such GPR is justified by such supporting data and consistent with the manufacturer's minimum irradiance level for production and point of power measurement specified in Section 2.6(a)(ii).
+In the event that the IE Assessment Report includes the supporting data (plane of array irradiance and corresponding power output) relied upon in arriving at the NEP IE Estimate, but does not set forth a GPR, the GPR Performance Metric shall be calculated using such supporting data and the Measured Performance Ratio formula in Section 2.6(a)(ii) of this Agreement.
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+16
+EXHIBIT 1
+PAGE 21 OF 352
+Within 30 Days of Company's receipt of the IE Energy Assessment Report together with the aforementioned supporting data, Company shall provide written notice to Seller of either (aa) the GPR Performance Metric derived from such supporting data or (bb) Company's inability to reasonably derive a GPR Performance Metric from such supporting data, in which case the GPR Performance Metric shall be 0.85.
+(ii) Commencing With Initial OEPR.
+For the period commencing with the first Day of the calendar month following the establishment of the NEP OEPR Estimate for the Initial OEPR (as provided in Section 2 (Initial OEPR) and Sections 4 (g) CReview of the First OEPR Evaluator Report) and Ch) CReview of the Second OEPR Evaluator Report) of Attachment U (Calculation and Adjustment of Net Energy Potential) to this Agreement) through the end of the calendar month during which the NEP OEPR Estimate for the first Subsequent OEPR is established as provided in Section 3 (Subsequent OEPRs) and Sections 4(g) CReview of the First OEPR Evaluator Report) and Ch) CReview of the Second OEPR Evaluator Report) of Attachment U (Calculation and Adjustment of Net Energy Potential) to this Agreement, the GPR Performance Metric shall be the GPR as established through the Initial OEPR process as aforementioned.
+If no GPR has been established through the Initial OEPR process, the GPR Performance Metric shall be 0.85.
+(iii) Commencing With the First Subsequent OEPR and Thereafter.
+Commencing with the establishment of the NEP OEPR Estimate for the first Subsequent OEPR as provided in Section 3 (Subsequent OEPRs) and Sections 4(g) CReview of the First OEPR Evaluator Report) and Ch) CReview of the Second OEPR Evaluator Report) of Attachment U (Calculation and Adjustment of Net Energy Potential) to this Agreement, for each period commencing with the first Day of the calendar month following the establishment of the NEP OEPR Estimate for a Subsequent OEPR (including but not limited to the first Subsequent OEPR) through the end of the EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+17
+EXHIBIT 1
+PAGE 22 OF 352
+calendar month during which the NEP OEPR Estimate is established for the next Subsequent OEPR, the GPR Performance Metric shall be the GPR established for the applicable Subsequent OEPR.
+If no GPR has been established through the then applicable Subsequent OEPR process, the GPR Performance Metric shall be 0.85.
+(C) GPR Performance Metric and Liquidated Damages.
+For each MPR Assessment Period, a Measured Performance Ratio shall be calculated as provided in Section 2.6(a) (Calculation of Measured Performance Ratio) of this Agreement.
+In the event the Measured Performance Ratio is less than 95% of the GPR Performance Metric as adjusted by the degradation factor set forth below, Seller shall pay, and Company shall accept, as liquidated damages for Seller's failure to achieve the GPR Performance Metric for such MPR Assessment Period, an amount calculated in accordance with the following formula:
+Tier Measured Performance Ratio Tier GPR 1 Performance Metric x DF x 0.95 > Measured Performance Ratio k GPR Performance Metric x DF x 0.90
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+Amount of Liquidated Damages Per MPR Assessment Period For each one-tenth of one percent (0.001) by which the Measured Performance Ratio for such MPR Assessment Period falls below the upper limit of the bandwidth specified in this subparagraph, an amount equal to one-tenth of one percent (0.001) of the MPR Assessment Period Lump Sum Payment.
+The upper end of the aforementioned bandwidth is equal to the product of the GPR Performance Metric, the applicable degradation factor (DF), and 95%.
+The lower limit of the aforementioned bandwidth ARTICLE 2
+18
+Tier GPR 2 Performance Metric x DF x 0.90 > Measured Performance Ratio k GPR Performance Metric x DF x 0.80
+Measured Performance Ratio < GPR Performance Metric x DF x 0.80
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+EXHIBIT 1
+PAGE 23 OF 352
+consists of and includes the product of the GPR Performance Metric, the applicable degradation factor (DF), and 90%; plus For each one-tenth of one percent (0.001) by which the Measured Performance Ratio for such MPR Assessment Period falls below the upper limit of the bandwidth specified in this subparagraph, an amount equal to two-tenths of one percent (0.002) of the MPR Assessment Period Lump Sum Payment.
+The upper end of the aforementioned bandwidth is equal to the product of the GPR Performance Metric, the applicable degradation factor (DF), and 90%.
+The lower limit of the aforementioned bandwidth consists of and includes the product of the GPR Performance Metric, the applicable degradation factor (DF), and 80%; plus For each one-tenth of one percent (0.001) by which the Measured Performance Ratio for such MPR Assessment Period falls below the product of the GPR Performance Metric, the applicable degradation factor (DF), and 80%, an amount equal to four-tenths of one percent (0.004) of the MPR Assessment Period Lump Sum Payment.
+ARTICLE 2
+19
+EXHIBIT 1
+PAGE 24 OF 352
+For purposes of the foregoing calculations under this Section 2.6(c) (GPR Performance Metric and Liquidated Damages), the degradation factor (DF) is calculated for each Contract Year Ce.g., second Contract Year, third Contract Year, fourth Contract Year, etc.) as follows:
+DF = 1- 0.005 * (Applicable Contract Year - 1) .
+For purposes of the foregoing formula, the "Applicable Contract Year" is the Contract Year within which the calendar month in question falls.
+If all of the months of an MPR Assessment Period fall within the same Contract Year, the Contract Year is the "Applicable Contract Year." For example, if all of the months of MPR Assessment Period fall within the third Contract Year, the value assigned to the "Applicable Contract Year" would be "3" and the formula for calculating the DF for such LD Period would be: DF = 1- 0.005 * (3 -1).
+However, because the MPR Assessment Period is a rolling 12-month period, the MPR Assessment Period will often straddle two consecutive Contract Years.
+In such cases, all of the months falling within the same Contract Year will be assigned the value for such Contract Year and the value assigned to the "Applicable Contract Year" for purposes of the foregoing formula shall be the average of the assigned monthly values for such 12-month MPR Assessment Period.
+For example, for an MPR Assessment Period which has four months in the third Contract Year and eight months in the fourth Contract Year, the value assigned to the "Applicable Contract Year" for such MPR Assessment Period would be 3.67, as calculated as follows:
+(3X4) + (4X8) 12
+and the formula for calculating the DF for such MPR Assessment Period would be DF= 1-0.005*(3.67-1).
+For purposes of determining liquidated damages under this Section 2.6(c) (GPR Performance Metric and Liquidated Damages), the amount by which the Measured Performance Ratio for the MPR Assessment Period in question falls below the applicable threshold shall be rounded to the nearest one-tenth of one percent (0.001).
+Each Party agrees and acknowledges that (i) the damages that Company would incur if the Seller fails to achieve the EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+20
+EXHIBIT 1
+PAGE 25 OF 352
+GPR Performance Metric for a MPR Assessment Period would be difficult or impossible to calculate with certainty and (ii) the aforesaid liquidated damages are an appropriate approximation of such damages.
+EXAMPLE:
+The following is an example calculation of liquidated damages for the GPR Performance Metric and is included for illustrative purposes only.
+Assume the following facts:
+The MPR Assessment Period has five months in the second Contract Year and seven months in the third Contract Year.
+The GPR for the Facility as determined by the OEPR is 0.9.
+The MPR has been calculated to be 0.694.
+Applicable Contract Year = [(5 x 2) + (7 x 3)]/12 - 2.58
+DF =1- 0.005 + (2.58 -1)= 0.9921
+Upper limit of the Tier 1 bandwidth = 0.9 x 0.9921 x 0.95 = 0.848
+Lower limit of the Tier 1 bandwidth/Upper limit of the Tier 2 bandwidth = 0.9 x 0.9921 x 0.9 = 0.804
+Lower limit of the Tier 2 bandwidth = 0.8 x 0.9921 x 0.9
+= 0.714
+LD = [((0.848 - 0.804) x 1) + ((0.804 - 0.714) x 2) + ((0.714 - 0.694) x 4)] x MPR Assessment Period Lump Sum Payment = 0.304 x MPR Assessment Period Lump Sum Payment (d) MPR Termination Rights.
+The Parties acknowledge that, although the intent of the liquidated damages payable under Section 2.6(c) (GPR Performance Metric and Liquidated Damages) is to compensate Company for the damages that Company would incur if the Seller fails to achieve the GPR Performance Metric for a MPR Assessment Period, such liquidated damages are not intended to compensate Company for the damages that Company would EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+21
+EXHIBIT 1
+PAGE 26 OF 352
+incur if a pattern of underperformance establishes a reasonable expectation that the Facility is likely to continue to substantially underperform the GPR Performance Metric.
+Accordingly, and without limitation to Company's rights under said Section 2.6(c) (GPR Performance Metric and Liquidated Damages) for those MPR Assessment Periods during which the Seller failed to achieve the GPR Performance Metric, the failure of the PV System to achieve, for each of three consecutive Contract Years, a Measured Performance Ratio of not less than the Tier 2 Bandwidth for such Contract Year shall constitute an Event of Default under Section 15.1(c) of this Agreement for which Company shall have the rights (including but not limited to the termination rights) set forth in Article 15 (Events of Default) and Article 16 (Damages in the Event of Termination by Company).
+2.7
+BESS Capacity Test; Liquidated Damages; Termination Rights.
+(a) BESS Capacity Test and Liquidated Damages.
+For each BESS Measurement Period following the Commercial Operations Date, the BESS shall be required to complete a BESS Capacity Test, as more fully set forth in Attachment W (BESS Capacity Test) to this Agreement.
+For each BESS Measurement Period for which the BESS fails to demonstrate that it satisfies the BESS Capacity Performance Metric, Seller shall pay, and Company shall accept, as liquidated damages for such shortfall, the amount set forth in the following table Con a progressive basis) upon proper demand at the end the BESS Measurement Period in question:
+BESS Capacity Ratio Liquidated Damage Amount Tier 1
+95.0% - 99.9% For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 100% and is above 94.9%, an amount equal to one-tenth of one percent (0.001) of the BESS Allocated Portion of the Lump Sum Payment for the EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+22
+EXHIBIT 1
+PAGE 27 OF 352
+BESS Measurement Period in question; plus Tier 2
+85.0% - 94.9% For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 95% and is above 84.9%, an amount equal to one and a half-tenths of one percent (0.0015) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 3
+75.0% - 84.9% For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 85% and is above 74.9%, an amount equal to two-tenths of one percent (0.002) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 4
+60.0% - 74.9% For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 75% and is above 59.9%, an amount equal to two and a half-tenths of one percent (0.0025) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 5
+50.0% - 59.9% For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 60% and is above 49.9%, an amount equal to three-tenths of one percent EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+23
+EXHIBIT 1
+PAGE 28 OF 352
+(0.003) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 6
+49.9% and below ("Lowest BESS Capacity Bandwidth" ) For each one-tenth of one percent (0.001) that the BESS Capacity Ratio is below 50%, an amount equal to three and a half-tenths of one percent (0.0035) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question.
+For purposes of determining liquidated damages under this Section 2.7(a) (BESS Capacity Test and Liquidated Damages), the starting and end points for the duration of the period that the BESS discharges shall be rounded to the nearest MWh. Each Party agrees and acknowledges that (i) the damages that Company would incur if the Seller fails to achieve the BESS Capacity Performance Metric for a BESS Measurement Period would be difficult or impossible to calculate with certainty and (ii) the aforesaid liquidated damages are an appropriate approximation of such damages.
+EXAMPLE:
+The following is an example calculation of liquidated damages for the BESS Capacity Performance Metric and is included for illustrative purposes only.
+Assume the following:
+The Maximum Rated Output for the BESS is 25 MW.
+A BESS Capacity Test was conducted and the BESS was measured to have discharged 65 MWh BESS Contract Capacity = 25 MW x 4 hours = 100 MWh BESS Capacity Ratio = MWh Discharged/BESS Contract Capacity = 65 MWh/100 MWh = 0.65
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+24
+EXHIBIT 1
+PAGE 29 OF 352
+LD = [((1 - 0.950) x 1) + ((0.950 - 0.850) x 1.5) + ((0.850 - 0.750) x2+ ((0.750 - 0.65) x 2.51 x BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question = 0.65 x BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question (b) BESS Capacity Test Termination Rights.
+The Parties acknowledge that, although the intent of the liquidated damages payable under Section 2.7(a) (BESS Capacity Test and Liquidated Damages) is to compensate Company for the damages that Company would incur if the BESS fails to demonstrate satisfaction of the BESS Capacity Performance Metric during a BESS Measurement Period, such liquidated damages are not intended to compensate Company for the damages that Company would incur if a pattern of underperformance establishes a reasonable expectation that the BESS is likely to continue to substantially underperform the Company's expectations.
+Accordingly, and without limitation to Company's rights under said Section 2.7(a) (BESS Capacity Test and Liquidated Damages) for those BESS Measurement Periods during which the BESS fails to demonstrate satisfaction of the BESS Capacity Performance Metric, substantial underperformance shall give rise to a termination right as set forth in this Section 2.7(b) (BESS Capacity Test Termination Rights).
+If the BESS is in the Lowest BESS Capacity Bandwidth for any two BESS Measurement Periods during a 12-month period, an 18-month cure period (the "BESS Capacity Cure Period") will commence on the Day following the close of the second such BESS Measurement Period.
+For each BESS Measurement Period during such BESS Capacity Cure Period, BESS Capacity Tests shall continue to be conducted as set forth in Attachment W (BESS Capacity Test) and liquidated damages paid and accepted as set forth in Section 2.7(a) (BESS Capacity Test and Liquidated Damages); provided, however, that if the Seller fails to demonstrate satisfaction of the BESS Capacity Performance Metric prior to the expiration of the BESS Capacity Cure Period, such failure shall constitute an Event of Default under Section 15.1(d) of this Agreement for which Company shall have the rights (including but not limited to the termination rights) set forth in Article 15 (Events of Default) and Article 16 (Damages in the Event of Termination by Company).
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+25
+EXHIBIT 1
+PAGE 30 OF 352
+2.8
+BESS Annual Equivalent Availability Factor; Liquidated Damages; Termination Rights.
+(a) BESS Annual Equivalent Availability Factor and Liquidated Damages.
+For each BESS Measurement Period following the Commercial Operations Date, a BESS Annual Equivalent Availability Factor shall be calculated as set forth in Attachment X (BESS Annual Equivalent Availability Factor).
+If the BESS Annual Equivalent Availability Factor for such BESS Measurement Period is less than 97% (the "BESS EAF Performance Metric"), Seller shall pay, and Company shall accept, as liquidated damages for such shortfall, the amount set forth in the following table (on a progressive basis) upon proper demand at the end the current BESS Measurement Period:
+BESS Annual Equivalent Availability Factor Liquidated Damage Amount Tier 1
+85.0% - 96.9% For each one-tenth of one percent (0.001) by which the BESS Annual Equivalent Availability Factor falls below 97% but equal to or above 85%, an amount equal to one-tenth of one percent (0.001) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 2
+80.0% - 84.9% For each one-tenth of one percent (0.001) by which the BESS Annual Equivalent Availability Factor falls below 85% but equal to or above 80%, an amount equal to two-tenths of one percent (0.002) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+26
+EXHIBIT 1
+PAGE 31 OF 352
+Tier 3
+75.0% - 79.9% For each one-tenth of one percent (0.001) by which the BESS Annual Equivalent Availability Factor falls below 80% but equal to or above 75%, an amount equal to three-tenths of one percent (0.003) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus Tier 4
+Below 75.0% For each one-tenth of one percent (0.001) by which the BESS Annual Equivalent Availability Factor falls below 75%, an amount equal to four-tenths of one percent (0.004) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question.
+Such liquidated damages shall be due within thirty (30) Days after the first to occur of the end of such BESS Measurement Period or the end of Term.
+In the event Seller fails to pay Company amounts of liquidated damages due under this Section 2.8(a) (BESS Annual Equivalent Availability Factor and Liquidated Damages) within thirty (30) Days of receipt of Company's written demand, Company may, without limitation to any other remedy Company may have, set-off such amounts due against payments it is otherwise obligated to make under this Agreement.
+For purposes of determining liquidated damages under this Section 2.8(a) (BESS Annual Equivalent Availability Factor and Liquidated Damages), the BESS Annual Equivalent Availability Factor for the BESS Measurement Period in question shall be rounded to the nearest one-
+tenth of one percent (0.001).
+Each Party agrees and acknowledges that (i) the damages that Company would incur if the Seller fails to achieve the BESS EAF Performance Metric for a BESS Measurement Period would EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+27
+EXHIBIT 1
+PAGE 32 OF 352
+be difficult or impossible to calculate with certainty and (ii) the aforesaid liquidated damages are an appropriate approximation of such damages.
+(b) BESS Annual Equivalent Availability Factor Termination Rights.
+The Parties acknowledge that, although the intent of the liquidated damages payable under Section 2.8(a) (BESS Annual Equivalent Availability Factor and Liquidated Damages) is to compensate Company for the damages that Company would incur if the Seller fails to achieve the BESS EAF Performance Metric for a BESS Measurement Period, such liquidated damages are not intended to compensate Company for the damages that Company would incur if a pattern of underperformance establishes a reasonable expectation that the BESS is likely to continue to substantially underperform the BESS EAF Performance Metric.
+Accordingly, and without limitation to Company's rights under said Section 2.8(a) (BESS Annual Equivalent Availability Factor and Liquidated Damages) for those BESS Measurement Periods during which the Seller failed to achieve the BESS EAF Performance Metric, the failure of the Seller to achieve, for each of four consecutive BESS Measurement Periods, a BESS Annual Equivalent Availability Factor of not less than 75% shall constitute an Event of Default under Section 15.1(e) of this Agreement for which Company shall have the rights (including but not limited to the termination rights) set forth in Article 15
+(Events of Default) and Article 16 (Damages in the Event of Termination by Company); provided, however, that if a BESS Measurement Period for which the aforementioned 75% threshold is not achieved falls within a BESS Capacity Cure Period, such BESS Measurement Period shall be excluded from the calculation of the aforementioned "four consecutive BESS Measurement Periods" if the failure to achieve the aforementioned 75% threshold was the result of unavailability caused by the process of carrying out the repairs to or replacements of the BESS necessary to remedy the failure of the BESS to achieve the BESS Capacity Performance Metric.
+2.9
+BESS Annual Equivalent Forced Outage Factor; Liquidated Damages.
+EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+28
+EXHIBIT 1
+PAGE 33 OF 352
+For each BESS Measurement Period following the Commercial Operations Date, the BESS shall maintain a BESS Annual Equivalent Forced Outage Factor of not more than 4% (the "BESS EFOF Performance Metric") as calculated as set forth in Attachment Y (BESS Annual Equivalent Forced Outage Factor).
+If the BESS Annual Equivalent Forced Outage Factor for such BESS Measurement Period exceeds the BESS EFOF Performance Metric, Seller shall pay, and Company shall accept, as liquidated damages for exceeding the BESS EFOF Performance Metric, the amount set forth in the following table Con a progressive basis) upon proper demand by the Company at the end of the BESS Measurement Period in question:
+BESS Annual Equivalent Forced Outage Factor Liquidated Damage Amount 0.0% - 4.0% 4.1% - 6.9% For each one-tenth of one percent (0.001) that the BESS Annual Equivalent Forced Outage Factor is above 4.0% but less than 7.0%, an amount equal to two-tenths of one percent (0.002) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question; plus 7.0% and above For each one-tenth of one percent (0.001) that the BESS Annual Equivalent Forced Outage Factor is above 6.9%, an amount equal to four-tenths of one percent (O.004) of the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question Such liquidated damages shall be due within thirty (30) Days after the first to occur of the end of such BESS Measurement Period or the end of Term.
+In the event Seller fails to pay EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+29
+EXHIBIT 1
+PAGE 34 OF 352
+Company amounts of liquidated damages due under this Section 2.9 (BESS Annual Equivalent Forced Outage Factor; Liquidated Damages) within thirty (30) Days of receipt of Company's written demand, Company may set-off such amounts due against payments it is otherwise obligated to make under this Agreement.
+For purposes of determining liquidated damages under this Section 2.9 (BESS Annual Equivalent Forced Outage Factor;
+Liquidated Damages), the BESS Annual Equivalent Forced Outage Factor for the BESS Measurement Period in question shall be rounded to the nearest one-tenth of one percent (0.001).
+Each Party agrees and acknowledges that (i) the damages that Company would incur if the Seller fails to achieve the BESS EFOF Performance Metric for a BESS Measurement Period would be difficult or impossible to calculate with certainty and (ii) the aforesaid liquidated damages are an appropriate approximation of such damages.
+For example, if the BESS Equivalent Annual Forced Outage Factor was 4.1% as calculated in the example in Attachment Y (BESS Annual Equivalent Forced Outage Factor) attached hereto and the BESS Allocated Portion of the Lump Sum Payment for the BESS Measurement Period in question is $1,000,000, the liquidated damages would be $2,000, calculated as follows:
+4.1% - 4.0% = 0.1% 0.1%/0.1 = 1
+$1,000,000 x .002 = $2,000
+$2,000 x1= 92,000
+2.10
+Payment of Liquidated Damages for Failure to Achieve Performance Metrics; Limitation on Liquidated Damages.
+(a) Payment of Liquidated Damages. With respect to the liquidated damages payable under Section 2.5(b) (PV System Equivalent Availability Factor Performance Metric and Liquidated Damages), Section 2.6(c) (GPR Performance Metric and Liquidated Damages), Section 2.7(a) (BESS Capacity Test and Liquidated Damages), Section 2.8(a) (BESS Annual Equivalent Availability Factor and Liquidated Damages) and Section 2.9 (BESS Equivalent Forced Outage Factor; Liquidated Damages) (collectively, the "Performance Metrics LDs"), Company shall have the right, at any time on or after the LD Assessment Date for the liquidated damages in question, at Company's EXECUTION VERSION AES West Oahu Solar, LLC Hawaiian Electric Company, Inc.
+ARTICLE 2
+30

@@ -9,7 +9,7 @@ import backButton from './../icons/backbutton.png';
   // change to 'http://localhost:3001' for localhost
   // or http://54.90.226.66:80' for aws
   // Changed this variable name or causes issues with other parts of code
-  const URLServer = 'http://localhost:3001'
+  const URLServer = 'http://54.166.201.233:80'
 
   const FolderIcon = ({ name, fileCount, onView }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -63,15 +63,50 @@ const Folder = () => {
     };
 
     const downloadZipFromServer = async () => {
+      axios({
+        url: URLServer + '/downloadZip', // Replace with your actual backend URL
+        method: 'GET',
+        responseType: 'blob', // Important to handle binary data files
+    })
+    .then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'project.zip'); // Set the file name for the download
+        document.body.appendChild(link);
+        link.click();
+        
+        // Clean up and revoke the URL
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Error during file download:', error);
+    });
+    /*
       try {
         const response = await axios({
           url: URLServer + '/downloadZip', 
           method: 'GET',
           responseType: 'blob', 
         });
-    
 
-        const file = new Blob([response.data], { type: 'application/zip' });
+        //download the zip file on the client side
+
+        
+        /*const url = window.URL.createObjectURL(new Blob([response.blob()]));
+        const link = document.createElement('a');
+        const fileURL = URL.createObjectURL(response.data);
+        link.href = fileURL;
+        link.setAttribute('download', 'project.zip');
+        // Append the link to the body
+        document.body.appendChild(link);
+        // Programmatically trigger the download
+        link.click();
+        // Clean up
+        link.parentNode.removeChild(link);*/
+
+        /*const file = new Blob([response.data], { type: 'application/zip' });
 
         const fileURL = URL.createObjectURL(file);
 
@@ -81,10 +116,10 @@ const Folder = () => {
 
         document.body.appendChild(fileLink);
         fileLink.click();
-        fileLink.remove(); 
+        fileLink.remove();
       } catch (error) {
         console.error('Error while downloading the file', error);
-      }
+      }*/
     };
 
     const handleBack = () => {

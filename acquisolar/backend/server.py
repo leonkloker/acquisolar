@@ -104,6 +104,7 @@ def download_zip():
     if result:
         try:
             return send_from_directory(directory='./zip_output', filename="project.zip", as_attachment=True, path=app.config['ZIP'])
+            #return send_file("zip_output/project.zip", as_attachment=True, download_name='project.zip', mimetype='application/zip')
         except FileNotFoundError:
             return {"error": "Zip file not found. Please try again later."}, 404
     else:
