@@ -43,27 +43,5 @@
   },
   {
     "id": 8,
-    "name": "Input_folder_structure",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 9,
-    "name": "Interconnection Agreement",
-    "type": "directory",
-    "parent_id": 8
-  },
-  {
-    "id": 10,
-    "name": "PPA ",
-    "type": "directory",
-    "parent_id": 8
-  },
-  {
-    "id": 11,
-    "name": ".DS_Store",
-    "type": "file",
-    "size": 6148,
-    "parent_id": null
   }
 ]

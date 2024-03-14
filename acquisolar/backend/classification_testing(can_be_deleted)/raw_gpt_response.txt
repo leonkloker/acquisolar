@@ -1,10 +1,8 @@
-```json
 {
-    "Document_date": "Oct-14, 2019",
-    "Document_summary": "This document is a Letter of Intent between Haleakala Ranch Company and Clearway Renew LLC for the development of a 40 megawatt solar renewable energy project in Maui County, Hawaii. The implications are that the parties are agreeing to negotiate the terms of definitive agreements for the project.",
-    "Suggested_title": "10-14-2019 Solar Project Letter",
-    "Suggested_title_v2": "10-14-2019 Renewable Energy Agreement",
-    "Suggested_title_v3": "10-14-2019 Solar Development Intent",
-    "Document_folder_path": "project/PPA"
+  "Document_date": "Nov-2022",
+  "Document_summary": "This document outlines a project focused on developing a machine learning model to compute the reactivity values of RNA molecules based on their sequences. By bridging the gap between RNA sequence and structure using SHAPE data, the project aims to enable the prediction of tertiary structure rapidly. Various models were deployed and evaluated, with promising results showing improvement over baseline methods.",
+  "Suggested_title": "11-2022 RNA Reactivity Prediction Project",
+  "Suggested_title_v2": "11-2022 RNA Structure Prediction Initiative",
+  "Suggested_title_v3": "11-2022 RNA SHAPE Data Modeling",
+  "Document_folder_path": "project/Unclassified"
 }
-```

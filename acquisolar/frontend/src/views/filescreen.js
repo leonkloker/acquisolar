@@ -96,14 +96,6 @@ const styles = {
   title: {
     margin: 0,
   },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start', 
-    padding: '20px',
-    paddingTop: '10px',
-    width: '100%',
-  },
   folderContainer: {
     display: 'flex',
     flex: 1,
