@@ -1,8 +1,8 @@
 {
-  "Document_date": "Jan-22, 2019",
-  "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. The motion outlines the interests and qualifications of Ho'ohana Solar 1, LLC to participate in the decision-making process. The document is at the stage of seeking approval for participation in the M&A process.",
-  "Suggested_title": "01-22-2019 Solar Participation Motion",
-  "Suggested_title_v2": "01-22-2019 Solar PPA Participation",
-  "Suggested_title_v3": "01-22-2019 Solar M&A Participation",
-  "Document_folder_path": "PPA"
+  "Document_date": "Nov-2022",
+  "Document_summary": "This document outlines a project focused on developing a machine learning model to compute the reactivity values of RNA molecules based on their sequences. By bridging the gap between RNA sequence and structure using SHAPE data, the project aims to enable the prediction of tertiary structure rapidly. Various models were deployed and evaluated, with promising results showing improvement over baseline methods.",
+  "Suggested_title": "11-2022 RNA Reactivity Prediction Project",
+  "Suggested_title_v2": "11-2022 RNA Structure Prediction Initiative",
+  "Suggested_title_v3": "11-2022 RNA SHAPE Data Modeling",
+  "Document_folder_path": "project/Unclassified"
 }

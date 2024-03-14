@@ -45,14 +45,14 @@ def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     response_gen = response.response_gen
     source_nodes = response.source_nodes
     source_texts = [source_node.node.text for source_node in source_nodes]
-    source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
+    #source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
     source_docs = [source_node.node.metadata["file_path"] for source_node in source_nodes]
     source_docs = ["/".join(doc.split("/")[-2:]) for doc in source_docs]
 
     if not generator:
         response_gen = "".join(list(response_gen))
 
-    return response_gen, source_texts, source_pages, source_docs
+    return response_gen, source_texts, source_docs
 
 def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the existing storage
