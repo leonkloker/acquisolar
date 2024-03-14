@@ -14,6 +14,7 @@ from llama_index.core import (
 )
 
 from llama_index.llms.openai import OpenAI
+from llama_index.core.postprocessor import SimilarityPostprocessor
 
 # API keys
 os.environ["OPENAI_API_KEY"] = "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"
@@ -37,22 +38,28 @@ SYNTH = get_response_synthesizer(streaming=True)
 def query(text, index_dir = './index_storage', generator=False, filenames=[]):
     if not os.path.exists(index_dir):
         response = LLM.complete(text).text
-        return response, [], []
+        return response, [], [], []
 
     query_engine = get_query_engine(index_dir, filenames)
+    
 
     response = query_engine.query(text)
     response_gen = response.response_gen
     source_nodes = response.source_nodes
     source_texts = [source_node.node.text for source_node in source_nodes]
-    #source_pages = [source_node.node.metadata["page_label"] for source_node in source_nodes]
+    source_pages = []
+    for source_node in source_nodes:
+        if "page_label" not in source_node.node.metadata:
+            source_pages.append(1)
+        else:
+            source_pages.append(source_node.node.metadata["page_label"])
     source_docs = [source_node.node.metadata["file_path"] for source_node in source_nodes]
     source_docs = ["/".join(doc.split("/")[-1:]) for doc in source_docs]
 
     if not generator:
         response_gen = "".join(list(response_gen))
 
-    return response_gen, source_texts, source_docs
+    return response_gen, source_texts, source_docs, source_pages
 
 def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the existing storage
@@ -61,7 +68,10 @@ def get_query_engine(index_dir = './index_storage', filenames=[]):
     # load the index from storage
     vector_index = load_index_from_storage(vector_storage_context, service_context=SERVICE_CONTEXT)
 
-    query_engine = vector_index.as_query_engine(similarity_top_k=3, response_mode='compact', streaming=True)
+    processor = SimilarityPostprocessor(similarity_cutoff=0.8)
+
+    query_engine = vector_index.as_query_engine(similarity_top_k=10, response_mode='compact', streaming=True,
+                                                node_postprocessor=processor)
 
     return query_engine
 

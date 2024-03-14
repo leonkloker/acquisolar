@@ -132,12 +132,13 @@ def search():
         filenames = [filename]
 
     # Search the index and return a streaming response
-    response_gen, texts, docs = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'],
+    response_gen, texts, docs, pages = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'],
                                                           filenames=filenames, generator=False)
 
     return jsonify({"response": response_gen,
                     "texts": texts,
-                    "source_docs": docs})
+                    "source_docs": docs,
+                    "source_pages": pages})
 
 
 @app.route('/get-pdf/<filename>')
