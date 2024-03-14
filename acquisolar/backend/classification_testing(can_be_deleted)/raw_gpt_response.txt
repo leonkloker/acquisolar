@@ -1,10 +1,12 @@
+```json
 {
-    "Document_date": "Mar-08, 2024",
-    "Document_summary": "This document is a problem set for CS 103: Mathematical Foundations of Computing, focusing on various theorems and concepts related to computing. It showcases the application of mathematical principles in computing theory and problem-solving.",
-    "Suggested_title": "03-08-2024 Computing Problem Set",
-    "Suggested_title_v2": "03-08-2024 Mathematical Computing Tasks",
-    "Suggested_title_v3": "03-08-2024 CS 103 Problem Set",
-    "Document_folder_path": "Miscellaneous",
+    "Document_date": "Jan-22, 2019",
+    "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. It outlines the company's interest in the project and its request for participation without intervention. The document reflects the stage of seeking regulatory approval for a solar power project.",
+    "Suggested_title": "01-22-2019 Solar Project Participation Motion",
+    "Suggested_title_v2": "01-22-2019 Solar Project Involvement Request",
+    "Suggested_title_v3": "01-22-2019 Solar Project Regulatory Approval Motion",
+    "Document_folder_path": "PPA",
     "Document-label": "Communication",
-    "Reasoning": "The document does not fit into any of the specific categories such as Interconnection, Site Control, PPA, Environmental, or EPC. It is a general problem set related to mathematical foundations of computing, making it more suitable for the 'Miscellaneous' folder."
+    "Reasoning": "The document pertains to a motion related to a Power Purchase Agreement (PPA) for a solar project, making it fitting for the PPA folder. It involves seeking approval and participation in a regulatory proceeding, aligning with the nature of PPA documents."
 }
+```

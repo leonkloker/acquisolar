@@ -1,0 +1,113 @@
+
+You are a pragmatic Solar M&A Senior Analyst in the United States. You are about to get instructions to extract information from documents. This information will be used to add meta data, create a summary and sort the documents.
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
+- "Document-label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Reasoning": Provide reasoning for every documents you classified. 
+
+For "Document_folder_path", please follow these guidelines: 
+
+    1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
+
+    2. Classify documents with precision, using these category definitions:
+
+        "Interconnection": Contains contracts and agreements for connecting the solar project to the power grid. Look for phrases like "the interconnection customer agrees" and "interconnection requests".
+
+        "Site Control": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
+
+        "PPA": Features power purchasing agreements between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards, as well as supplementary documents.  
+
+        "Environmental": Documents related to environmental impact assessments, permits, and compliance reports for the solar project. Includes studies on flora, fauna, water, soil, and air quality impacts, as well as mitigation strategies.
+
+        "EPC": Contains contracts, plans, and documentation related to the engineering design, procurement of materials, and construction of the solar project. This includes agreements with contractors, project timelines, and construction permits.
+
+    3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
+    4. Only classify documents as "Miscellaneous" if no other folder is likely. 
+The list of to select folders from below:
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Site Control
+  - Miscellaneous
+
+
+The provided document text is:
+BEFORE THE PUBLIC UTILITIES COMMISSION OF THE STATE OF HAWAII In the Matter of the Application of ) HAWAIIAN ELECTRIC COMPANY, INC. ) DOCKET NO. 2022-0007
+For Approval of Power Purchase Agreement for Renewable Dispatchable Generation with BCE Kupono Solar, LLC.
+KUPONO SOLAR, LLC'S RESPONSES TO CONSUMER ADVOCATE'S SECOND SUBMISSION OF SUPPLEMENTAL INFORMATION REQUESTS, CA/BCE-SIR-9 TO CA/BCE-SIR-10, FILED JANUARY 31, 2023
+EXHIBIT A AND CERTIFICATE OF SERVICE DEAN T. YAMAMOTO JORDAN A. CHING YAMAMOTO CALIBOSO HETHERINGTON A Limited Liability Law Company 1100 Alakea Street, Suite 3100
+Honolulu, Hawaii 96813
+Phone No. (808) 540-4500
+Facsimile No. (808) 540-4530
+Emails:
+dvamamoto@.ychawaii.com jching@ychawaii.com Counsel for KUPONO SOLAR, LLC {4870-2021-6398} BEFORE THE PUBLIC UTILITIES COMMISSION OF THE STATE OF HAWAII In the Matter of the Application of ) HAWAIIAN ELECTRIC COMPANY, INC. ) DOCKET NO. 2022-0007
+For Approval of Power Purchase Agreement for Renewable Dispatchable Generation with BCE Kupono Solar, LLC.
+KUPONO SOLAR, LLC'S RESPONSES TO CONSUMER ADVOCATE'S SECOND SUBMISSION OF SUPPLEMENTAL INFORMATION REQUESTS, CA/BCE-SIR-9 TO CA/BCE-SIR-10. FILED JANUARY 31. 2023
+Pursuant to Order No. 38731, filed November 30, 2022 CPhase 2 Procedural Order"), and in response to the Department of Commerce and Consumer Affairs, Division of Consumer Advocacy («Consumer Advocate") Supplemental Information Requests, CA/BCE-SIR-9 to CA/BCE-SIR-10, filed January 31, 2023 ('Supplemental Information Requests"), Kupono Solar, LLC CKupono Solar" or 'Seller"), by and through its undersigned counsel, Yamamoto Caliboso Hetherington, LLLC, hereby submits its response to Consumer Advocate's Supplemental Information Requests ("Response").1
+Kupono Solar incorporates by reference all of the General Objections attached hereto as Exhibit "A" into Kupono Solar's Response to the Information Requests. Each response submitted herewith is subject to the General Objections set forth in Exhibit "A." 1 Kupono Solar's Response is timely filed. In accordance with the Phase 2 Procedural Order, the Response is due or, or before February 14,2023. See Phase 2 Procedural Order, filed November 30,2022, at 6.
+{4870-2021-6398} DATED: Honolulu, Hawaii, February 14, 2023.
+DEAN T. YAMAMOTO JORDAN A. CHING YAMAMOTO CALIBOSO HETHERINGTON A Limited Liability Law Company Counsel for KUPONO SOLAR, LLC {4870-2021-6398} 2
+CA/BCE-SIR-9
+Ref: Response to CA/BCE-IR-14.
+Please discuss whether the estimated costs reflected in response to CA/BCE-IR-14, include the estimated costs of the underground duct work into the substation. If not, please provide a rough estimate of the costs that would be incurred.
+RESPONSE:
+The estimated costs that Kupono Solar provided in response to CA/BCE-IR-14 induded the estimated costs of the underground duct work into the substation. As such, there is no further estimated costs to provide in relation to this work.
+SPONSOR: James Bishop, Vice President, Advanced Technology Solutions {4870-2021-6398} CA/BCE-SIR-10
+Ref: Response to CA/BCE-IR-14.
+Please provide copies of any other photographs taken to illustrate the different visual views of the proposed overhead line extensions (e.g., from locations nearest the proposed overhead line from Iroquois Point, Ewa Beach across the Hawaii Prince Golf course).
+RESPONSE:
+All photographs that were taken to illustrate the different visual views of the proposed overhead line extensions were included in Hawaiian Electric Company, Inc.'s Request for Approval of Overhead Line Extension, dated November 3,2022. As such, there are no other photographs to provide.
+SPONSOR: Richard Stuhan, Manager, Development/Permitting and Outreach.
+{4870-2021-6398} 2
+EXHIBIT A Page 1 of 5
+GENERAL OBJECTIONS For the purpose of avoiding unnecessary duplication and repetition, each and every response to the foregoing Information Requests are subject to the objections set forth below.
+A. Kupono Solar, LLC CKupono Solar") objects to each and every definition and each and every instruction in the Information Request to the extent the definitions and/or instructions purport to expand Kupono Solar's obligations beyond the permissible scope of discovery in this proceeding.
+B. Kupono Solar objects to the definition of the terms "you," "your," and «yourself' to the extent that they invade the attorney-client or other privilege.
+C. Kupono Solar objects to each Information Request to the extent that it requests information beyond the purpose of this proceeding.
+D. Kupono Solar objects to each Information Request to the extent that it seeks information that is protected from disclosure by the attorney-client privilege, and/or to the extent the request seeks information that reflects the mental impressions, conclusions, opinions, or legal theories of Kupono Solar and its attorneys, which is also protected from disclosure by the attorney work-product doctrine.
+E. Kupono Solar objects to each Information Request to the extent that it seeks information or documents within the sole knowledge or possession of other Parties in this proceeding.
+F. Kupono Solar has statewide operations with employees located in many different locations. Documents are kept in numerous locations and frequently are moved from site to site as employees change jobs or as the business is reorganized.
+Therefore, it is possible that not every relevant document may have been consulted in developing Kupono Solafs response. Rather, these responses provide information that Kupono Solar obtained after a reasonable and diligent search conducted in connection with this Information Request. To the extent that the Information Request proposes to require more, Kupono Solar objects on the grounds that compliance would impose an undue burden or expense on Kupono Solar.
+G. Kupono Solar objects to each Information Request to the extent that it seeks information or documents containing trade secrets, and proprietary commercial {4870-2021-6398} EXHIBIT A Page 2 of 5
+and/or financial information, on the grounds that (a) the disclosure of such proprietary commercial and financial information on a public basis or to entities engaged in competing businesses could adversely impact Kupono Solar's transactions with its respective customers, adversely impact Kupono Solar's costs of doing business, and (b) the uncontrolled disclosure of proprietary information would give providers of competitive services information useful in making their own marketing decisions, without expending the time and money necessary to gather and develop the data, and would allow providers of competitive services to profit or otherwise derive benefits at the expense of Kupono Solar and its customers.
+H. Kupono Solar objects to each Information Request seeking internal communications, audit and/or management reports that reveal internal deliberations, analyses, appraisals and recommendations regarding the adequacy and effectiveness of the organization's system of internal controls, risk management practices, corporate governance, and/or Kupono Solar's potential rights, remedies and strategies (i.e., self-critical assessments") on public policy grounds. Requiring that this information be subject to review by parties in a regulatory proceeding would have a thilling" effect on deliberative and self-analysis processes.
+Subjecting such sensitive internal deliberations to review in a regulatory proceeding would inhibit robust and candid internal dialogue and evaluation of this nature in the future, and Kupono Solar's internal communications and management process would be seriously hampered. Requests for information revealing self-critical assessments should balance the need for the information against Kupono Solar's need to manage. By analogy, for example, the Federal Freedom of Information Act, codified at 5 U.S.C. § 552, and the Uniform Information Practices Act (Modified), Chapter 92F of the Hawaii Revised Statutes, contain broad disclosure requirements based on the public's interest in open government. However, the broad policy in favor of disclosure still allows for exceptions that are intended to permit the efficient and effective functioning of government by protecting the internal deliberative process.2 Kupono Solar objects to disclosure of such 2 See, generally, Pennsylvania Public Utility Commission v. West Penn Power Company, 73 PA PUC 122
+(July 20,1990), West Law Slip Op. ('deliberative process privilege" recognized by the Pennsylvania Public Utility Commission with respect to its own internal staff reports).
+{4870-2021-6398} EXHIBIT A Page 3 of 5
+information revealing self-critical assessments even under a protective order, unless it is shown that the need for the information outweighs the harm (i.e., the "chilling" effect on deliberative and self-analysis processes).
+1. Kupono Solar objects to each Information Request to the extent that it seeks customer-specific information or documents on the grounds that (a) such information is confidential and has been protected from disclosure by the Commission in other proceedings, (b) in some cases, the customer-specific information is already subject to a protective order in another docket, and (c) the disclosure of such information has not been consented to by the customer.
+J. Kupono Solar objects to each Information Request to the extent that it seeks confidential forecast information, which is maintained by Kupono Solar as non-
+public, confidential information. Public disclosure of forecast information from which income and earnings information could be derived, may trigger requirements under the rules and guidelines of the Securities and Exchange Commission and/or applicable stock exchange that information that is meaningful to investors be released to all investors, if the information is disclosed beyond a limited number of "insiders" (including persons required by agreement to maintain the confidentiality of the information and to use it only for proper purposes). Forecast of earnings, etc., are the types of information that, if selectively released, could violate such requirements.
+K. Kupono Solar objects to each Information Request seeking Uall" communications, correspondence, e-mails, documents and/or other information relating to a particular subject, unless otherwise noted in the response, on the grounds that such requests generally are overly broad, unduly burdensome, onerous, oppressive and vexatious. To the extent these requests could be interpreted to include hard copy and electronic forms of communications (i.e., e-mails), the number of e-mails relating to certain topics may be voluminous and very difficult and time-consuming to locate, compile and review. To capture all e-mail relating to specific subjects, for each person having any involvement whatsoever in the process, including persons who are no longer employees, every e-mail generated or received directly or as a "cd' over the course of years would have to be located, reviewed and evaluated. On this basis, attempting to locate, review, evaluate, copy, scan and produce 'all" documentation {4870-2021-6398} EXHIBIT A Page 4 of 5
+including communications, correspondence, e-mails and other information would be unduly burdensome, onerous and time-consuming. Moreover, the need to review each communication and document to exclude those that are protected by the attorney-
+client privilege or attorney work-product doctrine, or to exclude or redact information that Kupono Solar are precluded from disclosing by confidentiality agreements or arrangements with vendors, bidders or other entities, makes such requests even more burdensome, onerous and time-consuming. In addition, information produced pursuant to such requests could include preliminary and/or outdated analyses, which have been superseded by later analyses that are more relevant to the subject-matter of this proceeding.
+L. Kupono Solar objects to Information Requests asking Kupono Solar to list documents that are not produced on the grounds that (a) attempts to list the documents would be unduly burdensome given the volume of documents, (b) adequate time has not been provided to survey, much less list, all such documents, and (c) listing documents subject to the attorney-client privilege and/or attorney work product privilege could result in the disclosure of privileged information.
+M. Kupono Solar objects to each Information Request to the extent that it is vague, ambiguous, overly broad, imprecise, or utilizes terms that are subject to multiple interpretations but are not properly defined or explained for purposes of such information requests.
+N. Kupono Solar objects to each Information Request to the extent that it is unlimited in time or not limited to the time frame relevant to this proceeding.
+0. Kupono Solar objects to each Information Request to the extent that it seeks information that is not relevant to the subject matter of this docket and is not reasonably calculated to lead to the discovery of admissible evidence.
+P. Kupono Solar objects to each Information Request to the extent that it seeks documents not within the present possession, custody, or control of Kupono Solar, its agents, employees, representatives, and attorneys, or purports to expand Kupono Solar's obligations beyond the permissible scope of discovery in this proceeding.
+{4870-2021-6398} EXHIBIT A Page 5 of 5
+Q. Kupono Solar objects to each Information Request to the extent that it seeks documents or information easily available to the Requesting Party because it is already on file with the Commission or otherwise part of the public record.
+R. Kupono Solar objects to each Information Request that seeks information regarding Kupono Solafs confidential security measures designed and implemented to protect Kupono Solar's assets, particularly measures associated with critical information protection, cybersecurity and physical security.
+S. Kupono Solar objects to each Information Request that asks Kupono Solar to make computations, compute ratios, reclassify, trend, calculate, or otherwise rework data contained in its files or records.
+T. Kupono Solar expressly reserves and does not waive any and all objections it may has to the admissibility, authenticity or relevancy of the information provided in its responses.
+U. In the event any document or information within the scope of any privilege or objection is disclosed, its disclosure is inadvertent and shall not constitute a waiver of the privilege or objection.
+V. Notwithstanding any of the foregoing general objections and without waiving these objections, Kupono Solar intends in good faith to respond to these Information Requests.
+{4870-2021-6398} BEFORE THE PUBLIC UTILITIES COMMISSION OF THE STATE OF HAWAII In the Matter of the Application of ) HAWAIIAN ELECTRIC COMPANY, INC. ) DOCKET NO. 2022-0007
+For Approval of Power Purchase Agreement for Renewable Dispatchable Generation with BCE Kupono Solar, LLC.
+CERTIFICATE OF SERVICE I hereby certify that on this date copies of the foregoing document, together with this Certificate of Service, were duly served on the following parties as set forth below:
+Parties U.S. Mail Hand E-Mail Delivery Dean Nishina E m ® Executive Director Department of Commerce and Consumer Affairs Division of Consumer Advocacy dnishina@dcca.hawaii.gov dca@dcca.hawaii.gov Joseph A. Stewart, Esq. m m E Bruce Nakamura, Esq.
+Kobayashi, Sugita & Goda, LLP jas@ksglaw.com ban@ksglaw.com Kevin M. Katsura 0 0 6
+Director, Regulatory Non-Rate Proceedings Hawaiian Electric Company, Inc.
+Kevin.Katsura@hawaiianelectric.com Regulatory@hawaiianelectric.com {4870-2021-6398} DATED: Honolulu, Hawaii, February 14, 2023.
+JORDAN A. CHING YAMAMOTO CALIBOSO HETHERINGTON A Limited Liability Law Company Counsel for KUPONO SOLAR, LLC {4870-2021-6398} 2
+FILED 2023 Feb 14 AM 08:35
+PUBLIC UTILITIES COMMISSION The foregoing document was electronically filed with the State of Hawaii Public Utilities Commission's Document Management System (DMS).

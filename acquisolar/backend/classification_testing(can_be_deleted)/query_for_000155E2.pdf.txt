@@ -1,0 +1,406 @@
+
+You are a pragmatic Solar M&A Senior Analyst in the United States. You are about to get instructions to extract information from documents. This information will be used to add meta data, create a summary and sort the documents.
+
+Extract the following fields from the document text provided and format the response as valid JSON:
+- "Document_date" in the format '3 letter month name-DD, YYYY'.
+- "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
+- "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
+- "Suggested_title_v2" in same format as "suggested title" but with different wording
+- "Suggested_title_v3" in same format as "suggested title" but with different wording
+- "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
+- "Document-label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Reasoning": Provide reasoning for every documents you classified. 
+
+For "Document_folder_path", please follow these guidelines: 
+
+    1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
+
+    2. Classify documents with precision, using these category definitions:
+
+        "Interconnection": Contains contracts and agreements for connecting the solar project to the power grid. Look for phrases like "the interconnection customer agrees" and "interconnection requests".
+
+        "Site Control": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
+
+        "PPA": Features power purchasing agreements between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards, as well as supplementary documents.  
+
+        "Environmental": Documents related to environmental impact assessments, permits, and compliance reports for the solar project. Includes studies on flora, fauna, water, soil, and air quality impacts, as well as mitigation strategies.
+
+        "EPC": Contains contracts, plans, and documentation related to the engineering design, procurement of materials, and construction of the solar project. This includes agreements with contractors, project timelines, and construction permits.
+
+    3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
+    4. Only classify documents as "Miscellaneous" if no other folder is likely. 
+The list of to select folders from below:
+  - Environmental
+  - EPC
+  - Interconnection
+  - Permitting
+  - PPA
+  - Site Control
+  - Miscellaneous
+
+
+The provided document text is:
+February 26,2021
+The Honorable Chair and Members of the Hawai'i Public Utilities Commission 465 South King Street Kekuanao'a Building, First Floor Honolulu, Hawai'i 96813
+Dear Commissioners:
+Subject: Docket No. 2018-0431 -For Approval of a Power Purchase Agreement for Renewable Dispatchable Generation with Ho'ohana Solar 1, LLC Interconnection Requirements Amendment; Request for Approval of Overhead Line Hawaiian Electric Company, Inc. ("Hawaiian Electric" or the "Company") transmits herewith the Second Amendment to Power Purchase Agreement for Renewable Dispatchable Generation ("Interconnection Requirements Amendment" or "IRS Amendment"), dated February 16,2021, between the Company and Ho'ohana Solar 1, LLC ("Seller"), which is attached as Exhibit A. The IRS Amendment reflects changes to the Power Purchase Agreement for Renewable Dispatchable Generation dated December 27,2018, between the Company and Seller ("PPA")1 to reflect the results of the Interconnection Requirements Study ("IRS"f for the Ho ohana Solar project ("Project").3 This letter updates the Commission on the status of the IRS and summarizes the resulting modifications made to the PPA. This letter also requests that the Commission commence review of the Company' s "Interconnection-Related Requests" (as defined below).
+I. Background By application filed on December 31, 2018 in this docket ("Application"), the Company requested that the Commission, among other things, approve the PPA and an above-ground 138
+kilovolt ("kV") line extension. In the Application, the Company informed the Commission that 1 Unless otherwise specified herein. capitalized terms have the meanings given to them in the PPA. The PPA was previously amended by that certain First Amendment to Power Purchase Agreement for Renewable Dispatchable Generation dated February 1.2019, between Company and Seller.
+2 A copy of the IRS. which contains confidential critical infrastructure information. is being submitted as Exhibit B pursuant to Protective Order No. 36121 issued on January 25,2019 in this docket. Exhibit I attached hereto provides the justification for the confidential treatment of the IRS.
+3 The IRS Amendment substituted new versions of Attachment A (Description of Generation. Conversion and Storage Facility), Attachment B (Facility Owned by Seller), Attachment D (Consultants List). Attachment E (Single-
+Line Drawing and Interface Block Diagram) Attachment F (Relay List and Trip Scheme), Attachment G (Company-Owned Interconnection Facilities), Attachment K (Guaranteed Project Milestones). Attachment K-1
+(Seller's Conditions Precedent and Company Milestones), Attachment L (Reporting Milestones), Attachment N (Acceptance Test General Criteria). Attachment O (Control System Acceptance Test Criteria), Attachment T (Monthly Reporting and Dispute Resolution by Independent AF Evaluator) and Attachment U (Calculation and Adjustment ofNet Energy Potential).
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 2
+the PPA had been executed prior to the completion of the IRS and that, upon completion of the IRS and acceptance of the same by Seller, the PPA would be amended to reflect such completion and acceptance.4
+On January 14, 2019, the Commission issued Order No. 36068, which, among other things, bifurcated the Company' s PPA-related requests from its above-ground 138 kV line extension-related requests ("Interconnection-Related Requests"), and adopted a procedural schedule for the PPA-related requests. On March 25,2019, the Commission issued Decision and Order No. 36236 ("D&O 36236") approving the PPA-related requests, and noted that upon the Company's filing of an IRS Amendment, the Commission would issue a procedural schedule to govern its review of the Company's Interconnection-Related Requests.5
+The Company is filing the IRS Amendment and IRS for informational purposes, and no action is being requested by the Commission on the IRS Amendment itself. Rather, by this filing, the Company requests that the Commission commence review of its bifurcated Interconnection-Related Requests in accordance with D&O 36236 and the Application.
+II. Request for Approval of Overhead and Underground Transmission Line As noted above, in its Application, the Company indicated that subject to completion of the IRS, and the filing of the IRS Amendment based on the IRS results, the Company would request a Commission determination for construction of the proposed 138 kV line extension for the Project pursuant to Hawai'i Revised Statutes ("HRS") § 269-27.6. To facilitate the Commission' s review, the Company has provided further information regarding the proposed line extension in Section VI, below.
+III.
+Non-Transmission Alternatives Attached as Exhibit A to Decision and Order No. 32052, filed April 28,2014 in Docket No. 2012-0036 (Regarding Integrated Resource Planning), is the "Commission's Inclinations on the Future of Hawaii's Electric Utilities" ("Commission' s Inelinations"). Included in the Commission' s Inclinations is the following Commission guidance with regard to transmission planning and the future development of new transmission projects on Hawai'i's grids:
+New transmission projects must consider non-transmission alternatives -
+New, replacement or upgrade high-voltage transmission projects generally represent significant, lumpy capital investments that will be given careful scrutiny. Non-transmission alternatives (NTAs) such as local peaking or back-up generators, energy storage, demand response and smart grid resources are technically and commercially available alternatives that must be evaluated as part 4 Sm Application, § IX at 17-18.
+5 D&036236 at Ordering Paragraph 2.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 3
+of any economic justification for new transmission system proj ects.6
+The subject Project involves the construction of 138 kV interconnection facilities, paid for by Seller, which are required to interconnect the Project with the Company's grid. To the extent the Commission considers whether an NTA analysis is required, the Company notes that the above-quoted section of the Commission's Inclinations does not appear to apply to interconnection facilities that are necessary to connect a proposed renewable distributed generation resource to the grid. The interconnection facilities are necessary to accommodate the generation project, as opposed to being constructed for the purpose of alleviating an identified transmission-related constraint. Therefore, the Company respectfully requests that the evaluation ofNTAs required for transmission projects be waived for this type of project. Certain constraints introduced by the Project are proposed to be addressed through operational management of the new resource, in lieu of additional transmission infrastructure. This is described further in the IRS section below.
+IV.
+Status of Completion of IRS and Overview of IRS Amendment Terms As noted in Section 4 of the IRS Amendment, the IRS is not fully completed and additional IRS results will be recieved in the second quarter of 2021 and filed thereafter. The delay in completion is due to re-studies required for the System Impact Study ("SIS") since the Project has changed the transmission line to which it will be interconnecting, from Kahe-Waiau to Kahe-Halawa #1. Various components of the SIS must be redone; however, based on the Project's prior results, the Company has identified the critical parts (e. g., stability analysis and energization in rush mitigation analysis) which could have a material impact on the Facility Study due to the change in interconnection point. The energization in rush analysis has been completed, and the Company was able to complete a few iterations of the stability analysis. This partial stability analysis should be sufficient to make a determination whether Ho'ohana can connect to the Hawaiian Electric system without creating instability issues. The remainder of the stability study will be completed at a later time and should identify any tuning modifications to Project equipment settings and models for performance. Although the stability analysis is not fully complete, having the partial analysis will lower the risk of change to the Facility Study.
+Notwithstanding the pending completion of the SIS, the Facility Study ("FS") of the IRS has been completed and a range for the extent of the costs for the Company-Owned Interconnection Facilities has been estimated.
+Accordingly, the IRS Amendment encompasses the necessary PPA revisions to the technical attachments to the PPA. See Part VII herein for a general overview of such revisions.
+Additionally, as noted previously in response to prior information requests, the Guaranteed Commercial Operations Date ("GCOD") has been extended as a result of the Parties' efforts.
+While every effort was exerted by both sides to maintain the originally contemplated GCOD of 6 Commission's Inclinations at 12.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 4
+July 1, 2023,7 a short additional extension to August 31, 2023, was mutually negotiated after a careful review of the Project schedule. Further, Section 5 of the IRS Amendment provides Seller a maximum 30 day extension to this date if necessary, but is dependent on and may be limited by the Company's ability to hasten reviewing times during the design review phase. Notably, no revisions were made to the pricing provisions of the PPA and, despite the incomplete nature of the SIS portion of the IRS, Seller and the Company have agreed to accept the IRS and move forward to set the Effective Date of the PPA.
+Delays in executing and filing the IRS Amendment were a result of substantive, necessary, and mutually beneficial discussion, actions, and due diligence between the Company and Seller. Three steps/events prudent to completing the IRS Amendment took substantially more time than initially anticipated - the delivery of working computer models by Seller in the original Ho'ohana SIS; negotiations necessary to relocate the 46 kV line, located on the same property as Seller's project, to more efficiently site Seller's photovoltaic panelst and mutually beneficial discussions to optimize interconnection for projects being developed in the area of Ho'ohana, as first requested by 174 Power Global ("174 PG"). The discussions to optimize the interconnection by combining separate substations contributed to a more robust and cost efficient interconnection while avoiding possible limitations on output from this Project during situations when various segments of the transmission are out of service for maintenance or due to an outage. Further details as to the items listed above were noted in PUC-HECO-IR-16 filed on January 21, 2021.
+Although the items listed above have caused a delay in executing the IRS Amendment and filing this Request for Approval of Overhead Line, the Company believes that the finalized interconnection will offer three primary benefits to customers and all parties that were significant enough to pursue: 1) a more secure and reliable interconnection for dispatchable resources within close proximity to each other, 2) an additional point of interconnection for future projects in the Kunia area, and 3) by combining the switching stations of two projects into one, the overall area utilized by the projects will decrease which will result in reduced visual impacts and increased preservation of land for other valuable uses such as agriculture.
+All parties are working to expedite the Project to achieve commercial operations as quickly as possible.
+7 As disclosed in PUC-HECO-IR-16. July 1. 2023. was the originally contemplated extended GCOD agreed to by the Parties as a result of the negotiations to interconnect the Ho'ohana, Kupehau and Mahi solar projects into one substation.
+0 As disclosed in PUC-HECO-IR-16, Company's easement for this 46kV line was subject to a one-time relocation clause at the property owner's option, the costs of which to be borne by Company. The property owner exercised this option in February 2020. Negotiations with the property owner were completed in and a working agreement completed in December 2020.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 5
+V. Interconnection Requirements Study 1. IRS Findings The objective of the IRS was to assess how the addition of the Project would influence operation of the Company's system, including identifying any issues that pose an unreasonable threat to safety, power quality, reliability, or operational efficiency, and to recommend mitigation for any associated issues. Although not fully completed, the current findings of the IRS show that it is feasible to connect the Project to the Company' s system, and that interconnection of the Project would not cause adverse impacts to the Company's system. The steady-state analysis has not been performed yet, but based on its prior results and some RFP Stage 2 results, it is estimated that the interconnection of the Project will not cause voltage violation or line section overloading on the studied Company circuits. This is true under normal circuit configuration and under multiple contingency circuit configurations. The energization study results do indicate that mitigation will be required to energize the Project plant (including the main interconnection transformer and the collector system plus step-up transformers) to mitigate the voltage dip violations. The results o f the dynamic stability analysis showed no instability caused by the Project interconnection for the contingencies that were run.
+2. Interconnection of the Facility to the Company System The Seller will furnish and install the Facility described in Attachments A and B of the IRS Amendment, subject to the Seller's right to propose revisions pursuant to Section 5(f) of Attachment A.9
+A preliminary single-line diagram that identifies the Point of Interconnection ("POI") is attached to the IRS Amendment as Exhibit 4 (or amended Attachment E of the PPA). The POI will be at the 138 kV voltage level of the Company's system. If it is necessary to step up the voltage at which the Seller's electric energy is delivered to the Company's system, the POI will be on the high voltage side of the step-up transformer. 10
+3. Company-Owned Interconnection Facilities Subject to the terms and conditions set forth in Exhibit 6 of the IRS Amendment (amended Attachment G of the PPA), the Company will own, operate and maintain the Company-Owned Interconnection Facilities required to interconnect the Company's system with the Facility at 138 kV, up to the POI. The Seller will be responsible for designing, engineering, and constructing the majority of the Company-Owned Interconnection Facilities. The Company ' i« IRS Amendment. Exhibits 1 and 2 (PPA Attachments A and B § 1(b)).
+10 S= PPA § 3.3.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 6
+will design, engineer, and construct the remainder of the Company-Owned Interconnection Facilities.
+The Company-Owned Interconnection Facilities include, but are not limited to, the following: (i) two (2) 138 kV DDE steel poles; (ii) string two (2) spans of 300 circuit feet (each) of new 2-556KCM AAC OH conductor between new DDE poles and substation termination structures and deadend on structure; (iii) string two (2) spans of 300 feet (each) of two (2) separate new 195.7KCM AAAC shieldwires between new DDE poles and substation termination structures. The Company-Owned Interconnection Facilities also include, but are not limited to, the following: metering equipment including metering transformers, telecommunication multiplexers and/or routers, protective relaying, including relaying transformers, Remote Terminal Units ("RTU"), Direct Transfer Trip ("DTT') equipment, Supervisory Control and Data Acquisition ("SCADA") resettable lockout relays, and a Digital Fault Recorder ("DER") at the Facility.
+In accordance with Section 1 (d) of Attachment G of the PPA (Exhibit 6 of the IRS Amendment), the Seller is required to pay for all costs related to the Company-Owned Interconnection Facilities. The Company will operate and maintain all Company-Owned Interconnection Facilities, whether constructed by the Seller or the Company. Maintenance, repair and replacement costs will be borne by Seller pursuant to Section *c) of the Attachment G of the PPA.
+4. Seller-Owned Interconnection Facilities Subject to the terms and conditions set forth in amended Attachment B of the PPA (Exhibit 2 of the IRS Amendment), the Seller will design, engineer, construct, test and place into service at its expense, all other Interconnection Facilities (excluding the Company-Owned Interconnection Facilities), required to interconnect the Company system with the Facility at 138
+kV, from the POI to the Seller's Facility. The Seller will own, operate and maintain all Seller-
+Owned Interconnection Facilities for the Term ofthe PPA. The Seller-Owned Interconnection Facilities include, but are not limited to, the following: 138 kV POW breaker, circuit breakers, disconnects, instrument transformers, VAR equipment, control and monitoring facilities, main power transformer and associated lightning arresters, relays and other protective devices.
+5. Pavment of Interconnection Costs The estimated cost of the Company-Owned Interconnection Facilities currently totals $4,983,676 exclusive of general excise tax ("Total Estimated Interconnection Cost").11 This amount represents only the estimated costs to be incurred by the Company to interconnect its system with the Facility and is subject to change pending further engineering and design and 11 * IRS Amendment, Exhibit 6 (PPA Attachment G, §3(a)(iii)).
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 7
+implementation progress, and upon receipt of final information from the Seller prior to interconnection of the Facility with the Company's system.
+The Seller is required to pay the Company for the cost to design, engineer, and construct the Company-Owned Interconnection Facilities, which will be completed by the Seller. The Seller will pay the Company the "Total Estimated Interconnection Cost" in accordance with the schedule set forth in amended PPA Attachment G (Exhibit 6 of IRS Amendment).12 As noted in the IRS Amendment, prior to execution of the IRS Amendment, the Seller remitted $250,000 to the Company as its Initial Payment.13 No later than thirty (30) days after the execution of the IRS Amendment, or March 18, 2021, a payment of $2,822,235.87 is due to the Company, which is a portion of the Total Estimated Interconnection Cost.14 The Seller will remit the balance of the Company-Owned Interconnection Facilities payments in accordance with the schedule set forth in amended Attachment G of the PPA (Exhibit 6 of the IRS Amendment).15
+The final accounting will take place within one hundred twenty (120) days of the first to occur of (i) the Commercial Operations Date; (ii) the date the PPA is declared null and void under either §§ 12.5 or 12.6; or (iii) the date the PPA is terminated. 16 Within thirty (30) days of receipt of a final accounting invoice, the Seller will remit to the Company the difference between the Total Estimated Interconnection Cost paid to date and the Total Actual Interconnection Cost, which is the final accounting of the Total Interconnection Costs. If the Total Actual Interconnection Cost is less than the payment received by the Company as the Total Estimated Interconnection Cost, the Company will repay the difference to the Seller within thirty (30) days of the final accounting. 17
+VL HRS § 269-27.6 - 138 kV Sub-transmission Line Approval for Underground and Overhead Lines As noted in Section V above, the Seller will construct the majority of the Interconnection Facilities required to interconnect the Company's system with the Facility at 138 kV up to the POI, which includes, among other things, the placement of the 138 kV lines overhead (See Exhibit C - route of interconnection facility). The requested approvals pursuant to HRS § 269-
+27.6 for the overhead lines are discussed below.
+12 See IRS Amendment. Exhibit 6 (PPA Attachment G. § 3(b)).
+13 See IRS Amendment. Exhibit 6 (PPA Attachment G. § 3(b)(i)).
+14 * IRS Amendment, Exhibit 6 (PPA Attachment G. § 3(b)(ii)) 15 SM IRS Amendment, Exhibit 6 (PPA Attachment G, § 3(b)(iv)) 16 See IRS Amendment. Exhibit 6 (PPA Attachment G. § 3(c)).
+17 See IRS Amendment. Exhibit 6 (PPA Attachment G, § 3(c)).
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 8
+1. Overhead Lines The scope of work for the Company's 138 kV transmission overhead line extension will span from the new 138 kV poles near the existing Kahe-Halawa #1 138kV overhead line to the Company-Owned Interconnection Facilities and consists of the installation of approximately 300
+circuit feet of 2-556KCM AAC OH conductor 138 kV overhead conductor.
+The Company's 138 kV overhead work is required to interconnect the Seller's Facility to the Company's 138 kV lines. Accordingly, the Company respectfully requests a Commission determination that the installation of the Company's section of 138 kV transmission lines be constructed, pursuant to HRS § 269-27.6. This section provides:
+Construction of high-voltage electric transmission lines; overhead or underground construction.
+(a) Notwithstanding any law to the contrary, whenever a public utility applies to the public utilities commission for approval to place, construct, erect, or otherwise build a new 46 kilovolt or greater high-voltage electric transmission system, either above or below the surface of the ground, the public utilities commission shall determine whether the electric transmission system shall be placed, constructed, erected, or built above or below the surface of the ground; provided that in its determination, the public utilities commission shall consider:
+(1) Whether a benefit exists that outweighs the costs of placing the electric transmission system underground;
+(2) Whether there is a governmental public policy requiring the electric transmission system to be placed, constructed, erected or built underground and the governmental agency establishing the policy commits funds for the additional costs of undergrounding;
+(3) Whether any governmental agency or other parties are willing to pay for the additional costs ofundergrounding;
+(4) The recommendation ofthe division of consumer advocacy of the department of commerce and consumer affairs, which shall be based on an evaluation of the factors set forth under this subsection; and (5) Any other relevant factors.
+(b) In making the determination set forth in subsection (a), for new 138
+kilovolt or greater high-voltage transmission systems, the public utilities commission shall evaluate and make specific findings on all of the following factors:
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 9
+(1) The amortized cost of construction over the respective usable life of an above-ground versus underground system;
+(2) The amortized cost of repair over the respective usable life of an above-ground versus underground system;
+(3) The risk of damage or destruction over the respective usable life of an above-ground versus an underground system;
+(4) The relative safety and liability risks of an above-ground versus underground system;
+(5) The electromagnetic field emission exposure from an above-
+ground versus underground system;
+(6) The proximity and visibility of an above-ground system to:
+(A) High density population areas;
+(13) Conservation and other valuable natural resource and public recreation areas;
+(C) Areas of special importance to the tourism industry; and (D) Other industries particularly dependent on Hawaii's natural beauty;
+(7) The length ofthe system;
+(8) The breadth and depth of public sentiment with respect to an above-ground versus underground system; and (9) Any other factors that the public utilities commission deems relevant.
+(c) A public utility making an application to the public utilities commission under this section shall clearly and fully state and support its evaluation of each factor set forth in subsection (b).
+The requirements of HRS § 269-27.6(a), (b) and (c) are satisfied by this Project, as summarized below.
+HRS §269-27.6(a)(11. The benefits, if any, of placing the overhead portion of the 138
+kV line underground do not outweigh the costs. It is estimated that it would cost approximately four times more to underground this portion of the line than to construct it overhead. This is based on an estimated cost of $5,396,150 for the underground alternative versus the $1,283,243
+estimated overhead. (See Exhibit D - workpapers for overhead vs underground line cost estimates.) HRS § 269-27.6(a)(2). The Company is unaware of any governmental public policy requiring the undergrounding of the 138 kV lines.
+HRS §269-27.6(a)(3). The Company is unaware of any governmental agencies or other parties willing to pay for the additional costs of undergrounding the overhead line extension.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 10
+The Company has asked the Seller and the landowner, Robinson Kunia, LLC ("Robinson'), if they are willing to pay the additional costs to underground the 138 kV line, and Seller has indicated that it is not willing to do so. Robinson has not provided a response to the Company's request as of this filing. (See Exhibit E - email/letter stating Seller is not willing to pay to underground transmission line.) HRS § 269-27.6(a)(41 The position of the Division of Consumer Advocacy of the Department of Commerce and Consumer Affairs will be stated upon completion of its investigation.
+HRS §269-27.6(a)(5). There are no other "relevant factors" of which the Company is aware.
+HRS §269-27.6(b)(1). The estimated cost difference between the overhead and underground installation of the Kahe-Halawa 138 kV transmission line extension is due to the cost and installation of poles and conductors for an above ground line versus the cost and installation of ductlines and conductors for an underground line.18 The estimated initial capital cost of the overhead and underground transmission line options are summarized as follows:
+Overhead Underground Initial Capital Cost $1,283,243
+$5,396,150
+The overhead and underground initial capital costs are shown in Exhibit D. The combined capital and operating and maintenance ("0&M") estimated rate impacts (cents/kWh) for Hawaiian Electric customers for the overhead and underground installations are as follows:
+2024
+2025
+2026
+Overhead $0.000031
+$0.000031
+$0.000031
+Underground $0.000026
+$0.000026
+$0.000026
+For a Hawaiian Electric customer that uses 500 kWh of electricity per month, the estimated bill impacts ($/month) for overhead and underground installations are as follows:
+2024
+2025
+2026
+Overhead $0.000153
+$0.000155
+$0.000156
+Underground $0.000129
+$0.000130
+$0.000131
+18  Exhibit D for the overhead and underground alignments.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 11
+HRS § 269-27.6(b)(21. Historical O&M costs for both overhead and underground transmission lines are shown in the table below:
+Year 2015
+2016
+2017
+2018
+2019
+Average Annual Operating and Maintenance Costs (Der mile) Overhead Cost Underground Cost $18,743
+$8,998
+$14,701
+$8,589
+$11,802
+$26,099
+$15,256
+$29,813
+$17,216
+$4,843
+$15,544
+$15,668
+These historical maintenance costs over the last five years show that the average 0&M costs of overhead and underground transmission lines are about the same. Please see the response to HRS § 269-27.6(b)(1) above for the combined capital and O&M rate and bill impacts.
+HRS § 269-27.6(b)(3). There are tradeoffs in the reliability of underground and overhead systems. Overhead lines are subject to more frequent outages, but they tend to be of shorter duration than outages for underground lines. When faults occur in underground systems, repairs can take weeks instead of days. When lines are underground, they are not exposed to faults from insulator and shield wire failure. However, underground lines experience their own host of problems from construction, heat, and ground movement.
+When developing wind pressure designs for the proposed transmission line, Hawaiian Electric follows Hawai'i Administrative Rules ("HAR") Chapter 6-73 (Installation, Operation, and Maintenance of Overhead and Underground Electrical Supply and Communication Lines), including the National Electric Safety Code, 2002 Edition ("NESC"). The formulas used to develop the wind pressures take wind effects (such as gusts, conductor drag, and terrain) into consideration. The poles and conductors would be designed to survive the anticipated wind loads of an Iniki-class hurricane. It is unlikely that the proposed poles or lines would be knocked down or cause hazards during storms (e.g., high winds, rains, hurricanes).
+As for the lateral loads due to earthquakes, the City and County Building Code requires that structures be designed in accordance with the seismic design provisions of the 2006
+International Building Code. The magnitude of the design loading is a function of the structure's mass, and is a site specific calculation that varies according to the characteristics of the soils onsite. Because an overhead transmission line is a flexible system generally constructed out of materials that do not have large concentrations of mass, the lateral loads are governed by the wind pressure on the exposed surface area. Accordingly, Hawaiian Electric does not anticipate a significant risk of damage to, or destruction of, the above ground transmission line due to seismic activity.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 12
+HRS 4269-27.6(b)(41. No long-term health-related impacts are expected in association with the proposed overhead line for this Project. Specifically, Hawaiian Electric's transmission lines are built and operated in accordance with numerous health and safety guidelines, including design and operation standards contained within the NESC, and worker health and safety standards determined by the Federal Occupational Safety and Health Administration ("OSHA").
+HRS §269-27.6(b)(5). In February 23, Leidos published the "Kahe-Halawa 1 138kV Ho'ohana tap Reports on Magnetic Field and Electric Field Levels" study. The study provided an analysis comparing the electric and magnetic field ("EMF") levels of an overhead configuration and an underground configuration of the new transmission line which is a connector tap to the existing Hawaiian Electric Kahe-Halawa 1 circuit.
+The project site is approximately 1 mile from Royal Kunia and Mililani residences. At this distance, for the proposed Ho'ohana tap lines, the B field and E field contributions solely from the taps is negligible (<0.01]nG, <<0.01 kV/m). This is due to the property of Magnetic (B) and Electric (E) fields diminishing in strength as the distance from the source increases.
+The February 23, 2021 study containing Leidos's subsequent findings are included in Exhibit H.
+HRS § 269-27.6(b)(6)(A). The Project will be located in Kunia on agricultural land. The extensions for the 138 kV transmission lines are not located near high-density population areas.
+However, due to the proximity of the Project to other existing Hawaiian Electric 138kV circuits, the additional cost of undergrounding the transmission line cannot be justified.
+HRS §269-27.6(b)(6)(B). The extensions of the 138 kV transmission line are within land owned by Robinson, which is zoned for restricted agricultural (AG-1). Hawaiian Electric anticipates that the activities required for the overhead line extensions will require a Building and Land use permit and is awaiting confirmation from the Seller regarding the status of these permits. The nearest area used for public recreation is Kealohi Park, which is approximately one and a quarter miles from the nearest point on the Project site, and existing intervening structures already block the line of sight between the park and the Project site.
+HRS §269-27.6(b)(6)(C). The proposed line extensions of the 138 kV circuit are not located near any locales that might be of special importance to the tourism industry.
+HRS §269-27.6(b)(6)(D). The line extensions ofthe 138 kV transmission line and OPGW that Hawaiian Electric proposes to construct and operate would not adversely affect industries that are dependent upon Hawai'i's natural environment.
+HRS §269-27.6(b)(71. The proposed overhead line extensions are each 300 circuit feet in length while the alternative underground route is approximately 300 circuit feet in length.
+HRS 4 269-27.6(b)(81. On February 18, 2021, the Company sent a notice to Robinson detailing the overhead versus underground options and implications, see Exhibit E. On October Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 13
+10, 2018, the Seller held a community meeting with the Royal Kunia Community Association Board to go over the Project and address any questions and concerns, but the option of building overhead versus underground lines was not addressed since it was not a topic of discussion at the time. Hawaiian Electric does not expect that there is a substantial desire on the part of the community to underground the line extensions of the proposed 138 kV circuit due to the Project location and scale.
+2. Public Hearing The Project involves the short extension of a 138 kV overhead line. A public hearing pursuant to HRS § 269-27.5 is not requested for this Project because there are no existing residential homes within or near the Project site. The zoning of the land over which the 138 kV line runs is zoned Restricted Agricultural (AG-1). The Project site and surrounding areas consist mostly of undeveloped land with overgrown vegetation. The nearest residential homes are approximately one mile away. In addition, the line extension will not be visible from the homes, due to the distance and terrain. See Exhibit C and Exhibit F for the Project location map and photographs of the Project area.
+VII.
+Itemization of Modifications Made To Attachments A, B. D. E, F, G, K, K-1, L, N, O, T, and iT A. Attachment A Attachment A (Description of Generation, Conversion and Storage Facility) was revised to reflect updates to the Seller' s information.
+B. Attachment B Attachment B (Facility Owned by Seller) was revised to include updated generator performance standards determined by the results of the IRS. Modifications were also made to specify technical requirements for the Facility.
+C. Attachment D Consultant names were added as Attachment D (Consultant's List).
+D. Attachment E A preliminary single-line diagram of the Facility was attached to the IRS Amendment as Exhibit 4 (PPA Attachment E (Single-Line Drawing and Interface Block Diagram)).
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 14
+E. Attachment F A preliminary relay list for the Facility was attached to the IRS Amendment as Exhibit 5
+(PPA Attachment F (Relay List and Trip Scheme)).
+F. Attachment G Attachment G (Company-Owned Interconnection Facilities) was revised to include specific information regarding the design, construction, and estimated costs for the Company-
+Owned Interconnection Facilities.
+G. Attachment K A date of August 1,2022 was assigned to the milestone to provide documentation evidencing the closing on financing for the Facility or the financial capability to construct the Facility. A date of August 14, 2020 was assigned to the milestone to provide documentation evidencing the filing for a Conditional Use Permit. An updated date of August 31,2023
+(originally December 31,2021) was assigned to the GCOD. These dates were based on the results of the IRS, which determined the scope of the interconnection facilities and the time it would take to complete the interconnection work, energization, and testing of the Facility.
+H. Attachment K-1
+Dates were assigned to the conditions precedent and milestones in Attachment K-1
+(Seller's Conditions Precedent and Company Milestones).
+I. Attachment L Dates were assigned to the milestones in Attachment L (Reporting Milestones).
+J. Attachment O Revisions were made in Attachment O (Control System Acceptance Test Criteria) to clarify certain aspects of the Control System Acceptance Test.
+K. Attachment T Attachment T (Monthly Reporting and Dispute Resolution by Independent AF Evaluator) was revised to include the templates for the PV System Monthly Report and the BESS Measurement Period Report. The date that Seller is required to provide its Monthly Report was corrected to the tenth business day consistent with Section 8.4 of the PPA. Clarification edits were made to change Performance Metric Disagreement references to Monthly Report Disagreement, which is the properly defined term.
+Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members of the Hawai'i Public Utilities Commission February 26, 2021
+Page 15
+L. Attachment U A revision was made to Attachment U (Calculation and Adjustment of Net Energy Potential) to clarify the time frame in which the Net Energy Potential is measured.
+VIII. Greenhouse Gas Emissions The following greenhouse gas emissions ("GHG" or "emissions") analysis is being provided for the Project pursuant to HRS § 269-6(b) and was performed by Hawaiian Electric's consultant, Ramboll US Consulting, Inc. ("Ramboll"). Specifically, this GHG analysis evaluates the potential GHG emissions attributed to the installation of the steel poles, overhead 138kV All Aluminum Conductor ("AAC"), and insulators.
+GHG emissions analyzed include in- and out-of-state GHG emissions from: (1) production processes of the new equipment, such as component production and transportation;
+(2) construction; (3) 0&M activities; and 4) removal and disposal of a portion of the existing transmission line. GHG emissions associated with Project decommissioning and disposal after the expected lifetime of the equipment (45 years) are also included. A graphical depiction of the lifecycle stages is presented below.
+Upstream Stages Operations Downstream Stages r---/4 9- / ..
+Raw Materials Extraction & -*Transportation -* Construction -* Use -+Decommissioning-*Transportation--0 Disposal Manufacturing -./.-
+, The Project GHG emissions are based on the best reasonably available public data that has undergone scientific peer review and are also based on the most current information including emissions factors available to Ramboll at the time the analysis was completed. This information was then localized where practical, and where it may have a material impact on total GHG emissions, to account for unique location-specific factors applicable to a project in Hawai'i such as additional transportation. It is supplemented with the direct emissions calculated to account for the Project's upstream, transportation, construction, O&M, and downstream GHG emissions. The use ofa combination of localized peer-reviewed published studies and direct GHG emissions calculations for the Project represents the "GHG Analysis" approach in this GHG emissions evaluation. Based on this approach, the Company's consultant has estimated that the Project would result in an estimated 2.0 metric tons ("MT") of carbon dioxide-
+equivalents ("COze°') emissions from O&M activities and 497 MT COze for the Project lifecycle.
+Supporting calculations and the associated assumptions are included in Exhibit G. An Excel file, Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+The Honorable Chair and Members ofthe Hawai'i Public Utilities Commission February 26, 2021
+Page 16
+"HoohanaSolarTransmissionLine_GHGAnalysis.xlsx", of the supporting calculations of the information shown on Exhibit G is also being provided.
+IX.
+Conclusion Based on the foregoing, the Company respectfully requests that the Commission commence review of the Company's Interconnection-Related Requests and:
+(a) Determine that the 138 kV line extension that is included as part of Company-
+Owned Interconnection Facilities should be constructed, pursuant to HRS § 269-
+27.6; and (b) Grant such other relief as may be just and reasonable under the circumstances.
+Sincerely, /s/ Kevin M. Katsura Kevin M. Katsura Director Regulatory Non-Rates Proceeding Enclosures c: Division of Consumer Advocacy Counsel for Ho'ohana Solar 1 LLC Hawaiian Electric PO BOX 2750, HONOLULU, HI 96840-0001
+EXHIBIT A PAGE 1 OF 149
+SECOND AMENDMENT TO POWER PURCHASE AGREEMENT FOR RENEWABLE DISPATCHABLE GENERATION 1-
+This First Amendment to IPower Purchase Acreemiens rer Renewable Dispatchable Generation ("Amendmen=") is made and entered into effective as of February :D, /u/: ("Amendmen:
+n i.,"), bv and bel-ween HAWAIIAN ELECTRIC COMPANY, rffective Laue r V, \ INC., a Hawai -1- corporacion 4 rlciwc:i-=-an IL__3CCE--c or "Comparly , , and HO'OHANA SOLAR 1, LLC, a Delaware limited liability company ("Seller") (Company and Seller are jointly reforred to as the i' D 1-- -T- I AIL .
+C. J - L ...
+WHEREAS, Company and Seller entered into that certain Power Purcnase Agreement for Renewable Dispatchable Generation dated cal P f "ppA" 1 ;
+December WHEREAS, on February 3
+Company and Seller amrended designated in Section 1 of L U___ ul Lo , L/Docraphical errors the PPA to corrrect the energy price Attachment J (Company Payments for Energy, Dispat Lhe blank for Cnabllity ang BESS Avallatill the -BESS Contract Canacity" tv) and to fill in in the Schedule of Defined Herms;
+WHEREAS, on February 15, 2020, Company notified Seller of Lne complotion Or an Intorconnoction Rocuirements Study for the Facility, comprised of Lhe Sy.slem Impacl SLudy provided Lo Seller in February nual and Facility Study provided to Seller in Febrl] ary . : ; F : ; C ·rhe. Ino j , WHEREAS, Le accommodate changes to the Project proposed by the Seller and chances Lo Lhe inlercon:eclion facilities Lor Lhe Project agreed to by commissioned;
+Ler and Comnany, an upda z ed IRS wo WHERLAn, on Fe The parrial complet comprised of tne in Study, provided to results to follow, bruary 5, 2021, Company notified Seller of ion of an uncates IRS for the Project, itial results of the updated System Impact Seller in Fetruarv 2021, with farther Studb and an updated Facility Study provided to Seller in Februarv nuan i Lhe usdaled IRS is hereinaL Ler called ne L.£123
+WHEREAS, the Partie,s de,sire to amend the PPA to update information and reflect the results of the IRS by replacing ALLactiment A (Descriplion of bener allon, Conversion enid Storage Facilitv), Attachment B (Facility Owned tv (Consultants List), Attachment E (Single-Li Inverface Block Diagram), Attachment F (Rei ne L :els, Drawi 61.SU 210
+lilli and :achmen: D and Trip -1-
+EXHIBIT A PAGE 2 OF 149
+Scneme; , AT T aci-]En(F-11: ir i LOrtlpany-OWT-tea I nte sconnection Facilities), Attachment J (Company Paymenls For Energy, Dispatchability and BESS Availanility), Attachment K (Guaranteed Project Milestones), Attachment K-1 (Seller's Conditions Precodent and Company Milestones), Attachment L (Reporting Milestones), Attachment O (Control System Acceptance Test Crineria), Arrachmen= r (Monthly Reporting and Dispute Resolurion bv Tndependen: AF Eva (Calculation and Adjustment of N iliator) et Ener , and Attachment U cy Potential); and NOW, THEREFOR contained in tnis kline Il«n™ 11 '_.311,23
+ndment, ideration of the respec and for other cood and tive Dromis€ valuable 1
+consideration, une receipt and adequacv of which are herebv acknowledged, rhe Parries hereby agree as follows 1. DEFINITIONS Inirial lv capiral i Fed rerms used in this Amendment ner otherwise defined in the context in which they first appear 1
+hall have une meanings given them in the PPA.
+2. AMENDMENT EFFECTIVE DATI The Parties acknowledge and agree that the Amendment Effective Date set forth above shall also be the "Effective Daze," as such rerm is defined in the PPA.
+3. AMENDMENT OF a.
+Attachment A (Description of Generation, Conversion and Storage Facility) is horesy dolotea and replaced in its entirety with a revised Attachment A, attached hereto as Exhibit 1, ro updaze oeller equipment and information.
+./ Attachment b (racility Owned by belier) is herel deleted and replaced in ins entirery with a revisea Attachment 0, attached hereto as Exhibit 2, to reflect the results of the IRS.
+bin.J e Attacnment D cultants List) 12 hereby deleted and replaced in its entirety with 3 revised Attacnment D, attached here Exhibit 3, to add consultant information.
+Attachment E (Single-Line Drawing and Interface Bloc Diagram) is hereby deleted and replaced in its entirery with a Fevised Attachment E, attached nereto as Exhibit 4, to reflect the resulus of The lkS.
+13
+EXHIBIT A PAGE 3 OF 149
+f. Attachment F (Relay Iii 6
+r and 7rip Scheme) is hereby deleled and replaced iIi ils entirely with a revised ALLacanienl F, attached hereto as Exhibit 5, to reflect the results of the IRS g.
+Facilitie a revised Attachment S) is herebv Attachment 6 l bompanv-Owned Tnrerconnection deleted and replaced in its entirety with c, ausacnea nerete as Exhibit 6, to reflect the results of the IRS.
+h. ALLachner:L J (Company Payments For Disnatchability and BESS Availability) is her replaced in i i.5 en:ire:17 wi :h a revised Attac Energy, eby Cel hment J er ec alla , attached hereto as Exhibit 7, to clarifv that Seller at the reduced rate specified Compan in the colicensate PPA for test energv.
+i. Attachment K (Guaranteed Project Milestones) is hereny deleted and replaced in its entiretv with a revised Attachmentt K, attached hereto as Exhibit 8, to reflect the results Of the IRS.
+i. Attachment K-1 (Seller's Conditions Prececent ana Company Milestones) is hereby delet entirety with a revised Attachment ed K-1
+and re©laced in its , attached hereto an Exhibll 9, Lo reflect -he results of Lhe IRS.
+1. Attachment L (Repor:ing Miles:ines) is hereby deleted ana reclaced in its entiretv with a revised Attachment L, attached hereto as Exhibit 10, to reflect the results of the IRS k. Attachment 0 (Control System Acceptance Test Criteria) is hereby deleted and replaced in its entirety with a revised Attachment 0, attached hereto as Exhibit 11, to clarify certain aspects of the Con=rol Svs=ems Acceprance Test 1. Attachment T (Monthly Reporting and Dispute Resolution by Indopondent AF Evaluator) is herobv dolotea ana reslaced in its entirety with a revised Attachment T, attached hereto as Exhibit 12, to add rhe PV S Measurement Period Repor: r (1 (1
+vs=emi Mon=hlv Report anc B t , 00
+emplares, and to make clarification EZ 1 /'4 3  Cl 1. ALLachmenl U (Calculation and AdjuslateriL of NeL Eriergy Potential) is hereby deleted and replaced in its entirety with a revised Attachmen: T, arrached here:o as Exhibit 13, to mare -larification edit:
+EXHIBIT A PAGE 4 OF 149
+4. UPDATE TO TRS Confirmation of certain mitigation requirements in the updated IRS will be formally completed in or about April-Mai 2021, which Seller and Company agree may no 1
+revisions to the amended appendices or une understand the porenrial w-ors= case scenar cossitate further PPA.
+The Parties 10" of such requirements ang maximum es:imared cos:.
+Because of this underslanding, notwithstanding such conlingency, agree that the Effective Date shall remain as st Lhe parlit atea in thi Amendment GUARANTEED COMMERCIAL OPERATIONS DATE In order to further shorten Project development time for Seller and recover zime los= in rhe Parries' planning anc negotiation for certain Company-Owned Interconnection Faci lilies, Company has agreed Lo use comm·ercially r·eationab efforts to exnedite its review of Seller's Plans as specifiea in Hect :on P (C.) li':ans; ot A-- 1- 320' inttlePen: ir luortal-)33 ny-Ownec Interconnection Facilities). Arter Company's completion of ii:
+review of Seller's Plans, Seller may request, if necessary, ant 1311 be entitled zo, an exnension of rhe Guaranteed commercial Operations Date for up to thirty (30) Days less the number of Days which uompany was able Lo save iIi review of Seller' s Plans Jurrently, Company is allotted one-hundrea (120) 2-1-
+0417= ir: the aggregate to review Seller's Plans at the 30%, 60%, 90% and Final stages (30 Days for each stage). If Company is able to ave, n the aggregate, 10 Days in its review Del le 1
+resulting extension of rhe Guaranreed Commercial Operations Date shail be equal to .wnin. v l.» Davs (30 ways maximum less the 10
+Days saved by Company iIi ils review).
+If Conioany is able Lo save JU+ Days in its review of the Plans, oelier will not De entitled to an extension.
+Any Days required by Company to review a re-submittal of Plans that are doomed not De in conformance wil-h Lhe Standards at anv stage shall nol counl toward the 120 Dav aggregaze limir svecified above.
+6. MISCELLANEOUS a.
+All of the termo conditions of the PPA that are and not altered amended or in full force and effec otherwise defined herci replaced by this Amendment shall remain * All capitalized terms, unless , shall have the meaning(s) ascribed to \ 1
+Ag ch Leinds) in Lhe PPA.
+This Amendmen Including all Arrachmenrs rherezo) and reements (toge:her wirh anv confiden:
+1, Logelher wilh Lhe PPA the iRS Letter iality or nondisclosure -4-
+EXHIBIT A PAGE 5 OF 149
+aireemenrs entered into by the Parties during rhe precess of begoliat-ing Ltie PPA arid/or disc Facility), constitute the entir between the Parties with resser assing the specifications of the e uncerstanding and agreement t to the subject matter nereor.
+This Amendment shall be governed by and construed in ac GIl .
+'cordance with the laws of the State of Hawai i.
+[ne venue for civil action relatea to the PEA ana Amendment snail be tne judicial circuit in which the Facility is located.
+This Amendment may be executed in counterparts, each of which shall be deemed an original, and all of which shall toqether constitute one and the same instrument binding all parties notwithstanding that all of the parties are not signatories to the same counternarts duplicate unexeculed and unacknowled For all purposes, ged paged 01 the counterparts may De aiscarcea ana the remaining pages assemble:
+as one document.
+d.
+The Par:les agree that this Amendment may be executed and delivered by exchange of execuled couies via electronic inall ("email") or other accepraule electronic means, and in electronic formats such as Adobe PDF or other formats mutually tgrocable between the Parties which Drosorve :no final torms of unis Amendment or such writing.
+2-1 L. I. I- v IJ Eignature transmitt€ bv ema il or other accentaole electronic means shall be considered an "original" sicnature which is binding and effective for all purposes of this AmendmenT.
+F i ar,h / 11 re phne Fo 1 10*.9
+EXHIBIT A PAGE 6 OF 149
+IN WITNESS WHEREOF, the Parties have executed this Amendment effective as of Amendment Effective Date.
+HAWAIIAN ELECTRIC COMPANY a Hawai'i corporation INC., By %434-ta---
+Name:
+Scott W.H.
+Seu Its: President & Chief Executive Officer By Name: Jim Alberts Its: Senior Vice President, Business Development and Strategic Planning ( "Compal-ly" ) HO'OHARA SOLAR 1, LLC a Delaware limited liability company By Name:
+Its:
+("Seller") -6-
+EXHIBIT A PAGE 7 OF 149
+IN WITNESS WHEREOF, the Parties have executed this Amendment effective as of Amendment Effective Date.
+HAWAIIAN ELECTRIC COMPANY, INC., a Hawai'i corporation By Name: Scott W.H. Seu Its: President & Chief Executive Officer By U0., Aau:ta, Na#Ke: Jim Alberts Its: Senior Vice President, Business Development and Strategic Planning ("Company") HO'OHAHA SOLAR 1, LLC a Delaware limited liability company By Name:
+Its:
+("Seller") -6-
+EXHIBIT A PAGE 8 OF 149
+IN WITNESS WHEREOF, the Parties have executed this Amendment effective as of Amendment Effective Date.
+HAWAIIAN ELECTRIC COMPANY, INC., a Hawai'i corporation By Name:
+Scott W.H.
+Seu Its: President & Chief Executive Officer By Name:
+Jim Alberts Its: Senior Vice President, Business Development and Strategic Planning ( "Company" ) HO OHAHA SOLAR 1, LLC a Delaware limited liability company By: H.-Het De, elopment. LLC Its: Sole Member By- Hanwha Encryy USA Holdmp Corporation d b a 174 Pou cr Global Its: Mannying Memhe, Name H# Title: Px,b 't un It ("Seller") -6-
+EXHIBIT A PAGE 9 OF 149
+EXHIBIT 1
+ESCRIPTION OF GENERATION JACHMENT A CONVERSION AND .13!01<AbE FAL_i- Lil L U EXHIBIT A PAGE 10 OF 149
+ATTACHMENT A DESCRIPTION OF GENERATION, CONVERSION AND STORAGE FACILITY 1. Name of Facilicy: Ho'onana Solar 1, LLC (a) Locatic 4-003:0
+n: K' 11 nia, Oahl] (TMK Nos. C i) 9-4 -002: 0 5 2 and (1 ) 9-
+Ul# (b) Tele©hone number (for system emergencies) 6949) 748-5970
+(c) E-mail Address: legal@174Dowerglobal.com (d) Con (No tact Information for notices pursuant t Lices) 01_ Llie Auleentent:
+o Sec Mailing Audress:
+0/0 174 Power Global SDectrum Center Drive, Suite 1020
+Irvine, .ri ,· oid p, an rn r Address for Delivery by Hand or Overnight Deliver-
+0/0 1 74 Power bi -1 obal pectrum Center Drive, Suite 10= Irvine, CA 92618
+E-Mail Address: iegal@174powerglobal.com 2. Owner (Ii difierent trorr Seller) Ho'ohana Solar 1, LLC Seller 1,13 no tified copy Doration, pa L the owner, Seller Enall Diovide Conipanv wilh a of a certificate warranting that the owner is a rtnership or limited liabilitv comnany in cood scanding with :he Haw Affairs which shall b Standing Certificates ai 'i Department ok Commerce arld Consumer o attached hereto as Exhibit A-1 (Good 3. Operator: 174 Power Global OAM, LLC [00]14-12-000092/48:2} LKECU'.1011 VE1291011
+Ho ohana Solar 1, LLC Hawaiian Electric Company, Inc EXHIBIT A PAGE 11 OF 149
+4. Name of- person Lo whon. paynterils are Lo be made:
+Accounts Receivable - 174 Power Global (a) Mailing acaress 300 Spectrum Center Drive Suite 1020
+Irvifle, L.·1 91016
+' ' 1 lia 0, a I 1 L J ross Kxcl se 1 67 IiI cense 1-,limper 8512587601
+E172466995201
+Equipment:
+a) Type of facility and conversion equipment POWer product.ion faciliry designated aS A Qual i fyi ng Facilily Lhal Droduces eleclric energy using solar.
+f h) Design and capacity Lotal b'acility Capaciry ("Contract Capacity", 52,000kW Zneray Storage Capaci:T 52,000 kW 208,000 kWh To' ·1 1\Ji,n.'r·,ur of-
+L-t_ 14 -tll A_/ L_L lenora Lors:
+17 units each 3630kVA Power Electronics PV Solar Inverter:
+units each 3630kVA Power Electronics Battery ESS inverters Descriallon of Equipment:
+PV Tnverters each 3630 kVA ang Energy Storage Inverters each 3630kVA using Samsung Lithium Ion Batteric {001]4-12-00009248 :21
+EXECUTION VERSION He nhana 90 -im ¥ 1 T 7 r Hawa liaii El=clr ic. Coinpeir,y, Inc EXHIBIT A PAGE 12 OF 149
+Individual unit:
+11':P.
+kVAR Consumed Produced Full icaa 3:artup 33u1
+1110
+1b1u 43·efieLELOL ry©e Power Electronics HEM FS3510MU Rated Power 3630 kW Voltage 34500 V, 3 nhase Frequelicy 60
+Class of Protection n/a Num©or of Polar I L / El Rated Speed 2/3 rpm Rated Current 01 A Rated Power Factor See Exhibit 2-2
+kVAR , 4/nit h Lonsumed Produced Full load :tarrup . r 1 21
+1510
+Power Electronics PCSM FP3510>1
+Rated Power 3630 ke 3 7 - ' vuitage 645 V, 3 phase Freeliency ClasE 01 P.coleclion 11/ a Num©er of Poles n/a {00114-12-00009248:2} A-2
+11XILLU1101 ki,lil<biON Ho 'onana Solar 1, LLC mawailan Electric Company. Inc EXHIBIT A PAGE 13 OF 149
+Rated Soeed n / a rpm tated Current 3250 A Rated Power Factor See Exhibin b-.
+rotal Number of Enerav Siorace Unics:45
+45x 53ft calvanized meral conrainers SLorage unils conlain:
+oamsung bul container or equivalent Samsung SDI raccs or ocuivalent Sara.sung bacterv mocules or tier 1 equivalent Fire Suppression HVAC Integrated Sporace Units have the following specificarion:
+Full load 1707 kW Energy Storage Unit:
+Tvpe baoer, bollricrow bvi or equivalen:
+Rated Power 1707 kW Ranea Energy 6,829.2 kWK Voltage 960-1245 V Class of Protection DC disconnect breaker fuse Rated Current 1778.12E Karea fower Factor See Exhibin b-.
+Single or 3 phase: 3 ph ase (d) Nante of nianufacturer: Power Eleclronics {00114-12-00009248:2} A-4
+EXECU 'iuN VURSiuN Ho 'ohana So lai- 1 , 11 C ilian Electric Company, Inc EXHIBIT A PAGE 14 OF 149
+(e) The "Allowed Capacity" of this Agreement shall be the lower ct (i; Con capacity Diet fo tract Capacity or lii) the net nameplat r exporL) of Lhe Facilily inELalled by e the Commercial Operations Dane.
+Seller may propose revisions to this Soction (Equipment) of Attachment A (Description of Generatior Facility) C #onvers: on and b:oF- FIC[(Fe . .
+"Section 5") for Conipany' construe s apploval Fultioll Lo coinmenceitlenl of tion, provided, however, that (i) no suck revision to This Section 5 snail crance tne Evoe or Facilitv or conversion equipment deployed at the Faci phot 1 irv from a solar enerav conversion facility ils in= OVOJ.t31C eculpment; (11) Seller snall be in compliance with all other terms and conditions of this Agreement; and (iii) such revision(s) shall not change the characterisnics of the bacility equipment or the specificat Seccion O ions used in the IRS. Any revision to this complying wich items (i) chrough (ili) above sha 1 1 ke il]Diec: i.0 Comnanv' s orior approva l, Whi .35
+approval shall nol Seller's proposed U re unreasonably withlield. IL Lsion(s) to this Section 5
+otnerwise sanisfies items (i) and (ii) above but nor item (ili) such chat Company, in ics reasonable discrn" i ' dotormines that a re-studv or revision co all or any part of the IRS is required to accommodate Seller's proposed revisionfs), Company may, in its sole and abBolule discrellon, condilionally approve such revisionfs) subject to a satisfactory re-studv or s payment and continued revision to the IRS and 101 -Or obligation to be liable and responsiole for all costs and expenses of re-studyina or revising such porrions of the IRS and for modifying and paying for 311 costs and expenses of modification to the Facility, the Com©anv-
+-£ Owned Interconnection Facilities based on the resules of the re-studies or revisions no the 1RS. Any chances made co th uon·ve i Attachment A CD Lon and olorage oscription of Generation, rp,-2 lity ) or the Agreement as 3
+result of this Section 5(f) of Attachment A (Description of Genetation, Conversion and Storage Facility) shall be reflected in a written amendment to tne Acreemenn Seller understands and acknowledges that Company' review and approval of Seller' this Section 5 and anv necessa s proposed revisions to rv re-53-:idies or revisions o Lhe IRS shall be subjecL Lo Company's then-exi Com©any agrees t zime and personnel constraints.
+S L 1119
+o use {00114-12-00009248:2} 1-5
+EXECUHUN VERSION Ho '.hana Solar .
+Hawaiian Elecuric Company, inc EXHIBIT A PAGE 15 OF 149
+commercialiv reasonaole efforts, under such time and personnei constraints, to Com©lete any necessar reviewE, apotovals and/or ze-sladles o.[ Levil-ons Lo Lhe 1RS Any delay in comple any subsequent Sell Lina failure er milestones und bv Seller to meet ter Arcicle 16
+(Guaranteed Project Milestones i-ncluding Commercial Overalions) aus a reBult of any Levision Quiscant- Lo Lbis Section 5 bv revision to Seller (whether requiring a re-study or rhe IRS or nor) shall be borne entirely by Seller and Company shall not De respon I_or anv colav or faliure Lo meet any s sible or liable uch milestones by Seller.
+6. Insurance carrierfs): At the time of the execution of this Agreemene, better'; insurance carriers include F'ederal Insurance Companv, 12&1 1,3-ae others. Seller ma mnity Company, ACE American insurance Company, and y add or cnange insurance carriers in the future.
+7. If Seller is not the operator, Seller shall provide a copy of the agreement be:ween Seller and the operator whish requires the overator Lo opetale Lhe Facility and which eslablisheE Lhe Bcope of ©Deranions bv the oDerator and rhe res©ective righns of Seller and F ra,-I the operanor winh respect to the sale of electric energy Facilicy no later chan the Commercial Operacions Date.
+In addicio Seller shall 0:Ovide a certified copv of a certificate warranting that the oaerator is a corporation, Dartnersnip or limited liability company in Jood standing with the Hawal 'i Department of Commerce and uonsumer Affairs no lauer than the Commercial Operations Dare.

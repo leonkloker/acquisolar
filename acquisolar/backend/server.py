@@ -6,10 +6,12 @@ from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import subprocess
 import shutil
+from zipfile import ZipFile
+from io import BytesIO
 
 import classification
 import searchengine
-import Metadata_changes
+#import Metadata_changes
 
 
 """
@@ -31,8 +33,6 @@ file_name = "PPA.pdf"
 input_text = "these are notes"
 Metadata_changes.take_notes(file_name, input_text)
 """
-
-
 
 
 # Create the Flask app
@@ -94,6 +94,18 @@ def upload():
             return jsonify(error="No valid PDF files selected!"), 400
     return jsonify(error="No files part in request!"), 400
 
+@app.route('/downloadZip', methods=['GET'])
+def download_zip():
+    result = Metadata_changes.zip_directory()
+    
+    if result:
+        try:
+            return send_from_directory(directory=ZIP_FOLDER, filename=ZIP_FILENAME, as_attachment=True)
+        except FileNotFoundError:
+            return {"error": "Zip file not found. Please try again later."}, 404
+    else:
+        return {"error": "Failed to create zip file. Please try again later."}, 500
+
 
 @app.route('/renameFile', methods=['POST'])
 @cross_origin()
@@ -114,7 +126,27 @@ def renameFile():
         return jsonify({'message': 'File renamed successfully'}), 200
     except:
         return jsonify({'error': 'Original file not found'}), 404
-    return jsonify(json_response)
+
+@app.route('/updateNotes', methods=['POST'])
+@cross_origin()
+def updateNotes():
+    # Ensure there is JSON data and extract it
+    if not request.json:
+        return jsonify({'error': 'Missing request data'}), 400
+
+    data = request.get_json()
+    file_name = data.get('filename')
+    notes = data.get('notes')
+
+    if not id or not notes:
+        return jsonify({'error': 'Missing arguments in the request'}), 400
+
+    try:
+        Metadata_changes.take_notes(file_name, notes)
+        return jsonify({'message': 'File renamed successfully'}), 200
+    except:
+        return jsonify({'error': 'Original file not found'}), 404
+
 
 # Search endpoint
 @app.route('/search', methods=['POST'])

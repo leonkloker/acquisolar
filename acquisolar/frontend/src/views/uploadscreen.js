@@ -90,6 +90,31 @@ const Upload = () => {
       }
     };
 
+    const downloadZipFromServer = async () => {
+      try {
+        const response = await axios({
+          url: URLServer + '/downloadZip', // Adjust the endpoint as necessary
+          method: 'GET',
+          responseType: 'blob', // Important for files
+        });
+    
+        // Create a Blob from the PDF Stream
+        const file = new Blob([response.data], { type: 'application/zip' });
+        // Build a URL from the file
+        const fileURL = URL.createObjectURL(file);
+        // Create a temp <a> tag to download file
+        const fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'files.zip'); // Name the download as desired
+        // Append to the HTML document and click it to download
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        fileLink.remove(); // Clean up and remove the link
+      } catch (error) {
+        console.error('Error while downloading the file', error);
+      }
+    };
+
     const navigateFolders = () => {
       if(!isUploading && hasUploaded) {
         navigate('/folders'); 
@@ -131,9 +156,19 @@ const Upload = () => {
               {isUploading ? 'Uploading Files...' : 'See Folders'}
               
             </button>
-        { isUploading  && (
+        <button 
+              style={(isUploading || !hasUploaded) ? { ...styles.navigateButton, backgroundColor: '#DEE2E6' } : styles.navigateButton}
+              onClick={downloadZipFromServer}
+              disabled={isUploading}
+            >
+              Download Zip
+          </button>
+
+          { isUploading  && (
             <img src={loadingIcon} className="rotating" alt="Loading" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
           )}
+
+
       </div>
       </div>
     </div>

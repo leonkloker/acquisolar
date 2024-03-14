@@ -7,31 +7,31 @@
   },
   {
     "id": 2,
-    "name": "Environmental",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 3,
     "name": "EPC",
     "type": "directory",
     "parent_id": 1
   },
   {
-    "id": 4,
-    "name": "Interconnection",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 5,
+    "id": 3,
     "name": "Miscellaneous",
     "type": "directory",
     "parent_id": 1
   },
   {
+    "id": 4,
+    "name": "Environmental",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 5,
+    "name": "Interconnection",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
     "id": 6,
-    "name": "Permitting",
+    "name": "Site Control",
     "type": "directory",
     "parent_id": 1
   },
@@ -43,29 +43,8 @@
   },
   {
     "id": 8,
-    "name": "Site Control",
+    "name": "Permitting",
     "type": "directory",
     "parent_id": 1
-  },
-  {
-    "id": 9,
-    "name": "pdDeclare EE Major Form.pdf",
-    "type": "file",
-    "size": 437164,
-    "parent_id": 5
-  },
-  {
-    "id": 10,
-    "name": "pdEE_PS_2324.pdf",
-    "type": "file",
-    "size": 272166,
-    "parent_id": 5
-  },
-  {
-    "id": 11,
-    "name": "pset8_cs103.pdf",
-    "type": "file",
-    "size": 178820,
-    "parent_id": 5
   }
 ]

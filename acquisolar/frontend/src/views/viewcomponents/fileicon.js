@@ -10,6 +10,7 @@ const ENDPOINT = 'http://localhost:3001';
 const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
     const navigate = useNavigate();
     const [contentToShow, setContentToShow] = useState(null);
+    const [notes, setNotes] = useState(file.notes || "");
   
     const handleShowContent = (content) => {
         return () => {
@@ -26,7 +27,7 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
         setContentToShow(null);
 
         const data = {
-            originalFilename: file.original_title,
+            originalFilename: file.current_title,
             newFilename: file.Suggested_title,
         };
 
@@ -42,7 +43,31 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
     const handleSearch = () => {
         onShowPdf(file);
         navigate('/searchscreen', { state: { filename: file.current_title } });
-    }
+    };
+
+    const handleNotes = () => {
+        // Function to send notes to the backend
+        const data = {
+            filename: file.current_title,
+            notes: file.notes,
+        };
+
+        axios.post(ENDPOINT + '/updateNotes', data)
+            .then((response) => {
+                console.log('Notes update successful', response);
+            })
+            .catch((error) => {
+                console.error('Error updating notes', error);
+            });
+    };
+
+    const handleNoteChange = (event) => {
+        setNotes(event.target.value);
+    };
+
+    const handleMove = () => {
+
+    };
   
     return (
     <div style={styles.fileIconContainer}>
@@ -115,10 +140,31 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
                 )}
                 <DarkenButton 
                     text="Move"
+                    onClick={handleShowContent('move')}
                 />
                 <DarkenButton 
-                    text="Tasks"
+                    text="Notes"
+                    onClick={handleShowContent('notes')}
                 />
+                {contentToShow === 'notes' && (
+                    <div style={styles.contentBox}>
+                        <textarea
+                            value={notes}
+                            onChange={handleNoteChange}
+                            style={{ width: '100%', height: '100px' }} // Adjust styling as needed
+                        ></textarea>
+                        <div style={styles.buttonContainer}>
+                            <DarkenButton 
+                                text="Cancel"
+                                onClick= {handleShowContent('notes')}
+                            />
+                            <DarkenButton
+                                text="Confirm"
+                                onClick={handleNotes}
+                            />
+                        </div>
+                    </div>
+                )}
                 <DarkenButton 
                     text="Q&A"
                 />                
