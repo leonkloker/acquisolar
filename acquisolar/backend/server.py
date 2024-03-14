@@ -105,20 +105,18 @@ def search():
     filename = request.json.get('file', '')
     print('Received search query:', search_query)
     print('within file:', filename)
-    
+
+    if not filename:
+        filenames = []
+    else:
+        filenames = [filename]
+
     # Search the index and return a streaming response
     response_gen, texts, pages, docs = searchengine.query(search_query, app.config['UPLOADED_FILES_INDEX'],
-                                                          filenames=[filename], generator=False)
+                                                          filenames=filenames, generator=False)
 
-    json_response = {
-        'response': response_gen,
-        'texts': texts,
-        'pages': pages,
-        'docs': docs
-    }
-
-    # return strings, document name
-    return jsonify(json_response)
+    return jsonify({"response": response_gen,
+                    "pages": pages})
 
 
 @app.route('/get-pdf/<filename>')

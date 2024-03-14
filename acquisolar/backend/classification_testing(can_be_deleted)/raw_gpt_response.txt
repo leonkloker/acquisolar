@@ -1,10 +1,8 @@
-```json
 {
-    "Document_date": "Oct-14, 2019",
-    "Document_summary": "This document is a Letter of Intent between Haleakala Ranch Company and Clearway Renew LLC for the development of a 40 megawatt solar renewable energy project in Maui County, Hawaii. The implications are that the parties are agreeing to negotiate the terms of definitive agreements for the project.",
-    "Suggested_title": "10-14-2019 Solar Project Letter",
-    "Suggested_title_v2": "10-14-2019 Renewable Energy Agreement",
-    "Suggested_title_v3": "10-14-2019 Solar Development Intent",
-    "Document_folder_path": "project/PPA"
+  "Document_date": "N/A",
+  "Document_summary": "Unable to extract a valid summary from the provided text.",
+  "Suggested_title": "N/A",
+  "Suggested_title_v2": "N/A",
+  "Suggested_title_v3": "N/A",
+  "Document_folder_path": "project/Unclassified"
 }
-```

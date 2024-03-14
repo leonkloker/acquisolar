@@ -40,5 +40,12 @@
     "name": "Permitting",
     "type": "directory",
     "parent_id": 1
+  },
+  {
+    "id": 8,
+    "name": "hw5-1.pdf",
+    "type": "file",
+    "size": 4189354,
+    "parent_id": 3
   }
 ]

@@ -522,7 +522,7 @@ def clear_directory_contents(output_dir):
     print(f"All contents of {output_dir} have been deleted.")
 
 """Implementation"""
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 enable_testing_output = True
 copy_or_move = "move" #have to choose move for implementation. copy breaks the directory function
 root_directory = set_root_directory()
