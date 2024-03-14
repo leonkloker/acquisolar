@@ -38,6 +38,7 @@ const Search = () => {
                 },
                 body: JSON.stringify({ query: searchText, file: filename }),
             });
+        
             //const textResponse = await response.text(); // Assuming the response is a stream of text
             const textResponse = await response.json(); // Assuming the response is a JSON object
             console.log(textResponse['response'])
@@ -47,24 +48,26 @@ const Search = () => {
         }
 
         console.log(searchQueryResult)
-
-
-        const url = `http://localhost:3001/get-pdf/${filename}`;
-        let pdf = await pdfjs.getDocument(url).promise;
-        let foundPages = [];
-    
-        for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const textContent = await page.getTextContent();
-            const text = textContent.items.map(item => item.str).join(" ");
-            if (text.match(new RegExp(searchText, "gi"))) {
-                foundPages.push(i);
+        console.log("Filename: " + filename)
+        if (filename != ""){
+            console.log("bool")
+            const url = `http://localhost:3001/get-pdf/${filename}`;
+            let pdf = await pdfjs.getDocument(url).promise;
+            let foundPages = [];
+        
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const text = textContent.items.map(item => item.str).join(" ");
+                if (text.match(new RegExp(searchText, "gi"))) {
+                    foundPages.push(i);
+                }
             }
+        
+            setOccurrences(foundPages);
+            setCurrentPage(foundPages[0] || 1); // Set to first found page or back to 1 if no occurrence
+            setSearchResult(`Found "${searchText}" ${foundPages.length} times.`);
         }
-    
-        setOccurrences(foundPages);
-        setCurrentPage(foundPages[0] || 1); // Set to first found page or back to 1 if no occurrence
-        setSearchResult(`Found "${searchText}" ${foundPages.length} times.`);
 
 
         console.log(searchQueryResult)
@@ -181,6 +184,7 @@ const styles = {
         margin: '4px'
       },
     searchInput: {
+        width: '100%',
         height: '40px',
         fontSize: '18px',
         padding: '0 15px',
@@ -188,7 +192,6 @@ const styles = {
         border: 0,
         borderRadius: '15px',
         marginRight: '10px',
-        outline: 'none',
     },
     pageButton: {
         padding: '5px 10px',

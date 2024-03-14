@@ -9,7 +9,6 @@ import shutil
 
 import classification
 import searchengine
-import Convert_directory
 import Metadata_changes
 
 # Create the Flask app
@@ -65,9 +64,6 @@ def upload():
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
-
-            # create directory for frontend
-            Convert_directory.convert_directory_structure()
             
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
@@ -116,13 +112,14 @@ def search():
                                                           filenames=filenames, generator=False)
 
     return jsonify({"response": response_gen,
-                    "texts": texts})
+                    "texts": texts,
+                    "source_docs": docs})
 
 
 @app.route('/get-pdf/<filename>')
 def get_pdf(filename):
     json_file_path = './structured_data/global_directory.json'
-    
+    print(filename)
     # Load the JSON content
     with open(json_file_path, 'r') as file:
         directories = json.load(file)
