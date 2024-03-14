@@ -12,7 +12,7 @@ import json
 
 # Adjust these paths and values according to your actual project configuration
 project_name = 'MegaSolar'
-api_key = "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"
+api_key = "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"
 
 def save_metadata(metadata, output_dir, pdf_file):
     """Saves extracted metadata to a JSON file."""

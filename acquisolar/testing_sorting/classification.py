@@ -531,7 +531,7 @@ def main(input_dir, output_dir, project_name, action="move"):
 
 
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 enable_testing_output = True
 copy_or_move = "move" #better to chose move for testing complete functionality. and clearing output folders first
 root_directory = set_root_directory()
