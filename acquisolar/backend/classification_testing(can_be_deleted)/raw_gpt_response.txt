@@ -1,12 +1,10 @@
-```json
 {
-    "Document_date": "Aug-2022",
-    "Document_summary": "This document presents a research project focused on predicting the local reactivity of RNA nucleotides using machine learning models. By bridging the gap between RNA sequence and structure, the project aims to enable the development of new models that predict tertiary structure. Various methods and models were evaluated to compute SHAPE data from RNA sequences.",
-    "Suggested_title": "08-2022 RNA SHAPE Prediction Study",
-    "Suggested_title_v2": "08-2022 RNA Nucleotide Reactivity Prediction Project",
-    "Suggested_title_v3": "08-2022 RNA Structure Prediction Research",
+    "Document_date": "N/A",
+    "Document_summary": "",
+    "Suggested_title": "",
+    "Suggested_title_v2": "",
+    "Suggested_title_v3": "",
     "Document_folder_path": "Miscellaneous",
-    "Document Label": "Communication",
-    "Reasoning": "The document provides an overview of a research project on RNA structure prediction using machine learning models. While it does not fit directly into categories like 'EPC' or 'PPA', it also does not specifically focus on environmental impact, interconnection agreements, site control, or permitting. Therefore, it is classified as 'Miscellaneous' under 'Communication' due to its informational nature."
+    "Document-label": "Miscellaneous",
+    "Reasoning": "The document does not fit into any of the specific categories such as Interconnection, Site Control, PPA, Environmental, or EPC. Therefore, it is classified as Miscellaneous."
 }
-```
