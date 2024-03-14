@@ -1,20 +1,20 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # testing output
-/backend/classification_testing/*
-!/backend/classification_testing/.gitkeep
+/acquisolar/backend/classification_testing/*
+!/acquisolar/backend/classification_testing/.gitkeep
 
 # input
-/backend/documents/*
-!/backend/documents/.gitkeep
+/acquisolar/backend/documents/*
+!/acquisolar/backend/documents/.gitkeep
 
 # output
-/backend/structured_data/*
-!/backend/structured_data/.gitkeep
+/acquisolar/backend/structured_data/*
+!/acquisolar/backend/structured_data/.gitkeep
 
 # zip output
-/backend/zip_output/*
-!/backend/zip_output/.gitkeep
+/acquisolar/backend/zip_output/*
+!/acquisolar/backend/zip_output/.gitkeep
 
 # dependencies
 **node_modules**
