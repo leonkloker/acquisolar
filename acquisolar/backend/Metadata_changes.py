@@ -277,4 +277,4 @@ that i want to store
 
 
 """ Example use: Zip folder structure"""
-#zip_directory("project")
+zip_directory("project")
