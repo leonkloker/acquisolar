@@ -59,6 +59,8 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
             .catch((error) => {
                 console.error('Error updating notes', error);
             });
+
+        handleShowContent('notes')
     };
 
     const handleNoteChange = (event) => {
@@ -149,10 +151,10 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf }) => {
                 {contentToShow === 'notes' && (
                     <div style={styles.contentBox}>
                         <textarea
-                            value={notes}
+                            value={notes || file.notes}
                             onChange={handleNoteChange}
                             style={{ width: '100%', height: '100px' }} // Adjust styling as needed
-                        ></textarea>
+                        />
                         <div style={styles.buttonContainer}>
                             <DarkenButton 
                                 text="Cancel"

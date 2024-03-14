@@ -156,13 +156,6 @@ const Upload = () => {
               {isUploading ? 'Uploading Files...' : 'See Folders'}
               
             </button>
-        <button 
-              style={(isUploading || !hasUploaded) ? { ...styles.navigateButton, backgroundColor: '#DEE2E6' } : styles.navigateButton}
-              onClick={downloadZipFromServer}
-              disabled={isUploading}
-            >
-              Download Zip
-          </button>
 
           { isUploading  && (
             <img src={loadingIcon} className="rotating" alt="Loading" style={{ width: '30px', height: '30px', marginRight: '10px' }} />

@@ -1,6 +1,7 @@
 from flask import Flask, request, send_from_directory, jsonify, stream_with_context, send_file, Response
 from flask_cors import CORS, cross_origin
 import json
+import base64
 import os
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -47,6 +48,7 @@ app.config['UPLOADED_FILES_INDEX'] = 'index_storage'  # where files are indexed
 app.config['UPLOADED_FILES_ALLOW'] = ['pdf']  # allowed file types
 app.config['STRUCTURED_DATA'] = 'structured_data'  # where structured data is stored
 app.config['PREFERENCES'] = 'preferences' # where preferences are stored 
+app.config['ZIP'] = 'zip_output' # where zip is stored
 
 # Configure file uploads
 files = UploadSet('files', ['pdf'])
@@ -95,12 +97,13 @@ def upload():
     return jsonify(error="No files part in request!"), 400
 
 @app.route('/downloadZip', methods=['GET'])
+@cross_origin()
 def download_zip():
     result = Metadata_changes.zip_directory()
     
     if result:
         try:
-            return send_from_directory(directory=ZIP_FOLDER, filename=ZIP_FILENAME, as_attachment=True)
+            return send_from_directory(directory='./zip_output', filename="project.zip", as_attachment=True, path=app.config['ZIP'])
         except FileNotFoundError:
             return {"error": "Zip file not found. Please try again later."}, 404
     else:

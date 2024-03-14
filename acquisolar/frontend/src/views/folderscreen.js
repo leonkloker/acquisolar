@@ -62,14 +62,50 @@ const Folder = () => {
         console.log(`Viewing contents of ${folderName}`);
     };
 
+    const downloadZipFromServer = async () => {
+      try {
+        const response = await axios({
+          url: URLServer + '/downloadZip', 
+          method: 'GET',
+          responseType: 'blob', 
+        });
+    
+
+        const file = new Blob([response.data], { type: 'application/zip' });
+
+        const fileURL = URL.createObjectURL(file);
+
+        const fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'project.zip');
+
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        fileLink.remove(); 
+      } catch (error) {
+        console.error('Error while downloading the file', error);
+      }
+    };
+
     const handleBack = () => {
       navigate('/');
-    }
+    };
     return (
     <div style={styles.container}>
         {/* Header */}
         <Header/>
-        <img src={backButton} alt="Backbutton" style={styles.imageIcon} onClick={handleBack}/>
+        <div style={styles.buttonContainer}>
+          <img src={backButton} alt="Backbutton" style={styles.imageIcon} onClick={handleBack}/>
+
+          <button 
+                style={styles.navigateButton}
+                onClick={downloadZipFromServer}
+              >
+                Download Zip
+          </button>
+        </div>
+
+
         <div style={styles.folderContainer}>
             {Object.keys(folders).map((folderName) => (
                 <FolderIcon
@@ -93,6 +129,25 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
+  },
+  navigateButton: {
+    width: '10%',
+    height: '100%',
+    padding: 2,
+    margin: 10,
+    borderRadius: 15,
+    fontSize: 13,
+    border: 'none',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    backgroundColor: '#156CF7',
+    color: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   header: {
     display: 'flex',
