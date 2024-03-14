@@ -1,13 +1,16 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # testing output
-backend/classification_testing(can_be_deleted)/
+/backend/classification_testing/*
+!/backend/classification_testing/.gitkeep
 
 # input
-backend/documents/
+/backend/documents/*
+!/backend/documents/.gitkeep
 
 # output
-backend/structured_data/
+/backend/structured_data/*
+!/backend/structured_data/.gitkeep
 
 # dependencies
 **node_modules**
