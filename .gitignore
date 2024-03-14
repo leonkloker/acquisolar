@@ -1,5 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# testing output
+backend/classification_testing(can_be_deleted)/
+
+# input
+backend/documents/
+
+# output
+backend/structured_data/
+
 # dependencies
 **node_modules**
 /.pnp
