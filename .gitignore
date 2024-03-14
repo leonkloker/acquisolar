@@ -12,6 +12,10 @@
 /backend/structured_data/*
 !/backend/structured_data/.gitkeep
 
+# zip output
+/backend/zip_output/*
+!/backend/zip_output/.gitkeep
+
 # dependencies
 **node_modules**
 /.pnp

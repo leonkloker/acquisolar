@@ -9,8 +9,31 @@ import shutil
 
 import classification
 import searchengine
-import Convert_directory
 import Metadata_changes
+
+
+"""
+INFORMATION ABOUT FUNCTIONS TO BE IMPLEMENTED
+
+Zip directory:
+this function zips together the whole project and places it in the zip_output folder. returns True when complete
+Metadata_changes.zip_directory() 
+
+Move file:
+Moves the file specified by its "current_name" to the given directory ID
+#file_name = "PPA.pdf"
+#new_dir_id = 2
+#move_file(file_name, new_dir_id)
+
+Add notes to file:
+adds notes defined in string to metadata of the file
+file_name = "PPA.pdf"
+input_text = "these are notes"
+take_notes(file_name, input_text)
+"""
+
+
+
 
 # Create the Flask app
 app = Flask(__name__, static_folder = "../frontend/build", static_url_path='/')
@@ -65,9 +88,6 @@ def upload():
             # Index the uploaded files
             index_dir = app.config['UPLOADED_FILES_INDEX']
             searchengine.index(output_dir, index_dir=index_dir)
-
-            # create directory for frontend
-            Convert_directory.convert_directory_structure()
             
             return jsonify(message="File(s) uploaded successfully!", filenames=filenames)
         else:
