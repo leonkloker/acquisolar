@@ -40,43 +40,19 @@ def construct_relative_paths(root_directory):
 
 """Find folder structure from zip file and keep track of where documents are placed"""
 #Extract file structure
-def find_and_note_zip_structure(preferences_dir, project_name):
-    """
-    Find the first zip file in the specified input directory, analyze its folder structure
-    (excluding individual files), replace the top-level folder name with project_name,
-    and returns both a nested list and an indented text representation of the folder structure.
-    """
-    zip_file = None
-    for file in os.listdir(preferences_dir):
-        if file.lower().endswith('.zip'):
-            zip_file = os.path.join(preferences_dir, file)
-            break
+def find_and_note_structure_from_json(preferences_dir, project_name):
 
-    if zip_file is None:
-        print("No zip file found in the input directory.")
-        return None, None, None  # Return None for all values if no zip file is found
+    json_file_path = os.path.join(preferences_dir, "folder_structure.json")
+    print(json_file_path)
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
 
-    print(f"Analyzing folder structure of: {zip_file}")
+    # Assuming the top-level key always needs to be replaced with project_name
+    if data:
+        top_level_key = next(iter(data))  # Get the first key in the dictionary
+        data[project_name] = data.pop(top_level_key)
 
-    with zipfile.ZipFile(zip_file, 'r') as zip_ref:
-        zip_contents = zip_ref.namelist()
-
-        # Initialize a dictionary to hold the folder structure
-        folder_structure = {}
-
-        for item in zip_contents:
-            path_parts = item.split('/')
-            # Replace top-level folder name with project_name
-            if path_parts[0]:  # Check if the first part is not empty
-                path_parts[0] = project_name
-            current_level = folder_structure
-
-            for part in path_parts[:-1]:  # Exclude the last part if it's a filename
-                if part not in current_level:
-                    current_level[part] = {}
-                current_level = current_level[part]
-
-    folder_structure_list = dict_to_nested_list(folder_structure)
+    folder_structure_list = dict_to_nested_list(data)
     folder_structure_text_list = nested_list_to_text_list(folder_structure_list)
     folder_structure_indented = folder_structure_to_text(folder_structure_list)
     return folder_structure_list, folder_structure_indented, folder_structure_text_list
@@ -146,7 +122,7 @@ def find_and_create_zip_structure(preferences_dir, output_dir,  project_name):
     # The modified find_and_note_zip_structure function here
     # Assuming it sets folder_structure_list correctly
 
-    folder_structure_list, folder_structure_indented, _ = find_and_note_zip_structure(preferences_dir, project_name)
+    folder_structure_list, folder_structure_indented, _ = find_and_note_structure_from_json(preferences_dir, project_name)
 
     if folder_structure_list is not None:
         # Create the folder structure starting at output_dir
@@ -254,18 +230,50 @@ def extract_pdf_info(pdf_path):
     save_txt_file("Extracted_text", full_text, enable_testing_output = True)
     return full_text, num_pages, title
 
+def remove_first_line(text):
+    lines = text.split('\n')  # Split the text into lines
+    if len(lines) > 1:  # Check if there are at least two lines
+        return '\n'.join(lines[1:])  # Join the lines excluding the first one
+    else:
+        return ''  # Return an empty string if there's only one line or less
+
+
 """Creating and truncating query"""
 # create a query and combine with the text in the document
 def construct_query(extracted_text,folder_structure_indented,enable_testing_output=False):
     query = f"""
+You are a pragmatic Solar M&A Senior Analyst in the United States. You are about to get instructions to extract information from documents. This information will be used to add meta data, create a summary and sort the documents.
+
 Extract the following fields from the document text provided and format the response as valid JSON:
 - "Document_date" in the format '3 letter month name-DD, YYYY'.
 - "Document_summary" limited to a maximum of 3 sentences, tailored for a solar M&A analyst. It should state what kind of document it is, but also what its implicatoins are or what state it is in. It should assume the analyst knows about the M&A process.
 - "Suggested_title" in the format 'MM-DD-YYYY max 5 word document title'. Try your best to come up with a title that is useful if you quickly want to understand what kind of document it is
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
-- "Document_folder_path", Choose the the folder that makes most sense from the folders below. You should specify the path to the folder from the top level folder in the format "project/sub_folder...". If you really cant find a folder that fits, put it in "project/Unclassified". Dont make up any new folders.
-{folder_structure_indented}
+- "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
+- "Document Label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Reasoning": Provide reasoning for every documents you classified. 
+
+For "Document_folder_path", please follow these guidelines: 
+
+    1. Do not create new folders. Documents must be classified based on existing categories, according to their primary content and purpose.
+
+    2. Classify documents with precision, using these category definitions:
+
+        "Interconnection": Contains contracts and agreements for connecting the solar project to the power grid. Look for phrases like "the interconnection customer agrees" and "interconnection requests".
+
+        "Site Control": Includes legal documents that confirm the right to use, manage, and develop land for solar projects. This category is crucial for affirming legal authority over project sites and includes leases, purchase agreements, and easements.
+
+        "PPA": Features power purchasing agreements between the project developer and an off-taker regarding the sale of generated solar power, detailing prices, terms, and standards, as well as supplementary documents.  
+
+        "Environmental": Documents related to environmental impact assessments, permits, and compliance reports for the solar project. Includes studies on flora, fauna, water, soil, and air quality impacts, as well as mitigation strategies.
+
+        "EPC": Contains contracts, plans, and documentation related to the engineering design, procurement of materials, and construction of the solar project. This includes agreements with contractors, project timelines, and construction permits.
+
+    3. Prioritize document essence and main purpose for classification. In cases of uncertainty or documents that span multiple categories, classify according to the document's primary focus.
+    4. Only classify documents as "Miscellaneous" if no other folder is likely. 
+The list of to select folders from below:
+{remove_first_line(folder_structure_indented)}
 
 The provided document text is:
 {extracted_text}
@@ -373,6 +381,16 @@ def make_json_valid(response_content):
 
     return response_content
 
+def correct_json_folder_path(json_file,project_name):
+
+    # Update the 'Document_folder_path' in the JSON data
+    document_folder_path = json_file.get("Document_folder_path", project_name + "/Unclassified")
+    
+    # Prepend "project/" to the 'Document_folder_path' field in the JSON data
+    document_folder_path_with_project = project_name + "/" + document_folder_path
+    json_file["Document_folder_path"] = document_folder_path_with_project
+    return json_file
+
 def append_to_complete_metadata_file(data, file_path):
     highest_id = 0  # Default to 0 if file is empty or does not exist
     new_data = data  # Assuming 'data' is the dictionary for the new entry
@@ -436,6 +454,8 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     })
 
     data = process_json_add_extension(data) # add extension to suggested titles
+    data = correct_json_folder_path(data, project_name)
+
 
     # Extract 'Document_folder_path' from the JSON response and ensure correct path formation
     document_folder_path = data.get("Document_folder_path", project_name + "/Unclassified")
@@ -463,6 +483,9 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     append_to_complete_metadata_file(data, complete_metadata_file_path)
 
     print(f"Finished processing {os.path.basename(pdf_path)}. File saved to {final_path}.")
+
+
+
 
 """Main function"""
 def main(input_dir, output_dir, preferences_dir, project_name, copy_or_move ="move"):
@@ -522,7 +545,9 @@ def clear_directory_contents(output_dir):
     print(f"All contents of {output_dir} have been deleted.")
 
 """Implementation"""
-client = OpenAI(api_key="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")
+
+client = OpenAI(api_key="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")
+
 enable_testing_output = True
 copy_or_move = "move" #have to choose move for implementation. copy breaks the directory function
 root_directory = set_root_directory()
@@ -537,4 +562,12 @@ if __name__ == "__main__":
     input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)
     clear_directory_contents(output_dir) #use if you want to clear file structure before running
     main(input_dir, output_dir, preferences_dir, project_name, copy_or_move)
+
+
+
+
+
+
+
+
 

@@ -13,39 +13,35 @@
   },
   {
     "id": 3,
-    "name": "Unclassified",
+    "name": "Interconnection Agreement",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 4,
-    "name": "Environmental",
+    "name": "Miscellaneous",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 5,
-    "name": "Interconnection",
+    "name": "Site Control",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 6,
-    "name": "PPA",
+    "name": "Environmental ",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 7,
-    "name": "Permitting",
+    "name": "PPA ",
     "type": "directory",
     "parent_id": 1
   },
   {
     "id": 8,
-    "name": "poster.pdf",
-    "type": "file",
-    "size": 961705,
-    "parent_id": 3
   }
 ]
