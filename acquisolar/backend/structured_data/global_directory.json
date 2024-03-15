@@ -1,50 +1,71 @@
 [
-  {
-    "id": 1,
-    "name": "project",
-    "type": "directory",
-    "parent_id": null
-  },
-  {
-    "id": 2,
-    "name": "EPC",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 3,
-    "name": "Miscellaneous",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 4,
-    "name": "Environmental",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 5,
-    "name": "Interconnection",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 6,
-    "name": "Site Control",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 7,
-    "name": "PPA",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 8,
-    "name": "Permitting",
-    "type": "directory",
-    "parent_id": 1
-  }
+    {
+        "id": 1,
+        "name": "project",
+        "type": "directory",
+        "parent_id": null
+    },
+    {
+        "id": 2,
+        "name": "Environmental",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 3,
+        "name": "EPC",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 4,
+        "name": "Interconnection",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 5,
+        "name": "Miscellaneous",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 6,
+        "name": "Permitting",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 7,
+        "name": "PPA",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 8,
+        "name": "Site Control",
+        "type": "directory",
+        "parent_id": 1
+    },
+    {
+        "id": 9,
+        "name": "10-09-2019 Renewable Dispatchable Generation PPA.pdf",
+        "type": "file",
+        "size": 35725468,
+        "parent_id": 7
+    },
+    {
+        "id": 10,
+        "name": "12-2021 Renewable Dispatchable Generation PPA.pdf",
+        "type": "file",
+        "size": 129174030,
+        "parent_id": 7
+    },
+    {
+        "id": 11,
+        "name": "PPA-2011-0051_PPA_on_p66.pdf",
+        "type": "file",
+        "size": 76843237,
+        "parent_id": 7
+    }
 ]

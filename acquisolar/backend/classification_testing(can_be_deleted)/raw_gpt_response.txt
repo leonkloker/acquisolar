@@ -1,10 +1,10 @@
 {
-    "Document_date": "Jan-22, 2019",
-    "Document_summary": "This document is a motion filed by Ho'ohana Solar 1, LLC to participate in a proceeding for the approval of a Power Purchase Agreement with Hawaiian Electric Company. It outlines the company's interest in the project and its request to be admitted as a participant. The document is focused on seeking approval and support for the PPA and related approvals.",
-    "Suggested_title": "01-22-2019 Solar PPA Participation",
-    "Suggested_title_v2": "01-22-2019 Solar Project Approval Motion",
-    "Suggested_title_v3": "01-22-2019 Solar Power Agreement Involvement",
-    "Document_folder_path": "PPA",
-    "Document-label": "Communication",
-    "Reasoning": "The document is primarily focused on seeking approval for a Power Purchase Agreement (PPA) for a solar project, making it suitable for classification under the 'PPA' folder. The content revolves around the application for approval and participation in the PPA process."
+  "Document_date": "Feb-18, 2011",
+  "Document_summary": "The document is an application for approval of a Power Purchase Agreement between Hawaiian Electric Company, Inc. and Kalaeloa Solar Two, LLC, along with the determination that Hawaiian Electric-Owned Interconnection Facilities should be constructed above the ground. The implications include the request for approval of the PPA, determination of reasonable energy prices, and the importance of the Kalaeloa Solar project in meeting Hawaii's renewable energy goals.",
+  "Suggested_title": "02-18-2011 Power Purchase Agreement Approval",
+  "Suggested_title_v2": "02-18-2011 PPA Approval Request",
+  "Suggested_title_v3": "02-18-2011 Energy Agreement Application",
+  "Document_folder_path": "PPA",
+  "Document-label": "Application",
+  "Reasoning": "The document is an application for approval of a Power Purchase Agreement, making it suitable for the 'PPA' folder. It requests approval for a specific agreement and involves the determination of energy prices, aligning with the 'Application' label."
 }
