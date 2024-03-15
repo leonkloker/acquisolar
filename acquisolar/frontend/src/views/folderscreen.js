@@ -86,37 +86,24 @@ const Folder = () => {
     /*
       try {
         const response = await axios({
-          url: URLServer + '/downloadZip', 
+          url: `${URLServer}/downloadZip`, // Template literal for clean concatenation
           method: 'GET',
-          responseType: 'blob', 
+          responseType: 'blob', // To ensure the response data is treated as a Blob
         });
-
-        //download the zip file on the client side
-
-        
-        /*const url = window.URL.createObjectURL(new Blob([response.blob()]));
-        const link = document.createElement('a');
+    
+        // No need to wrap response.data in a new Blob if responseType is blob
         const fileURL = URL.createObjectURL(response.data);
-        link.href = fileURL;
-        link.setAttribute('download', 'project.zip');
-        // Append the link to the body
-        document.body.appendChild(link);
-        // Programmatically trigger the download
-        link.click();
-        // Clean up
-        link.parentNode.removeChild(link);*/
-
-        /*const file = new Blob([response.data], { type: 'application/zip' });
-
-        const fileURL = URL.createObjectURL(file);
-
         const fileLink = document.createElement('a');
         fileLink.href = fileURL;
-        fileLink.setAttribute('download', 'project.zip');
-
+        fileLink.setAttribute('download', 'project.zip'); // The name of the downloaded file
+    
+        // Append to the body, click, and then remove immediately
         document.body.appendChild(fileLink);
         fileLink.click();
-        fileLink.remove();
+        document.body.removeChild(fileLink);
+    
+        // It's a good practice to release the created object URL after usage
+        URL.revokeObjectURL(fileURL);
       } catch (error) {
         console.error('Error while downloading the file', error);
       }*/

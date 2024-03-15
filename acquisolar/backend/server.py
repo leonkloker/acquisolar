@@ -100,11 +100,20 @@ def upload():
 @cross_origin()
 def download_zip():
     result = Metadata_changes.zip_directory()
-    
+
     if result:
         try:
-            return send_from_directory(directory='./zip_output', filename="project.zip", as_attachment=True, path=app.config['ZIP'])
-            #return send_file("zip_output/project.zip", as_attachment=True, download_name='project.zip', mimetype='application/zip')
+            # Construct the full path to the zip file
+            zip_file_path = os.path.join(app.config['ZIP'], "project.zip")
+            # Make sure the ZIP configuration points to the directory containing the zip file
+            # e.g., app.config['ZIP'] = 'path/to/zip_output'
+
+            # Check if the file exists
+            if not os.path.isfile(zip_file_path):
+                return {"error": "Zip file not found. Please try again later."}, 404
+            
+            # Send the file
+            return send_file(zip_file_path, as_attachment=True)
         except FileNotFoundError:
             return {"error": "Zip file not found. Please try again later."}, 404
     else:

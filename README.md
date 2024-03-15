@@ -1,4 +1,10 @@
 # AcquiSolar
+
+Testing instructions: cd backend -> python3 server.py (or python server.py) -> copy paste link into browser
+
+This should work, if some dependencies are missing, installing necessary ones are in requirements.txt
+
+Website (this is an older version so if setting up testing doesn't work this will, but not as well): http://www.acquisolar.com.s3-website-us-west-1.amazonaws.com
 ## Summary Sprint 4
 Leon:
 
