@@ -227,7 +227,6 @@ def extract_pdf_info(pdf_path):
                     new_text += stripped_line + " "
         full_text += new_text
     doc.close()
-    save_txt_file("Extracted_text", full_text, enable_testing_output = True)
     return full_text, num_pages, title
 
 def remove_first_line(text):
@@ -251,7 +250,7 @@ Extract the following fields from the document text provided and format the resp
 - "Suggested_title_v2" in same format as "suggested title" but with different wording
 - "Suggested_title_v3" in same format as "suggested title" but with different wording
 - "Document_folder_path": Select the most suitable folder from the folder list which will be given. Follow instructions below. 
-- "Document-label": "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit",
+- "Label": choose from following: "Communication", "Contract", "Amendment", "Technical Specification", "Application", "Exhibit", "LeonCV", "N/A"
 - "Reasoning": Provide reasoning for every documents you classified. 
 
 For "Document_folder_path", please follow these guidelines: 
@@ -439,7 +438,7 @@ def process_pdf(pdf_path, output_dir, folder_structure_indented, project_name, c
     query = construct_query(extracted_text, folder_structure_indented)
     truncated_query = truncate_query_to_fit_context(query)
     name_of_testing_doc = "query_for_"+title+".txt"
-    save_txt_file(name_of_testing_doc, truncated_query, enable_testing_output = True)
+    save_txt_file(name_of_testing_doc, truncated_query, enable_testing_output = False)
     output_json = make_openai_api_call(truncated_query)
     data = json.loads(output_json) # Assuming output_json is a string; parse it to a dict
 
@@ -548,7 +547,7 @@ def clear_directory_contents(output_dir):
 
 client = OpenAI(api_key="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")
 
-enable_testing_output = True
+enable_testing_output = False
 copy_or_move = "move" #have to choose move for implementation. copy breaks the directory function
 root_directory = set_root_directory()
 input_dir, output_dir, preferences_dir = construct_relative_paths(root_directory)

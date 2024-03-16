@@ -101,6 +101,10 @@ const FileIcon = ({ file, onUpdateTitle, onShowPdf, onUpdateNote }) => {
             <p style={styles.summaryText}>
                 {file.number_of_pages} page(s)
             </p>
+
+            <p style={styles.summaryText}>
+                {file.Label}
+            </p>
         </div>
 
         <div style={styles.contentContainer}>
