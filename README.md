@@ -10,7 +10,8 @@ Leon:
 
 Zara: Continued developing UI design and integrating with the flask backend. A user is now able to easily search through and structure files. Worked on the backend a lot to allow for smooth file changes when necessary.
 
-Jürgen:
+Jürgen: 
+* Accomplished Sprint 4: Created and tested over 15 different prompt versions. The final version achieved 100% accuracy in the sorting function with our training data. However, due to being limited to a small number of documents in each category (ranging from 2 to 10), we combined the training data and the hold-out dataset to create a more effective prompt. For future enhancements, obtaining more annotated data (approximately 10-20 documents per category) is necessary to increase robustness and establish a reliable performance evaluation metric. Synthetically created data did not serve as a substitute. Further, explored a multi-dimensional prompt design inspired by Josh Payne's approach, which unfortunately led to decreased performance across most categories, particularly when incorporating 'hierarchy'. After consulting with Jan, reverted to a simpler prompt design.
 
 Magnus:
 
