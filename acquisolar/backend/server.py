@@ -307,7 +307,7 @@ if __name__ == '__main__':
     classification.generate_directory_json('structured_data', 'project', 'structured_data')
 
     # 3001 for localhost, 80 for remote on AWS
-    port = 3001
+    port = 3000
 
     # Run the app
     app.run(host='0.0.0.0', port=port, debug=True)

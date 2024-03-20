@@ -5,11 +5,11 @@ import axios from 'axios';
 import Header from './viewcomponents/header';
 import backButton from './../icons/backbutton.png';
 
-  // url of aws server and port 80
-  // change to 'http://localhost:3001' for localhost
-  // or http://54.90.226.66:80' for aws
+  // url of aws server and port 3000
+  // change to 'http://localhost:3000' for localhost
+  // or http://54.90.226.66:3000' for aws
   // Changed this variable name or causes issues with other parts of code
-  const URLServer = 'http://54.166.201.233:80'
+  const URLServer = 'http://3.85.52.36:80'
 
   const FolderIcon = ({ name, fileCount, onView }) => {
     const [isHovered, setIsHovered] = useState(false);

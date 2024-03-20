@@ -32,7 +32,7 @@ const Search = () => {
         let foundPages = [];
         
         try {
-            const response = await fetch('http://54.166.201.233:80/search', {
+            const response = await fetch('http://3.85.52.36:80/search', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const Search = () => {
         console.log(searchQueryResult)
         console.log("Filename: " + filename)
         if (filename != ""){
-            const url = `http://54.166.201.233:80/get-pdf/${filename}`;
+            const url = `http://3.85.52.36:80/get-pdf/${filename}`;
             let pdf = await pdfjs.getDocument(url).promise;
         
             /*for (let i = 1; i <= pdf.numPages; i++) {
@@ -118,12 +118,12 @@ return (
                 )}
                 <iframe
                     key={currentPage}
-                    src={`http://54.166.201.233:80/get-pdf/${filename}#page=${currentPage}`}
+                    src={`http://3.85.52.36:80/get-pdf/${filename}#page=${currentPage}`}
                     width="100%"
                     height="600px"
                     style={{ border: 'none' }}
                 >
-                    This browser does not support PDFs. Please download the PDF to view it: <a href={`http://54.166.201.233:80/get-pdf/${filename}`}>Download PDF</a>.
+                    This browser does not support PDFs. Please download the PDF to view it: <a href={`http://3.85.52.36:80/get-pdf/${filename}`}>Download PDF</a>.
                 </iframe>
             </div>
         </div>

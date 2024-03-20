@@ -9,11 +9,9 @@ import backButton from './../icons/backbutton.png';
 // Set the workerSrc for pdfjs
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-// url of aws server and port 80
-// change to 'http://localhost:3001' for localhost
-// or http://54.90.226.66:80' for aws
+// url of aws server and port 3000
 // Changed this variable name or causes issues with other parts of code
-const URLServer = 'http://54.166.201.233:80'
+const URLServer = 'http://3.85.52.36:80'
 
 const File = () => {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ import DarkenButton from './darkenbutton';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const ENDPOINT = 'http://localhost:3001';
+const ENDPOINT = 'http://localhost:3000';
 
 const FileIcon = ({ file, onUpdateTitle, onShowPdf, onUpdateNote }) => {
     const navigate = useNavigate();
