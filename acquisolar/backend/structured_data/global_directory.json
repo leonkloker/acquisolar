@@ -25,25 +25,25 @@
   },
   {
     "id": 5,
-    "name": "Miscellaneous",
-    "type": "directory",
-    "parent_id": 1
-  },
-  {
-    "id": 6,
     "name": "Permitting",
     "type": "directory",
     "parent_id": 1
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "PPA",
     "type": "directory",
     "parent_id": 1
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Site Control",
+    "type": "directory",
+    "parent_id": 1
+  },
+  {
+    "id": 8,
+    "name": "Miscellaneous",
     "type": "directory",
     "parent_id": 1
   }
